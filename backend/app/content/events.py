@@ -1,0 +1,650 @@
+"""事件库。
+
+一个人物的来路，本质上是一串事件。事件分四级（甲→丁），等级越高：
+  · 越稀罕（权重低）
+  · 越少被“通用”——甲级事件只会挂在某几个特定任务上，丁级事件哪里都能长
+
+scope：
+  general  通用，任何任务都可能带出来
+  mission  只在 missions 里列出的任务里出现
+  city     只在 cities 里列出的城市出现
+
+industries 是可选约束：给了就要求该城市有对应行业。
+"""
+
+from __future__ import annotations
+
+EVENTS = [
+    # ---------------- 甲 ----------------
+    {
+        "id": "ev_mirror_death",
+        "name": "镜前自尽",
+        "grade": 1,
+        "scope": "mission",
+        "missions": ["mirror"],
+        "industries": ["education", "medical"],
+        "text": "十三岁那年，家里那面老镜子里的自己开始比她先动。后来她没死，镜子里那个死了。",
+        "hook": "她从此不敢照镜子，也不敢不照。",
+        "traits": ["天眼", "阴年阴月"],
+        "weight": 6,
+    },
+    {
+        "id": "ev_survived_drought",
+        "name": "水下活下来的人",
+        "grade": 1,
+        "scope": "mission",
+        "missions": ["drought"],
+        "industries": ["agri", "energy"],
+        "text": "水库放水那年来收尸，收了三具，装车的时候数出四具。第四具是活的，就是户口早注销了。",
+        "hook": "他每年旱季都会回库底，说有人在那儿等他。",
+        "traits": ["不死债", "阴年阴月"],
+        "weight": 5,
+    },
+    {
+        "id": "ev_god_made",
+        "name": "被抬起来的神",
+        "grade": 1,
+        "scope": "mission",
+        "missions": ["paper"],
+        "industries": ["religious", "funeral"],
+        "text": "白云教的人在寿材街办过一场法事，抬了七天的神像。神像最后抬不动了——它自己长了根。",
+        "hook": "那尊像现在还在某个院子里，被人供着。",
+        "traits": ["香火缠身", "天眼"],
+        "weight": 5,
+    },
+    {
+        "id": "ev_996_survivor",
+        "name": "第七天还在工位",
+        "grade": 1,
+        "scope": "mission",
+        "missions": ["office"],
+        "industries": ["internet", "finance"],
+        "text": "他连续上了二十七天班，第七天在工位上死了一次，第二天照常打卡。HR 说系统里没这个人。",
+        "hook": "他记得自己是怎么死的，但不记得自己怎么回来的。",
+        "traits": ["不死债", "胆大"],
+        "weight": 5,
+    },
+    {
+        "id": "ev_last_fare",
+        "name": "最后一单没跑完",
+        "grade": 1,
+        "scope": "mission",
+        "missions": ["nightrun"],
+        "industries": ["logistics"],
+        "text": "五年前 K12 那单，他接上了乘客，也接上了自己的死期。车还在跑，只是没人下过车。",
+        "hook": "他至今认为自己在值班。",
+        "traits": ["阴年阴月", "夜猫子"],
+        "weight": 5,
+    },
+    # ---------------- 乙 ----------------
+    {
+        "id": "ev_kuang_nan",
+        "name": "矿难埋了三天",
+        "grade": 2,
+        "scope": "mission",
+        "missions": ["drought", "paper"],
+        "industries": ["energy"],
+        "text": "塌方把他埋了三天，挖出来的时候还有气。他说的第一句话是「下面有人给我递水」。",
+        "hook": "从此他下井前总要往井口放一只碗。",
+        "traits": ["铜皮", "天眼"],
+        "weight": 9,
+    },
+    {
+        "id": "ev_orphan_temple",
+        "name": "庙里长大的孩子",
+        "grade": 2,
+        "scope": "mission",
+        "missions": ["paper", "mirror"],
+        "industries": ["religious", "funeral"],
+        "text": "弃婴，被一座快塌的土地庙收了。庙里的神像会在他哭的时候转个方向。",
+        "hook": "他认得所有野神的名号，却记不清自己的生日。",
+        "traits": ["香火缠身", "耳聪"],
+        "weight": 10,
+    },
+    {
+        "id": "ev_psych_ward",
+        "name": "在精神科住过一年",
+        "grade": 2,
+        "scope": "mission",
+        "missions": ["mirror", "office"],
+        "industries": ["medical"],
+        "text": "他说自己看见的东西，医生写成了幻视。出院时医生私下给了他一张名片，不是医院的。",
+        "hook": "他分得清幻觉和祟物，因为两种他都见过。",
+        "traits": ["胆大", "怕黑"],
+        "weight": 10,
+    },
+    {
+        "id": "ev_old_case",
+        "name": "旧案卷宗里的一页",
+        "grade": 2,
+        "scope": "mission",
+        "missions": ["nightrun", "office"],
+        "industries": ["police", "government"],
+        "text": "他父亲是一桩悬案的办案人，案卷最后一页被人撕了。他查了十年，只查到一个车牌号。",
+        "hook": "他不信鬼，但他信那份卷宗。",
+        "traits": ["铁手", "嘴皮子"],
+        "weight": 9,
+    },
+    # ---------------- 丙 ----------------
+    {
+        "id": "ev_night_shift",
+        "name": "倒了十年夜班",
+        "grade": 3,
+        "scope": "general",
+        "industries": ["manufacture", "logistics", "medical"],
+        "text": "十年夜班，见过凌晨三点的所有东西。他不说那些是什么，只说「别回头看」。",
+        "hook": "他能在任何环境里睡着，也能在任何环境里立刻醒。",
+        "traits": ["夜眼", "夜猫子"],
+        "weight": 16,
+    },
+    {
+        "id": "ev_lost_child",
+        "name": "孩子走丢过四小时",
+        "grade": 3,
+        "scope": "general",
+        "industries": ["education", "agri"],
+        "text": "四小时后孩子在小区门口被找到，说有人带他看了一场很长的戏。他记得戏里所有人的脸。",
+        "hook": "他现在看谁都像那场戏里的角儿。",
+        "traits": ["耳聪", "怕黑"],
+        "weight": 16,
+    },
+    {
+        "id": "ev_debt_collector",
+        "name": "替人收过债",
+        "grade": 3,
+        "scope": "general",
+        "industries": ["finance", "realestate"],
+        "text": "收过最狠的一笔，是把一户人家从老宅里“请”出去。那天之后他再没进过那条巷子。",
+        "hook": "他欠的不是钱，是那条巷子的一个头。",
+        "traits": ["铁手", "嘴皮子"],
+        "weight": 15,
+    },
+    {
+        "id": "ev_hospital_night",
+        "name": "太平间守过夜",
+        "grade": 3,
+        "scope": "general",
+        "industries": ["medical", "funeral"],
+        "text": "第一年值夜，太平间的冷柜自己响了一整晚。第二天他学会了怎么跟里面的人说话。",
+        "hook": "他跟死人打交道，比跟活人熟。",
+        "traits": ["胆大", "药理通"],
+        "weight": 15,
+    },
+    {
+        "id": "ev_demolition",
+        "name": "亲手推倒过一座祠堂",
+        "grade": 3,
+        "scope": "general",
+        "industries": ["realestate", "construction"],
+        "text": "推土机下去之前，他在祠堂门口站了半小时。推倒那一下，他听见里面有人叹气。",
+        "hook": "那一口气至今还堵在他胸口。",
+        "traits": ["铜皮", "业障缠身"],
+        "weight": 14,
+    },
+    {
+        "id": "ev_school_pressure",
+        "name": "被排名压了六年",
+        "grade": 3,
+        "scope": "general",
+        "industries": ["education"],
+        "text": "六年没出过年级前五，第七年他病了。病好之后他再也不争名次，开始记日记。",
+        "hook": "他写东西的时候，字比平常小一半。",
+        "traits": ["过目不忘", "夜猫子"],
+        "weight": 15,
+    },
+    {
+        "id": "ev_migrant",
+        "name": "进城时带了一口箱子",
+        "grade": 3,
+        "scope": "general",
+        "industries": ["construction", "manufacture", "logistics"],
+        "text": "箱子里是祖坟上的一把土。他母亲说，带着它，走到哪儿都算有家。",
+        "hook": "他不肯把箱子打开，也不肯扔。",
+        "traits": ["跑得快", "穷鬼"],
+        "weight": 16,
+    },
+    {
+        "id": "ev_scammed",
+        "name": "被一纸合同骗光了",
+        "grade": 3,
+        "scope": "general",
+        "industries": ["realestate", "finance", "government"],
+        "text": "一辈子的钱换了一叠盖着红章的纸。他把纸烧了，灰撒在了那家公司门口。",
+        "hook": "他现在谈判时，会先看对方的手。",
+        "traits": ["嘴皮子", "穷鬼"],
+        "weight": 16,
+    },
+    # ---------------- 丁 ----------------
+    {
+        "id": "ev_night_alarm",
+        "name": "半夜总被自己的闹钟叫醒",
+        "grade": 4,
+        "scope": "general",
+        "text": "每天三点十七分醒一次，闹钟没响，手机也没响。他去看过医生，医生说压力大。",
+        "hook": "三点十七分是他的生日。",
+        "traits": ["夜猫子"],
+        "weight": 20,
+    },
+    {
+        "id": "ev_pet_died",
+        "name": "养了十二年的狗死了",
+        "grade": 4,
+        "scope": "general",
+        "text": "狗死的那晚，他在院子里挖了坑，埋完回屋，听见门口有爪子挠门的声音。",
+        "hook": "他再也没养过狗，但每天还会留一碗水。",
+        "traits": ["洁癖"],
+        "weight": 20,
+    },
+    {
+        "id": "ev_road_side",
+        "name": "在路边见过一次东西",
+        "grade": 4,
+        "scope": "general",
+        "text": "凌晨开车，路边站着个穿旧衣服的人。他开过去，后视镜里没人了。",
+        "hook": "他现在开车经过那段路会加速。",
+        "traits": ["夜眼"],
+        "weight": 20,
+    },
+    {
+        "id": "ev_superstition",
+        "name": "家里供着一位叫不上名的神",
+        "grade": 4,
+        "scope": "general",
+        "text": "奶奶留下的牌位，家里没人知道供的是谁。香没断过，一年到头只换三次。",
+        "hook": "牌位后面写着生日，和他同一天。",
+        "traits": ["香火缠身"],
+        "weight": 18,
+    },
+    {
+        "id": "ev_insomnia",
+        "name": "失眠七年",
+        "grade": 4,
+        "scope": "general",
+        "text": "七年没睡过一个整觉。他试过所有办法，最后习惯了在夜里做事。",
+        "hook": "他的判断力在夜里比白天好。",
+        "traits": ["夜猫子", "怕黑"],
+        "weight": 20,
+    },
+    {
+        "id": "ev_short_fuse",
+        "name": "脾气不好",
+        "grade": 4,
+        "scope": "general",
+        "text": "一句话不对就上手，打完又后悔。他手机里存着七个道歉用的模板。",
+        "hook": "真出事的时候，他反而是最快动手的那个。",
+        "traits": ["铁手"],
+        "weight": 20,
+    },
+    {
+        "id": "ev_collector",
+        "name": "有收藏癖",
+        "grade": 4,
+        "scope": "general",
+        "text": "收一切带字的旧纸：票据、信件、讣告。家里堆了四个纸箱，按年份编了号。",
+        "hook": "他能从一张纸的年份，推出它经手过几个人。",
+        "traits": ["过目不忘"],
+        "weight": 19,
+    },
+    # ================= 第二批（补到 50 条）=================
+    # ---------------- 甲 ----------------
+    {
+        "id": "ev_godmother_grandson",
+        "name": "神婆的孙子",
+        "grade": 1,
+        "scope": "mission",
+        "missions": ["paper", "drought"],
+        "industries": ["religious", "funeral", "agri"],
+        "text": "奶奶是这一带最后的神婆。她死的那年，孙子替她接了七场「看事」，"
+                "第七场来的不是人。",
+        "hook": "他现在还会在半夜听见有人敲门，喊他奶奶的名字。",
+        "traits": ["香火缠身", "阴年阴月"],
+        "weight": 6,
+    },
+    {
+        "id": "ev_well_three",
+        "name": "井里捞上来三个",
+        "grade": 1,
+        "scope": "mission",
+        "missions": ["drought", "nightrun"],
+        "industries": ["energy", "agri", "construction"],
+        "text": "打井打到第四十米，泥里裹着三个人。公安说是旧案，可那三个人的衣服是新的。",
+        "hook": "井后来填了，填土的那台挖掘机至今没修好。",
+        "traits": ["不死债", "铜皮"],
+        "weight": 5,
+    },
+    {
+        "id": "ev_white_mirror",
+        "name": "白衣服照过的那面镜子",
+        "grade": 1,
+        "scope": "mission",
+        "missions": ["mirror"],
+        "industries": ["education", "medical", "realestate"],
+        "text": "一户人家装修，拆开衣柜后面的墙，里面嵌着一面镜子，镜面朝墙。"
+                "拆墙的工人说，镜子背面贴着七张符。",
+        "hook": "他家小孩最近开始对着衣柜说话。",
+        "traits": ["天眼", "怕黑"],
+        "weight": 5,
+    },
+    # ---------------- 乙 ----------------
+    {
+        "id": "ev_bullied",
+        "name": "被围过一次",
+        "grade": 2,
+        "scope": "mission",
+        "missions": ["mirror", "office"],
+        "industries": ["education", "internet"],
+        "text": "初中被堵在厕所里打过一次，事后没人承认。他记住了每一个人的脸，包括后来转学走的那个。",
+        "hook": "他现在说话都先看对方的鞋。",
+        "traits": ["铁手", "怕黑"],
+        "weight": 11,
+    },
+    {
+        "id": "ev_hospital_bill",
+        "name": "一张十五万的欠费单",
+        "grade": 2,
+        "scope": "mission",
+        "missions": ["office", "paper"],
+        "industries": ["medical", "finance"],
+        "text": "父亲在 ICU 躺了四十一天，最后那张单子他签了字。签完字，父亲当晚就走了。",
+        "hook": "他至今觉得是自己签的字把父亲送走的。",
+        "traits": ["药理通", "穷鬼"],
+        "weight": 11,
+    },
+    {
+        "id": "ev_funeral_apprentice",
+        "name": "在殡仪馆当过学徒",
+        "grade": 2,
+        "scope": "mission",
+        "missions": ["paper", "nightrun"],
+        "industries": ["funeral", "medical"],
+        "text": "十七岁进殡仪馆，学的第一件事是给遗体化妆，第二件事是「不要跟家属说看见了什么」。",
+        "hook": "他能一眼看出一个人死得顺不顺。",
+        "traits": ["胆大", "药理通"],
+        "weight": 10,
+    },
+    {
+        "id": "ev_warehouse_night",
+        "name": "仓库里守过一夜",
+        "grade": 2,
+        "scope": "mission",
+        "missions": ["office", "nightrun"],
+        "industries": ["logistics", "manufacture"],
+        "text": "那晚监控拍到他自己在货架间来回走了四个小时，可他记得自己一直坐在椅子上。",
+        "hook": "他现在每天检查三遍监控是否在录。",
+        "traits": ["夜眼", "夜猫子"],
+        "weight": 10,
+    },
+    {
+        "id": "ev_demolition_crew",
+        "name": "在拆迁队干过三年",
+        "grade": 2,
+        "scope": "mission",
+        "missions": ["drought", "paper"],
+        "industries": ["construction", "realestate"],
+        "text": "推过多少面墙他记不清了，只记得有一家的门牌被他偷偷拆下来带走了。",
+        "hook": "那块门牌现在压在他床底下。",
+        "traits": ["铁手", "业障缠身"],
+        "weight": 10,
+    },
+    {
+        "id": "ev_witness",
+        "name": "在庭上作过证",
+        "grade": 2,
+        "scope": "mission",
+        "missions": ["nightrun", "office"],
+        "industries": ["police", "government"],
+        "text": "他作证之后，那个案子结了，可被告的家人记住了他的脸。他搬过两次家。",
+        "hook": "他不后悔，但走路习惯背贴墙。",
+        "traits": ["嘴皮子", "跑得快"],
+        "weight": 9,
+    },
+    # ---------------- 丙 ----------------
+    {
+        "id": "ev_last_bus",
+        "name": "坐过末班车",
+        "grade": 3,
+        "scope": "general",
+        "industries": ["logistics", "manufacture", "medical"],
+        "text": "末班车上只有他和司机。中途上来一个人，坐了三站又下去，司机说没人上车。",
+        "hook": "他现在宁可走路也不坐末班车。",
+        "traits": ["夜眼"],
+        "weight": 17,
+    },
+    {
+        "id": "ev_mine_song",
+        "name": "会唱矿上的号子",
+        "grade": 3,
+        "scope": "general",
+        "industries": ["energy", "construction"],
+        "text": "他父亲教他的，说是下井喊号子，塌方的时候有人能听见。父亲的班是最后一个会唱的。",
+        "hook": "他一个人下矿的时候会唱，唱到有人跟。",
+        "traits": ["铜皮", "耳聪"],
+        "weight": 15,
+    },
+    {
+        "id": "ev_delivery_to_empty",
+        "name": "送到过一间空屋",
+        "grade": 3,
+        "scope": "general",
+        "industries": ["logistics", "internet"],
+        "text": "单子上写着 1802，可这栋楼只有十七层。他在楼下打了七个电话，没人接。第二天收到了好评。",
+        "hook": "他至今保留着那单的截图。",
+        "traits": ["跑得快", "夜眼"],
+        "weight": 16,
+    },
+    {
+        "id": "ev_call_center",
+        "name": "在客服中心上过夜班",
+        "grade": 3,
+        "scope": "general",
+        "industries": ["internet", "finance"],
+        "text": "凌晨两点接进一个电话，那头一句话没说，只听见有人在哭。通话时长四十七分钟。",
+        "hook": "他学会了从呼吸声判断对面是不是人。",
+        "traits": ["耳聪", "嘴皮子"],
+        "weight": 16,
+    },
+    {
+        "id": "ev_nurse_night",
+        "name": "值过住院部的夜班",
+        "grade": 3,
+        "scope": "general",
+        "industries": ["medical"],
+        "text": "三号床的老太太每晚按铃，说有人站在她床边。她出院那天，护士站多了一张空床。",
+        "hook": "她现在查房会先打招呼，哪怕是空床。",
+        "traits": ["药理通", "胆大"],
+        "weight": 15,
+    },
+    {
+        "id": "ev_amputated",
+        "name": "丢过一根手指",
+        "grade": 3,
+        "scope": "general",
+        "industries": ["manufacture", "construction"],
+        "text": "冲床压下来的那一下，他说自己听见有人在耳边说「让开」。他没让开，但只丢了一根。",
+        "hook": "那台机器后来一直贴着封条。",
+        "traits": ["铜皮", "铁手"],
+        "weight": 15,
+    },
+    {
+        "id": "ev_landlord",
+        "name": "当过房东",
+        "grade": 3,
+        "scope": "general",
+        "industries": ["realestate", "finance"],
+        "text": "租客欠了三个月房租，他上门催，屋里没人，桌上饭菜还是热的。人再没回来过。",
+        "hook": "那间房他至今没敢再租出去。",
+        "traits": ["嘴皮子", "穷鬼"],
+        "weight": 15,
+    },
+    {
+        "id": "ev_street_stall",
+        "name": "在夜市摆过摊",
+        "grade": 3,
+        "scope": "general",
+        "industries": ["agri", "media"],
+        "text": "卖过三年烧烤，见过凌晨四点的所有醉鬼。有一个每天来，只点一串，坐到天亮。",
+        "hook": "那人后来在新闻里出现过，是失踪人口。",
+        "traits": ["嘴皮子", "夜猫子"],
+        "weight": 16,
+    },
+    # ---------------- 丁 ----------------
+    {
+        "id": "ev_bad_luck",
+        "name": "运气一直不太好",
+        "grade": 4,
+        "scope": "general",
+        "text": "抽奖没中过，买股票必跌，连地铁都总是刚到就关门。家里人说他是「压不住」。",
+        "hook": "他反而因此什么都敢试一次。",
+        "traits": ["穷鬼"],
+        "weight": 21,
+    },
+    {
+        "id": "ev_superstitious_mother",
+        "name": "母亲很迷信",
+        "grade": 4,
+        "scope": "general",
+        "text": "初一十五烧香，出门看黄历，家里四个角各贴一张符。他从小不信，但都记着贴在哪。",
+        "hook": "他嘴上说不信，出差还带着母亲求的平安符。",
+        "traits": ["香火缠身"],
+        "weight": 20,
+    },
+    {
+        "id": "ev_cat",
+        "name": "养了一只不叫的猫",
+        "grade": 4,
+        "scope": "general",
+        "text": "捡来的黑猫，从来不叫，只盯着墙角的某个位置看。它看的时候，他也跟着看。",
+        "hook": "猫现在九岁了，还是只盯那个角。",
+        "traits": ["夜眼"],
+        "weight": 21,
+    },
+    {
+        "id": "ev_old_photo",
+        "name": "全家福里多了一个人",
+        "grade": 4,
+        "scope": "general",
+        "text": "老家的全家福，站在最后一排的是谁家里人都不认得。照片是九四年拍的。",
+        "hook": "每次看那张照片，那个人站的位置都不一样。",
+        "traits": ["过目不忘"],
+        "weight": 19,
+    },
+    {
+        "id": "ev_repeat_dream",
+        "name": "反复做同一个梦",
+        "grade": 4,
+        "scope": "general",
+        "text": "梦里他在一条很长的走廊上走，尽头有一扇门。走了十年，门的位置一直没变近。",
+        "hook": "最近门开始变近了。",
+        "traits": ["怕黑", "夜猫子"],
+        "weight": 20,
+    },
+    {
+        "id": "ev_cheap_talisman",
+        "name": "买过一张地摊符",
+        "grade": 4,
+        "scope": "general",
+        "text": "十块钱三张，摊主说是「开过光的」。他随手塞进钱包，后来钱包里再没缺过零钱，也没多过。",
+        "hook": "那张符已经磨得只剩个红印。",
+        "traits": ["香火缠身", "穷鬼"],
+        "weight": 20,
+    },
+    {
+        "id": "ev_tattoo",
+        "name": "纹了不该纹的东西",
+        "grade": 4,
+        "scope": "general",
+        "text": "十八岁在小店纹的，图样是店主「随便挑的」。后来懂行的人告诉他，那是镇物，纹反了。",
+        "hook": "夏天他总穿长袖。",
+        "traits": ["业障缠身", "铜皮"],
+        "weight": 19,
+    },
+    {
+        "id": "ev_old_house",
+        "name": "住过一间老房子",
+        "grade": 4,
+        "scope": "general",
+        "text": "租的时候便宜，房东只提一个要求：北屋那间别开门。他住了两年，没开过。",
+        "hook": "搬走那天他开了，里面只有一把椅子，正对着门。",
+        "traits": ["洁癖", "怕黑"],
+        "weight": 20,
+    },
+    {
+        "id": "ev_stranger_talk",
+        "name": "被陌生人搭过话",
+        "grade": 4,
+        "scope": "general",
+        "text": "地铁口有人问他几点了，他看了手机抬头就没人了。那天他的表快了四十分钟。",
+        "hook": "从此他手腕上不戴表。",
+        "traits": ["急智"],
+        "weight": 21,
+    },
+]
+
+EVENT_BY_ID = {e["id"]: e for e in EVENTS}
+
+GRADE_INFO = {
+    1: {"key": "甲", "name": "甲等", "weight_scale": 0.4},
+    2: {"key": "乙", "name": "乙等", "weight_scale": 0.7},
+    3: {"key": "丙", "name": "丙等", "weight_scale": 1.0},
+    4: {"key": "丁", "name": "丁等", "weight_scale": 1.2},
+}
+
+
+def get(event_id: str) -> dict | None:
+    return EVENT_BY_ID.get(event_id)
+
+
+def grade_name(grade: int) -> str:
+    return GRADE_INFO.get(grade, {"name": "?"})["name"]
+
+
+def compatible(event: dict, city: dict, mission_id: str | None = None) -> bool:
+    """这条事件能不能落在「这个城市 + 这个任务」上。"""
+    scope = event.get("scope", "general")
+
+    if scope == "mission":
+        if not mission_id or mission_id not in event.get("missions", []):
+            return False
+
+    cities = event.get("cities") or []
+    if cities and city["id"] not in cities:
+        return False
+
+    industries = event.get("industries") or []
+    if industries and not (set(industries) & set(city.get("industries", []))):
+        return False
+
+    return True
+
+
+def pool(city: dict, mission_id: str | None, max_grade: int = 4,
+         background: bool = False) -> list[tuple[dict, float]]:
+    """某城市某任务下可选的事件，带权重。等级越高越难被抽到。
+
+    background=True 是给「随机生成人物」用的：任务限定事件也能当出身，
+    但只有特级/一级城市撑得住，而且权重打到三折——所以天品很稀。
+    """
+    from . import world
+
+    out = []
+    for event in EVENTS:
+        if event["grade"] > max_grade:
+            continue
+
+        penalty = 1.0
+        if event.get("scope") == "mission" and mission_id is None:
+            if not background:
+                continue
+            if world.tier_rank(city["tier"]) > 1:
+                continue
+            if not (set(event.get("industries") or []) & set(city.get("industries", []))):
+                # 行业对不上的时候只保留最基本的合理性
+                if event.get("industries"):
+                    continue
+            penalty = 0.3
+        elif not compatible(event, city, mission_id):
+            continue
+
+        weight = float(event.get("weight", 10)) * GRADE_INFO[event["grade"]]["weight_scale"] * penalty
+        out.append((event, weight))
+    return out
