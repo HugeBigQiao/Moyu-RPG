@@ -70,9 +70,20 @@ SKILLS = {
 
 RANKS = ("初真", "盟威", "五雷", "天师")
 
-# 特性表在 content/traits.py 里（分甲/乙/丙/丁四级），这里只是转出去，
-# 保持 sheet.TRAITS 这个老名字还能用。
-from ..content.traits import TRAITS  # noqa: E402
+# 特性表在 content/traits.py 里（分甲/乙/丙/丁四级）。这里保留 sheet.TRAITS 这个名字，
+# 但每次内容热重载都要跟着刷新，否则会拿着旧 dict。
+from ..content import traits as _traits  # noqa: E402
+from ..content._store import register as _register  # noqa: E402
+
+TRAITS = _traits.TRAITS
+
+
+def _refresh_traits(force: bool = False) -> None:
+    global TRAITS
+    TRAITS = _traits.TRAITS
+
+
+_register("sheet.traits", _refresh_traits)
 
 
 def _attr(character: dict, key: str) -> int:

@@ -1,0 +1,63 @@
+{
+  "missions": [
+    {
+      "id": "mirror",
+      "name": "镜中鬼",
+      "tier": 2,
+      "kind": "fixed",
+      "cities": [
+        "nanyu"
+      ],
+      "scenario_id": "mirror",
+      "blurb": "新城国际中学连续自残，监控拍到学生凌晨对镜梳头。"
+    },
+    {
+      "id": "office",
+      "name": "写字楼血案",
+      "tier": 2,
+      "kind": "fixed",
+      "cities": [
+        "nanyu"
+      ],
+      "scenario_id": "office",
+      "blurb": "深夜加班的白领集体跳楼，监控显示他们对着空气跪拜。"
+    },
+    {
+      "id": "paper",
+      "name": "送纸",
+      "tier": 3,
+      "kind": "fixed",
+      "cities": [
+        "nanyu",
+        "baishi"
+      ],
+      "scenario_id": "paper",
+      "blurb": "独居老人死了七天没人发现，他扎的纸人每晚在街上走。"
+    },
+    {
+      "id": "nightrun",
+      "name": "夜航",
+      "tier": 2,
+      "kind": "fixed",
+      "cities": [
+        "nanyu",
+        "yunjin"
+      ],
+      "scenario_id": "nightrun",
+      "blurb": "高架上连着三晚有人失联，第二天出现在二十公里外的出口。"
+    },
+    {
+      "id": "drought",
+      "name": "旱骨",
+      "tier": 3,
+      "kind": "fixed",
+      "cities": [
+        "nanyu",
+        "qingxi",
+        "baishi"
+      ],
+      "scenario_id": "drought",
+      "blurb": "水库见底露出淹没的老村，村里开始有人脱水而死，可水缸是满的。"
+    }
+  ]
+}

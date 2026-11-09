@@ -1,165 +1,21 @@
-"""装备库。
+"""装备库（从 content/equipment.json 读）。
 
-四类：
-    法器 —— 修行者吃饭的家伙，多数要养
-    阴器 —— 便宜、好用、背业障
-    耗材 —— 符纸朱砂这类，用了就没
-    护具 —— 挡灾的，通常只挡一次
-
-品阶用甲乙丙丁，和事件/特性同一套分级。
+四类：法器 / 阴器 / 耗材 / 护具。品阶用甲乙丙丁。
 """
 
 from __future__ import annotations
 
-EQUIPMENT = [
-    {
-        "id": "taomu_sword",
-        "name": "百年桃木剑",
-        "kind": "法器",
-        "grade": 2,
-        "price": 100,
-        "effect": "对木属祟物 +2 伤害",
-        "desc": "雷击过的老桃木削的剑坯，剑身有七道天然纹路。用得久了会认主。",
-    },
-    {
-        "id": "luopan",
-        "name": "杨公罗盘",
-        "kind": "法器",
-        "grade": 3,
-        "price": 60,
-        "effect": "勘查类检定 +10",
-        "desc": "三层二十四山，盘面被手指磨得发亮。指针在阴气重的地方会自己转。",
-    },
-    {
-        "id": "tongqian_sword",
-        "name": "铜钱剑",
-        "kind": "法器",
-        "grade": 3,
-        "price": 80,
-        "effect": "对灵体态伤害 +3",
-        "desc": "一百零八枚乾隆通宝，用红绳串成。断一枚，威力少一分。",
-    },
-    {
-        "id": "leiji_mu",
-        "name": "雷击木牌",
-        "kind": "护具",
-        "grade": 2,
-        "price": 150,
-        "effect": "抵挡一次致命伤（一次性）",
-        "desc": "雷劈过的枣木，断口还是焦的。挡完会碎成粉。",
-    },
-    {
-        "id": "zhusha",
-        "name": "朱砂（一两）",
-        "kind": "耗材",
-        "grade": 4,
-        "price": 20,
-        "effect": "画符成功率 +10%",
-        "desc": "湘西产的辰砂，颜色正。掺假的一眼能看出来。",
-    },
-    {
-        "id": "fuzhi",
-        "name": "黄符纸（一刀）",
-        "kind": "耗材",
-        "grade": 4,
-        "price": 30,
-        "effect": "每日符力 +4",
-        "desc": "一百张，裁得齐整。受潮就废，得拿油纸包着。",
-    },
-    {
-        "id": "yinyang_mirror",
-        "name": "阴阳镜",
-        "kind": "法器",
-        "grade": 2,
-        "price": 220,
-        "effect": "识破附身态，一次一局",
-        "desc": "背面铸着饕餮纹。照人照影，照不出影子的就是有问题。",
-    },
-    {
-        "id": "fuhun_suo",
-        "name": "缚魂索",
-        "kind": "法器",
-        "grade": 3,
-        "price": 90,
-        "effect": "定身一回合",
-        "desc": "浸过黑狗血的麻绳，摸上去是温的。绑过的祟物会记住你。",
-    },
-    {
-        "id": "zhenhun_bell",
-        "name": "镇魂铃",
-        "kind": "法器",
-        "grade": 2,
-        "price": 180,
-        "effect": "降低周围阴浊 5 点（每局一次）",
-        "desc": "铜铃一对，摇起来没有声音——但祟物听得见。",
-    },
-    {
-        "id": "shihun_ding",
-        "name": "噬魂钉",
-        "kind": "阴器",
-        "grade": 1,
-        "price": 0,
-        "effect": "伤害 +3；业障 +1（所有检定 −10）",
-        "desc": "钉子上有干涸的暗色。用它的人最后都不太对劲。",
-    },
-    {
-        "id": "xueyu",
-        "name": "血玉扳指",
-        "kind": "阴器",
-        "grade": 2,
-        "price": 40,
-        "effect": "气血上限 +10；理智上限 −5",
-        "desc": "玉里像有一缕血丝在游。戴上它会睡得很沉，也会梦见别人。",
-    },
-    {
-        "id": "gudi",
-        "name": "骨笛",
-        "kind": "阴器",
-        "grade": 2,
-        "price": 60,
-        "effect": "可召唤一只低级阴差协战；每用一次阴浊 +2",
-        "desc": "用人的指骨做的，吹出来的声音只有祟物听得懂。",
-    },
-    {
-        "id": "liuding_pai",
-        "name": "六丁六甲牌",
-        "kind": "护具",
-        "grade": 1,
-        "price": 300,
-        "effect": "全队减伤 20%（需提前布置）",
-        "desc": "十二块木牌，按方位埋下。埋错一块，整局白搭。",
-    },
-    {
-        "id": "gaoji_zhi",
-        "name": "高丽纸（一卷）",
-        "kind": "耗材",
-        "grade": 3,
-        "price": 45,
-        "effect": "封印类符箓效果 +1 回合",
-        "desc": "纤维粗、韧性好，撕不烂。老手都用它封镇。",
-    },
-    {
-        "id": "xianglian",
-        "name": "开光念珠",
-        "kind": "护具",
-        "grade": 3,
-        "price": 70,
-        "effect": "理智上限 +5",
-        "desc": "一百零八颗菩提子，盘得发乌。摸着它，心跳会慢下来。",
-    },
-    {
-        "id": "bingqi",
-        "name": "消防斧（国标）",
-        "kind": "护具",
-        "grade": 4,
-        "price": 10,
-        "effect": "对实体化祟物 +2 伤害",
-        "desc": "五金店买的，仓库里堆着几十把。玄真司的人手一把。",
-    },
-]
+from ._store import load, register
 
-EQUIPMENT_BY_ID = {e["id"]: e for e in EQUIPMENT}
-GRADE_INFO = {1: "甲", 2: "乙", 3: "丙", 4: "丁"}
+EQUIPMENT: list[dict] = []
+EQUIPMENT_BY_ID: dict[str, dict] = {}
+GRADE_INFO: dict[int, str] = {1: "甲", 2: "乙", 3: "丙", 4: "丁"}
+
+
+def apply(force: bool = False) -> None:
+    global EQUIPMENT, EQUIPMENT_BY_ID
+    EQUIPMENT = load("equipment", force)["equipment"]
+    EQUIPMENT_BY_ID = {e["id"]: e for e in EQUIPMENT}
 
 
 def get(item_id: str) -> dict | None:
@@ -168,3 +24,7 @@ def get(item_id: str) -> dict | None:
 
 def by_kind(kind: str) -> list[dict]:
     return [e for e in EQUIPMENT if e["kind"] == kind]
+
+
+register("equipment", apply)
+apply()

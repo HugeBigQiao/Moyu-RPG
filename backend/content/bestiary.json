@@ -1,0 +1,250 @@
+{
+  "bestiary": [
+    {
+      "id": "huapi",
+      "name": "画皮骨女",
+      "element": "煞",
+      "hp": 46,
+      "corruption": 25,
+      "lore": "民国年间因容貌自尽于闺中的少女，怨念附在一面梳妆台的镜面上。她借镜面收集镜前人的自厌，越多人照镜子，她越成形。",
+      "weakness": [
+        "太阴安神符",
+        "打碎镜面",
+        "强光"
+      ],
+      "phases": [
+        {
+          "state": "灵体",
+          "label": "镜中显影",
+          "attack": {
+            "name": "镜中招手",
+            "element": "水",
+            "dice": "1d6",
+            "type": "spirit",
+            "san": "1/1d4",
+            "text": "镜子里的人比你慢半拍才抬头。"
+          }
+        },
+        {
+          "state": "附身",
+          "label": "借镜附身",
+          "attack": {
+            "name": "自厌低语",
+            "element": "水",
+            "dice": "1d6",
+            "type": "spirit",
+            "san": "1/1d6",
+            "text": "镜子里的你开始说话，说的全是你自己最不想听的那句。"
+          }
+        },
+        {
+          "state": "实体",
+          "label": "血肉成形",
+          "attack": {
+            "name": "骨手穿镜",
+            "element": "煞",
+            "dice": "2d6",
+            "type": "physical",
+            "san": "0/1d3",
+            "text": "镜面鼓起，一只湿白的手伸了出来。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "yuan_996",
+      "name": "996 怨傀",
+      "element": "煞",
+      "hp": 54,
+      "corruption": 30,
+      "lore": "过劳死的程序员 + 整层楼的焦虑，凝成的一团黑雾。它不杀人，它只是把「业绩不达标就会死」这句话塞进每个人的脑子。",
+      "weakness": [
+        "断电",
+        "大功率音响",
+        "消防斧",
+        "癸水净秽符"
+      ],
+      "phases": [
+        {
+          "state": "灵体",
+          "label": "幻觉领域",
+          "attack": {
+            "name": "业绩幻象",
+            "element": "煞",
+            "dice": "1d4",
+            "type": "spirit",
+            "san": "1d3/1d6",
+            "text": "屏幕上跳出一行字：你这辈子就这样了。"
+          }
+        },
+        {
+          "state": "附身",
+          "label": "附身空调管道",
+          "attack": {
+            "name": "冷气里的低语",
+            "element": "金",
+            "dice": "1d6",
+            "type": "spirit",
+            "san": "0/1d4",
+            "text": "出风口吹出的风带着一股熬夜的酸味。"
+          }
+        },
+        {
+          "state": "实体",
+          "label": "黑雾凝形",
+          "attack": {
+            "name": "阴气喷吐",
+            "element": "煞",
+            "dice": "2d6",
+            "type": "physical",
+            "san": "0/1d3",
+            "text": "黑雾里长出一张脸，五官是十几个人的平均值。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "hanti",
+      "name": "白毛旱魃",
+      "element": "火",
+      "hp": 62,
+      "corruption": 28,
+      "lore": "埋在干河床上的一具尸，百年不腐，白毛覆体。它出现的地方连下三天不雨。",
+      "weakness": [
+        "水属法术",
+        "低温",
+        "戊土镇地符"
+      ],
+      "phases": [
+        {
+          "state": "灵体",
+          "label": "旱气流转",
+          "attack": {
+            "name": "灼风",
+            "element": "火",
+            "dice": "1d6",
+            "type": "spirit",
+            "san": "0/1d3",
+            "text": "空气开始烫喉咙，水杯里的水自己蒸干了。"
+          }
+        },
+        {
+          "state": "实体",
+          "label": "起尸",
+          "attack": {
+            "name": "白毛爪",
+            "element": "火",
+            "dice": "2d6+2",
+            "type": "physical",
+            "san": "0/1d3",
+            "text": "它从土里坐起来的动作，像一件被撑开的旧衣服。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "zhiren",
+      "name": "扎纸人",
+      "element": "土",
+      "hp": 30,
+      "corruption": 12,
+      "lore": "白事铺子扎的纸人，替主人挡了一次灾，就把那条命算成了自己的。",
+      "weakness": [
+        "火",
+        "撕毁本体"
+      ],
+      "phases": [
+        {
+          "state": "实体",
+          "label": "纸身行走",
+          "attack": {
+            "name": "纸手缠颈",
+            "element": "土",
+            "dice": "1d6+1",
+            "type": "physical",
+            "san": "0/1d3",
+            "text": "纸人的脖子转了一百八十度，正对着你笑。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "sheyao",
+      "name": "柳家蛇妖",
+      "element": "水",
+      "hp": 50,
+      "corruption": 22,
+      "lore": "在城中村的老柳树里修行了两百年。它不害人，它做生意——只是价钱写在你自己身上。",
+      "weakness": [
+        "金属性",
+        "雷法",
+        "血属法器"
+      ],
+      "phases": [
+        {
+          "state": "灵体",
+          "label": "蛇影入梦",
+          "attack": {
+            "name": "梦里缠身",
+            "element": "水",
+            "dice": "1d6",
+            "type": "spirit",
+            "san": "1/1d6",
+            "text": "你梦见自己在一口很深的井里，井壁上全是鳞。"
+          }
+        },
+        {
+          "state": "实体",
+          "label": "现出原形",
+          "attack": {
+            "name": "绞杀",
+            "element": "水",
+            "dice": "2d6",
+            "type": "physical",
+            "san": "0/1d4",
+            "text": "七米的躯体把楼道撑裂了。"
+          }
+        }
+      ]
+    },
+    {
+      "id": "guijiao",
+      "name": "鬼轿",
+      "element": "煞",
+      "hp": 40,
+      "corruption": 20,
+      "lore": "深夜在高架上被拍到的四抬黑轿，轿里没人，抬轿的也没有。上了车的人，第二天会出现在二十公里外的另一个出口。",
+      "weakness": [
+        "打亮车灯",
+        "鸣笛",
+        "六丁六甲符"
+      ],
+      "phases": [
+        {
+          "state": "灵体",
+          "label": "夜色里的轿影",
+          "attack": {
+            "name": "拍肩",
+            "element": "煞",
+            "dice": "1d6",
+            "type": "spirit",
+            "san": "1/1d4",
+            "text": "有人在你后座轻轻拍了下你的肩，可你是一个人开的车。"
+          }
+        },
+        {
+          "state": "实体",
+          "label": "轿门洞开",
+          "attack": {
+            "name": "抬进去",
+            "element": "煞",
+            "dice": "2d6",
+            "type": "physical",
+            "san": "0/1d6",
+            "text": "轿帘掀开，里面坐着的那个「你」冲你招手。"
+          }
+        }
+      ]
+    }
+  ]
+}
