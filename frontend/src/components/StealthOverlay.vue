@@ -31,7 +31,8 @@ const logs = [
     <div class="stealth-lock">
       <div class="lock-glyph">◍</div>
       <div class="lock-text">已锁定</div>
-      <div class="lock-hint">{{ HOTKEY_LABEL }} 或点击恢复</div>
+      <div class="lock-hint">{{ HOTKEY_LABEL }} 或点击任意处恢复</div>
+      <button class="stealth-back" @click.stop="reveal">← 返回</button>
     </div>
   </div>
 
@@ -82,5 +83,7 @@ const logs = [
         </ul>
       </main>
     </div>
+
+    <button class="sf-back" title="返回（Esc）" @click.stop="reveal">← 返回</button>
   </div>
 </template>

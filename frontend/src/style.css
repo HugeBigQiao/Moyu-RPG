@@ -712,3 +712,34 @@ body {
 .theme-card .swatch.sw-off { background: linear-gradient(135deg, #e5e7eb, #f3f4f6); }
 .theme-card .swatch.sw-blur { background: linear-gradient(135deg, #94a3b8, #e2e8f0); }
 .theme-card .swatch.sw-fake { background: linear-gradient(135deg, #2d6cdf, #eef2f8); }
+
+/* 遮掩层的返回按钮：模糊态放在提示下面，伪装页放在右下角（低调但一直可见） */
+.stealth-back {
+  margin-top: 18px;
+  padding: 7px 22px;
+  font-size: 12px;
+  font-family: var(--mono);
+  color: var(--fg-dim);
+  background: var(--panel);
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  cursor: pointer;
+}
+.stealth-back:hover { color: var(--fg); border-color: var(--accent); }
+
+.sf-back {
+  position: fixed;
+  right: 18px;
+  bottom: 16px;
+  z-index: 1;
+  padding: 5px 13px;
+  font-size: 12px;
+  font-family: ui-monospace, Consolas, monospace;
+  color: #8a94a6;
+  background: #fff;
+  border: 1px solid #e2e6ec;
+  border-radius: 999px;
+  cursor: pointer;
+  opacity: .8;
+}
+.sf-back:hover { opacity: 1; color: #2d6cdf; border-color: #2d6cdf; }
