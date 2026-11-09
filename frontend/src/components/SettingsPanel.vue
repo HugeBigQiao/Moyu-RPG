@@ -7,6 +7,9 @@
 import { settings, stealthModes, sizes, themes, resetSettings } from '../settings'
 import { HOTKEY_LABEL, cover } from '../stealth'
 
+// 构建时间戳由 vite.config.js 注入，用来确认「我看到的到底是不是新版本」
+const buildId = typeof __BUILD_ID__ === 'undefined' ? 'dev' : __BUILD_ID__
+
 defineEmits(['close'])
 </script>
 
@@ -89,7 +92,10 @@ defineEmits(['close'])
       <div class="tag-list">
         <button class="ghost" @click="resetSettings">恢复默认</button>
       </div>
-      <div class="sub" style="margin-top:10px">设置只存在这台机器上（localStorage）。</div>
+      <div class="sub" style="margin-top:10px">
+        设置只存在这台机器上（localStorage）。<br>
+        构建版本：{{ buildId }}
+      </div>
     </aside>
   </div>
 </template>

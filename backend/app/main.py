@@ -42,9 +42,30 @@ app.include_router(api_router)
 
 
 # ---------------------------------------------------------------- 前端产物
+#
+# 缓存策略（踩过坑）：
+#   index.html 必须 no-store —— 它引用的是带 hash 的 JS/CSS，一旦被浏览器缓存，
+#   重新构建后仍会加载旧 bundle，表现为「改了没生效」。
+#   /assets/* 文件名带 hash，可以放心长缓存。
+
+NO_STORE = {"Cache-Control": "no-store, no-cache, must-revalidate, max-age=0"}
+
+
+class LongCacheStatic(StaticFiles):
+    """静态资源：文件名带 hash，允许浏览器永久缓存。
+
+    注意：Starlette 的 file_response 是**同步**方法（返回 Response），
+    写成 async 会返回协程对象，导致 500（踩过）。
+    """
+
+    def file_response(self, full_path, stat_result, scope, status_code=200):
+        response = super().file_response(full_path, stat_result, scope, status_code)
+        response.headers["Cache-Control"] = "public, max-age=31536000, immutable"
+        return response
+
 
 if (DIST / "index.html").exists():
-    app.mount("/assets", StaticFiles(directory=str(DIST / "assets")), name="assets")
+    app.mount("/assets", LongCacheStatic(directory=str(DIST / "assets")), name="assets")
 
     @app.get("/{full_path:path}", include_in_schema=False)
     async def spa(full_path: str):
@@ -52,8 +73,8 @@ if (DIST / "index.html").exists():
             return JSONResponse({"detail": "接口不存在"}, status_code=404)
         target = DIST / full_path
         if full_path and target.is_file():
-            return FileResponse(target)
-        return FileResponse(DIST / "index.html")
+            return FileResponse(target, headers=NO_STORE)
+        return FileResponse(DIST / "index.html", headers=NO_STORE)
 
 else:
     @app.get("/", include_in_schema=False)

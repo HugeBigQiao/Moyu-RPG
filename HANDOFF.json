@@ -172,6 +172,12 @@
       "title": "中文脚本编码",
       "symptom": "PowerShell 5.1 读无 BOM 的 UTF-8 脚本会乱码",
       "fix": "start.ps1 存 UTF-8 with BOM；.bat 保持纯 ASCII"
+    },
+    {
+      "title": "改完前端页面没变化",
+      "symptom": "重新构建后浏览器仍是旧界面",
+      "cause": "index.html 没有 Cache-Control，被浏览器启发式缓存，继续引用旧 hash 的 JS",
+      "fix": "index.html 发 no-store，/assets/* 发 immutable；构建时间戳显示在设置里"
     }
   ],
 
