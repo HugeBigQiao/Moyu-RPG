@@ -9,7 +9,7 @@ import sys
 
 import httpx
 
-BASE = sys.argv[1] if len(sys.argv) > 1 else "http://127.0.0.1:8770"
+BASE = sys.argv[1] if len(sys.argv) > 1 else "http://127.0.0.1:8888"
 PRIORITY = {"attack": 0, "talisman": 1, "summon": 2, "check": 3, "choice": 3,
             "env": 4, "ward": 5}
 

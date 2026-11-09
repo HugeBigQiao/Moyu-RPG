@@ -33,7 +33,7 @@
       "one_click": "start.bat（检查工具链 → 数据库 → uv sync → 迁移 → 前端构建 → 启动 + 开浏览器）",
       "manual_backend": "cd backend && uv run python run.py",
       "manual_frontend": "cd frontend && npm run dev（5173，代理 /api）",
-      "url": "http://127.0.0.1:8770"
+      "url": "http://127.0.0.1:8888"
     },
     "test": {
       "unit": "cd backend && uv run pytest -q（101）",

@@ -5,7 +5,7 @@
 import { chromium } from 'playwright-core'
 import { mkdirSync } from 'node:fs'
 
-const BASE = process.argv[2] || 'http://127.0.0.1:8770'
+const BASE = process.argv[2] || 'http://127.0.0.1:8888'
 const SHOTS = 'shots'
 mkdirSync(SHOTS, { recursive: true })
 

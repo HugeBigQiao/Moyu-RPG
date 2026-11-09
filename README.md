@@ -36,7 +36,7 @@ npm install
 npm run build
 
 cd ../backend
-uv run python run.py          # http://127.0.0.1:8770
+uv run python run.py          # http://127.0.0.1:8888
 ```
 
 前端开发模式：后端 `uv run python run.py`，另开终端 `cd frontend && npm run dev`（5173，自动代理 `/api`）。

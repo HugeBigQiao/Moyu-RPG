@@ -34,7 +34,7 @@ class Settings(BaseSettings):
 
     database_url: str = DEFAULT_DATABASE_URL
     host: str = "127.0.0.1"
-    port: int = 8770
+    port: int = 8888
     auto_create_tables: bool = True
     page_size: int = 20
 

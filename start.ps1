@@ -4,7 +4,7 @@
     ------------------------------------------------------------
     双击 start.bat 即可；也可以直接跑这个脚本：
 
-        .\start.ps1                 启动（默认 8770，自动开浏览器）
+        .\start.ps1                 启动（默认 8888，自动开浏览器）
         .\start.ps1 -Port 9000      换端口
         .\start.ps1 -NoBrowser      不开浏览器
         .\start.ps1 -Rebuild        强制重新构建前端
@@ -16,7 +16,7 @@
 
 [CmdletBinding()]
 param(
-    [int]$Port = 8770,
+    [int]$Port = 8888,
     [switch]$NoBrowser,
     [switch]$Rebuild,
     [switch]$SkipDb
