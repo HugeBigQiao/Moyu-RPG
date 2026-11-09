@@ -1,4 +1,13 @@
-"""人物接口：名录、随机生成、玩家自建、角色卡、成长线。"""
+"""人物接口。
+
+职责：
+    名录、随机生成、玩家自建、角色卡详情、授箓/试炼/兑换。
+为什么需要：
+    人物是全项目最复杂的聚合（属性、事件、英灵、商店都挂在上面），单独成模块。
+上下游：
+    上游：app/engine/{npc,gacha,progress,sheet}、app/content；下游：前端人物相关页面。
+"""
+
 
 from __future__ import annotations
 
@@ -10,7 +19,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from ..content import (events as events_mod, scenario as scenario_mod, shop,
                        spirits, world)
-from ..db import get_db
+from ..models import get_db
 from ..engine import gacha, npc, progress, sheet
 from ..models import Character, PlaySession
 from .common import brief, card

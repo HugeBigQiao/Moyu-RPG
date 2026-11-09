@@ -25,8 +25,8 @@ from sqlalchemy import select  # noqa: E402
 from sqlalchemy.ext.asyncio import create_async_engine  # noqa: E402
 
 from app.config import settings  # noqa: E402
-from app.db import Base  # noqa: E402
-from app import models  # noqa: E402,F401  注册表
+from app.models import Base  # noqa: E402
+import app.models  # noqa: E402,F401  注册表
 
 
 def _resolve(url: str) -> str:

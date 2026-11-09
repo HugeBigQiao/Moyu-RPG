@@ -1,15 +1,13 @@
-"""API 板块。
+"""API 板块聚合。
 
-    app/api/
-      schemas.py     请求体
-      common.py      ORM → dict、列表摘要、城市视图
-      archive.py     世界 / 事件 / 任务 / 装备 / 特性 / 内容热重载
-      game.py        总览 / 地图 / 城市面板
-      characters.py  名录 / 生成 / 自建 / 角色卡 / 成长线
-      sessions.py    开团 / 取状态 / 行动
-
-前端只认 /api/*，页面路由由 SPA 自己管。
+职责：
+    把 archive / game / characters / sessions 四个 router 合成一个 api_router。
+为什么需要：
+    main.py 只需要 include 一次，新增板块只改这里。
+上下游：
+    上游：app/api/* 各模块；下游：main.py。
 """
+
 
 from __future__ import annotations
 

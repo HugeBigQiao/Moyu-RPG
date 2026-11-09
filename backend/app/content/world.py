@@ -1,8 +1,13 @@
-"""世界底座（从 content/world.json 读）。
+"""世界数据加载器。
 
-国家、教派、机构、人物、行业、城市分级、城市、地图坐标、城市势力、世界背景。
-改设定请改 JSON，不要改这里。
+职责：
+    从 data/content/world.json 读出国家、教派、机构、人物、行业、城市、坐标、势力、世界背景。
+为什么需要：
+    世界数据被事件、任务、人物、地图同时引用，必须只有一个来源。
+上下游：
+    上游：data/content/world.json；下游：events/missions/npc/api 各模块。
 """
+
 
 from __future__ import annotations
 

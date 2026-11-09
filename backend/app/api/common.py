@@ -1,4 +1,13 @@
-"""接口层公用的小工具：ORM → 引擎 dict、列表摘要、城市视图。"""
+"""接口层公用工具。
+
+职责：
+    ORM 对象转引擎 dict、人物摘要、城市视图拼装。
+为什么需要：
+    这些转换被多个 router 复用，放一处避免口径不一致。
+上下游：
+    上游：app/models、app/content、app/engine/sheet；下游：app/api/*。
+"""
+
 
 from __future__ import annotations
 

@@ -1,4 +1,13 @@
-"""游戏页接口：总览、地图、城市面板。"""
+"""游戏页接口。
+
+职责：
+    总览、地图、城市面板三块数据。
+为什么需要：
+    这三块共享「城市 → 任务/人物/势力」的组装逻辑，放一起避免重复查询。
+上下游：
+    上游：app/content、app/models、app/engine/mission；下游：前端 GameView。
+"""
+
 
 from __future__ import annotations
 
@@ -7,7 +16,7 @@ from sqlalchemy import desc, func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from ..content import (missions as missions_mod, scenario as scenario_mod, world)
-from ..db import get_db
+from ..models import get_db
 from ..engine import mission as mission_engine
 from ..models import Character, LogEntry, PlaySession
 from .common import brief, city_payload, stamp

@@ -1,4 +1,13 @@
-"""会话接口：开团（固定 / 随机）、取状态、执行行动。"""
+"""会话接口。
+
+职责：
+    开团（固定剧本 / 随机任务）、取当前状态、执行一次行动并落日志。
+为什么需要：
+    一局的状态推进必须只有一个入口，否则日志与结算会重复。
+上下游：
+    上游：app/engine/{session,mission}、app/models；下游：前端处置台。
+"""
+
 
 from __future__ import annotations
 
@@ -7,7 +16,7 @@ from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from ..content import scenario as scenario_mod, world
-from ..db import get_db
+from ..models import get_db
 from ..engine import mission as mission_engine, npc
 from ..engine import session as engine
 from ..engine.dice import Roller, new_seed

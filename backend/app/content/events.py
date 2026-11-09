@@ -1,8 +1,13 @@
-"""事件库（从 content/events.json 读）。
+"""事件数据加载器。
 
-事件分甲乙丙丁四级。等级越高越稀罕，也越少被「通用」：
-甲级只挂在特定任务上，丙丁级哪里都能长。
+职责：
+    读事件表，并提供兼容性判定与按城市/任务的加权抽取。
+为什么需要：
+    人物出身与随机任务都从事件池里长出来，规则必须共享一份。
+上下游：
+    上游：data/content/events.json、world；下游：engine/npc、engine/mission。
 """
+
 
 from __future__ import annotations
 

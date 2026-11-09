@@ -14,7 +14,7 @@
 | 前端 | Vue 3 + Vite + vue-router（无 UI 框架，手写 CSS） |
 | 后端 | FastAPI + SQLAlchemy 2（异步）+ Alembic |
 | 数据库 | SQLite（默认，零部署）；兼容 PostgreSQL / MySQL |
-| 内容 | `backend/content/*.json`，改 JSON 即改设定，支持热重载 |
+| 内容 | `backend/data/content/*.json`，改 JSON 即改设定，支持热重载 |
 | 测试 | pytest（101）+ HTTP 冒烟（24）+ 无头 Edge UI 冒烟（23） |
 
 ---
@@ -47,7 +47,7 @@ uv run python run.py          # http://127.0.0.1:8770
 
 ```
 frontend/   Vue 3 前端
-backend/    FastAPI 后端（app/api 接口板块、app/engine 规则、content/*.json 设定、data 库）
+backend/    FastAPI 后端（app/api 接口、app/engine 规则、app/models 持久层、data/ 数据板块）
 docs/       文档
 start.bat   一键启动
 ```
@@ -62,7 +62,7 @@ start.bat   一键启动
 | [docs/架构.md](docs/架构.md) | 分层、内容加载、数据库、接口板块、技术选型评估 |
 | [docs/开发指南.md](docs/开发指南.md) | 怎么跑、怎么改内容、怎么加接口、怎么写测试 |
 | [docs/接口.md](docs/接口.md) | API 一览 |
-| [HANDOFF.md](HANDOFF.md) | 交接文档：项目历程、关键决策、已知问题、下一步 |
+| [HANDOFF.json](HANDOFF.json) | 交接档（JSON）：项目历程、关键决策、踩坑、已知问题、下一步 |
 
 ---
 

@@ -1,7 +1,13 @@
-"""祟物图鉴（从 content/bestiary.json 读）。
+"""祟物数据加载器。
 
-三态决定「什么打得动它」：灵体 / 附身 / 实体。
+职责：
+    读祟物表，提供按血量取形态、按形态算伤害门槛。
+为什么需要：
+    三态规则（灵体/附身/实体）决定「什么打得动它」，是战斗的核心约束。
+上下游：
+    上游：data/content/bestiary.json；下游：engine/session、engine/mission。
 """
+
 
 from __future__ import annotations
 

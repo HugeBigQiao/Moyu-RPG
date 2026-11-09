@@ -1,10 +1,13 @@
 """一局的流程引擎。
 
-输入一张角色卡（dict）+ 一个剧本（dict）+ 一份状态（dict），
-输出新状态和事件流。所有随机都走同一个 Roller，所以一局可回放。
-
-状态里只放可 JSON 化的东西（它要存进 JSONB 列）。
+职责：
+    状态机：勘查、遭遇、抉择、结算；处理伤害、形态变化、KP 事件与结局。
+为什么需要：
+    这是全项目最复杂的一块，必须与接口层解耦才能单测与回放。
+上下游：
+    上游：checks、wuxing、kp、content/*；下游：api/sessions。
 """
+
 
 from __future__ import annotations
 

@@ -1,3 +1,14 @@
+"""Alembic 环境。
+
+职责：
+    把 app/models 的 metadata 交给 Alembic，并用 app.config 里的连接串跑迁移。
+为什么需要：
+    表结构必须由迁移管理，不能靠 create_all；连接串也只认 .env，避免双份口令。
+上下游：
+    上游 app/config.py（连接串）、app/models（metadata）；
+    下游 data/migrations/versions/*.py（迁移脚本）。
+"""
+
 import asyncio
 import os
 import sys
@@ -10,14 +21,14 @@ from sqlalchemy.ext.asyncio import async_engine_from_config
 
 from alembic import context
 
-# 让 alembic 能 import 到 app 包
-ROOT = Path(__file__).resolve().parent.parent
+# 让 alembic 能 import 到 app 包：本文件在 backend/data/migrations/，往上三层才是 backend
+ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from app.config import settings  # noqa: E402
-from app.db import Base  # noqa: E402
-from app import models  # noqa: E402,F401  注册模型
+from app.models import Base  # noqa: E402
+import app.models  # noqa: E402,F401  注册模型
 
 config = context.config
 

@@ -1,7 +1,13 @@
-"""装备库（从 content/equipment.json 读）。
+"""装备数据加载器。
 
-四类：法器 / 阴器 / 耗材 / 护具。品阶用甲乙丙丁。
+职责：
+    读装备表并建 id 索引。
+为什么需要：
+    装备是档案页与后续战斗扩展的数据源。
+上下游：
+    上游：data/content/equipment.json；下游：api/archive（及未来的战斗结算）。
 """
+
 
 from __future__ import annotations
 

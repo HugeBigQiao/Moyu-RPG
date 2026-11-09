@@ -1,10 +1,13 @@
 """内容加载器。
 
-所有设定（世界、事件、特性、任务、符箓、英灵、祟物、装备、剧本）都放在
-backend/content/*.json 里，改 JSON 就是改设定，不用动代码。
-
-热重载：JSON 的 mtime 变了就重新读，/api/admin/reload 可以强制刷新。
+职责：
+    按 mtime 读缓存 data/content/*.json，提供 reload_all 与错误收集。
+为什么需要：
+    设定必须可改而不重启；集中加载也让「坏 JSON」有一个明确的报错点。
+上下游：
+    上游：data/content/*.json；下游：app/content/* 各加载器、/api/admin/reload。
 """
+
 
 from __future__ import annotations
 
@@ -12,7 +15,7 @@ import json
 import threading
 from pathlib import Path
 
-CONTENT_DIR = Path(__file__).resolve().parents[2] / "content"
+CONTENT_DIR = Path(__file__).resolve().parents[2] / "data" / "content"
 
 _lock = threading.Lock()
 _cache: dict[str, tuple[float, dict]] = {}

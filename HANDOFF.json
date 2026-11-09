@@ -1,0 +1,201 @@
+{
+  "meta": {
+    "generated_at": "2026-11-09",
+    "purpose": "会话交接档：项目现状、关键决策、踩过的坑、下一步。供新会话在五分钟内恢复上下文。",
+    "workspace": "D:\\moyu",
+    "language": "中文",
+    "note": "只记录结论与判断，不记录过程对话。设定细节在 docs/世界观.md，实现细节在 docs/架构.md。",
+    "reading_order": ["README.md", "HANDOFF.json", "docs/架构.md", "docs/开发指南.md"]
+  },
+
+  "project": {
+    "name": "玄门诡事录",
+    "one_liner": "本地单人跑团系统：现代中国玄门背景，玩家是玄真司来「了结因果」的人。",
+    "core_idea": "祟物由人心淤积而生；结局不是赢/输，而是善了 / 了结 / 未了。",
+    "stack": {
+      "frontend": "Vue 3 + Vite + vue-router，无 UI 框架，手写 CSS",
+      "backend": "FastAPI + SQLAlchemy 2（异步）+ Alembic",
+      "database": "SQLite 默认（backend/data/moyu.db）；兼容 PostgreSQL / MySQL",
+      "content": "backend/data/content/*.json，改文件即改设定，支持热重载",
+      "package": "后端 uv；前端 npm"
+    },
+    "structure": {
+      "frontend/": "src/views（首页/档案/游戏/角色/建卡/处置台）、src/components、src/assets/china.js（地图轮廓，脚本生成）",
+      "backend/app/api/": "接口板块：archive / game / characters / sessions + schemas + common",
+      "backend/app/engine/": "纯函数规则：dice / wuxing / checks / sheet / gacha / npc / kp / progress / mission / session",
+      "backend/app/content/": "内容加载器：按 mtime 读 JSON、建索引、热重载",
+      "backend/app/models/": "持久层：base（引擎与会话）+ entities（三张表）",
+      "backend/data/content/": "★ 全部设定数据（10 个 JSON）",
+      "backend/data/migrations/": "Alembic 迁移",
+      "docs/": "世界观、架构、开发指南、接口"
+    },
+    "run": {
+      "one_click": "start.bat（检查工具链 → 数据库 → uv sync → 迁移 → 前端构建 → 启动 + 开浏览器）",
+      "manual_backend": "cd backend && uv run python run.py",
+      "manual_frontend": "cd frontend && npm run dev（5173，代理 /api）",
+      "url": "http://127.0.0.1:8770"
+    },
+    "test": {
+      "unit": "cd backend && uv run pytest -q（101）",
+      "api": "cd backend && uv run python scripts/api_smoke.py（24，需先起服务）",
+      "ui": "cd frontend && node scripts/ui_smoke.mjs（23，无头 Edge）",
+      "engine_only": "cd backend && uv run python scripts/smoke.py mirror（不开服务跑一局）"
+    }
+  },
+
+  "current_state": {
+    "playable": true,
+    "gameplay_loop": "选城 → 开团（固定剧本或随机任务）→ 勘查/遭遇/抉择 → 结案 → 结算功德",
+    "content_counts": {
+      "cities": 10,
+      "fixed_figures": 8,
+      "nations": 3,
+      "agencies": 4,
+      "sects": 6,
+      "industries": 16,
+      "events": 50,
+      "traits": 20,
+      "equipment": 16,
+      "talismans": 11,
+      "spirits": 8,
+      "bestiary": 6,
+      "fixed_missions": 5,
+      "random_missions": "无限（城市 × 事件现场生成）"
+    },
+    "db": {
+      "dialect": "sqlite",
+      "file": "backend/data/moyu.db",
+      "alembic_head": "8f9a32411a08",
+      "tables": ["characters", "sessions", "session_logs"]
+    },
+    "ui": {
+      "home": "顶栏 + 两张大卡（开始游戏 / 背景档案）",
+      "settings": "三套主题、四档字号、动效开关、遮掩设置",
+      "archive": "11 个档案：城市/人物/机构/教派/行业/国家/世界背景/事件/任务/装备/特性",
+      "game": "三栏 5:4:1：中国地图 / 展示面板 / 菜单（人物·任务·参与·城市）"
+    }
+  },
+
+  "milestones": [
+    { "phase": "规则引擎", "summary": "骰子、五行、检定、资源公式先写成纯函数并配单测", "outcome": "后面换栈没有返工" },
+    { "phase": "Web 化", "summary": "FastAPI 出 JSON，前端先做原生 HTML/JS 版本", "outcome": "验证了核心循环可玩" },
+    { "phase": "前端换 Vue", "summary": "拆成 frontend/ 与 backend/ 两个大目录，后端只留 /api/*", "outcome": "页面路由交给 SPA" },
+    { "phase": "成长线", "summary": "授箓晋升、心魔试炼、功德商店（含阴器与业障）", "outcome": "角色能长期养成" },
+    { "phase": "世界层", "summary": "国家/教派/机构/人物/行业/城市分级/事件/任务/装备/特性", "outcome": "城市等级决定人物能带几条出身事件" },
+    { "phase": "随机任务", "summary": "城市 + 事件 + 祟物现场拼场景流，任务 id 带种子", "outcome": "每城都有新案子，且可复现" },
+    { "phase": "数据库迁移", "summary": "PostgreSQL → SQLite 为主，模型改方言无关 JSON，写跨库搬运脚本", "outcome": "零部署成本，旧数据 295 行完整迁移" },
+    { "phase": "内容数据化", "summary": "设定从 Python 常量搬进 JSON，模块退化为加载器", "outcome": "改设定不用改代码，支持热重载" },
+    { "phase": "界面重构", "summary": "首页双卡、设置面板、11 个档案页、游戏三栏 + 中国地图", "outcome": "从「运维台」转向「档案 + 地图」" },
+    { "phase": "API 拆板块", "summary": "app/api/ 按资源分 router，main.py 只做装配", "outcome": "main.py 762 → 45 行" },
+    { "phase": "数据板块归拢", "summary": "内容与迁移挪进 backend/data/，持久层收进 app/models/", "outcome": "代码与数据边界清晰" }
+  ],
+
+  "decisions": [
+    {
+      "id": "D1",
+      "decision": "规则引擎写成纯函数，随机带种子",
+      "why": "可回放、可复现、可单测；bug 能重放",
+      "consequence": "引擎不碰数据库与 Web，换栈成本低"
+    },
+    {
+      "id": "D2",
+      "decision": "设定放 JSON，运行态放数据库",
+      "why": "设定需要 diff、review、回滚；运行态需要事务与查询",
+      "alternatives": "全部入库（可做，但内容改动就失去 PR 可读性）"
+    },
+    {
+      "id": "D3",
+      "decision": "数据库默认 SQLite，保留 PG/MySQL 兼容",
+      "why": "单机单人零部署；未来联机再换",
+      "consequence": "JSON 列用 with_variant(JSONB)，SQLite 打开外键与 WAL"
+    },
+    {
+      "id": "D4",
+      "decision": "前端不用 UI 框架",
+      "why": "界面是档案 + 地图，手写 CSS 更可控，包更小"
+    },
+    {
+      "id": "D5",
+      "decision": "地图用 TopoJSON 离线生成 SVG",
+      "why": "不依赖在线地图服务，一次生成永久离线",
+      "consequence": "城市落点靠经纬度投影，与路径同一套算法"
+    },
+    {
+      "id": "D6",
+      "decision": "内容 JSON 化 + /api/admin/reload 热重载",
+      "why": "设定会被频繁改，重启进程成本高",
+      "consequence": "跨模块引用（sheet.TRAITS）需要注册回调一起刷新"
+    },
+    {
+      "id": "D7",
+      "decision": "暂不引入 cordis（插件化框架）",
+      "why": "当前的可变是数据不是代码；cordis 在 JS 生态，换过去要重写后端",
+      "revisit_when": "后端统一到 Node / 要发规则包 / 要做运行时编辑器"
+    }
+  ],
+
+  "conventions": {
+    "comment_style": "每个模块首段写「职责 / 为什么需要 / 上下游」；函数 docstring 写参数是什么、为什么需要、输入输出；块级注释写这段在处理什么。",
+    "naming": "接口按资源分模块；引擎按职责分模块；内容 JSON 一个主题一个文件。",
+    "commit": "「动词: 说明」；一次提交只做一类改动。",
+    "data_boundary": "app/ 是代码，data/ 是数据；代码里不写死设定，数据里不写逻辑。"
+  },
+
+  "gotchas": [
+    {
+      "title": "PowerShell 5.1 把原生命令 stderr 当异常",
+      "symptom": "启动脚本在 alembic 打 INFO 日志时直接崩",
+      "cause": "$ErrorActionPreference='Stop' + 2>&1 捕获原生输出",
+      "fix": "改为 Continue，用 $LASTEXITCODE 判断"
+    },
+    {
+      "title": "Alembic autogenerate 给老表加非空列",
+      "symptom": "NotNullViolation",
+      "fix": "先给 server_default 落库，再 alter 撤掉默认值"
+    },
+    {
+      "title": "SQLite 相对路径随 CWD 漂移",
+      "symptom": "从不同目录启动连到不同库",
+      "fix": "config 里把相对路径钉到 backend/"
+    },
+    {
+      "title": "FastAPI 0.162 的 include_router 是惰性的",
+      "symptom": "app.routes 里只有 _IncludedRouter，数不出接口",
+      "fix": "以实际请求验证，别用 routes 数量判断"
+    },
+    {
+      "title": "内容热重载后 from ... import TRAITS 会拿到旧值",
+      "symptom": "改特性后角色卡还是旧的",
+      "fix": "sheet 注册刷新回调，重新绑定模块级变量"
+    },
+    {
+      "title": "中文脚本编码",
+      "symptom": "PowerShell 5.1 读无 BOM 的 UTF-8 脚本会乱码",
+      "fix": "start.ps1 存 UTF-8 with BOM；.bat 保持纯 ASCII"
+    }
+  ],
+
+  "known_issues": [
+    { "title": "装备未接进战斗", "detail": "装备库有数据、商店能买，但只有商店那几件效果进了计算", "next": "把 equipment.json 的 effect 接到 session 的伤害与防御" },
+    { "title": "地图是静态落点", "detail": "没有省界、路线、势力着色", "next": "加省界与势力范围" },
+    { "title": "认可度不会自然增长", "detail": "只有晋升时给初始值", "next": "按行为给英灵契合度" },
+    { "title": "随机任务骨架单一", "detail": "勘查×2~3 → 遭遇 → 抉择", "next": "增加更多场景类型与分支" },
+    { "title": "内容缺 schema 校验", "detail": "JSON 结构错了要到加载时才报", "next": "给 content 写 Pydantic 模型" },
+    { "title": "没有多人", "detail": "WebSocket 房间、权限、并发状态都没做", "next": "局域网房间 + 广播状态" }
+  ],
+
+  "next_steps": [
+    { "priority": 1, "item": "装备接进战斗", "why": "数据已经齐了，只差结算", "where": "app/engine/session.py + content/equipment.json" },
+    { "priority": 2, "item": "内容 schema 校验", "why": "让改 JSON 的人直接看到哪个字段错了", "where": "app/content/_store.py" },
+    { "priority": 3, "item": "任务链", "why": "固定剧本之间目前互不相干", "where": "content/missions.json + engine/mission.py" },
+    { "priority": 4, "item": "地图增强", "why": "现在是纯落点，缺乏势力感", "where": "frontend/src/components/ChinaMap.vue" }
+  ],
+
+  "dependencies": {
+    "backend": ["fastapi", "uvicorn", "sqlalchemy[asyncio]", "alembic", "aiosqlite", "asyncpg", "pydantic", "pydantic-settings", "python-dotenv"],
+    "frontend": ["vue", "vue-router", "vite", "@vitejs/plugin-vue", "playwright-core（仅测试）"],
+    "assets": "world-atlas 1:110m TopoJSON（Natural Earth 衍生），经 scripts/build_china_map.py 简化"
+  },
+
+  "license": "MIT"
+}

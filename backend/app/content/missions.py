@@ -1,8 +1,13 @@
-"""任务（从 content/missions.json 读）。
+"""任务数据加载器。
 
-固定任务绑定城市；随机任务由 engine/mission.py 现场拼。
-难度与奖励都从事件强度推。
+职责：
+    读固定任务表，并提供难度、报酬、等级标签的换算。
+为什么需要：
+    固定任务与随机任务共用同一套难度/报酬公式，放这里避免两套数。
+上下游：
+    上游：data/content/missions.json、scenario、world；下游：api/game、engine/mission。
 """
+
 
 from __future__ import annotations
 

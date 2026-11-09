@@ -1,7 +1,13 @@
-"""剧本（从 content/scenarios.json 读）。
+"""剧本数据加载器。
 
-一个剧本 = 一串场景：investigate / combat / choice / ending。
+职责：
+    读固定剧本（场景流、结局），供固定任务与随机任务复用结构。
+为什么需要：
+    剧本是跑团的本体，单独一份 JSON 便于写作与校对。
+上下游：
+    上游：data/content/scenarios.json；下游：api/sessions、engine/mission、content/missions。
 """
+
 
 from __future__ import annotations
 

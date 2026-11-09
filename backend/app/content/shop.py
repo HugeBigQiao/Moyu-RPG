@@ -1,7 +1,13 @@
-"""功德商店（从 content/shop.json 读）。
+"""商店数据加载器。
 
-价格单位是功德。阴器不贵，代价在业障。
+职责：
+    读商店条目，提供按箓职可见性与「角色身上所有加成」的合成。
+为什么需要：
+    兑换与角色卡加成必须同源，否则买完不生效。
+上下游：
+    上游：data/content/shop.json；下游：engine/progress、engine/sheet、api/characters。
 """
+
 
 from __future__ import annotations
 

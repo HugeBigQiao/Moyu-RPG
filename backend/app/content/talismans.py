@@ -1,7 +1,13 @@
-"""符箓（从 content/talismans.json 读）。
+"""符箓数据加载器。
 
-符箓派的核心资产：绘制成本 vs 引动成本。
+职责：
+    读符箓表并建 id 索引。
+为什么需要：
+    符箓是战斗里的主要道具，加载失败会让整场战斗不可用。
+上下游：
+    上游：data/content/talismans.json；下游：engine/session、api/characters。
 """
+
 
 from __future__ import annotations
 

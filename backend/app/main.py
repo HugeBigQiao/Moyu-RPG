@@ -1,8 +1,13 @@
 """FastAPI 入口。
 
-只做三件事：建 app、挂 API 板块、挂前端产物。
-接口在 app/api/，设定在 content/*.json，规则在 app/engine/。
+职责：
+    建应用、挂 API 板块、挂前端构建产物，顺带给出 uvicorn 启动函数。
+为什么需要：
+    业务接口必须有个统一装配点；这里只做装配，不写业务。
+上下游：
+    上游：app/api、app/models；下游：uvicorn（app.main:app）。
 """
+
 
 from __future__ import annotations
 
@@ -14,7 +19,7 @@ from fastapi.staticfiles import StaticFiles
 
 from .api import api_router
 from .config import FRONTEND_DIST, settings
-from .db import init_models
+from .models import init_models
 
 PLATFORM = "玄武 · 边缘节点运控台"
 DIST = FRONTEND_DIST

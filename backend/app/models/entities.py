@@ -1,13 +1,13 @@
-"""表结构。
+"""ORM 实体。
 
-只存「会变的东西」：角色卡、局、日志。
-符箓、祟物、英灵、剧本都是代码里的内容库（app/content/*），
-不进库 —— 它们是需要版本管理的内容，不是运行期数据。
-
-数据库三方言兼容：
-    默认 SQLite（backend/data/moyu.db），也支持 PostgreSQL / MySQL。
-    所以这里一律用 JSON 而不是 JSONB —— PG 下用 variant 换成 JSONB 保性能，
-    另外两个方言老老实实存 JSON。
+职责：
+    定义三张表：characters（人物）、sessions（一局）、session_logs（事件流）。
+为什么需要：
+    只把「会变的状态」入库；设定是内容（data/content/*.json），不进库，
+    这样内容能 diff、能回滚，状态也不会被内容版本绑死。
+上下游：
+    上游 app/models/base.py（Base、JSON 类型）；
+    下游 app/api/*（读写）、data/migrations（建表）。
 """
 
 from __future__ import annotations
@@ -18,9 +18,9 @@ from sqlalchemy import JSON, Boolean, DateTime, ForeignKey, Integer, String, Tex
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from .db import Base
+from .base import Base
 
-# PG 用 JSONB，SQLite / MySQL 用 JSON
+# PG 存 JSONB，SQLite / MySQL 存 JSON —— 一份模型吃三个方言
 JSONType = JSON().with_variant(JSONB(), "postgresql")
 
 

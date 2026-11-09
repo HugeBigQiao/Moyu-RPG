@@ -1,7 +1,13 @@
-"""英灵与授箓（从 content/spirits.json 读）。
+"""英灵数据加载器。
 
-授箓层级决定能请谁；认可度决定灵力消耗与能力继承比例。
+职责：
+    读英灵表，提供按箓职筛选、认可度折算消耗与继承比例。
+为什么需要：
+    授箓体系的核心数值都在这里，晋升与请神共用。
+上下游：
+    上游：data/content/spirits.json；下游：engine/progress、engine/session。
 """
+
 
 from __future__ import annotations
 

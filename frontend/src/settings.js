@@ -15,10 +15,18 @@ export const sizes = [
   { key: 19, name: '特大' }
 ]
 
+export const stealthModes = [
+  { key: 'off', name: '不遮掩', hint: '正常显示' },
+  { key: 'blur', name: '模糊', hint: '整页虚化 + 锁屏提示' },
+  { key: 'fake', name: '伪装页', hint: '换成一页运维文档' }
+]
+
 export const settings = reactive({
   theme: 'dark',
   size: 15,
-  motion: true
+  motion: true,
+  stealthMode: 'blur',
+  stealthAuto: true
 })
 
 function load() {
@@ -29,6 +37,8 @@ function load() {
     if (themes.some(t => t.key === saved.theme)) settings.theme = saved.theme
     if (sizes.some(s => s.key === saved.size)) settings.size = saved.size
     if (typeof saved.motion === 'boolean') settings.motion = saved.motion
+    if (stealthModes.some(s => s.key === saved.stealthMode)) settings.stealthMode = saved.stealthMode
+    if (typeof saved.stealthAuto === 'boolean') settings.stealthAuto = saved.stealthAuto
   } catch (e) { /* 忽略坏数据 */ }
 }
 
@@ -43,6 +53,8 @@ export function resetSettings() {
   settings.theme = 'dark'
   settings.size = 15
   settings.motion = true
+  settings.stealthMode = 'blur'
+  settings.stealthAuto = true
 }
 
 export function initSettings() {

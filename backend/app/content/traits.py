@@ -1,8 +1,13 @@
-"""人物特性（从 content/traits.json 读）。
+"""特性数据加载器。
 
-特性分甲/乙/丙/丁四级，等级越高越稀缺。
-effect 的键要和 engine/sheet.py 里的算法对上。
+职责：
+    读特性表，提供按等级取用与随机抽取。
+为什么需要：
+    特性会被事件赋予、被角色卡计算，键名必须与 sheet 的算法对齐。
+上下游：
+    上游：data/content/traits.json；下游：engine/sheet、engine/npc。
 """
+
 
 from __future__ import annotations
 

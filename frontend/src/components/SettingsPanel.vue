@@ -1,5 +1,11 @@
 <script setup>
-import { settings, themes, sizes, resetSettings } from '../settings'
+/**
+ * 设置面板：页面风格、字号、动效、遮掩。
+ *
+ * 所有设置都存在 localStorage（见 settings.js），关掉页面再打开仍然有效。
+ */
+import { settings, stealthModes, sizes, themes, resetSettings } from '../settings'
+import { HOTKEY_LABEL, cover } from '../stealth'
 
 defineEmits(['close'])
 </script>
@@ -50,6 +56,33 @@ defineEmits(['close'])
           <input type="checkbox" v-model="settings.motion" />
           <span>页面切换与按钮动效</span>
         </label>
+      </section>
+
+      <section>
+        <h3>遮掩</h3>
+        <div class="lede" style="margin-bottom:8px;font-size:12px">
+          工位上有人过来时，一键把页面盖住。快捷键 <b>{{ HOTKEY_LABEL }}</b>，<b>Esc</b> 恢复。
+        </div>
+        <div class="theme-grid">
+          <button
+            v-for="m in stealthModes"
+            :key="m.key"
+            class="theme-card"
+            :class="{ on: settings.stealthMode === m.key }"
+            @click="settings.stealthMode = m.key"
+          >
+            <span class="swatch" :class="'sw-' + m.key"></span>
+            <b>{{ m.name }}</b>
+            <em>{{ m.hint }}</em>
+          </button>
+        </div>
+        <label class="switch" style="margin-top:10px">
+          <input type="checkbox" v-model="settings.stealthAuto" />
+          <span>切到别的窗口时自动遮掩</span>
+        </label>
+        <div class="tag-list" style="margin-top:10px">
+          <button :disabled="settings.stealthMode === 'off'" @click="cover">现在遮掩一次</button>
+        </div>
       </section>
 
       <div class="hr"></div>
