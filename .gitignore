@@ -18,3 +18,8 @@ frontend/node_modules/
 frontend/dist/
 frontend/shots/
 .start-test.*
+# 运行时数据库
+backend/data/*.db
+backend/data/*.db-wal
+backend/data/*.db-shm
+backend/.uvicorn.err

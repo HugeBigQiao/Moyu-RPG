@@ -19,9 +19,9 @@ from sqlalchemy import desc, func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from .config import FRONTEND_DIST, ROOT, settings
-from .content import (bestiary, events as events_mod, missions as missions_mod,
-                      scenario as scenario_mod, shop, spirits, talismans,
-                      traits as traits_mod, world)
+from .content import (bestiary, equipment as equipment_mod, events as events_mod,
+                      missions as missions_mod, scenario as scenario_mod, shop,
+                      spirits, talismans, traits as traits_mod, world)
 from .db import get_db, init_models
 from .engine import gacha, mission as mission_engine, npc, progress, sheet
 from .engine.dice import Roller, new_seed
@@ -209,6 +209,20 @@ async def api_roster(db: AsyncSession = Depends(get_db)):
 
 # ---------------------------------------------------------------- 世界层
 
+def _city_payload(city: dict) -> dict:
+    lat, lon = world.geo_of(city["id"])
+    return {
+        **city,
+        "lat": lat,
+        "lon": lon,
+        "tier_name": world.TIER_BY_KEY[city["tier"]]["name"],
+        "max_events": world.max_events(city["id"]),
+        "industry_names": [world.industry_name(i) for i in city["industries"]],
+        "nation_name": world.NATION_BY_ID.get(city["nation"], {}).get("name", city["nation"]),
+        "factions": world.factions_of(city["id"]),
+    }
+
+
 @app.get("/api/world")
 async def api_world():
     return {
@@ -217,14 +231,79 @@ async def api_world():
         "agencies": world.AGENCIES,
         "figures": world.FIGURES,
         "industries": world.INDUSTRIES,
+        "lore": world.LORE,
         "tiers": world.CITY_TIERS,
-        "cities": [{
-            **city,
+        "cities": [_city_payload(city) for city in world.CITIES],
+    }
+
+
+@app.get("/api/equipment")
+async def api_equipment():
+    return {
+        "equipment": [{
+            **item,
+            "grade_name": equipment_mod.GRADE_INFO.get(item["grade"], "?"),
+        } for item in equipment_mod.EQUIPMENT],
+        "kinds": ["法器", "阴器", "耗材", "护具"],
+    }
+
+
+@app.get("/api/traits")
+async def api_traits():
+    return {
+        "traits": [{"name": name, **spec,
+                    "tier_name": traits_mod.TRAIT_TIERS[spec["tier"]]["name"]}
+                   for name, spec in traits_mod.TRAITS.items()],
+        "tiers": traits_mod.TRAIT_TIERS,
+    }
+
+
+@app.get("/api/game/map")
+async def api_game_map(db: AsyncSession = Depends(get_db)):
+    rows = (await db.execute(
+        select(Character.city, func.count(Character.id)).group_by(Character.city)
+    )).all()
+    people = {city: count for city, count in rows}
+
+    out = []
+    for city in world.CITIES:
+        lat, lon = world.geo_of(city["id"])
+        fixed = [m for m in missions_mod.MISSIONS if city["id"] in m.get("cities", [])]
+        out.append({
+            "id": city["id"],
+            "name": city["name"],
+            "tier": city["tier"],
             "tier_name": world.TIER_BY_KEY[city["tier"]]["name"],
-            "max_events": world.max_events(city["id"]),
-            "industry_names": [world.industry_name(i) for i in city["industries"]],
-            "nation_name": world.NATION_BY_ID.get(city["nation"], {}).get("name", city["nation"]),
-        } for city in world.CITIES],
+            "nation": city["nation"],
+            "lat": lat,
+            "lon": lon,
+            "people": people.get(city["id"], 0),
+            "missions": len(fixed),
+            "factions": len(world.factions_of(city["id"])),
+        })
+    return {"cities": out}
+
+
+@app.get("/api/game/city/{city_id}")
+async def api_game_city(city_id: str, db: AsyncSession = Depends(get_db)):
+    city = world.CITY_BY_ID.get(city_id)
+    if not city:
+        raise HTTPException(404, "没有这个城市")
+
+    people = (await db.execute(
+        select(Character).where(Character.city == city_id)
+        .order_by(desc(Character.difficulty)).limit(8)
+    )).scalars().all()
+
+    fixed = [m for m in missions_mod.MISSIONS if city_id in m.get("cities", [])]
+    samples = mission_engine.preview(city_id, 3)
+
+    return {
+        "city": _city_payload(city),
+        "missions": fixed,
+        "random_missions": samples,
+        "people": [_brief(p) for p in people],
+        "factions": world.factions_of(city_id),
     }
 
 

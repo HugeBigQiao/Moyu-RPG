@@ -126,7 +126,33 @@ if (-not $node -or -not $npm) {
 }
 
 # ------------------------------------------------------------------ 2. 数据库
-Write-Step 2 '检查 PostgreSQL'
+Write-Step 2 '检查数据库'
+
+# 先看配置里用的是哪种库：SQLite（默认）/ PostgreSQL / MySQL
+$dbUrl = 'sqlite+aiosqlite:///./data/moyu.db'
+$envFileProbe = Join-Path $Backend '.env'
+if (Test-Path $envFileProbe) {
+    $probe = Select-String -Path $envFileProbe -Pattern '^\s*MOYU_DATABASE_URL\s*=\s*(.+)$' -ErrorAction SilentlyContinue |
+             Select-Object -First 1
+    if ($probe) { $dbUrl = $probe.Matches[0].Groups[1].Value.Trim() }
+}
+
+$sqliteMode = $dbUrl -like 'sqlite*'
+if ($sqliteMode) {
+    $dataDir = Join-Path $Backend 'data'
+    if (-not (Test-Path $dataDir)) { New-Item -ItemType Directory -Force -Path $dataDir | Out-Null }
+    $dbFile = ($dbUrl -replace '^sqlite[^:]*:///+', '') -replace '/', '\'
+    if (-not [System.IO.Path]::IsPathRooted($dbFile)) { $dbFile = Join-Path $Backend $dbFile }
+    if (Test-Path $dbFile) {
+        $sizeKb = [math]::Round((Get-Item $dbFile).Length / 1KB, 1)
+        Write-Ok ("SQLite  {0}  ({1} KB)" -f $dbFile, $sizeKb)
+    } else {
+        Write-Ok ("SQLite  首次运行，将新建 {0}" -f $dbFile)
+    }
+} else {
+    Write-Ok ("方言 {0}" -f ($dbUrl -split ':')[0])
+}
+
 $dbHost = '127.0.0.1'
 $dbPort = 5432
 $dbUser = 'postgres'
@@ -152,6 +178,8 @@ if (Test-Path $envFile) {
 
 if ($SkipDb) {
     Write-Warn2 '按参数跳过数据库检查'
+} elseif ($sqliteMode) {
+    # SQLite 不需要起服务、不需要建库，上面已经确认过目录和文件
 } else {
     $listening = $false
     try {

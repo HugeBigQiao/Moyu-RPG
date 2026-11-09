@@ -1,26 +1,24 @@
 <script setup>
-import { computed } from 'vue'
-import { useRoute } from 'vue-router'
-import SideNav from './components/SideNav.vue'
+import { onMounted, ref } from 'vue'
 import TopBar from './components/TopBar.vue'
+import SettingsPanel from './components/SettingsPanel.vue'
 import { flash } from './flash'
+import { initSettings } from './settings'
 
-const route = useRoute()
-const crumb = computed(() => route.meta.crumb || '总览 / dashboard')
+const showSettings = ref(false)
+onMounted(initSettings)
 </script>
 
 <template>
-  <SideNav :active="route.meta.nav" />
-  <main>
-    <TopBar :crumb="crumb" />
-    <section class="content">
-      <router-view v-slot="{ Component }">
-        <transition name="fade" mode="out-in">
-          <component :is="Component" />
-        </transition>
-      </router-view>
-    </section>
-  </main>
+  <TopBar @settings="showSettings = true" />
+
+  <router-view v-slot="{ Component }">
+    <transition name="fade" mode="out-in">
+      <component :is="Component" />
+    </transition>
+  </router-view>
+
+  <SettingsPanel v-if="showSettings" @close="showSettings = false" />
 
   <transition name="fade">
     <div v-if="flash.msg" class="toast" :class="flash.level">{{ flash.msg }}</div>

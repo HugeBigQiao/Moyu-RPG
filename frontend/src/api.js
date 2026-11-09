@@ -14,37 +14,35 @@ async function req(path, opts = {}) {
   return data
 }
 
+const post = (path, body) =>
+  req(path, { method: 'POST', body: JSON.stringify(body || {}) })
+
 export const api = {
-  dashboard: () => req('/dashboard'),
-  roster: () => req('/roster'),
+  // 档案
   world: () => req('/world'),
   events: () => req('/events'),
   missions: () => req('/missions'),
+  equipment: () => req('/equipment'),
+  traits: () => req('/traits'),
+
+  // 人物
+  roster: () => req('/roster'),
   character: (id) => req(`/characters/${id}`),
-  rollAttrs: () => req('/characters/roll', { method: 'POST' }),
-  randomMissions: (city, count = 3) =>
-    req(`/missions/random?city=${encodeURIComponent(city)}&count=${count}`),
-  startRandom: (characterId, city) =>
-    req('/sessions/random', {
-      method: 'POST',
-      body: JSON.stringify({ character_id: characterId, city: city || null })
-    }),
-  createPlayer: (payload) => req('/characters', { method: 'POST', body: JSON.stringify(payload) }),
-  npcs: (count, city) =>
-    req('/npcs', { method: 'POST', body: JSON.stringify({ count, city: city || null }) }),
-  promote: (id) => req(`/characters/${id}/promote`, { method: 'POST' }),
-  trial: (id) => req(`/characters/${id}/trial`, { method: 'POST' }),
-  buy: (id, itemId) =>
-    req(`/characters/${id}/buy`, { method: 'POST', body: JSON.stringify({ item_id: itemId }) }),
+  rollAttrs: () => post('/characters/roll'),
+  createPlayer: (payload) => post('/characters', payload),
+  npcs: (count, city) => post('/npcs', { count, city: city || null }),
+  promote: (id) => post(`/characters/${id}/promote`),
+  trial: (id) => post(`/characters/${id}/trial`),
+  buy: (id, itemId) => post(`/characters/${id}/buy`, { item_id: itemId }),
   remove: (id) => req(`/characters/${id}`, { method: 'DELETE' }),
-  gacha: (count) => req('/gacha', { method: 'POST', body: JSON.stringify({ count }) }),
-  scenarios: () => req('/scenarios'),
+
+  // 游戏
+  gameMap: () => req('/game/map'),
+  gameCity: (id) => req(`/game/city/${id}`),
   startSession: (characterId, scenarioId) =>
-    req('/sessions', {
-      method: 'POST',
-      body: JSON.stringify({ character_id: characterId, scenario_id: scenarioId })
-    }),
+    post('/sessions', { character_id: characterId, scenario_id: scenarioId }),
+  startRandom: (characterId, city) =>
+    post('/sessions/random', { character_id: characterId, city: city || null }),
   session: (id) => req(`/sessions/${id}`),
-  act: (id, action) =>
-    req(`/sessions/${id}/act`, { method: 'POST', body: JSON.stringify({ action }) })
+  act: (id, action) => post(`/sessions/${id}/act`, { action })
 }

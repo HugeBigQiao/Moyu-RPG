@@ -3,17 +3,25 @@
 只存「会变的东西」：角色卡、局、日志。
 符箓、祟物、英灵、剧本都是代码里的内容库（app/content/*），
 不进库 —— 它们是需要版本管理的内容，不是运行期数据。
+
+数据库三方言兼容：
+    默认 SQLite（backend/data/moyu.db），也支持 PostgreSQL / MySQL。
+    所以这里一律用 JSON 而不是 JSONB —— PG 下用 variant 换成 JSONB 保性能，
+    另外两个方言老老实实存 JSON。
 """
 
 from __future__ import annotations
 
 import datetime as dt
 
-from sqlalchemy import Boolean, DateTime, ForeignKey, Integer, String, Text, func
+from sqlalchemy import JSON, Boolean, DateTime, ForeignKey, Integer, String, Text, func
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from .db import Base
+
+# PG 用 JSONB，SQLite / MySQL 用 JSON
+JSONType = JSON().with_variant(JSONB(), "postgresql")
 
 
 def _now() -> dt.datetime:
@@ -33,16 +41,16 @@ class Character(Base):
     rarity: Mapped[str] = mapped_column(String(8), index=True)
     rank: Mapped[str] = mapped_column(String(8), default="初真")
     merit: Mapped[int] = mapped_column(Integer, default=0)
-    attrs: Mapped[dict] = mapped_column(JSONB, default=dict)
-    traits: Mapped[list] = mapped_column(JSONB, default=list)
-    approval: Mapped[dict] = mapped_column(JSONB, default=dict)
+    attrs: Mapped[dict] = mapped_column(JSONType, default=dict)
+    traits: Mapped[list] = mapped_column(JSONType, default=list)
+    approval: Mapped[dict] = mapped_column(JSONType, default=dict)
     notes: Mapped[str] = mapped_column(Text, default="")
     seed: Mapped[str] = mapped_column(String(32), default="")
 
     # ---- 世界层：这个人从哪来、身上带着什么事件 ----
     kind: Mapped[str] = mapped_column(String(8), default="npc", index=True)  # player / npc
     city: Mapped[str] = mapped_column(String(16), default="nanyu", index=True)
-    events: Mapped[list] = mapped_column(JSONB, default=list)
+    events: Mapped[list] = mapped_column(JSONType, default=list)
     mission: Mapped[str | None] = mapped_column(String(24), nullable=True)
     difficulty: Mapped[int] = mapped_column(Integer, default=1)
     reward: Mapped[int] = mapped_column(Integer, default=5)
@@ -53,8 +61,8 @@ class Character(Base):
     karma_debt: Mapped[int] = mapped_column(Integer, default=0)
     mind_trial_passed: Mapped[bool] = mapped_column(Boolean, default=False)
     trial_attempts: Mapped[int] = mapped_column(Integer, default=0)
-    items: Mapped[list] = mapped_column(JSONB, default=list)
-    ascensions: Mapped[list] = mapped_column(JSONB, default=list)
+    items: Mapped[list] = mapped_column(JSONType, default=list)
+    ascensions: Mapped[list] = mapped_column(JSONType, default=list)
 
     created_at: Mapped[dt.datetime] = mapped_column(DateTime(timezone=True), default=_now)
 
@@ -69,7 +77,7 @@ class PlaySession(Base):
     character_id: Mapped[int] = mapped_column(ForeignKey("characters.id", ondelete="CASCADE"))
     scenario_id: Mapped[str] = mapped_column(String(24), index=True)
     status: Mapped[str] = mapped_column(String(12), default="active", index=True)
-    state: Mapped[dict] = mapped_column(JSONB, default=dict)
+    state: Mapped[dict] = mapped_column(JSONType, default=dict)
     seed: Mapped[str] = mapped_column(String(32), default="")
     created_at: Mapped[dt.datetime] = mapped_column(DateTime(timezone=True), default=_now)
     updated_at: Mapped[dt.datetime] = mapped_column(
@@ -95,7 +103,7 @@ class LogEntry(Base):
     kind: Mapped[str] = mapped_column(String(16), default="info")
     severity: Mapped[str] = mapped_column(String(8), default="info")
     text: Mapped[str] = mapped_column(Text)
-    payload: Mapped[dict] = mapped_column(JSONB, default=dict)
+    payload: Mapped[dict] = mapped_column(JSONType, default=dict)
     created_at: Mapped[dt.datetime] = mapped_column(DateTime(timezone=True), default=_now)
 
     session: Mapped[PlaySession] = relationship(back_populates="logs")

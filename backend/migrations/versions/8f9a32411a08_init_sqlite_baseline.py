@@ -1,8 +1,8 @@
-"""init characters sessions logs
+"""init sqlite baseline
 
-Revision ID: 3b0ebec162d3
+Revision ID: 8f9a32411a08
 Revises: 
-Create Date: 2026-11-04 13:42:03.071319
+Create Date: 2026-11-09 13:56:15.667609
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 from sqlalchemy.dialects import postgresql
 
 # revision identifiers, used by Alembic.
-revision: str = '3b0ebec162d3'
+revision: str = '8f9a32411a08'
 down_revision: Union[str, Sequence[str], None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -30,15 +30,30 @@ def upgrade() -> None:
     sa.Column('rarity', sa.String(length=8), nullable=False),
     sa.Column('rank', sa.String(length=8), nullable=False),
     sa.Column('merit', sa.Integer(), nullable=False),
-    sa.Column('attrs', postgresql.JSONB(astext_type=sa.Text()), nullable=False),
-    sa.Column('traits', postgresql.JSONB(astext_type=sa.Text()), nullable=False),
-    sa.Column('approval', postgresql.JSONB(astext_type=sa.Text()), nullable=False),
+    sa.Column('attrs', sa.JSON().with_variant(postgresql.JSONB(astext_type=sa.Text()), 'postgresql'), nullable=False),
+    sa.Column('traits', sa.JSON().with_variant(postgresql.JSONB(astext_type=sa.Text()), 'postgresql'), nullable=False),
+    sa.Column('approval', sa.JSON().with_variant(postgresql.JSONB(astext_type=sa.Text()), 'postgresql'), nullable=False),
     sa.Column('notes', sa.Text(), nullable=False),
     sa.Column('seed', sa.String(length=32), nullable=False),
+    sa.Column('kind', sa.String(length=8), nullable=False),
+    sa.Column('city', sa.String(length=16), nullable=False),
+    sa.Column('events', sa.JSON().with_variant(postgresql.JSONB(astext_type=sa.Text()), 'postgresql'), nullable=False),
+    sa.Column('mission', sa.String(length=24), nullable=True),
+    sa.Column('difficulty', sa.Integer(), nullable=False),
+    sa.Column('reward', sa.Integer(), nullable=False),
+    sa.Column('completed_sessions', sa.Integer(), nullable=False),
+    sa.Column('karma_good', sa.Integer(), nullable=False),
+    sa.Column('karma_debt', sa.Integer(), nullable=False),
+    sa.Column('mind_trial_passed', sa.Boolean(), nullable=False),
+    sa.Column('trial_attempts', sa.Integer(), nullable=False),
+    sa.Column('items', sa.JSON().with_variant(postgresql.JSONB(astext_type=sa.Text()), 'postgresql'), nullable=False),
+    sa.Column('ascensions', sa.JSON().with_variant(postgresql.JSONB(astext_type=sa.Text()), 'postgresql'), nullable=False),
     sa.Column('created_at', sa.DateTime(timezone=True), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
+    op.create_index(op.f('ix_characters_city'), 'characters', ['city'], unique=False)
     op.create_index(op.f('ix_characters_code'), 'characters', ['code'], unique=True)
+    op.create_index(op.f('ix_characters_kind'), 'characters', ['kind'], unique=False)
     op.create_index(op.f('ix_characters_rarity'), 'characters', ['rarity'], unique=False)
     op.create_index(op.f('ix_characters_school'), 'characters', ['school'], unique=False)
     op.create_table('sessions',
@@ -47,7 +62,7 @@ def upgrade() -> None:
     sa.Column('character_id', sa.Integer(), nullable=False),
     sa.Column('scenario_id', sa.String(length=24), nullable=False),
     sa.Column('status', sa.String(length=12), nullable=False),
-    sa.Column('state', postgresql.JSONB(astext_type=sa.Text()), nullable=False),
+    sa.Column('state', sa.JSON().with_variant(postgresql.JSONB(astext_type=sa.Text()), 'postgresql'), nullable=False),
     sa.Column('seed', sa.String(length=32), nullable=False),
     sa.Column('created_at', sa.DateTime(timezone=True), nullable=False),
     sa.Column('updated_at', sa.DateTime(timezone=True), nullable=False),
@@ -64,7 +79,7 @@ def upgrade() -> None:
     sa.Column('kind', sa.String(length=16), nullable=False),
     sa.Column('severity', sa.String(length=8), nullable=False),
     sa.Column('text', sa.Text(), nullable=False),
-    sa.Column('payload', postgresql.JSONB(astext_type=sa.Text()), nullable=False),
+    sa.Column('payload', sa.JSON().with_variant(postgresql.JSONB(astext_type=sa.Text()), 'postgresql'), nullable=False),
     sa.Column('created_at', sa.DateTime(timezone=True), nullable=False),
     sa.ForeignKeyConstraint(['session_id'], ['sessions.id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id')
@@ -84,6 +99,8 @@ def downgrade() -> None:
     op.drop_table('sessions')
     op.drop_index(op.f('ix_characters_school'), table_name='characters')
     op.drop_index(op.f('ix_characters_rarity'), table_name='characters')
+    op.drop_index(op.f('ix_characters_kind'), table_name='characters')
     op.drop_index(op.f('ix_characters_code'), table_name='characters')
+    op.drop_index(op.f('ix_characters_city'), table_name='characters')
     op.drop_table('characters')
     # ### end Alembic commands ###
