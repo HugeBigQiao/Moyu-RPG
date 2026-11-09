@@ -23,6 +23,32 @@ docs/         世界观设定档（可改）
 
 ## 快速开始
 
+### 一键启动（Windows）
+
+双击 **`start.bat`** 就行。也可以直接跑脚本：
+
+```powershell
+.\start.ps1                 # 默认 8770，自动开浏览器
+.\start.ps1 -Port 9000      # 换端口
+.\start.ps1 -NoBrowser      # 不开浏览器（服务器/测试用）
+.\start.ps1 -Rebuild        # 强制重新构建前端
+.\start.ps1 -SkipDb         # 跳过数据库检查
+```
+
+它按顺序做六件事，任何一步失败都会停下来说清楚原因：
+
+1. 查工具链（uv / node，缺了会给安装命令）
+2. 查 PostgreSQL 通不通，库不存在就建（口令从 `backend/.env` 里读）
+3. `uv sync` 同步后端依赖
+4. `alembic upgrade head` 应用迁移
+5. 前端没有 `dist/` 就 `npm install && npm run build`
+6. 启动服务，等健康检查通过后开浏览器
+
+**重复启动是安全的**：端口上已经有服务，就直接开浏览器退出；依赖装过、表是最新的都会跳过。
+按 `Ctrl+C` 停止服务。
+
+### 从零手动装
+
 ```powershell
 # 0. 数据库（本机 PG，口令 123456）
 $env:PGPASSWORD='123456'
