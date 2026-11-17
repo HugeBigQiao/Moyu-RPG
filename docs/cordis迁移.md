@@ -253,12 +253,13 @@ PoC 结论：**不要用 `@cordisjs/plugin-server@1.7.0`。**
 
 ### P0 冻结契约（0.5 人日）
 
-- 从 Python 生成 golden fixtures：
-  - 20 个种子 × 完整一局的行动序列（含战斗/抉择/结算）的事件流；
-  - 30 个接口的响应 JSON（固定数据库副本，剔除时间戳）；
-  - 11 类档案的新增/修改/删除校验结果。
+- 从 Python 生成引擎 golden fixtures：
+  - 35 局完整行动序列（含战斗/画符/结界/请神/抉择/结算）的事件流；
+  - PRNG（字符串种子 + int 种子 + 舍入）、检定、五行、20 张角色卡。
 - 落盘到 `server/test/fixtures/`，作为后续每个阶段的验收依据。
-- 产物：`scripts/export_golden.py` + fixtures；运行时不改。
+- 产物：`server/scripts/export_golden.py` + fixtures；运行时不改。
+- 30 个接口的响应契约留到 P6 开始时冻结：它依赖固定数据库副本与运行中的服务，
+  与引擎对拍分开做，避免 P0 被数据库状态拖住。
 
 ### P1 骨架（0.5–1 人日）
 
