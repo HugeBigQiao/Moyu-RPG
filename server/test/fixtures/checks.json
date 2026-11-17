@@ -1,0 +1,1082 @@
+[
+ {
+  "seed": "|check-0-0",
+  "skill": "侦查",
+  "value": 5,
+  "modifier": -20,
+  "result": {
+   "skill": "侦查",
+   "target": 1,
+   "roll": 56,
+   "level": "失败",
+   "success": false,
+   "modifier": -20,
+   "note": ""
+  },
+  "text": "【侦查】56 / 目标 1（-20）→ 失败",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     56
+    ],
+    "modifier": 0,
+    "total": 56,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "|check-0-1",
+  "skill": "符咒学",
+  "value": 23,
+  "modifier": -20,
+  "result": {
+   "skill": "符咒学",
+   "target": 3,
+   "roll": 52,
+   "level": "失败",
+   "success": false,
+   "modifier": -20,
+   "note": ""
+  },
+  "text": "【符咒学】52 / 目标 3（-20）→ 失败",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     52
+    ],
+    "modifier": 0,
+    "total": 52,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "|check-0-2",
+  "skill": "体术",
+  "value": 47,
+  "modifier": -20,
+  "result": {
+   "skill": "体术",
+   "target": 27,
+   "roll": 16,
+   "level": "困难成功",
+   "success": true,
+   "modifier": -20,
+   "note": ""
+  },
+  "text": "【体术】16 / 目标 27（-20）→ 困难成功",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     16
+    ],
+    "modifier": 0,
+    "total": 16,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "|check-0-3",
+  "skill": "身法",
+  "value": 60,
+  "modifier": -20,
+  "result": {
+   "skill": "身法",
+   "target": 40,
+   "roll": 19,
+   "level": "极难成功",
+   "success": true,
+   "modifier": -20,
+   "note": ""
+  },
+  "text": "【身法】19 / 目标 40（-20）→ 极难成功",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     19
+    ],
+    "modifier": 0,
+    "total": 19,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "|check-0-4",
+  "skill": "精神抵抗",
+  "value": 88,
+  "modifier": -20,
+  "result": {
+   "skill": "精神抵抗",
+   "target": 68,
+   "roll": 22,
+   "level": "极难成功",
+   "success": true,
+   "modifier": -20,
+   "note": ""
+  },
+  "text": "【精神抵抗】22 / 目标 68（-20）→ 极难成功",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     22
+    ],
+    "modifier": 0,
+    "total": 22,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "abc|check-1-0",
+  "skill": "侦查",
+  "value": 5,
+  "modifier": 0,
+  "result": {
+   "skill": "侦查",
+   "target": 5,
+   "roll": 83,
+   "level": "失败",
+   "success": false,
+   "modifier": 0,
+   "note": ""
+  },
+  "text": "【侦查】83 / 目标 5（+0）→ 失败",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     83
+    ],
+    "modifier": 0,
+    "total": 83,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "abc|check-1-1",
+  "skill": "符咒学",
+  "value": 23,
+  "modifier": 0,
+  "result": {
+   "skill": "符咒学",
+   "target": 23,
+   "roll": 73,
+   "level": "失败",
+   "success": false,
+   "modifier": 0,
+   "note": ""
+  },
+  "text": "【符咒学】73 / 目标 23（+0）→ 失败",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     73
+    ],
+    "modifier": 0,
+    "total": 73,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "abc|check-1-2",
+  "skill": "体术",
+  "value": 47,
+  "modifier": 0,
+  "result": {
+   "skill": "体术",
+   "target": 47,
+   "roll": 44,
+   "level": "困难成功",
+   "success": true,
+   "modifier": 0,
+   "note": ""
+  },
+  "text": "【体术】44 / 目标 47（+0）→ 困难成功",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     44
+    ],
+    "modifier": 0,
+    "total": 44,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "abc|check-1-3",
+  "skill": "身法",
+  "value": 60,
+  "modifier": 0,
+  "result": {
+   "skill": "身法",
+   "target": 60,
+   "roll": 74,
+   "level": "失败",
+   "success": false,
+   "modifier": 0,
+   "note": ""
+  },
+  "text": "【身法】74 / 目标 60（+0）→ 失败",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     74
+    ],
+    "modifier": 0,
+    "total": 74,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "abc|check-1-4",
+  "skill": "精神抵抗",
+  "value": 88,
+  "modifier": 0,
+  "result": {
+   "skill": "精神抵抗",
+   "target": 88,
+   "roll": 74,
+   "level": "困难成功",
+   "success": true,
+   "modifier": 0,
+   "note": ""
+  },
+  "text": "【精神抵抗】74 / 目标 88（+0）→ 困难成功",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     74
+    ],
+    "modifier": 0,
+    "total": 74,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "mirror|check-2-0",
+  "skill": "侦查",
+  "value": 5,
+  "modifier": 15,
+  "result": {
+   "skill": "侦查",
+   "target": 20,
+   "roll": 50,
+   "level": "失败",
+   "success": false,
+   "modifier": 15,
+   "note": ""
+  },
+  "text": "【侦查】50 / 目标 20（+15）→ 失败",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     50
+    ],
+    "modifier": 0,
+    "total": 50,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "mirror|check-2-1",
+  "skill": "符咒学",
+  "value": 23,
+  "modifier": 15,
+  "result": {
+   "skill": "符咒学",
+   "target": 38,
+   "roll": 100,
+   "level": "大失败",
+   "success": false,
+   "modifier": 15,
+   "note": ""
+  },
+  "text": "【符咒学】100 / 目标 38（+15）→ 大失败",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     100
+    ],
+    "modifier": 0,
+    "total": 100,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "mirror|check-2-2",
+  "skill": "体术",
+  "value": 47,
+  "modifier": 15,
+  "result": {
+   "skill": "体术",
+   "target": 62,
+   "roll": 61,
+   "level": "困难成功",
+   "success": true,
+   "modifier": 15,
+   "note": ""
+  },
+  "text": "【体术】61 / 目标 62（+15）→ 困难成功",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     61
+    ],
+    "modifier": 0,
+    "total": 61,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "mirror|check-2-3",
+  "skill": "身法",
+  "value": 60,
+  "modifier": 15,
+  "result": {
+   "skill": "身法",
+   "target": 75,
+   "roll": 39,
+   "level": "困难成功",
+   "success": true,
+   "modifier": 15,
+   "note": ""
+  },
+  "text": "【身法】39 / 目标 75（+15）→ 困难成功",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     39
+    ],
+    "modifier": 0,
+    "total": 39,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "mirror|check-2-4",
+  "skill": "精神抵抗",
+  "value": 88,
+  "modifier": 15,
+  "result": {
+   "skill": "精神抵抗",
+   "target": 99,
+   "roll": 81,
+   "level": "困难成功",
+   "success": true,
+   "modifier": 15,
+   "note": ""
+  },
+  "text": "【精神抵抗】81 / 目标 99（+15）→ 困难成功",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     81
+    ],
+    "modifier": 0,
+    "total": 81,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "gen-nanyu-1a2b3c4d|check-3-0",
+  "skill": "侦查",
+  "value": 5,
+  "modifier": -20,
+  "result": {
+   "skill": "侦查",
+   "target": 1,
+   "roll": 29,
+   "level": "失败",
+   "success": false,
+   "modifier": -20,
+   "note": ""
+  },
+  "text": "【侦查】29 / 目标 1（-20）→ 失败",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     29
+    ],
+    "modifier": 0,
+    "total": 29,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "gen-nanyu-1a2b3c4d|check-3-1",
+  "skill": "符咒学",
+  "value": 23,
+  "modifier": -20,
+  "result": {
+   "skill": "符咒学",
+   "target": 3,
+   "roll": 13,
+   "level": "失败",
+   "success": false,
+   "modifier": -20,
+   "note": ""
+  },
+  "text": "【符咒学】13 / 目标 3（-20）→ 失败",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     13
+    ],
+    "modifier": 0,
+    "total": 13,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "gen-nanyu-1a2b3c4d|check-3-2",
+  "skill": "体术",
+  "value": 47,
+  "modifier": -20,
+  "result": {
+   "skill": "体术",
+   "target": 27,
+   "roll": 50,
+   "level": "失败",
+   "success": false,
+   "modifier": -20,
+   "note": ""
+  },
+  "text": "【体术】50 / 目标 27（-20）→ 失败",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     50
+    ],
+    "modifier": 0,
+    "total": 50,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "gen-nanyu-1a2b3c4d|check-3-3",
+  "skill": "身法",
+  "value": 60,
+  "modifier": -20,
+  "result": {
+   "skill": "身法",
+   "target": 40,
+   "roll": 4,
+   "level": "大成功",
+   "success": true,
+   "modifier": -20,
+   "note": ""
+  },
+  "text": "【身法】4 / 目标 40（-20）→ 大成功",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     4
+    ],
+    "modifier": 0,
+    "total": 4,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "gen-nanyu-1a2b3c4d|check-3-4",
+  "skill": "精神抵抗",
+  "value": 88,
+  "modifier": -20,
+  "result": {
+   "skill": "精神抵抗",
+   "target": 68,
+   "roll": 75,
+   "level": "失败",
+   "success": false,
+   "modifier": -20,
+   "note": ""
+  },
+  "text": "【精神抵抗】75 / 目标 68（-20）→ 失败",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     75
+    ],
+    "modifier": 0,
+    "total": 75,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "trial-1-1|check-4-0",
+  "skill": "侦查",
+  "value": 5,
+  "modifier": 0,
+  "result": {
+   "skill": "侦查",
+   "target": 5,
+   "roll": 64,
+   "level": "失败",
+   "success": false,
+   "modifier": 0,
+   "note": ""
+  },
+  "text": "【侦查】64 / 目标 5（+0）→ 失败",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     64
+    ],
+    "modifier": 0,
+    "total": 64,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "trial-1-1|check-4-1",
+  "skill": "符咒学",
+  "value": 23,
+  "modifier": 0,
+  "result": {
+   "skill": "符咒学",
+   "target": 23,
+   "roll": 82,
+   "level": "失败",
+   "success": false,
+   "modifier": 0,
+   "note": ""
+  },
+  "text": "【符咒学】82 / 目标 23（+0）→ 失败",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     82
+    ],
+    "modifier": 0,
+    "total": 82,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "trial-1-1|check-4-2",
+  "skill": "体术",
+  "value": 47,
+  "modifier": 0,
+  "result": {
+   "skill": "体术",
+   "target": 47,
+   "roll": 27,
+   "level": "困难成功",
+   "success": true,
+   "modifier": 0,
+   "note": ""
+  },
+  "text": "【体术】27 / 目标 47（+0）→ 困难成功",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     27
+    ],
+    "modifier": 0,
+    "total": 27,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "trial-1-1|check-4-3",
+  "skill": "身法",
+  "value": 60,
+  "modifier": 0,
+  "result": {
+   "skill": "身法",
+   "target": 60,
+   "roll": 57,
+   "level": "困难成功",
+   "success": true,
+   "modifier": 0,
+   "note": ""
+  },
+  "text": "【身法】57 / 目标 60（+0）→ 困难成功",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     57
+    ],
+    "modifier": 0,
+    "total": 57,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "trial-1-1|check-4-4",
+  "skill": "精神抵抗",
+  "value": 88,
+  "modifier": 0,
+  "result": {
+   "skill": "精神抵抗",
+   "target": 88,
+   "roll": 24,
+   "level": "极难成功",
+   "success": true,
+   "modifier": 0,
+   "note": ""
+  },
+  "text": "【精神抵抗】24 / 目标 88（+0）→ 极难成功",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     24
+    ],
+    "modifier": 0,
+    "total": 24,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "nanyu|7919|check-5-0",
+  "skill": "侦查",
+  "value": 5,
+  "modifier": 15,
+  "result": {
+   "skill": "侦查",
+   "target": 20,
+   "roll": 86,
+   "level": "失败",
+   "success": false,
+   "modifier": 15,
+   "note": ""
+  },
+  "text": "【侦查】86 / 目标 20（+15）→ 失败",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     86
+    ],
+    "modifier": 0,
+    "total": 86,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "nanyu|7919|check-5-1",
+  "skill": "符咒学",
+  "value": 23,
+  "modifier": 15,
+  "result": {
+   "skill": "符咒学",
+   "target": 38,
+   "roll": 66,
+   "level": "失败",
+   "success": false,
+   "modifier": 15,
+   "note": ""
+  },
+  "text": "【符咒学】66 / 目标 38（+15）→ 失败",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     66
+    ],
+    "modifier": 0,
+    "total": 66,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "nanyu|7919|check-5-2",
+  "skill": "体术",
+  "value": 47,
+  "modifier": 15,
+  "result": {
+   "skill": "体术",
+   "target": 62,
+   "roll": 35,
+   "level": "困难成功",
+   "success": true,
+   "modifier": 15,
+   "note": ""
+  },
+  "text": "【体术】35 / 目标 62（+15）→ 困难成功",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     35
+    ],
+    "modifier": 0,
+    "total": 35,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "nanyu|7919|check-5-3",
+  "skill": "身法",
+  "value": 60,
+  "modifier": 15,
+  "result": {
+   "skill": "身法",
+   "target": 75,
+   "roll": 3,
+   "level": "大成功",
+   "success": true,
+   "modifier": 15,
+   "note": ""
+  },
+  "text": "【身法】3 / 目标 75（+15）→ 大成功",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     3
+    ],
+    "modifier": 0,
+    "total": 3,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "nanyu|7919|check-5-4",
+  "skill": "精神抵抗",
+  "value": 88,
+  "modifier": 15,
+  "result": {
+   "skill": "精神抵抗",
+   "target": 99,
+   "roll": 53,
+   "level": "困难成功",
+   "success": true,
+   "modifier": 15,
+   "note": ""
+  },
+  "text": "【精神抵抗】53 / 目标 99（+15）→ 困难成功",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     53
+    ],
+    "modifier": 0,
+    "total": 53,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa|check-6-0",
+  "skill": "侦查",
+  "value": 5,
+  "modifier": -20,
+  "result": {
+   "skill": "侦查",
+   "target": 1,
+   "roll": 60,
+   "level": "失败",
+   "success": false,
+   "modifier": -20,
+   "note": ""
+  },
+  "text": "【侦查】60 / 目标 1（-20）→ 失败",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     60
+    ],
+    "modifier": 0,
+    "total": 60,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa|check-6-1",
+  "skill": "符咒学",
+  "value": 23,
+  "modifier": -20,
+  "result": {
+   "skill": "符咒学",
+   "target": 3,
+   "roll": 30,
+   "level": "失败",
+   "success": false,
+   "modifier": -20,
+   "note": ""
+  },
+  "text": "【符咒学】30 / 目标 3（-20）→ 失败",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     30
+    ],
+    "modifier": 0,
+    "total": 30,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa|check-6-2",
+  "skill": "体术",
+  "value": 47,
+  "modifier": -20,
+  "result": {
+   "skill": "体术",
+   "target": 27,
+   "roll": 36,
+   "level": "失败",
+   "success": false,
+   "modifier": -20,
+   "note": ""
+  },
+  "text": "【体术】36 / 目标 27（-20）→ 失败",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     36
+    ],
+    "modifier": 0,
+    "total": 36,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa|check-6-3",
+  "skill": "身法",
+  "value": 60,
+  "modifier": -20,
+  "result": {
+   "skill": "身法",
+   "target": 40,
+   "roll": 50,
+   "level": "失败",
+   "success": false,
+   "modifier": -20,
+   "note": ""
+  },
+  "text": "【身法】50 / 目标 40（-20）→ 失败",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     50
+    ],
+    "modifier": 0,
+    "total": 50,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa|check-6-4",
+  "skill": "精神抵抗",
+  "value": 88,
+  "modifier": -20,
+  "result": {
+   "skill": "精神抵抗",
+   "target": 68,
+   "roll": 76,
+   "level": "失败",
+   "success": false,
+   "modifier": -20,
+   "note": ""
+  },
+  "text": "【精神抵抗】76 / 目标 68（-20）→ 失败",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     76
+    ],
+    "modifier": 0,
+    "total": 76,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "1078112754c0ffee|check-7-0",
+  "skill": "侦查",
+  "value": 5,
+  "modifier": 0,
+  "result": {
+   "skill": "侦查",
+   "target": 5,
+   "roll": 32,
+   "level": "失败",
+   "success": false,
+   "modifier": 0,
+   "note": ""
+  },
+  "text": "【侦查】32 / 目标 5（+0）→ 失败",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     32
+    ],
+    "modifier": 0,
+    "total": 32,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "1078112754c0ffee|check-7-1",
+  "skill": "符咒学",
+  "value": 23,
+  "modifier": 0,
+  "result": {
+   "skill": "符咒学",
+   "target": 23,
+   "roll": 53,
+   "level": "失败",
+   "success": false,
+   "modifier": 0,
+   "note": ""
+  },
+  "text": "【符咒学】53 / 目标 23（+0）→ 失败",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     53
+    ],
+    "modifier": 0,
+    "total": 53,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "1078112754c0ffee|check-7-2",
+  "skill": "体术",
+  "value": 47,
+  "modifier": 0,
+  "result": {
+   "skill": "体术",
+   "target": 47,
+   "roll": 97,
+   "level": "大失败",
+   "success": false,
+   "modifier": 0,
+   "note": ""
+  },
+  "text": "【体术】97 / 目标 47（+0）→ 大失败",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     97
+    ],
+    "modifier": 0,
+    "total": 97,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "1078112754c0ffee|check-7-3",
+  "skill": "身法",
+  "value": 60,
+  "modifier": 0,
+  "result": {
+   "skill": "身法",
+   "target": 60,
+   "roll": 52,
+   "level": "困难成功",
+   "success": true,
+   "modifier": 0,
+   "note": ""
+  },
+  "text": "【身法】52 / 目标 60（+0）→ 困难成功",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     52
+    ],
+    "modifier": 0,
+    "total": 52,
+    "reason": "勘查"
+   }
+  ]
+ },
+ {
+  "seed": "1078112754c0ffee|check-7-4",
+  "skill": "精神抵抗",
+  "value": 88,
+  "modifier": 0,
+  "result": {
+   "skill": "精神抵抗",
+   "target": 88,
+   "roll": 79,
+   "level": "困难成功",
+   "success": true,
+   "modifier": 0,
+   "note": ""
+  },
+  "text": "【精神抵抗】79 / 目标 88（+0）→ 困难成功",
+  "history": [
+   {
+    "notation": "1d100",
+    "rolls": [
+     79
+    ],
+    "modifier": 0,
+    "total": 79,
+    "reason": "勘查"
+   }
+  ]
+ }
+]

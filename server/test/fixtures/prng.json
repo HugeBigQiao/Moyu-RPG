@@ -1,0 +1,6358 @@
+{
+ "string_seeds": [
+  {
+   "seed": "",
+   "d100": [
+    7,
+    71,
+    28,
+    92,
+    3,
+    63,
+    72,
+    92,
+    26,
+    56,
+    20,
+    63
+   ],
+   "d6": [
+    5,
+    5,
+    1,
+    3,
+    4,
+    2,
+    3,
+    4,
+    6,
+    6,
+    1,
+    2
+   ],
+   "randint": [
+    6,
+    5,
+    4,
+    2,
+    6,
+    6,
+    2,
+    2
+   ],
+   "choice": [
+    "a",
+    "c",
+    "d",
+    "d",
+    "c",
+    "a",
+    "c",
+    "e"
+   ],
+   "shuffle": [
+    3,
+    9,
+    5,
+    8,
+    1,
+    2,
+    0,
+    4,
+    7,
+    6
+   ],
+   "sample": [
+    2,
+    30,
+    34,
+    4,
+    10
+   ],
+   "sample_small": [
+    4,
+    3,
+    0,
+    2,
+    1,
+    6
+   ],
+   "chance": [
+    false,
+    false,
+    true,
+    false,
+    true
+   ],
+   "history": [
+    {
+     "notation": "1d100",
+     "rolls": [
+      7
+     ],
+     "modifier": 0,
+     "total": 7,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      71
+     ],
+     "modifier": 0,
+     "total": 71,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      28
+     ],
+     "modifier": 0,
+     "total": 28,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      92
+     ],
+     "modifier": 0,
+     "total": 92,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      63
+     ],
+     "modifier": 0,
+     "total": 63,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      72
+     ],
+     "modifier": 0,
+     "total": 72,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      92
+     ],
+     "modifier": 0,
+     "total": 92,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      26
+     ],
+     "modifier": 0,
+     "total": 26,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      56
+     ],
+     "modifier": 0,
+     "total": 56,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      20
+     ],
+     "modifier": 0,
+     "total": 20,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      63
+     ],
+     "modifier": 0,
+     "total": 63,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      5
+     ],
+     "modifier": 0,
+     "total": 5,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      5
+     ],
+     "modifier": 0,
+     "total": 5,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      1
+     ],
+     "modifier": 0,
+     "total": 1,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      4
+     ],
+     "modifier": 0,
+     "total": 4,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      4
+     ],
+     "modifier": 0,
+     "total": 4,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      6
+     ],
+     "modifier": 0,
+     "total": 6,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      6
+     ],
+     "modifier": 0,
+     "total": 6,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      1
+     ],
+     "modifier": 0,
+     "total": 1,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      6
+     ],
+     "modifier": 0,
+     "total": 6,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      5
+     ],
+     "modifier": 0,
+     "total": 5,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      4
+     ],
+     "modifier": 0,
+     "total": 4,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      6
+     ],
+     "modifier": 0,
+     "total": 6,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      6
+     ],
+     "modifier": 0,
+     "total": 6,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      0
+     ],
+     "modifier": 0,
+     "total": 0,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      0
+     ],
+     "modifier": 0,
+     "total": 0,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      4
+     ],
+     "modifier": 0,
+     "total": 4,
+     "reason": ""
+    },
+    {
+     "notation": "shuffle",
+     "rolls": [
+      0
+     ],
+     "modifier": 0,
+     "total": 0,
+     "reason": ""
+    },
+    {
+     "notation": "sample",
+     "rolls": [
+      0
+     ],
+     "modifier": 0,
+     "total": 0,
+     "reason": ""
+    },
+    {
+     "notation": "sample",
+     "rolls": [
+      0
+     ],
+     "modifier": 0,
+     "total": 0,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      73
+     ],
+     "modifier": 0,
+     "total": 73,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      28
+     ],
+     "modifier": 0,
+     "total": 28,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      8
+     ],
+     "modifier": 0,
+     "total": 8,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      78
+     ],
+     "modifier": 0,
+     "total": 78,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      38
+     ],
+     "modifier": 0,
+     "total": 38,
+     "reason": ""
+    }
+   ],
+   "weighted": [
+    "z",
+    "z",
+    "y",
+    "z",
+    "y",
+    "z",
+    "x",
+    "z"
+   ]
+  },
+  {
+   "seed": "abc",
+   "d100": [
+    16,
+    72,
+    93,
+    78,
+    8,
+    29,
+    38,
+    40,
+    97,
+    52,
+    87,
+    68
+   ],
+   "d6": [
+    5,
+    2,
+    2,
+    4,
+    4,
+    3,
+    6,
+    4,
+    2,
+    1,
+    1,
+    4
+   ],
+   "randint": [
+    6,
+    5,
+    4,
+    4,
+    5,
+    2,
+    5,
+    6
+   ],
+   "choice": [
+    "b",
+    "a",
+    "e",
+    "a",
+    "d",
+    "c",
+    "e",
+    "a"
+   ],
+   "shuffle": [
+    1,
+    6,
+    2,
+    3,
+    8,
+    4,
+    0,
+    9,
+    7,
+    5
+   ],
+   "sample": [
+    8,
+    5,
+    36,
+    30,
+    46
+   ],
+   "sample_small": [
+    2,
+    1,
+    0,
+    5,
+    3,
+    4
+   ],
+   "chance": [
+    false,
+    false,
+    true,
+    true,
+    true
+   ],
+   "history": [
+    {
+     "notation": "1d100",
+     "rolls": [
+      16
+     ],
+     "modifier": 0,
+     "total": 16,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      72
+     ],
+     "modifier": 0,
+     "total": 72,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      93
+     ],
+     "modifier": 0,
+     "total": 93,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      78
+     ],
+     "modifier": 0,
+     "total": 78,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      8
+     ],
+     "modifier": 0,
+     "total": 8,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      29
+     ],
+     "modifier": 0,
+     "total": 29,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      38
+     ],
+     "modifier": 0,
+     "total": 38,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      40
+     ],
+     "modifier": 0,
+     "total": 40,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      97
+     ],
+     "modifier": 0,
+     "total": 97,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      52
+     ],
+     "modifier": 0,
+     "total": 52,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      87
+     ],
+     "modifier": 0,
+     "total": 87,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      68
+     ],
+     "modifier": 0,
+     "total": 68,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      5
+     ],
+     "modifier": 0,
+     "total": 5,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      4
+     ],
+     "modifier": 0,
+     "total": 4,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      4
+     ],
+     "modifier": 0,
+     "total": 4,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      6
+     ],
+     "modifier": 0,
+     "total": 6,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      4
+     ],
+     "modifier": 0,
+     "total": 4,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      1
+     ],
+     "modifier": 0,
+     "total": 1,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      1
+     ],
+     "modifier": 0,
+     "total": 1,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      4
+     ],
+     "modifier": 0,
+     "total": 4,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      6
+     ],
+     "modifier": 0,
+     "total": 6,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      5
+     ],
+     "modifier": 0,
+     "total": 5,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      4
+     ],
+     "modifier": 0,
+     "total": 4,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      4
+     ],
+     "modifier": 0,
+     "total": 4,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      5
+     ],
+     "modifier": 0,
+     "total": 5,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      5
+     ],
+     "modifier": 0,
+     "total": 5,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      6
+     ],
+     "modifier": 0,
+     "total": 6,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      1
+     ],
+     "modifier": 0,
+     "total": 1,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      0
+     ],
+     "modifier": 0,
+     "total": 0,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      4
+     ],
+     "modifier": 0,
+     "total": 4,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      0
+     ],
+     "modifier": 0,
+     "total": 0,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      4
+     ],
+     "modifier": 0,
+     "total": 4,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      0
+     ],
+     "modifier": 0,
+     "total": 0,
+     "reason": ""
+    },
+    {
+     "notation": "shuffle",
+     "rolls": [
+      0
+     ],
+     "modifier": 0,
+     "total": 0,
+     "reason": ""
+    },
+    {
+     "notation": "sample",
+     "rolls": [
+      0
+     ],
+     "modifier": 0,
+     "total": 0,
+     "reason": ""
+    },
+    {
+     "notation": "sample",
+     "rolls": [
+      0
+     ],
+     "modifier": 0,
+     "total": 0,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      90
+     ],
+     "modifier": 0,
+     "total": 90,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      97
+     ],
+     "modifier": 0,
+     "total": 97,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      13
+     ],
+     "modifier": 0,
+     "total": 13,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      38
+     ],
+     "modifier": 0,
+     "total": 38,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      11
+     ],
+     "modifier": 0,
+     "total": 11,
+     "reason": ""
+    }
+   ],
+   "weighted": [
+    "w",
+    "y",
+    "z",
+    "w",
+    "x",
+    "x",
+    "z",
+    "z"
+   ]
+  },
+  {
+   "seed": "mirror",
+   "d100": [
+    63,
+    97,
+    64,
+    73,
+    9,
+    8,
+    64,
+    1,
+    54,
+    20,
+    76,
+    8
+   ],
+   "d6": [
+    6,
+    5,
+    2,
+    1,
+    5,
+    4,
+    6,
+    6,
+    4,
+    2,
+    5,
+    3
+   ],
+   "randint": [
+    1,
+    1,
+    6,
+    4,
+    5,
+    4,
+    3,
+    4
+   ],
+   "choice": [
+    "d",
+    "e",
+    "e",
+    "d",
+    "e",
+    "b",
+    "d",
+    "c"
+   ],
+   "shuffle": [
+    2,
+    6,
+    0,
+    3,
+    4,
+    7,
+    1,
+    8,
+    5,
+    9
+   ],
+   "sample": [
+    7,
+    26,
+    30,
+    22,
+    28
+   ],
+   "sample_small": [
+    0,
+    6,
+    1,
+    4,
+    7,
+    5
+   ],
+   "chance": [
+    false,
+    false,
+    true,
+    false,
+    true
+   ],
+   "history": [
+    {
+     "notation": "1d100",
+     "rolls": [
+      63
+     ],
+     "modifier": 0,
+     "total": 63,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      97
+     ],
+     "modifier": 0,
+     "total": 97,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      64
+     ],
+     "modifier": 0,
+     "total": 64,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      73
+     ],
+     "modifier": 0,
+     "total": 73,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      9
+     ],
+     "modifier": 0,
+     "total": 9,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      8
+     ],
+     "modifier": 0,
+     "total": 8,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      64
+     ],
+     "modifier": 0,
+     "total": 64,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      1
+     ],
+     "modifier": 0,
+     "total": 1,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      54
+     ],
+     "modifier": 0,
+     "total": 54,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      20
+     ],
+     "modifier": 0,
+     "total": 20,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      76
+     ],
+     "modifier": 0,
+     "total": 76,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      8
+     ],
+     "modifier": 0,
+     "total": 8,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      6
+     ],
+     "modifier": 0,
+     "total": 6,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      5
+     ],
+     "modifier": 0,
+     "total": 5,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      1
+     ],
+     "modifier": 0,
+     "total": 1,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      5
+     ],
+     "modifier": 0,
+     "total": 5,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      4
+     ],
+     "modifier": 0,
+     "total": 4,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      6
+     ],
+     "modifier": 0,
+     "total": 6,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      6
+     ],
+     "modifier": 0,
+     "total": 6,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      4
+     ],
+     "modifier": 0,
+     "total": 4,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      5
+     ],
+     "modifier": 0,
+     "total": 5,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      1
+     ],
+     "modifier": 0,
+     "total": 1,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      1
+     ],
+     "modifier": 0,
+     "total": 1,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      6
+     ],
+     "modifier": 0,
+     "total": 6,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      4
+     ],
+     "modifier": 0,
+     "total": 4,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      5
+     ],
+     "modifier": 0,
+     "total": 5,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      4
+     ],
+     "modifier": 0,
+     "total": 4,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      4
+     ],
+     "modifier": 0,
+     "total": 4,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      4
+     ],
+     "modifier": 0,
+     "total": 4,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      4
+     ],
+     "modifier": 0,
+     "total": 4,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      4
+     ],
+     "modifier": 0,
+     "total": 4,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      1
+     ],
+     "modifier": 0,
+     "total": 1,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "shuffle",
+     "rolls": [
+      0
+     ],
+     "modifier": 0,
+     "total": 0,
+     "reason": ""
+    },
+    {
+     "notation": "sample",
+     "rolls": [
+      0
+     ],
+     "modifier": 0,
+     "total": 0,
+     "reason": ""
+    },
+    {
+     "notation": "sample",
+     "rolls": [
+      0
+     ],
+     "modifier": 0,
+     "total": 0,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      32
+     ],
+     "modifier": 0,
+     "total": 32,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      62
+     ],
+     "modifier": 0,
+     "total": 62,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      36
+     ],
+     "modifier": 0,
+     "total": 36,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      88
+     ],
+     "modifier": 0,
+     "total": 88,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      45
+     ],
+     "modifier": 0,
+     "total": 45,
+     "reason": ""
+    }
+   ],
+   "weighted": [
+    "z",
+    "z",
+    "y",
+    "w",
+    "y",
+    "x",
+    "x",
+    "w"
+   ]
+  },
+  {
+   "seed": "gen-nanyu-1a2b3c4d",
+   "d100": [
+    79,
+    70,
+    38,
+    17,
+    17,
+    81,
+    38,
+    61,
+    61,
+    37,
+    44,
+    68
+   ],
+   "d6": [
+    6,
+    1,
+    6,
+    2,
+    4,
+    2,
+    4,
+    2,
+    6,
+    3,
+    2,
+    6
+   ],
+   "randint": [
+    5,
+    6,
+    6,
+    5,
+    5,
+    6,
+    1,
+    2
+   ],
+   "choice": [
+    "e",
+    "d",
+    "d",
+    "d",
+    "b",
+    "a",
+    "c",
+    "d"
+   ],
+   "shuffle": [
+    1,
+    7,
+    8,
+    6,
+    9,
+    0,
+    3,
+    2,
+    4,
+    5
+   ],
+   "sample": [
+    25,
+    8,
+    16,
+    4,
+    24
+   ],
+   "sample_small": [
+    3,
+    1,
+    5,
+    0,
+    6,
+    2
+   ],
+   "chance": [
+    false,
+    false,
+    false,
+    true,
+    true
+   ],
+   "history": [
+    {
+     "notation": "1d100",
+     "rolls": [
+      79
+     ],
+     "modifier": 0,
+     "total": 79,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      70
+     ],
+     "modifier": 0,
+     "total": 70,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      38
+     ],
+     "modifier": 0,
+     "total": 38,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      17
+     ],
+     "modifier": 0,
+     "total": 17,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      17
+     ],
+     "modifier": 0,
+     "total": 17,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      81
+     ],
+     "modifier": 0,
+     "total": 81,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      38
+     ],
+     "modifier": 0,
+     "total": 38,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      61
+     ],
+     "modifier": 0,
+     "total": 61,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      61
+     ],
+     "modifier": 0,
+     "total": 61,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      37
+     ],
+     "modifier": 0,
+     "total": 37,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      44
+     ],
+     "modifier": 0,
+     "total": 44,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      68
+     ],
+     "modifier": 0,
+     "total": 68,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      6
+     ],
+     "modifier": 0,
+     "total": 6,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      1
+     ],
+     "modifier": 0,
+     "total": 1,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      6
+     ],
+     "modifier": 0,
+     "total": 6,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      4
+     ],
+     "modifier": 0,
+     "total": 4,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      4
+     ],
+     "modifier": 0,
+     "total": 4,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      6
+     ],
+     "modifier": 0,
+     "total": 6,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      6
+     ],
+     "modifier": 0,
+     "total": 6,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      5
+     ],
+     "modifier": 0,
+     "total": 5,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      6
+     ],
+     "modifier": 0,
+     "total": 6,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      6
+     ],
+     "modifier": 0,
+     "total": 6,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      5
+     ],
+     "modifier": 0,
+     "total": 5,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      5
+     ],
+     "modifier": 0,
+     "total": 5,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      6
+     ],
+     "modifier": 0,
+     "total": 6,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      1
+     ],
+     "modifier": 0,
+     "total": 1,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      4
+     ],
+     "modifier": 0,
+     "total": 4,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      1
+     ],
+     "modifier": 0,
+     "total": 1,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      0
+     ],
+     "modifier": 0,
+     "total": 0,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "shuffle",
+     "rolls": [
+      0
+     ],
+     "modifier": 0,
+     "total": 0,
+     "reason": ""
+    },
+    {
+     "notation": "sample",
+     "rolls": [
+      0
+     ],
+     "modifier": 0,
+     "total": 0,
+     "reason": ""
+    },
+    {
+     "notation": "sample",
+     "rolls": [
+      0
+     ],
+     "modifier": 0,
+     "total": 0,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      23
+     ],
+     "modifier": 0,
+     "total": 23,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      87
+     ],
+     "modifier": 0,
+     "total": 87,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      60
+     ],
+     "modifier": 0,
+     "total": 60,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      49
+     ],
+     "modifier": 0,
+     "total": 49,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      59
+     ],
+     "modifier": 0,
+     "total": 59,
+     "reason": ""
+    }
+   ],
+   "weighted": [
+    "z",
+    "z",
+    "w",
+    "z",
+    "x",
+    "z",
+    "x",
+    "z"
+   ]
+  },
+  {
+   "seed": "trial-1-1",
+   "d100": [
+    11,
+    98,
+    42,
+    54,
+    43,
+    91,
+    1,
+    40,
+    19,
+    42,
+    68,
+    31
+   ],
+   "d6": [
+    5,
+    5,
+    1,
+    4,
+    6,
+    6,
+    1,
+    2,
+    5,
+    2,
+    1,
+    2
+   ],
+   "randint": [
+    3,
+    1,
+    4,
+    2,
+    6,
+    4,
+    5,
+    2
+   ],
+   "choice": [
+    "a",
+    "b",
+    "c",
+    "e",
+    "d",
+    "e",
+    "d",
+    "b"
+   ],
+   "shuffle": [
+    7,
+    6,
+    4,
+    8,
+    9,
+    3,
+    1,
+    5,
+    2,
+    0
+   ],
+   "sample": [
+    42,
+    34,
+    25,
+    29,
+    0
+   ],
+   "sample_small": [
+    4,
+    3,
+    7,
+    2,
+    6,
+    5
+   ],
+   "chance": [
+    false,
+    false,
+    true,
+    false,
+    true
+   ],
+   "history": [
+    {
+     "notation": "1d100",
+     "rolls": [
+      11
+     ],
+     "modifier": 0,
+     "total": 11,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      98
+     ],
+     "modifier": 0,
+     "total": 98,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      42
+     ],
+     "modifier": 0,
+     "total": 42,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      54
+     ],
+     "modifier": 0,
+     "total": 54,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      43
+     ],
+     "modifier": 0,
+     "total": 43,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      91
+     ],
+     "modifier": 0,
+     "total": 91,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      1
+     ],
+     "modifier": 0,
+     "total": 1,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      40
+     ],
+     "modifier": 0,
+     "total": 40,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      19
+     ],
+     "modifier": 0,
+     "total": 19,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      42
+     ],
+     "modifier": 0,
+     "total": 42,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      68
+     ],
+     "modifier": 0,
+     "total": 68,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      31
+     ],
+     "modifier": 0,
+     "total": 31,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      5
+     ],
+     "modifier": 0,
+     "total": 5,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      5
+     ],
+     "modifier": 0,
+     "total": 5,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      1
+     ],
+     "modifier": 0,
+     "total": 1,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      4
+     ],
+     "modifier": 0,
+     "total": 4,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      6
+     ],
+     "modifier": 0,
+     "total": 6,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      6
+     ],
+     "modifier": 0,
+     "total": 6,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      1
+     ],
+     "modifier": 0,
+     "total": 1,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      5
+     ],
+     "modifier": 0,
+     "total": 5,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      1
+     ],
+     "modifier": 0,
+     "total": 1,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      1
+     ],
+     "modifier": 0,
+     "total": 1,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      4
+     ],
+     "modifier": 0,
+     "total": 4,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      6
+     ],
+     "modifier": 0,
+     "total": 6,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      4
+     ],
+     "modifier": 0,
+     "total": 4,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      5
+     ],
+     "modifier": 0,
+     "total": 5,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      0
+     ],
+     "modifier": 0,
+     "total": 0,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      1
+     ],
+     "modifier": 0,
+     "total": 1,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      4
+     ],
+     "modifier": 0,
+     "total": 4,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      4
+     ],
+     "modifier": 0,
+     "total": 4,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      1
+     ],
+     "modifier": 0,
+     "total": 1,
+     "reason": ""
+    },
+    {
+     "notation": "shuffle",
+     "rolls": [
+      0
+     ],
+     "modifier": 0,
+     "total": 0,
+     "reason": ""
+    },
+    {
+     "notation": "sample",
+     "rolls": [
+      0
+     ],
+     "modifier": 0,
+     "total": 0,
+     "reason": ""
+    },
+    {
+     "notation": "sample",
+     "rolls": [
+      0
+     ],
+     "modifier": 0,
+     "total": 0,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      51
+     ],
+     "modifier": 0,
+     "total": 51,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      67
+     ],
+     "modifier": 0,
+     "total": 67,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      82
+     ],
+     "modifier": 0,
+     "total": 82,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      70
+     ],
+     "modifier": 0,
+     "total": 70,
+     "reason": ""
+    }
+   ],
+   "weighted": [
+    "w",
+    "x",
+    "z",
+    "x",
+    "w",
+    "x",
+    "y",
+    "z"
+   ]
+  },
+  {
+   "seed": "nanyu|7919",
+   "d100": [
+    35,
+    44,
+    67,
+    11,
+    46,
+    87,
+    27,
+    98,
+    16,
+    61,
+    39,
+    55
+   ],
+   "d6": [
+    3,
+    2,
+    1,
+    5,
+    1,
+    2,
+    2,
+    3,
+    6,
+    6,
+    6,
+    3
+   ],
+   "randint": [
+    5,
+    6,
+    1,
+    3,
+    3,
+    3,
+    3,
+    3
+   ],
+   "choice": [
+    "d",
+    "d",
+    "a",
+    "a",
+    "d",
+    "c",
+    "e",
+    "c"
+   ],
+   "shuffle": [
+    1,
+    3,
+    6,
+    7,
+    9,
+    0,
+    4,
+    2,
+    8,
+    5
+   ],
+   "sample": [
+    28,
+    49,
+    47,
+    20,
+    1
+   ],
+   "sample_small": [
+    0,
+    2,
+    4,
+    5,
+    1,
+    3
+   ],
+   "chance": [
+    false,
+    false,
+    true,
+    false,
+    true
+   ],
+   "history": [
+    {
+     "notation": "1d100",
+     "rolls": [
+      35
+     ],
+     "modifier": 0,
+     "total": 35,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      44
+     ],
+     "modifier": 0,
+     "total": 44,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      67
+     ],
+     "modifier": 0,
+     "total": 67,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      11
+     ],
+     "modifier": 0,
+     "total": 11,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      46
+     ],
+     "modifier": 0,
+     "total": 46,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      87
+     ],
+     "modifier": 0,
+     "total": 87,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      27
+     ],
+     "modifier": 0,
+     "total": 27,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      98
+     ],
+     "modifier": 0,
+     "total": 98,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      16
+     ],
+     "modifier": 0,
+     "total": 16,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      61
+     ],
+     "modifier": 0,
+     "total": 61,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      39
+     ],
+     "modifier": 0,
+     "total": 39,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      55
+     ],
+     "modifier": 0,
+     "total": 55,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      1
+     ],
+     "modifier": 0,
+     "total": 1,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      5
+     ],
+     "modifier": 0,
+     "total": 5,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      1
+     ],
+     "modifier": 0,
+     "total": 1,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      6
+     ],
+     "modifier": 0,
+     "total": 6,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      6
+     ],
+     "modifier": 0,
+     "total": 6,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      6
+     ],
+     "modifier": 0,
+     "total": 6,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      5
+     ],
+     "modifier": 0,
+     "total": 5,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      6
+     ],
+     "modifier": 0,
+     "total": 6,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      1
+     ],
+     "modifier": 0,
+     "total": 1,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      0
+     ],
+     "modifier": 0,
+     "total": 0,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      0
+     ],
+     "modifier": 0,
+     "total": 0,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      4
+     ],
+     "modifier": 0,
+     "total": 4,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "shuffle",
+     "rolls": [
+      0
+     ],
+     "modifier": 0,
+     "total": 0,
+     "reason": ""
+    },
+    {
+     "notation": "sample",
+     "rolls": [
+      0
+     ],
+     "modifier": 0,
+     "total": 0,
+     "reason": ""
+    },
+    {
+     "notation": "sample",
+     "rolls": [
+      0
+     ],
+     "modifier": 0,
+     "total": 0,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      90
+     ],
+     "modifier": 0,
+     "total": 90,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      27
+     ],
+     "modifier": 0,
+     "total": 27,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      44
+     ],
+     "modifier": 0,
+     "total": 44,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      96
+     ],
+     "modifier": 0,
+     "total": 96,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      25
+     ],
+     "modifier": 0,
+     "total": 25,
+     "reason": ""
+    }
+   ],
+   "weighted": [
+    "x",
+    "y",
+    "z",
+    "z",
+    "z",
+    "x",
+    "x",
+    "z"
+   ]
+  },
+  {
+   "seed": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+   "d100": [
+    87,
+    41,
+    62,
+    66,
+    96,
+    75,
+    59,
+    73,
+    6,
+    38,
+    83,
+    73
+   ],
+   "d6": [
+    4,
+    2,
+    3,
+    6,
+    1,
+    1,
+    1,
+    5,
+    2,
+    5,
+    5,
+    4
+   ],
+   "randint": [
+    4,
+    2,
+    1,
+    5,
+    2,
+    6,
+    6,
+    6
+   ],
+   "choice": [
+    "a",
+    "a",
+    "a",
+    "b",
+    "b",
+    "d",
+    "d",
+    "d"
+   ],
+   "shuffle": [
+    3,
+    4,
+    2,
+    0,
+    8,
+    7,
+    5,
+    1,
+    6,
+    9
+   ],
+   "sample": [
+    31,
+    18,
+    33,
+    23,
+    24
+   ],
+   "sample_small": [
+    2,
+    1,
+    3,
+    0,
+    4,
+    7
+   ],
+   "chance": [
+    false,
+    false,
+    false,
+    true,
+    true
+   ],
+   "history": [
+    {
+     "notation": "1d100",
+     "rolls": [
+      87
+     ],
+     "modifier": 0,
+     "total": 87,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      41
+     ],
+     "modifier": 0,
+     "total": 41,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      62
+     ],
+     "modifier": 0,
+     "total": 62,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      66
+     ],
+     "modifier": 0,
+     "total": 66,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      96
+     ],
+     "modifier": 0,
+     "total": 96,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      75
+     ],
+     "modifier": 0,
+     "total": 75,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      59
+     ],
+     "modifier": 0,
+     "total": 59,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      73
+     ],
+     "modifier": 0,
+     "total": 73,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      6
+     ],
+     "modifier": 0,
+     "total": 6,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      38
+     ],
+     "modifier": 0,
+     "total": 38,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      83
+     ],
+     "modifier": 0,
+     "total": 83,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      73
+     ],
+     "modifier": 0,
+     "total": 73,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      4
+     ],
+     "modifier": 0,
+     "total": 4,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      6
+     ],
+     "modifier": 0,
+     "total": 6,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      1
+     ],
+     "modifier": 0,
+     "total": 1,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      1
+     ],
+     "modifier": 0,
+     "total": 1,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      1
+     ],
+     "modifier": 0,
+     "total": 1,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      5
+     ],
+     "modifier": 0,
+     "total": 5,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      5
+     ],
+     "modifier": 0,
+     "total": 5,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      5
+     ],
+     "modifier": 0,
+     "total": 5,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      4
+     ],
+     "modifier": 0,
+     "total": 4,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      4
+     ],
+     "modifier": 0,
+     "total": 4,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      1
+     ],
+     "modifier": 0,
+     "total": 1,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      5
+     ],
+     "modifier": 0,
+     "total": 5,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      6
+     ],
+     "modifier": 0,
+     "total": 6,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      6
+     ],
+     "modifier": 0,
+     "total": 6,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      6
+     ],
+     "modifier": 0,
+     "total": 6,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      0
+     ],
+     "modifier": 0,
+     "total": 0,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      0
+     ],
+     "modifier": 0,
+     "total": 0,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      0
+     ],
+     "modifier": 0,
+     "total": 0,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      1
+     ],
+     "modifier": 0,
+     "total": 1,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      1
+     ],
+     "modifier": 0,
+     "total": 1,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "shuffle",
+     "rolls": [
+      0
+     ],
+     "modifier": 0,
+     "total": 0,
+     "reason": ""
+    },
+    {
+     "notation": "sample",
+     "rolls": [
+      0
+     ],
+     "modifier": 0,
+     "total": 0,
+     "reason": ""
+    },
+    {
+     "notation": "sample",
+     "rolls": [
+      0
+     ],
+     "modifier": 0,
+     "total": 0,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      12
+     ],
+     "modifier": 0,
+     "total": 12,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      49
+     ],
+     "modifier": 0,
+     "total": 49,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      67
+     ],
+     "modifier": 0,
+     "total": 67,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      46
+     ],
+     "modifier": 0,
+     "total": 46,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      98
+     ],
+     "modifier": 0,
+     "total": 98,
+     "reason": ""
+    }
+   ],
+   "weighted": [
+    "z",
+    "y",
+    "z",
+    "z",
+    "x",
+    "y",
+    "w",
+    "x"
+   ]
+  },
+  {
+   "seed": "1078112754c0ffee",
+   "d100": [
+    52,
+    59,
+    28,
+    70,
+    77,
+    3,
+    88,
+    78,
+    55,
+    86,
+    27,
+    42
+   ],
+   "d6": [
+    2,
+    6,
+    2,
+    5,
+    6,
+    5,
+    3,
+    6,
+    2,
+    6,
+    3,
+    5
+   ],
+   "randint": [
+    5,
+    6,
+    1,
+    4,
+    1,
+    3,
+    3,
+    6
+   ],
+   "choice": [
+    "e",
+    "b",
+    "d",
+    "c",
+    "b",
+    "d",
+    "c",
+    "a"
+   ],
+   "shuffle": [
+    6,
+    2,
+    5,
+    1,
+    0,
+    7,
+    8,
+    4,
+    3,
+    9
+   ],
+   "sample": [
+    28,
+    13,
+    15,
+    26,
+    32
+   ],
+   "sample_small": [
+    0,
+    4,
+    3,
+    6,
+    7,
+    1
+   ],
+   "chance": [
+    false,
+    false,
+    false,
+    true,
+    true
+   ],
+   "history": [
+    {
+     "notation": "1d100",
+     "rolls": [
+      52
+     ],
+     "modifier": 0,
+     "total": 52,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      59
+     ],
+     "modifier": 0,
+     "total": 59,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      28
+     ],
+     "modifier": 0,
+     "total": 28,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      70
+     ],
+     "modifier": 0,
+     "total": 70,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      77
+     ],
+     "modifier": 0,
+     "total": 77,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      88
+     ],
+     "modifier": 0,
+     "total": 88,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      78
+     ],
+     "modifier": 0,
+     "total": 78,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      55
+     ],
+     "modifier": 0,
+     "total": 55,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      86
+     ],
+     "modifier": 0,
+     "total": 86,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      27
+     ],
+     "modifier": 0,
+     "total": 27,
+     "reason": ""
+    },
+    {
+     "notation": "1d100",
+     "rolls": [
+      42
+     ],
+     "modifier": 0,
+     "total": 42,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      6
+     ],
+     "modifier": 0,
+     "total": 6,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      5
+     ],
+     "modifier": 0,
+     "total": 5,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      6
+     ],
+     "modifier": 0,
+     "total": 6,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      5
+     ],
+     "modifier": 0,
+     "total": 5,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      6
+     ],
+     "modifier": 0,
+     "total": 6,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      6
+     ],
+     "modifier": 0,
+     "total": 6,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "1d6",
+     "rolls": [
+      5
+     ],
+     "modifier": 0,
+     "total": 5,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      5
+     ],
+     "modifier": 0,
+     "total": 5,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      6
+     ],
+     "modifier": 0,
+     "total": 6,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      1
+     ],
+     "modifier": 0,
+     "total": 1,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      4
+     ],
+     "modifier": 0,
+     "total": 4,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      1
+     ],
+     "modifier": 0,
+     "total": 1,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "1-6",
+     "rolls": [
+      6
+     ],
+     "modifier": 0,
+     "total": 6,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      4
+     ],
+     "modifier": 0,
+     "total": 4,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      1
+     ],
+     "modifier": 0,
+     "total": 1,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      1
+     ],
+     "modifier": 0,
+     "total": 1,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      3
+     ],
+     "modifier": 0,
+     "total": 3,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      2
+     ],
+     "modifier": 0,
+     "total": 2,
+     "reason": ""
+    },
+    {
+     "notation": "choice",
+     "rolls": [
+      0
+     ],
+     "modifier": 0,
+     "total": 0,
+     "reason": ""
+    },
+    {
+     "notation": "shuffle",
+     "rolls": [
+      0
+     ],
+     "modifier": 0,
+     "total": 0,
+     "reason": ""
+    },
+    {
+     "notation": "sample",
+     "rolls": [
+      0
+     ],
+     "modifier": 0,
+     "total": 0,
+     "reason": ""
+    },
+    {
+     "notation": "sample",
+     "rolls": [
+      0
+     ],
+     "modifier": 0,
+     "total": 0,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      68
+     ],
+     "modifier": 0,
+     "total": 68,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      43
+     ],
+     "modifier": 0,
+     "total": 43,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      61
+     ],
+     "modifier": 0,
+     "total": 61,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      17
+     ],
+     "modifier": 0,
+     "total": 17,
+     "reason": ""
+    },
+    {
+     "notation": "chance",
+     "rolls": [
+      74
+     ],
+     "modifier": 0,
+     "total": 74,
+     "reason": ""
+    }
+   ],
+   "weighted": [
+    "z",
+    "x",
+    "y",
+    "w",
+    "z",
+    "z",
+    "x",
+    "x"
+   ]
+  }
+ ],
+ "int_seeds": {
+  "0": {
+   "1": [
+    "1",
+    "0",
+    "1"
+   ],
+   "7": [
+    "108",
+    "49",
+    "97"
+   ],
+   "31": [
+    "1813382118",
+    "827307999",
+    "1627694678"
+   ],
+   "32": [
+    "3626764237",
+    "1654615998",
+    "3255389356"
+   ],
+   "33": [
+    "3626764237",
+    "7550356652",
+    "1806341205"
+   ],
+   "63": [
+    "3553260803050964941",
+    "8211050864078048428",
+    "373402508605428821"
+   ],
+   "64": [
+    "7106521602475165645",
+    "16422101724900707500",
+    "746805015404516437"
+   ],
+   "100": [
+    "1169245609517217401678349469645",
+    "1208935935994293442776782246997",
+    "1141276462758851372969594381922"
+   ]
+  },
+  "1": {
+   "1": [
+    "0",
+    "1",
+    "1"
+   ],
+   "7": [
+    "17",
+    "72",
+    "108"
+   ],
+   "31": [
+    "288545018",
+    "1222356005",
+    "1819850095"
+   ],
+   "32": [
+    "577090037",
+    "2444712010",
+    "3639700191"
+   ],
+   "33": [
+    "4872057333",
+    "7934667487",
+    "3280387012"
+   ],
+   "63": [
+    "5249979066121302517",
+    "7399589116837456607",
+    "582057716445789124"
+   ],
+   "64": [
+    "10499958131665514997",
+    "14799178230035213023",
+    "1164115433906158532"
+   ],
+   "100": [
+    "1017878568110080782349472477685",
+    "99436813185968347955962756036",
+    "590209488520255358040687302011"
+   ]
+  },
+  "4294967295": {
+   "1": [
+    "1",
+    "1",
+    "0"
+   ],
+   "7": [
+    "81",
+    "79",
+    "26"
+   ],
+   "31": [
+    "1364419716",
+    "1330512506",
+    "436368544"
+   ],
+   "32": [
+    "2728839433",
+    "2661025012",
+    "872737089"
+   ],
+   "33": [
+    "7023806729",
+    "872737089",
+    "6903586996"
+   ],
+   "63": [
+    "5714507702917843209",
+    "1986192800680831297",
+    "4818269867754676404"
+   ],
+   "64": [
+    "11429015403106846985",
+    "3972385604783892801",
+    "9636539732900733108"
+   ],
+   "100": [
+    "253783645278639303692581783817",
+    "736135440939746555596621242548",
+    "822476762368924650099245322246"
+   ]
+  },
+  "9223372036854775809": {
+   "1": [
+    "1",
+    "1",
+    "0"
+   ],
+   "7": [
+    "93",
+    "95",
+    "17"
+   ],
+   "31": [
+    "1571046803",
+    "1609592995",
+    "287431297"
+   ],
+   "32": [
+    "3142093607",
+    "3219185990",
+    "574862594"
+   ],
+   "33": [
+    "7437060903",
+    "4869829890",
+    "4872133336"
+   ],
+   "63": [
+    "6913149276537785127",
+    "9150090927468164354",
+    "7498433323621341912"
+   ],
+   "64": [
+    "13826298549933476647",
+    "18300181854361466114",
+    "14996866650960485080"
+   ],
+   "100": [
+    "1199026780876858162497643383591",
+    "618155920311274007652850916056",
+    "1118091449273242401903276215264"
+   ]
+  },
+  "18446744073709551615": {
+   "1": [
+    "0",
+    "0",
+    "0"
+   ],
+   "7": [
+    "2",
+    "31",
+    "43"
+   ],
+   "31": [
+    "46870335",
+    "534247828",
+    "726054176"
+   ],
+   "32": [
+    "93740670",
+    "1068495656",
+    "1452108352"
+   ],
+   "33": [
+    "93740670",
+    "5747075648",
+    "910393425"
+   ],
+   "63": [
+    "2294576949312773758",
+    "5706972812880472640",
+    "4206446891363434577"
+   ],
+   "64": [
+    "4589153898531806846",
+    "11413945628603804224",
+    "8412893781816475729"
+   ],
+   "100": [
+    "739840133769608335764196056702",
+    "127963465182021834188232294481",
+    "980135101446887988957077373172"
+   ]
+  },
+  "53021371275909": {
+   "1": [
+    "1",
+    "0",
+    "1"
+   ],
+   "7": [
+    "124",
+    "34",
+    "119"
+   ],
+   "31": [
+    "2093970519",
+    "578620971",
+    "1999511364"
+   ],
+   "32": [
+    "4187941038",
+    "1157241942",
+    "3999022729"
+   ],
+   "33": [
+    "4187941038",
+    "8293990025",
+    "6068201628"
+   ],
+   "63": [
+    "2485158151412705454",
+    "8375236731424489097",
+    "5800235236305496220"
+   ],
+   "64": [
+    "4970316298637469870",
+    "16750473463144922761",
+    "11600470475132725404"
+   ],
+   "100": [
+    "1182963224031481590865035454638",
+    "624903392417465003423747369116",
+    "289130837197383153177035706261"
+   ]
+  }
+ },
+ "rounding": [
+  {
+   "input": 0.5,
+   "round": 0,
+   "round2": 0.5,
+   "round4": 0.5
+  },
+  {
+   "input": 1.5,
+   "round": 2,
+   "round2": 1.5,
+   "round4": 1.5
+  },
+  {
+   "input": 2.5,
+   "round": 2,
+   "round2": 2.5,
+   "round4": 2.5
+  },
+  {
+   "input": 3.5,
+   "round": 4,
+   "round2": 3.5,
+   "round4": 3.5
+  },
+  {
+   "input": -0.5,
+   "round": 0,
+   "round2": -0.5,
+   "round4": -0.5
+  },
+  {
+   "input": -1.5,
+   "round": -2,
+   "round2": -1.5,
+   "round4": -1.5
+  },
+  {
+   "input": 2.675,
+   "round": 3,
+   "round2": 2.67,
+   "round4": 2.675
+  },
+  {
+   "input": 1.005,
+   "round": 1,
+   "round2": 1.0,
+   "round4": 1.005
+  },
+  {
+   "input": 12.345,
+   "round": 12,
+   "round2": 12.35,
+   "round4": 12.345
+  },
+  {
+   "input": 0.05,
+   "round": 0,
+   "round2": 0.05,
+   "round4": 0.05
+  },
+  {
+   "input": -0.05,
+   "round": 0,
+   "round2": -0.05,
+   "round4": -0.05
+  },
+  {
+   "input": 718.3497420794722,
+   "round": 718,
+   "round2": 718.35,
+   "round4": 718.3497
+  },
+  {
+   "input": -951.1955384673303,
+   "round": -951,
+   "round2": -951.2,
+   "round4": -951.1955
+  },
+  {
+   "input": -531.4610570326452,
+   "round": -531,
+   "round2": -531.46,
+   "round4": -531.4611
+  },
+  {
+   "input": -569.9917622887963,
+   "round": -570,
+   "round2": -569.99,
+   "round4": -569.9918
+  },
+  {
+   "input": -398.5235956832978,
+   "round": -399,
+   "round2": -398.52,
+   "round4": -398.5236
+  },
+  {
+   "input": -310.6009443843956,
+   "round": -311,
+   "round2": -310.6,
+   "round4": -310.6009
+  },
+  {
+   "input": -878.4248529252907,
+   "round": -878,
+   "round2": -878.42,
+   "round4": -878.4249
+  },
+  {
+   "input": 782.9408607660821,
+   "round": 783,
+   "round2": 782.94,
+   "round4": 782.9409
+  },
+  {
+   "input": -292.78498450957954,
+   "round": -293,
+   "round2": -292.78,
+   "round4": -292.785
+  },
+  {
+   "input": -431.06438992028734,
+   "round": -431,
+   "round2": -431.06,
+   "round4": -431.0644
+  },
+  {
+   "input": 413.5538208239889,
+   "round": 414,
+   "round2": 413.55,
+   "round4": 413.5538
+  },
+  {
+   "input": 843.420885642633,
+   "round": 843,
+   "round2": 843.42,
+   "round4": 843.4209
+  },
+  {
+   "input": 468.6622679089328,
+   "round": 469,
+   "round2": 468.66,
+   "round4": 468.6623
+  },
+  {
+   "input": -58.07754140407724,
+   "round": -58,
+   "round2": -58.08,
+   "round4": -58.0775
+  },
+  {
+   "input": -742.8842439988159,
+   "round": -743,
+   "round2": -742.88,
+   "round4": -742.8842
+  },
+  {
+   "input": 313.69278824984235,
+   "round": 314,
+   "round2": 313.69,
+   "round4": 313.6928
+  },
+  {
+   "input": 76.2268392127346,
+   "round": 76,
+   "round2": 76.23,
+   "round4": 76.2268
+  },
+  {
+   "input": 784.8320448163342,
+   "round": 785,
+   "round2": 784.83,
+   "round4": 784.832
+  },
+  {
+   "input": 947.2399732761644,
+   "round": 947,
+   "round2": 947.24,
+   "round4": 947.24
+  },
+  {
+   "input": 821.8199332779279,
+   "round": 822,
+   "round2": 821.82,
+   "round4": 821.8199
+  },
+  {
+   "input": 219.29146699931061,
+   "round": 219,
+   "round2": 219.29,
+   "round4": 219.2915
+  },
+  {
+   "input": 828.3305441430857,
+   "round": 828,
+   "round2": 828.33,
+   "round4": 828.3305
+  },
+  {
+   "input": 115.98778017454333,
+   "round": 116,
+   "round2": 115.99,
+   "round4": 115.9878
+  },
+  {
+   "input": 165.62482149676248,
+   "round": 166,
+   "round2": 165.62,
+   "round4": 165.6248
+  },
+  {
+   "input": 377.924437865287,
+   "round": 378,
+   "round2": 377.92,
+   "round4": 377.9244
+  },
+  {
+   "input": 316.1159335672512,
+   "round": 316,
+   "round2": 316.12,
+   "round4": 316.1159
+  },
+  {
+   "input": 68.88610269047854,
+   "round": 69,
+   "round2": 68.89,
+   "round4": 68.8861
+  },
+  {
+   "input": -747.9647089484871,
+   "round": -748,
+   "round2": -747.96,
+   "round4": -747.9647
+  },
+  {
+   "input": 230.36591823769095,
+   "round": 230,
+   "round2": 230.37,
+   "round4": 230.3659
+  },
+  {
+   "input": -825.0214737885935,
+   "round": -825,
+   "round2": -825.02,
+   "round4": -825.0215
+  },
+  {
+   "input": -734.3933655774664,
+   "round": -734,
+   "round2": -734.39,
+   "round4": -734.3934
+  },
+  {
+   "input": -648.517027794439,
+   "round": -649,
+   "round2": -648.52,
+   "round4": -648.517
+  },
+  {
+   "input": -759.0968609034767,
+   "round": -759,
+   "round2": -759.1,
+   "round4": -759.0969
+  },
+  {
+   "input": 126.72681056941428,
+   "round": 127,
+   "round2": 126.73,
+   "round4": 126.7268
+  },
+  {
+   "input": 432.01608600170107,
+   "round": 432,
+   "round2": 432.02,
+   "round4": 432.0161
+  },
+  {
+   "input": 106.59904317598671,
+   "round": 107,
+   "round2": 106.6,
+   "round4": 106.599
+  },
+  {
+   "input": -669.7924539047484,
+   "round": -670,
+   "round2": -669.79,
+   "round4": -669.7925
+  },
+  {
+   "input": -343.5183156240704,
+   "round": -344,
+   "round2": -343.52,
+   "round4": -343.5183
+  },
+  {
+   "input": -854.3017421967116,
+   "round": -854,
+   "round2": -854.3,
+   "round4": -854.3017
+  },
+  {
+   "input": 638.1462790680293,
+   "round": 638,
+   "round2": 638.15,
+   "round4": 638.1463
+  },
+  {
+   "input": 969.6375007353708,
+   "round": 970,
+   "round2": 969.64,
+   "round4": 969.6375
+  },
+  {
+   "input": -299.92521354737494,
+   "round": -300,
+   "round2": -299.93,
+   "round4": -299.9252
+  },
+  {
+   "input": -307.6495656113127,
+   "round": -308,
+   "round2": -307.65,
+   "round4": -307.6496
+  },
+  {
+   "input": -495.18174697954987,
+   "round": -495,
+   "round2": -495.18,
+   "round4": -495.1817
+  },
+  {
+   "input": -234.36765203405628,
+   "round": -234,
+   "round2": -234.37,
+   "round4": -234.3677
+  },
+  {
+   "input": 457.50805984156864,
+   "round": 458,
+   "round2": 457.51,
+   "round4": 457.5081
+  },
+  {
+   "input": -212.79646524410055,
+   "round": -213,
+   "round2": -212.8,
+   "round4": -212.7965
+  },
+  {
+   "input": 201.3780401998772,
+   "round": 201,
+   "round2": 201.38,
+   "round4": 201.378
+  },
+  {
+   "input": 378.36750308268734,
+   "round": 378,
+   "round2": 378.37,
+   "round4": 378.3675
+  },
+  {
+   "input": -24.023887441871466,
+   "round": -24,
+   "round2": -24.02,
+   "round4": -24.0239
+  },
+  {
+   "input": -315.42378804938687,
+   "round": -315,
+   "round2": -315.42,
+   "round4": -315.4238
+  },
+  {
+   "input": 102.72141645418378,
+   "round": 103,
+   "round2": 102.72,
+   "round4": 102.7214
+  },
+  {
+   "input": 933.0765154246776,
+   "round": 933,
+   "round2": 933.08,
+   "round4": 933.0765
+  },
+  {
+   "input": -970.9458973192537,
+   "round": -971,
+   "round2": -970.95,
+   "round4": -970.9459
+  },
+  {
+   "input": -232.04181536927047,
+   "round": -232,
+   "round2": -232.04,
+   "round4": -232.0418
+  },
+  {
+   "input": -623.9952779259249,
+   "round": -624,
+   "round2": -624.0,
+   "round4": -623.9953
+  },
+  {
+   "input": -128.51875491458384,
+   "round": -129,
+   "round2": -128.52,
+   "round4": -128.5188
+  },
+  {
+   "input": 333.3020607562885,
+   "round": 333,
+   "round2": 333.3,
+   "round4": 333.3021
+  },
+  {
+   "input": -152.61099562740287,
+   "round": -153,
+   "round2": -152.61,
+   "round4": -152.611
+  },
+  {
+   "input": 482.165411159222,
+   "round": 482,
+   "round2": 482.17,
+   "round4": 482.1654
+  },
+  {
+   "input": -531.580107962481,
+   "round": -532,
+   "round2": -531.58,
+   "round4": -531.5801
+  },
+  {
+   "input": -436.52352305185866,
+   "round": -437,
+   "round2": -436.52,
+   "round4": -436.5235
+  },
+  {
+   "input": 405.1144541606752,
+   "round": 405,
+   "round2": 405.11,
+   "round4": 405.1145
+  },
+  {
+   "input": -641.977778630096,
+   "round": -642,
+   "round2": -641.98,
+   "round4": -641.9778
+  },
+  {
+   "input": 715.2585662317522,
+   "round": 715,
+   "round2": 715.26,
+   "round4": 715.2586
+  },
+  {
+   "input": 382.0881919233875,
+   "round": 382,
+   "round2": 382.09,
+   "round4": 382.0882
+  },
+  {
+   "input": -656.2382159048587,
+   "round": -656,
+   "round2": -656.24,
+   "round4": -656.2382
+  },
+  {
+   "input": 169.29592372831894,
+   "round": 169,
+   "round2": 169.3,
+   "round4": 169.2959
+  },
+  {
+   "input": 15.879202753935829,
+   "round": 16,
+   "round2": 15.88,
+   "round4": 15.8792
+  },
+  {
+   "input": 577.1800561287762,
+   "round": 577,
+   "round2": 577.18,
+   "round4": 577.1801
+  },
+  {
+   "input": -641.2128613868382,
+   "round": -641,
+   "round2": -641.21,
+   "round4": -641.2129
+  },
+  {
+   "input": -815.7386283335297,
+   "round": -816,
+   "round2": -815.74,
+   "round4": -815.7386
+  },
+  {
+   "input": 553.3515177294908,
+   "round": 553,
+   "round2": 553.35,
+   "round4": 553.3515
+  },
+  {
+   "input": 440.6882979312429,
+   "round": 441,
+   "round2": 440.69,
+   "round4": 440.6883
+  },
+  {
+   "input": -621.4557987887059,
+   "round": -621,
+   "round2": -621.46,
+   "round4": -621.4558
+  },
+  {
+   "input": -22.13757700934218,
+   "round": -22,
+   "round2": -22.14,
+   "round4": -22.1376
+  },
+  {
+   "input": -431.1242410364655,
+   "round": -431,
+   "round2": -431.12,
+   "round4": -431.1242
+  },
+  {
+   "input": 27.030274994090405,
+   "round": 27,
+   "round2": 27.03,
+   "round4": 27.0303
+  },
+  {
+   "input": 726.5277567467037,
+   "round": 727,
+   "round2": 726.53,
+   "round4": 726.5278
+  },
+  {
+   "input": -250.86550572215765,
+   "round": -251,
+   "round2": -250.87,
+   "round4": -250.8655
+  },
+  {
+   "input": -676.7950517926506,
+   "round": -677,
+   "round2": -676.8,
+   "round4": -676.7951
+  },
+  {
+   "input": 386.9960399949109,
+   "round": 387,
+   "round2": 387.0,
+   "round4": 386.996
+  },
+  {
+   "input": 979.1693123545974,
+   "round": 979,
+   "round2": 979.17,
+   "round4": 979.1693
+  },
+  {
+   "input": -9.965809411677014,
+   "round": -10,
+   "round2": -9.97,
+   "round4": -9.9658
+  },
+  {
+   "input": 596.2221901219646,
+   "round": 596,
+   "round2": 596.22,
+   "round4": 596.2222
+  },
+  {
+   "input": 203.2975106471631,
+   "round": 203,
+   "round2": 203.3,
+   "round4": 203.2975
+  },
+  {
+   "input": 943.0488272278312,
+   "round": 943,
+   "round2": 943.05,
+   "round4": 943.0488
+  },
+  {
+   "input": -826.5405972293609,
+   "round": -827,
+   "round2": -826.54,
+   "round4": -826.5406
+  },
+  {
+   "input": 123.82196172722365,
+   "round": 124,
+   "round2": 123.82,
+   "round4": 123.822
+  },
+  {
+   "input": -712.5727713047283,
+   "round": -713,
+   "round2": -712.57,
+   "round4": -712.5728
+  },
+  {
+   "input": -534.5792048345497,
+   "round": -535,
+   "round2": -534.58,
+   "round4": -534.5792
+  },
+  {
+   "input": -848.8623703462488,
+   "round": -849,
+   "round2": -848.86,
+   "round4": -848.8624
+  },
+  {
+   "input": -51.411147061979364,
+   "round": -51,
+   "round2": -51.41,
+   "round4": -51.4111
+  },
+  {
+   "input": 700.6213879462002,
+   "round": 701,
+   "round2": 700.62,
+   "round4": 700.6214
+  },
+  {
+   "input": -111.36970745227768,
+   "round": -111,
+   "round2": -111.37,
+   "round4": -111.3697
+  },
+  {
+   "input": 84.27603957725364,
+   "round": 84,
+   "round2": 84.28,
+   "round4": 84.276
+  },
+  {
+   "input": 689.6502187938679,
+   "round": 690,
+   "round2": 689.65,
+   "round4": 689.6502
+  },
+  {
+   "input": -937.0166475196606,
+   "round": -937,
+   "round2": -937.02,
+   "round4": -937.0166
+  },
+  {
+   "input": -355.58691863091667,
+   "round": -356,
+   "round2": -355.59,
+   "round4": -355.5869
+  },
+  {
+   "input": -216.16729052223866,
+   "round": -216,
+   "round2": -216.17,
+   "round4": -216.1673
+  },
+  {
+   "input": 330.6263829512827,
+   "round": 331,
+   "round2": 330.63,
+   "round4": 330.6264
+  },
+  {
+   "input": 316.4645110609233,
+   "round": 316,
+   "round2": 316.46,
+   "round4": 316.4645
+  },
+  {
+   "input": -603.3669267587807,
+   "round": -603,
+   "round2": -603.37,
+   "round4": -603.3669
+  },
+  {
+   "input": 663.4816188999932,
+   "round": 663,
+   "round2": 663.48,
+   "round4": 663.4816
+  },
+  {
+   "input": -776.1279919552195,
+   "round": -776,
+   "round2": -776.13,
+   "round4": -776.128
+  },
+  {
+   "input": -978.9351966292443,
+   "round": -979,
+   "round2": -978.94,
+   "round4": -978.9352
+  },
+  {
+   "input": 602.3071429762501,
+   "round": 602,
+   "round2": 602.31,
+   "round4": 602.3071
+  },
+  {
+   "input": -378.282638595201,
+   "round": -378,
+   "round2": -378.28,
+   "round4": -378.2826
+  },
+  {
+   "input": 870.321033978106,
+   "round": 870,
+   "round2": 870.32,
+   "round4": 870.321
+  },
+  {
+   "input": 603.9714584244598,
+   "round": 604,
+   "round2": 603.97,
+   "round4": 603.9715
+  },
+  {
+   "input": 654.7749688097124,
+   "round": 655,
+   "round2": 654.77,
+   "round4": 654.775
+  },
+  {
+   "input": 711.4261366517694,
+   "round": 711,
+   "round2": 711.43,
+   "round4": 711.4261
+  },
+  {
+   "input": 564.7062215427263,
+   "round": 565,
+   "round2": 564.71,
+   "round4": 564.7062
+  },
+  {
+   "input": -158.40348037115587,
+   "round": -158,
+   "round2": -158.4,
+   "round4": -158.4035
+  },
+  {
+   "input": -508.8140870464253,
+   "round": -509,
+   "round2": -508.81,
+   "round4": -508.8141
+  },
+  {
+   "input": 738.007834726234,
+   "round": 738,
+   "round2": 738.01,
+   "round4": 738.0078
+  },
+  {
+   "input": -246.52365088611532,
+   "round": -247,
+   "round2": -246.52,
+   "round4": -246.5237
+  },
+  {
+   "input": 336.4595280240644,
+   "round": 336,
+   "round2": 336.46,
+   "round4": 336.4595
+  },
+  {
+   "input": -94.37561956629611,
+   "round": -94,
+   "round2": -94.38,
+   "round4": -94.3756
+  },
+  {
+   "input": 232.83838458977925,
+   "round": 233,
+   "round2": 232.84,
+   "round4": 232.8384
+  },
+  {
+   "input": -150.70958358749147,
+   "round": -151,
+   "round2": -150.71,
+   "round4": -150.7096
+  },
+  {
+   "input": 695.8806914073755,
+   "round": 696,
+   "round2": 695.88,
+   "round4": 695.8807
+  },
+  {
+   "input": 520.5072045074564,
+   "round": 521,
+   "round2": 520.51,
+   "round4": 520.5072
+  },
+  {
+   "input": 267.5140583752077,
+   "round": 268,
+   "round2": 267.51,
+   "round4": 267.5141
+  },
+  {
+   "input": 33.85613992738672,
+   "round": 34,
+   "round2": 33.86,
+   "round4": 33.8561
+  },
+  {
+   "input": -775.4122608198346,
+   "round": -775,
+   "round2": -775.41,
+   "round4": -775.4123
+  },
+  {
+   "input": -367.17100926254284,
+   "round": -367,
+   "round2": -367.17,
+   "round4": -367.171
+  },
+  {
+   "input": 139.80715248537626,
+   "round": 140,
+   "round2": 139.81,
+   "round4": 139.8072
+  },
+  {
+   "input": -495.02286061150147,
+   "round": -495,
+   "round2": -495.02,
+   "round4": -495.0229
+  },
+  {
+   "input": 314.2861912386402,
+   "round": 314,
+   "round2": 314.29,
+   "round4": 314.2862
+  },
+  {
+   "input": 143.10897146142952,
+   "round": 143,
+   "round2": 143.11,
+   "round4": 143.109
+  },
+  {
+   "input": -575.3216245889947,
+   "round": -575,
+   "round2": -575.32,
+   "round4": -575.3216
+  },
+  {
+   "input": 203.7794594549016,
+   "round": 204,
+   "round2": 203.78,
+   "round4": 203.7795
+  },
+  {
+   "input": -955.3538671613886,
+   "round": -955,
+   "round2": -955.35,
+   "round4": -955.3539
+  },
+  {
+   "input": 215.1824636580975,
+   "round": 215,
+   "round2": 215.18,
+   "round4": 215.1825
+  },
+  {
+   "input": -192.91084384608223,
+   "round": -193,
+   "round2": -192.91,
+   "round4": -192.9108
+  },
+  {
+   "input": -802.0699098100677,
+   "round": -802,
+   "round2": -802.07,
+   "round4": -802.0699
+  },
+  {
+   "input": 384.3492491935308,
+   "round": 384,
+   "round2": 384.35,
+   "round4": 384.3492
+  },
+  {
+   "input": 938.7096178506031,
+   "round": 939,
+   "round2": 938.71,
+   "round4": 938.7096
+  },
+  {
+   "input": 170.30221473978827,
+   "round": 170,
+   "round2": 170.3,
+   "round4": 170.3022
+  },
+  {
+   "input": 796.3238133377156,
+   "round": 796,
+   "round2": 796.32,
+   "round4": 796.3238
+  },
+  {
+   "input": -391.67805304636374,
+   "round": -392,
+   "round2": -391.68,
+   "round4": -391.6781
+  },
+  {
+   "input": 48.41011738655766,
+   "round": 48,
+   "round2": 48.41,
+   "round4": 48.4101
+  },
+  {
+   "input": -687.3717874253939,
+   "round": -687,
+   "round2": -687.37,
+   "round4": -687.3718
+  },
+  {
+   "input": -349.6737740056035,
+   "round": -350,
+   "round2": -349.67,
+   "round4": -349.6738
+  },
+  {
+   "input": 949.8911060840535,
+   "round": 950,
+   "round2": 949.89,
+   "round4": 949.8911
+  },
+  {
+   "input": 232.64717935613498,
+   "round": 233,
+   "round2": 232.65,
+   "round4": 232.6472
+  },
+  {
+   "input": 920.1048815836705,
+   "round": 920,
+   "round2": 920.1,
+   "round4": 920.1049
+  },
+  {
+   "input": 926.1565524157838,
+   "round": 926,
+   "round2": 926.16,
+   "round4": 926.1566
+  },
+  {
+   "input": 921.455490245432,
+   "round": 921,
+   "round2": 921.46,
+   "round4": 921.4555
+  },
+  {
+   "input": 800.5911150336403,
+   "round": 801,
+   "round2": 800.59,
+   "round4": 800.5911
+  },
+  {
+   "input": 598.095696667318,
+   "round": 598,
+   "round2": 598.1,
+   "round4": 598.0957
+  },
+  {
+   "input": -437.03294888444134,
+   "round": -437,
+   "round2": -437.03,
+   "round4": -437.0329
+  },
+  {
+   "input": 60.751234362807054,
+   "round": 61,
+   "round2": 60.75,
+   "round4": 60.7512
+  },
+  {
+   "input": -576.7798769237266,
+   "round": -577,
+   "round2": -576.78,
+   "round4": -576.7799
+  },
+  {
+   "input": 581.604205271879,
+   "round": 582,
+   "round2": 581.6,
+   "round4": 581.6042
+  },
+  {
+   "input": 138.94746565661126,
+   "round": 139,
+   "round2": 138.95,
+   "round4": 138.9475
+  },
+  {
+   "input": 30.66466583156057,
+   "round": 31,
+   "round2": 30.66,
+   "round4": 30.6647
+  },
+  {
+   "input": -566.0786466730692,
+   "round": -566,
+   "round2": -566.08,
+   "round4": -566.0786
+  },
+  {
+   "input": -764.8769986922406,
+   "round": -765,
+   "round2": -764.88,
+   "round4": -764.877
+  },
+  {
+   "input": 804.3158627637431,
+   "round": 804,
+   "round2": 804.32,
+   "round4": 804.3159
+  },
+  {
+   "input": 234.70576699358344,
+   "round": 235,
+   "round2": 234.71,
+   "round4": 234.7058
+  },
+  {
+   "input": -884.9639587969316,
+   "round": -885,
+   "round2": -884.96,
+   "round4": -884.964
+  },
+  {
+   "input": 949.511053228231,
+   "round": 950,
+   "round2": 949.51,
+   "round4": 949.5111
+  },
+  {
+   "input": 223.46827237189018,
+   "round": 223,
+   "round2": 223.47,
+   "round4": 223.4683
+  },
+  {
+   "input": 146.52956944848984,
+   "round": 147,
+   "round2": 146.53,
+   "round4": 146.5296
+  },
+  {
+   "input": 820.2291295570722,
+   "round": 820,
+   "round2": 820.23,
+   "round4": 820.2291
+  },
+  {
+   "input": -146.61187539752257,
+   "round": -147,
+   "round2": -146.61,
+   "round4": -146.6119
+  },
+  {
+   "input": -559.8443916823726,
+   "round": -560,
+   "round2": -559.84,
+   "round4": -559.8444
+  },
+  {
+   "input": 899.9719532381682,
+   "round": 900,
+   "round2": 899.97,
+   "round4": 899.972
+  },
+  {
+   "input": -537.0629102801798,
+   "round": -537,
+   "round2": -537.06,
+   "round4": -537.0629
+  },
+  {
+   "input": -8.977051566701562,
+   "round": -9,
+   "round2": -8.98,
+   "round4": -8.9771
+  },
+  {
+   "input": -401.8205261476311,
+   "round": -402,
+   "round2": -401.82,
+   "round4": -401.8205
+  },
+  {
+   "input": -474.74824877335027,
+   "round": -475,
+   "round2": -474.75,
+   "round4": -474.7482
+  },
+  {
+   "input": -396.86022154299656,
+   "round": -397,
+   "round2": -396.86,
+   "round4": -396.8602
+  },
+  {
+   "input": -482.9018078094198,
+   "round": -483,
+   "round2": -482.9,
+   "round4": -482.9018
+  },
+  {
+   "input": 203.10755569462958,
+   "round": 203,
+   "round2": 203.11,
+   "round4": 203.1076
+  },
+  {
+   "input": 64.53593753802556,
+   "round": 65,
+   "round2": 64.54,
+   "round4": 64.5359
+  },
+  {
+   "input": -365.5699529417982,
+   "round": -366,
+   "round2": -365.57,
+   "round4": -365.57
+  },
+  {
+   "input": -24.437460706757406,
+   "round": -24,
+   "round2": -24.44,
+   "round4": -24.4375
+  },
+  {
+   "input": -380.7951076154808,
+   "round": -381,
+   "round2": -380.8,
+   "round4": -380.7951
+  },
+  {
+   "input": -528.9396447352781,
+   "round": -529,
+   "round2": -528.94,
+   "round4": -528.9396
+  },
+  {
+   "input": -41.39688740219344,
+   "round": -41,
+   "round2": -41.4,
+   "round4": -41.3969
+  },
+  {
+   "input": -442.35553902314575,
+   "round": -442,
+   "round2": -442.36,
+   "round4": -442.3555
+  },
+  {
+   "input": 333.7617136444951,
+   "round": 334,
+   "round2": 333.76,
+   "round4": 333.7617
+  },
+  {
+   "input": 291.13832615155957,
+   "round": 291,
+   "round2": 291.14,
+   "round4": 291.1383
+  },
+  {
+   "input": 576.5166850312751,
+   "round": 577,
+   "round2": 576.52,
+   "round4": 576.5167
+  },
+  {
+   "input": -907.0343468117943,
+   "round": -907,
+   "round2": -907.03,
+   "round4": -907.0343
+  },
+  {
+   "input": -99.32738881413593,
+   "round": -99,
+   "round2": -99.33,
+   "round4": -99.3274
+  },
+  {
+   "input": -370.000913364648,
+   "round": -370,
+   "round2": -370.0,
+   "round4": -370.0009
+  },
+  {
+   "input": 430.17116944210716,
+   "round": 430,
+   "round2": 430.17,
+   "round4": 430.1712
+  },
+  {
+   "input": -766.019788681368,
+   "round": -766,
+   "round2": -766.02,
+   "round4": -766.0198
+  },
+  {
+   "input": -448.10179309546334,
+   "round": -448,
+   "round2": -448.1,
+   "round4": -448.1018
+  },
+  {
+   "input": 176.18181307275472,
+   "round": 176,
+   "round2": 176.18,
+   "round4": 176.1818
+  },
+  {
+   "input": -983.5188392837946,
+   "round": -984,
+   "round2": -983.52,
+   "round4": -983.5188
+  },
+  {
+   "input": 489.87768387813753,
+   "round": 490,
+   "round2": 489.88,
+   "round4": 489.8777
+  },
+  {
+   "input": -150.63934789984864,
+   "round": -151,
+   "round2": -150.64,
+   "round4": -150.6393
+  },
+  {
+   "input": 647.4790532759152,
+   "round": 647,
+   "round2": 647.48,
+   "round4": 647.4791
+  },
+  {
+   "input": 570.6111523321833,
+   "round": 571,
+   "round2": 570.61,
+   "round4": 570.6112
+  },
+  {
+   "input": -797.9162374198668,
+   "round": -798,
+   "round2": -797.92,
+   "round4": -797.9162
+  },
+  {
+   "input": -835.321646420075,
+   "round": -835,
+   "round2": -835.32,
+   "round4": -835.3216
+  },
+  {
+   "input": 394.6503241248797,
+   "round": 395,
+   "round2": 394.65,
+   "round4": 394.6503
+  },
+  {
+   "input": 523.7756137739611,
+   "round": 524,
+   "round2": 523.78,
+   "round4": 523.7756
+  },
+  {
+   "input": 838.4370143722667,
+   "round": 838,
+   "round2": 838.44,
+   "round4": 838.437
+  },
+  {
+   "input": -16.507522892472934,
+   "round": -17,
+   "round2": -16.51,
+   "round4": -16.5075
+  },
+  {
+   "input": 840.4540249494842,
+   "round": 840,
+   "round2": 840.45,
+   "round4": 840.454
+  },
+  {
+   "input": -721.3551323324858,
+   "round": -721,
+   "round2": -721.36,
+   "round4": -721.3551
+  },
+  {
+   "input": 623.312772862394,
+   "round": 623,
+   "round2": 623.31,
+   "round4": 623.3128
+  },
+  {
+   "input": -985.2778923900187,
+   "round": -985,
+   "round2": -985.28,
+   "round4": -985.2779
+  },
+  {
+   "input": 983.3249376323581,
+   "round": 983,
+   "round2": 983.32,
+   "round4": 983.3249
+  },
+  {
+   "input": -210.193543408324,
+   "round": -210,
+   "round2": -210.19,
+   "round4": -210.1935
+  },
+  {
+   "input": 621.992600973118,
+   "round": 622,
+   "round2": 621.99,
+   "round4": 621.9926
+  },
+  {
+   "input": 552.5535101558551,
+   "round": 553,
+   "round2": 552.55,
+   "round4": 552.5535
+  },
+  {
+   "input": 248.97401408654923,
+   "round": 249,
+   "round2": 248.97,
+   "round4": 248.974
+  },
+  {
+   "input": 69.28864008007145,
+   "round": 69,
+   "round2": 69.29,
+   "round4": 69.2886
+  },
+  {
+   "input": -336.64482018925867,
+   "round": -337,
+   "round2": -336.64,
+   "round4": -336.6448
+  },
+  {
+   "input": 811.4837481945765,
+   "round": 811,
+   "round2": 811.48,
+   "round4": 811.4837
+  },
+  {
+   "input": 457.90856789637087,
+   "round": 458,
+   "round2": 457.91,
+   "round4": 457.9086
+  },
+  {
+   "input": -513.6730989200227,
+   "round": -514,
+   "round2": -513.67,
+   "round4": -513.6731
+  },
+  {
+   "input": -447.60429931684826,
+   "round": -448,
+   "round2": -447.6,
+   "round4": -447.6043
+  },
+  {
+   "input": 614.3171121148139,
+   "round": 614,
+   "round2": 614.32,
+   "round4": 614.3171
+  },
+  {
+   "input": -761.917742492679,
+   "round": -762,
+   "round2": -761.92,
+   "round4": -761.9177
+  },
+  {
+   "input": 508.2682372152449,
+   "round": 508,
+   "round2": 508.27,
+   "round4": 508.2682
+  },
+  {
+   "input": -466.48961550271144,
+   "round": -466,
+   "round2": -466.49,
+   "round4": -466.4896
+  },
+  {
+   "input": 242.99372041703714,
+   "round": 243,
+   "round2": 242.99,
+   "round4": 242.9937
+  },
+  {
+   "input": 961.6717671782069,
+   "round": 962,
+   "round2": 961.67,
+   "round4": 961.6718
+  },
+  {
+   "input": -489.1997257339291,
+   "round": -489,
+   "round2": -489.2,
+   "round4": -489.1997
+  },
+  {
+   "input": 832.004833279889,
+   "round": 832,
+   "round2": 832.0,
+   "round4": 832.0048
+  },
+  {
+   "input": -679.0067605345087,
+   "round": -679,
+   "round2": -679.01,
+   "round4": -679.0068
+  },
+  {
+   "input": 643.680974016265,
+   "round": 644,
+   "round2": 643.68,
+   "round4": 643.681
+  },
+  {
+   "input": -940.5225623863811,
+   "round": -941,
+   "round2": -940.52,
+   "round4": -940.5226
+  },
+  {
+   "input": -903.794324984826,
+   "round": -904,
+   "round2": -903.79,
+   "round4": -903.7943
+  },
+  {
+   "input": 589.5119627800302,
+   "round": 590,
+   "round2": 589.51,
+   "round4": 589.512
+  },
+  {
+   "input": -571.4299153366201,
+   "round": -571,
+   "round2": -571.43,
+   "round4": -571.4299
+  },
+  {
+   "input": -100.15681093757814,
+   "round": -100,
+   "round2": -100.16,
+   "round4": -100.1568
+  },
+  {
+   "input": -424.32602352687684,
+   "round": -424,
+   "round2": -424.33,
+   "round4": -424.326
+  },
+  {
+   "input": -112.20309902375016,
+   "round": -112,
+   "round2": -112.2,
+   "round4": -112.2031
+  },
+  {
+   "input": -784.8290237114745,
+   "round": -785,
+   "round2": -784.83,
+   "round4": -784.829
+  },
+  {
+   "input": 748.3138645393685,
+   "round": 748,
+   "round2": 748.31,
+   "round4": 748.3139
+  },
+  {
+   "input": -449.98030136875684,
+   "round": -450,
+   "round2": -449.98,
+   "round4": -449.9803
+  },
+  {
+   "input": -302.6381130933744,
+   "round": -303,
+   "round2": -302.64,
+   "round4": -302.6381
+  },
+  {
+   "input": -841.2357916508639,
+   "round": -841,
+   "round2": -841.24,
+   "round4": -841.2358
+  },
+  {
+   "input": -117.74701134595227,
+   "round": -118,
+   "round2": -117.75,
+   "round4": -117.747
+  },
+  {
+   "input": -992.4837772824517,
+   "round": -992,
+   "round2": -992.48,
+   "round4": -992.4838
+  },
+  {
+   "input": 931.7326910505212,
+   "round": 932,
+   "round2": 931.73,
+   "round4": 931.7327
+  },
+  {
+   "input": 800.7219400911072,
+   "round": 801,
+   "round2": 800.72,
+   "round4": 800.7219
+  },
+  {
+   "input": 8.863811830313011,
+   "round": 9,
+   "round2": 8.86,
+   "round4": 8.8638
+  },
+  {
+   "input": -147.25188838882184,
+   "round": -147,
+   "round2": -147.25,
+   "round4": -147.2519
+  },
+  {
+   "input": 561.6785175549301,
+   "round": 562,
+   "round2": 561.68,
+   "round4": 561.6785
+  },
+  {
+   "input": -469.4277303592587,
+   "round": -469,
+   "round2": -469.43,
+   "round4": -469.4277
+  },
+  {
+   "input": 488.92567286157396,
+   "round": 489,
+   "round2": 488.93,
+   "round4": 488.9257
+  },
+  {
+   "input": -776.1797127931476,
+   "round": -776,
+   "round2": -776.18,
+   "round4": -776.1797
+  },
+  {
+   "input": -491.65541012516644,
+   "round": -492,
+   "round2": -491.66,
+   "round4": -491.6554
+  },
+  {
+   "input": 631.9161145682367,
+   "round": 632,
+   "round2": 631.92,
+   "round4": 631.9161
+  },
+  {
+   "input": -593.2686812356305,
+   "round": -593,
+   "round2": -593.27,
+   "round4": -593.2687
+  },
+  {
+   "input": 245.53406588934877,
+   "round": 246,
+   "round2": 245.53,
+   "round4": 245.5341
+  },
+  {
+   "input": 291.65090098290693,
+   "round": 292,
+   "round2": 291.65,
+   "round4": 291.6509
+  },
+  {
+   "input": 441.2888684781494,
+   "round": 441,
+   "round2": 441.29,
+   "round4": 441.2889
+  },
+  {
+   "input": 664.2251702689284,
+   "round": 664,
+   "round2": 664.23,
+   "round4": 664.2252
+  },
+  {
+   "input": -531.0977566249397,
+   "round": -531,
+   "round2": -531.1,
+   "round4": -531.0978
+  },
+  {
+   "input": 897.3020740716775,
+   "round": 897,
+   "round2": 897.3,
+   "round4": 897.3021
+  },
+  {
+   "input": -64.78219622497545,
+   "round": -65,
+   "round2": -64.78,
+   "round4": -64.7822
+  },
+  {
+   "input": -10.605281802393165,
+   "round": -11,
+   "round2": -10.61,
+   "round4": -10.6053
+  },
+  {
+   "input": -516.6457013195904,
+   "round": -517,
+   "round2": -516.65,
+   "round4": -516.6457
+  },
+  {
+   "input": 451.3275636931587,
+   "round": 451,
+   "round2": 451.33,
+   "round4": 451.3276
+  },
+  {
+   "input": -467.0107248822635,
+   "round": -467,
+   "round2": -467.01,
+   "round4": -467.0107
+  },
+  {
+   "input": 671.0697251947768,
+   "round": 671,
+   "round2": 671.07,
+   "round4": 671.0697
+  },
+  {
+   "input": 470.0554918543778,
+   "round": 470,
+   "round2": 470.06,
+   "round4": 470.0555
+  },
+  {
+   "input": -24.205974426749776,
+   "round": -24,
+   "round2": -24.21,
+   "round4": -24.206
+  },
+  {
+   "input": -35.34589316881022,
+   "round": -35,
+   "round2": -35.35,
+   "round4": -35.3459
+  },
+  {
+   "input": 15.1674157427924,
+   "round": 15,
+   "round2": 15.17,
+   "round4": 15.1674
+  },
+  {
+   "input": -983.0314933364401,
+   "round": -983,
+   "round2": -983.03,
+   "round4": -983.0315
+  },
+  {
+   "input": -150.21977739730823,
+   "round": -150,
+   "round2": -150.22,
+   "round4": -150.2198
+  },
+  {
+   "input": -11.959248287359856,
+   "round": -12,
+   "round2": -11.96,
+   "round4": -11.9592
+  },
+  {
+   "input": 316.14363078758356,
+   "round": 316,
+   "round2": 316.14,
+   "round4": 316.1436
+  },
+  {
+   "input": 357.834918483848,
+   "round": 358,
+   "round2": 357.83,
+   "round4": 357.8349
+  },
+  {
+   "input": -892.1518110841664,
+   "round": -892,
+   "round2": -892.15,
+   "round4": -892.1518
+  },
+  {
+   "input": 332.96362263004175,
+   "round": 333,
+   "round2": 332.96,
+   "round4": 332.9636
+  },
+  {
+   "input": 635.2639168855055,
+   "round": 635,
+   "round2": 635.26,
+   "round4": 635.2639
+  },
+  {
+   "input": -883.9970314929568,
+   "round": -884,
+   "round2": -884.0,
+   "round4": -883.997
+  },
+  {
+   "input": -12.408120795744253,
+   "round": -12,
+   "round2": -12.41,
+   "round4": -12.4081
+  },
+  {
+   "input": -651.5629093164321,
+   "round": -652,
+   "round2": -651.56,
+   "round4": -651.5629
+  },
+  {
+   "input": 3.210186007438324,
+   "round": 3,
+   "round2": 3.21,
+   "round4": 3.2102
+  },
+  {
+   "input": -107.85292827287526,
+   "round": -108,
+   "round2": -107.85,
+   "round4": -107.8529
+  },
+  {
+   "input": 228.60299672590418,
+   "round": 229,
+   "round2": 228.6,
+   "round4": 228.603
+  },
+  {
+   "input": 963.1884237972745,
+   "round": 963,
+   "round2": 963.19,
+   "round4": 963.1884
+  },
+  {
+   "input": -186.5725756888778,
+   "round": -187,
+   "round2": -186.57,
+   "round4": -186.5726
+  },
+  {
+   "input": -793.7142746262803,
+   "round": -794,
+   "round2": -793.71,
+   "round4": -793.7143
+  },
+  {
+   "input": 0.4077861546454642,
+   "round": 0,
+   "round2": 0.41,
+   "round4": 0.4078
+  },
+  {
+   "input": 246.4614171633889,
+   "round": 246,
+   "round2": 246.46,
+   "round4": 246.4614
+  },
+  {
+   "input": 675.5529502146346,
+   "round": 676,
+   "round2": 675.55,
+   "round4": 675.553
+  },
+  {
+   "input": -646.3888382093257,
+   "round": -646,
+   "round2": -646.39,
+   "round4": -646.3888
+  },
+  {
+   "input": 652.8066572494681,
+   "round": 653,
+   "round2": 652.81,
+   "round4": 652.8067
+  },
+  {
+   "input": -241.67972376533191,
+   "round": -242,
+   "round2": -241.68,
+   "round4": -241.6797
+  },
+  {
+   "input": -562.8973637220633,
+   "round": -563,
+   "round2": -562.9,
+   "round4": -562.8974
+  },
+  {
+   "input": -472.49172038775123,
+   "round": -472,
+   "round2": -472.49,
+   "round4": -472.4917
+  },
+  {
+   "input": 894.1831304660755,
+   "round": 894,
+   "round2": 894.18,
+   "round4": 894.1831
+  },
+  {
+   "input": -794.212517979424,
+   "round": -794,
+   "round2": -794.21,
+   "round4": -794.2125
+  },
+  {
+   "input": 778.2941537300499,
+   "round": 778,
+   "round2": 778.29,
+   "round4": 778.2942
+  },
+  {
+   "input": 563.649564376515,
+   "round": 564,
+   "round2": 563.65,
+   "round4": 563.6496
+  }
+ ]
+}

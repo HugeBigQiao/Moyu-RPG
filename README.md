@@ -18,6 +18,9 @@
 | 内容 | `backend/data/content/*.json`，改 JSON 即改设定，支持热重载 |
 | 测试 | pytest（169）+ HTTP 冒烟（28）+ 无头 Edge UI 冒烟（52）+ vue-tsc 类型检查 |
 
+> `server/` 是 cordis 迁移的 Node/TS 后端，P0–P2（骨架 + 纯规则对拍）已完成，
+> 暂未接管启动；现有后端仍是 FastAPI。见 [docs/cordis迁移.md](docs/cordis迁移.md)。
+
 ---
 
 ## 快速开始
@@ -63,6 +66,7 @@ uv run python run.py          # http://127.0.0.1:8888
 ```
 frontend/   Vue 3 前端
 backend/    FastAPI 后端（app/api 接口、app/engine 规则、app/models 持久层、data/ 数据板块）
+server/     Node/TS 后端（cordis 迁移，P0–P2 已完成，暂未接管启动）
 docs/       文档
 start.bat   一键启动
 ```
@@ -77,6 +81,7 @@ start.bat   一键启动
 | [docs/架构.md](docs/架构.md) | 分层、内容加载、数据库、接口板块、技术选型评估 |
 | [docs/开发指南.md](docs/开发指南.md) | 怎么跑、怎么改内容、怎么加接口、怎么写测试 |
 | [docs/接口.md](docs/接口.md) | API 一览 |
+| [docs/cordis迁移.md](docs/cordis迁移.md) | 迁到 cordis 的评估：目标架构、移植映射、分阶段计划、风险与止损点 |
 | [HANDOFF.json](HANDOFF.json) | 交接档（JSON）：项目历程、关键决策、踩坑、已知问题、下一步 |
 
 ---

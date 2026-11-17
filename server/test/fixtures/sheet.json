@@ -1,0 +1,2782 @@
+[
+ {
+  "card": {
+   "school": "fulu",
+   "element": "木",
+   "rank": "初真",
+   "merit": 10,
+   "attrs": {
+    "str": 9,
+    "agi": 13,
+    "con": 14,
+    "int": 11,
+    "wil": 12,
+    "per": 13
+   },
+   "traits": [
+    {
+     "name": "阴年阴月",
+     "tier": 1
+    },
+    {
+     "name": "不死债",
+     "tier": 1
+    },
+    {
+     "name": "香火缠身",
+     "tier": 1
+    }
+   ],
+   "items": [
+    {
+     "id": "luban",
+     "qty": 1
+    },
+    {
+     "id": "qingshenfu",
+     "qty": 2
+    }
+   ],
+   "karma_debt": 1,
+   "skill_bonus": {
+    "melee": 1,
+    "investigate": 1
+   }
+  },
+  "derived": {
+   "hp_max": 78,
+   "mp_max": 19,
+   "san_max": 42,
+   "jianyi_max": 12,
+   "shaqi_max": 13,
+   "mp_source": "智",
+   "agility": 13,
+   "initiative": 26,
+   "rank_index": 0,
+   "can_summon": false,
+   "summon_bonus": 15,
+   "merit": 10,
+   "karma_penalty": 10,
+   "karma_debt": 1,
+   "draw_pool": 22,
+   "summon_discount": 6,
+   "skills": {
+    "arcana": 70,
+    "spell": 55,
+    "melee": 36,
+    "blade": 50,
+    "hidden": 55,
+    "athletics": 55,
+    "investigate": 56,
+    "wuxing": 65,
+    "resist": 50,
+    "persuade": 50
+   }
+  },
+  "skills": {
+   "arcana": 70,
+   "spell": 55,
+   "melee": 36,
+   "blade": 50,
+   "hidden": 55,
+   "athletics": 55,
+   "investigate": 56,
+   "wuxing": 65,
+   "resist": 50,
+   "persuade": 50
+  },
+  "display_attrs": [
+   {
+    "key": "str",
+    "label": "力",
+    "value": 9,
+    "pct": 50,
+    "tier": "low"
+   },
+   {
+    "key": "agi",
+    "label": "敏",
+    "value": 13,
+    "pct": 72,
+    "tier": "mid"
+   },
+   {
+    "key": "con",
+    "label": "体",
+    "value": 14,
+    "pct": 78,
+    "tier": "mid"
+   },
+   {
+    "key": "int",
+    "label": "智",
+    "value": 11,
+    "pct": 61,
+    "tier": "mid"
+   },
+   {
+    "key": "wil",
+    "label": "意",
+    "value": 12,
+    "pct": 67,
+    "tier": "mid"
+   },
+   {
+    "key": "per",
+    "label": "感",
+    "value": 13,
+    "pct": 72,
+    "tier": "mid"
+   }
+  ],
+  "trait_sum": {
+   "hp": 8,
+   "mp": -3,
+   "san": -18,
+   "agility": 0,
+   "summon": 15,
+   "merit": 0
+  }
+ },
+ {
+  "card": {
+   "school": "fulu",
+   "element": "水",
+   "rank": "盟威",
+   "merit": 20,
+   "attrs": {
+    "str": 12,
+    "agi": 18,
+    "con": 9,
+    "int": 13,
+    "wil": 16,
+    "per": 16
+   },
+   "traits": [
+    {
+     "name": "不死债",
+     "tier": 1
+    },
+    {
+     "name": "香火缠身",
+     "tier": 1
+    },
+    {
+     "name": "童子功",
+     "tier": 2
+    }
+   ],
+   "items": [
+    {
+     "id": "qingshenfu",
+     "qty": 1
+    },
+    {
+     "id": "dingshen_dan",
+     "qty": 2
+    }
+   ],
+   "karma_debt": 2,
+   "skill_bonus": {
+    "melee": 2,
+    "investigate": 2
+   }
+  },
+  "derived": {
+   "hp_max": 53,
+   "mp_max": 28,
+   "san_max": 82,
+   "jianyi_max": 16,
+   "shaqi_max": 18,
+   "mp_source": "智",
+   "agility": 18,
+   "initiative": 36,
+   "rank_index": 1,
+   "can_summon": true,
+   "summon_bonus": 15,
+   "merit": 20,
+   "karma_penalty": 20,
+   "karma_debt": 2,
+   "draw_pool": 26,
+   "summon_discount": 3,
+   "skills": {
+    "arcana": 60,
+    "spell": 65,
+    "melee": 42,
+    "blade": 60,
+    "hidden": 70,
+    "athletics": 70,
+    "investigate": 62,
+    "wuxing": 60,
+    "resist": 60,
+    "persuade": 60
+   }
+  },
+  "skills": {
+   "arcana": 60,
+   "spell": 65,
+   "melee": 42,
+   "blade": 60,
+   "hidden": 70,
+   "athletics": 70,
+   "investigate": 62,
+   "wuxing": 60,
+   "resist": 60,
+   "persuade": 60
+  },
+  "display_attrs": [
+   {
+    "key": "str",
+    "label": "力",
+    "value": 12,
+    "pct": 67,
+    "tier": "mid"
+   },
+   {
+    "key": "agi",
+    "label": "敏",
+    "value": 18,
+    "pct": 100,
+    "tier": "high"
+   },
+   {
+    "key": "con",
+    "label": "体",
+    "value": 9,
+    "pct": 50,
+    "tier": "low"
+   },
+   {
+    "key": "int",
+    "label": "智",
+    "value": 13,
+    "pct": 72,
+    "tier": "mid"
+   },
+   {
+    "key": "wil",
+    "label": "意",
+    "value": 16,
+    "pct": 89,
+    "tier": "high"
+   },
+   {
+    "key": "per",
+    "label": "感",
+    "value": 16,
+    "pct": 89,
+    "tier": "high"
+   }
+  ],
+  "trait_sum": {
+   "hp": 8,
+   "mp": 2,
+   "san": -8,
+   "agility": 0,
+   "summon": 15,
+   "merit": 0
+  }
+ },
+ {
+  "card": {
+   "school": "fulu",
+   "element": "火",
+   "rank": "五雷",
+   "merit": 30,
+   "attrs": {
+    "str": 15,
+    "agi": 12,
+    "con": 16,
+    "int": 15,
+    "wil": 9,
+    "per": 10
+   },
+   "traits": [
+    {
+     "name": "香火缠身",
+     "tier": 1
+    },
+    {
+     "name": "童子功",
+     "tier": 2
+    },
+    {
+     "name": "铜皮",
+     "tier": 2
+    }
+   ],
+   "items": [
+    {
+     "id": "dingshen_dan",
+     "qty": 1
+    },
+    {
+     "id": "shihunding",
+     "qty": 2
+    }
+   ],
+   "karma_debt": 0,
+   "skill_bonus": {
+    "melee": 3,
+    "investigate": 3
+   }
+  },
+  "derived": {
+   "hp_max": 85,
+   "mp_max": 32,
+   "san_max": 50,
+   "jianyi_max": 9,
+   "shaqi_max": 12,
+   "mp_source": "智",
+   "agility": 12,
+   "initiative": 24,
+   "rank_index": 2,
+   "can_summon": true,
+   "summon_bonus": 15,
+   "merit": 30,
+   "karma_penalty": 0,
+   "karma_debt": 0,
+   "draw_pool": 30,
+   "summon_discount": 0,
+   "skills": {
+    "arcana": 90,
+    "spell": 50,
+    "melee": 78,
+    "blade": 45,
+    "hidden": 60,
+    "athletics": 60,
+    "investigate": 53,
+    "wuxing": 50,
+    "resist": 45,
+    "persuade": 45
+   }
+  },
+  "skills": {
+   "arcana": 90,
+   "spell": 50,
+   "melee": 78,
+   "blade": 45,
+   "hidden": 60,
+   "athletics": 60,
+   "investigate": 53,
+   "wuxing": 50,
+   "resist": 45,
+   "persuade": 45
+  },
+  "display_attrs": [
+   {
+    "key": "str",
+    "label": "力",
+    "value": 15,
+    "pct": 83,
+    "tier": "high"
+   },
+   {
+    "key": "agi",
+    "label": "敏",
+    "value": 12,
+    "pct": 67,
+    "tier": "mid"
+   },
+   {
+    "key": "con",
+    "label": "体",
+    "value": 16,
+    "pct": 89,
+    "tier": "high"
+   },
+   {
+    "key": "int",
+    "label": "智",
+    "value": 15,
+    "pct": 83,
+    "tier": "high"
+   },
+   {
+    "key": "wil",
+    "label": "意",
+    "value": 9,
+    "pct": 50,
+    "tier": "low"
+   },
+   {
+    "key": "per",
+    "label": "感",
+    "value": 10,
+    "pct": 56,
+    "tier": "mid"
+   }
+  ],
+  "trait_sum": {
+   "hp": 5,
+   "mp": 2,
+   "san": 0,
+   "agility": 0,
+   "summon": 15,
+   "merit": 0
+  }
+ },
+ {
+  "card": {
+   "school": "fulu",
+   "element": "土",
+   "rank": "天师",
+   "merit": 40,
+   "attrs": {
+    "str": 18,
+    "agi": 17,
+    "con": 11,
+    "int": 17,
+    "wil": 13,
+    "per": 13
+   },
+   "traits": [
+    {
+     "name": "童子功",
+     "tier": 2
+    },
+    {
+     "name": "铜皮",
+     "tier": 2
+    },
+    {
+     "name": "胆大",
+     "tier": 2
+    }
+   ],
+   "items": [
+    {
+     "id": "shihunding",
+     "qty": 1
+    },
+    {
+     "id": "huangfu",
+     "qty": 2
+    }
+   ],
+   "karma_debt": 1,
+   "skill_bonus": {
+    "melee": 0,
+    "investigate": 4
+   }
+  },
+  "derived": {
+   "hp_max": 60,
+   "mp_max": 39,
+   "san_max": 75,
+   "jianyi_max": 13,
+   "shaqi_max": 17,
+   "mp_source": "智",
+   "agility": 17,
+   "initiative": 34,
+   "rank_index": 3,
+   "can_summon": true,
+   "summon_bonus": 0,
+   "merit": 40,
+   "karma_penalty": 10,
+   "karma_debt": 1,
+   "draw_pool": 42,
+   "summon_discount": 0,
+   "skills": {
+    "arcana": 90,
+    "spell": 60,
+    "melee": 80,
+    "blade": 55,
+    "hidden": 75,
+    "athletics": 75,
+    "investigate": 59,
+    "wuxing": 55,
+    "resist": 55,
+    "persuade": 55
+   }
+  },
+  "skills": {
+   "arcana": 90,
+   "spell": 60,
+   "melee": 80,
+   "blade": 55,
+   "hidden": 75,
+   "athletics": 75,
+   "investigate": 59,
+   "wuxing": 55,
+   "resist": 55,
+   "persuade": 55
+  },
+  "display_attrs": [
+   {
+    "key": "str",
+    "label": "力",
+    "value": 18,
+    "pct": 100,
+    "tier": "high"
+   },
+   {
+    "key": "agi",
+    "label": "敏",
+    "value": 17,
+    "pct": 94,
+    "tier": "high"
+   },
+   {
+    "key": "con",
+    "label": "体",
+    "value": 11,
+    "pct": 61,
+    "tier": "mid"
+   },
+   {
+    "key": "int",
+    "label": "智",
+    "value": 17,
+    "pct": 94,
+    "tier": "high"
+   },
+   {
+    "key": "wil",
+    "label": "意",
+    "value": 13,
+    "pct": 72,
+    "tier": "mid"
+   },
+   {
+    "key": "per",
+    "label": "感",
+    "value": 13,
+    "pct": 72,
+    "tier": "mid"
+   }
+  ],
+  "trait_sum": {
+   "hp": 5,
+   "mp": 5,
+   "san": 10,
+   "agility": 0,
+   "summon": 0,
+   "merit": 0
+  }
+ },
+ {
+  "card": {
+   "school": "neidan",
+   "element": "金",
+   "rank": "初真",
+   "merit": 50,
+   "attrs": {
+    "str": 8,
+    "agi": 11,
+    "con": 18,
+    "int": 9,
+    "wil": 17,
+    "per": 16
+   },
+   "traits": [
+    {
+     "name": "铜皮",
+     "tier": 2
+    },
+    {
+     "name": "胆大",
+     "tier": 2
+    },
+    {
+     "name": "过目不忘",
+     "tier": 2
+    }
+   ],
+   "items": [
+    {
+     "id": "huangfu",
+     "qty": 1
+    },
+    {
+     "id": "taomu",
+     "qty": 2
+    }
+   ],
+   "karma_debt": 2,
+   "skill_bonus": {
+    "melee": 1,
+    "investigate": 5
+   }
+  },
+  "derived": {
+   "hp_max": 95,
+   "mp_max": 34,
+   "san_max": 95,
+   "jianyi_max": 34,
+   "shaqi_max": 11,
+   "mp_source": "意",
+   "agility": 11,
+   "initiative": 22,
+   "rank_index": 0,
+   "can_summon": false,
+   "summon_bonus": 0,
+   "merit": 50,
+   "karma_penalty": 20,
+   "karma_debt": 2,
+   "draw_pool": 22,
+   "summon_discount": 0,
+   "skills": {
+    "arcana": 35,
+    "spell": 80,
+    "melee": 21,
+    "blade": 65,
+    "hidden": 35,
+    "athletics": 35,
+    "investigate": 65,
+    "wuxing": 70,
+    "resist": 65,
+    "persuade": 65
+   }
+  },
+  "skills": {
+   "arcana": 35,
+   "spell": 80,
+   "melee": 21,
+   "blade": 65,
+   "hidden": 35,
+   "athletics": 35,
+   "investigate": 65,
+   "wuxing": 70,
+   "resist": 65,
+   "persuade": 65
+  },
+  "display_attrs": [
+   {
+    "key": "str",
+    "label": "力",
+    "value": 8,
+    "pct": 44,
+    "tier": "low"
+   },
+   {
+    "key": "agi",
+    "label": "敏",
+    "value": 11,
+    "pct": 61,
+    "tier": "mid"
+   },
+   {
+    "key": "con",
+    "label": "体",
+    "value": 18,
+    "pct": 100,
+    "tier": "high"
+   },
+   {
+    "key": "int",
+    "label": "智",
+    "value": 9,
+    "pct": 50,
+    "tier": "low"
+   },
+   {
+    "key": "wil",
+    "label": "意",
+    "value": 17,
+    "pct": 94,
+    "tier": "high"
+   },
+   {
+    "key": "per",
+    "label": "感",
+    "value": 16,
+    "pct": 89,
+    "tier": "high"
+   }
+  ],
+  "trait_sum": {
+   "hp": 5,
+   "mp": 0,
+   "san": 10,
+   "agility": 0,
+   "summon": 0,
+   "merit": 0
+  }
+ },
+ {
+  "card": {
+   "school": "neidan",
+   "element": "木",
+   "rank": "盟威",
+   "merit": 60,
+   "attrs": {
+    "str": 11,
+    "agi": 16,
+    "con": 13,
+    "int": 11,
+    "wil": 10,
+    "per": 10
+   },
+   "traits": [
+    {
+     "name": "胆大",
+     "tier": 2
+    },
+    {
+     "name": "过目不忘",
+     "tier": 2
+    },
+    {
+     "name": "铁手",
+     "tier": 2
+    }
+   ],
+   "items": [
+    {
+     "id": "taomu",
+     "qty": 1
+    },
+    {
+     "id": "luban",
+     "qty": 2
+    }
+   ],
+   "karma_debt": 0,
+   "skill_bonus": {
+    "melee": 2,
+    "investigate": 0
+   }
+  },
+  "derived": {
+   "hp_max": 65,
+   "mp_max": 20,
+   "san_max": 60,
+   "jianyi_max": 20,
+   "shaqi_max": 16,
+   "mp_source": "意",
+   "agility": 16,
+   "initiative": 32,
+   "rank_index": 1,
+   "can_summon": true,
+   "summon_bonus": 0,
+   "merit": 60,
+   "karma_penalty": 0,
+   "karma_debt": 0,
+   "draw_pool": 22,
+   "summon_discount": 0,
+   "skills": {
+    "arcana": 85,
+    "spell": 65,
+    "melee": 67,
+    "blade": 50,
+    "hidden": 80,
+    "athletics": 80,
+    "investigate": 50,
+    "wuxing": 60,
+    "resist": 50,
+    "persuade": 50
+   }
+  },
+  "skills": {
+   "arcana": 85,
+   "spell": 65,
+   "melee": 67,
+   "blade": 50,
+   "hidden": 80,
+   "athletics": 80,
+   "investigate": 50,
+   "wuxing": 60,
+   "resist": 50,
+   "persuade": 50
+  },
+  "display_attrs": [
+   {
+    "key": "str",
+    "label": "力",
+    "value": 11,
+    "pct": 61,
+    "tier": "mid"
+   },
+   {
+    "key": "agi",
+    "label": "敏",
+    "value": 16,
+    "pct": 89,
+    "tier": "high"
+   },
+   {
+    "key": "con",
+    "label": "体",
+    "value": 13,
+    "pct": 72,
+    "tier": "mid"
+   },
+   {
+    "key": "int",
+    "label": "智",
+    "value": 11,
+    "pct": 61,
+    "tier": "mid"
+   },
+   {
+    "key": "wil",
+    "label": "意",
+    "value": 10,
+    "pct": 56,
+    "tier": "mid"
+   },
+   {
+    "key": "per",
+    "label": "感",
+    "value": 10,
+    "pct": 56,
+    "tier": "mid"
+   }
+  ],
+  "trait_sum": {
+   "hp": 0,
+   "mp": 0,
+   "san": 10,
+   "agility": 0,
+   "summon": 0,
+   "merit": 0
+  }
+ },
+ {
+  "card": {
+   "school": "neidan",
+   "element": "水",
+   "rank": "五雷",
+   "merit": 70,
+   "attrs": {
+    "str": 14,
+    "agi": 10,
+    "con": 8,
+    "int": 13,
+    "wil": 14,
+    "per": 13
+   },
+   "traits": [
+    {
+     "name": "过目不忘",
+     "tier": 2
+    },
+    {
+     "name": "铁手",
+     "tier": 2
+    },
+    {
+     "name": "耳聪",
+     "tier": 2
+    }
+   ],
+   "items": [
+    {
+     "id": "luban",
+     "qty": 1
+    },
+    {
+     "id": "qingshenfu",
+     "qty": 2
+    }
+   ],
+   "karma_debt": 1,
+   "skill_bonus": {
+    "melee": 3,
+    "investigate": 1
+   }
+  },
+  "derived": {
+   "hp_max": 40,
+   "mp_max": 28,
+   "san_max": 70,
+   "jianyi_max": 28,
+   "shaqi_max": 10,
+   "mp_source": "意",
+   "agility": 10,
+   "initiative": 20,
+   "rank_index": 2,
+   "can_summon": true,
+   "summon_bonus": 0,
+   "merit": 70,
+   "karma_penalty": 10,
+   "karma_debt": 1,
+   "draw_pool": 26,
+   "summon_discount": 6,
+   "skills": {
+    "arcana": 75,
+    "spell": 75,
+    "melee": 73,
+    "blade": 60,
+    "hidden": 40,
+    "athletics": 40,
+    "investigate": 66,
+    "wuxing": 65,
+    "resist": 60,
+    "persuade": 60
+   }
+  },
+  "skills": {
+   "arcana": 75,
+   "spell": 75,
+   "melee": 73,
+   "blade": 60,
+   "hidden": 40,
+   "athletics": 40,
+   "investigate": 66,
+   "wuxing": 65,
+   "resist": 60,
+   "persuade": 60
+  },
+  "display_attrs": [
+   {
+    "key": "str",
+    "label": "力",
+    "value": 14,
+    "pct": 78,
+    "tier": "mid"
+   },
+   {
+    "key": "agi",
+    "label": "敏",
+    "value": 10,
+    "pct": 56,
+    "tier": "mid"
+   },
+   {
+    "key": "con",
+    "label": "体",
+    "value": 8,
+    "pct": 44,
+    "tier": "low"
+   },
+   {
+    "key": "int",
+    "label": "智",
+    "value": 13,
+    "pct": 72,
+    "tier": "mid"
+   },
+   {
+    "key": "wil",
+    "label": "意",
+    "value": 14,
+    "pct": 78,
+    "tier": "mid"
+   },
+   {
+    "key": "per",
+    "label": "感",
+    "value": 13,
+    "pct": 72,
+    "tier": "mid"
+   }
+  ],
+  "trait_sum": {
+   "hp": 0,
+   "mp": 0,
+   "san": 0,
+   "agility": 0,
+   "summon": 0,
+   "merit": 0
+  }
+ },
+ {
+  "card": {
+   "school": "neidan",
+   "element": "火",
+   "rank": "天师",
+   "merit": 80,
+   "attrs": {
+    "str": 17,
+    "agi": 15,
+    "con": 15,
+    "int": 15,
+    "wil": 18,
+    "per": 16
+   },
+   "traits": [
+    {
+     "name": "铁手",
+     "tier": 2
+    },
+    {
+     "name": "耳聪",
+     "tier": 2
+    },
+    {
+     "name": "急智",
+     "tier": 3
+    }
+   ],
+   "items": [
+    {
+     "id": "qingshenfu",
+     "qty": 1
+    },
+    {
+     "id": "dingshen_dan",
+     "qty": 2
+    }
+   ],
+   "karma_debt": 2,
+   "skill_bonus": {
+    "melee": 0,
+    "investigate": 2
+   }
+  },
+  "derived": {
+   "hp_max": 75,
+   "mp_max": 36,
+   "san_max": 100,
+   "jianyi_max": 36,
+   "shaqi_max": 15,
+   "mp_source": "意",
+   "agility": 16,
+   "initiative": 32,
+   "rank_index": 3,
+   "can_summon": true,
+   "summon_bonus": 0,
+   "merit": 80,
+   "karma_penalty": 20,
+   "karma_debt": 2,
+   "draw_pool": 30,
+   "summon_discount": 3,
+   "skills": {
+    "arcana": 55,
+    "spell": 85,
+    "melee": 75,
+    "blade": 70,
+    "hidden": 55,
+    "athletics": 55,
+    "investigate": 72,
+    "wuxing": 70,
+    "resist": 70,
+    "persuade": 70
+   }
+  },
+  "skills": {
+   "arcana": 55,
+   "spell": 85,
+   "melee": 75,
+   "blade": 70,
+   "hidden": 55,
+   "athletics": 55,
+   "investigate": 72,
+   "wuxing": 70,
+   "resist": 70,
+   "persuade": 70
+  },
+  "display_attrs": [
+   {
+    "key": "str",
+    "label": "力",
+    "value": 17,
+    "pct": 94,
+    "tier": "high"
+   },
+   {
+    "key": "agi",
+    "label": "敏",
+    "value": 15,
+    "pct": 83,
+    "tier": "high"
+   },
+   {
+    "key": "con",
+    "label": "体",
+    "value": 15,
+    "pct": 83,
+    "tier": "high"
+   },
+   {
+    "key": "int",
+    "label": "智",
+    "value": 15,
+    "pct": 83,
+    "tier": "high"
+   },
+   {
+    "key": "wil",
+    "label": "意",
+    "value": 18,
+    "pct": 100,
+    "tier": "high"
+   },
+   {
+    "key": "per",
+    "label": "感",
+    "value": 16,
+    "pct": 89,
+    "tier": "high"
+   }
+  ],
+  "trait_sum": {
+   "hp": 0,
+   "mp": 0,
+   "san": 0,
+   "agility": 1,
+   "summon": 0,
+   "merit": 0
+  }
+ },
+ {
+  "card": {
+   "school": "guti",
+   "element": "土",
+   "rank": "初真",
+   "merit": 90,
+   "attrs": {
+    "str": 7,
+    "agi": 9,
+    "con": 10,
+    "int": 17,
+    "wil": 11,
+    "per": 10
+   },
+   "traits": [
+    {
+     "name": "耳聪",
+     "tier": 2
+    },
+    {
+     "name": "急智",
+     "tier": 3
+    },
+    {
+     "name": "夜眼",
+     "tier": 3
+    }
+   ],
+   "items": [
+    {
+     "id": "dingshen_dan",
+     "qty": 1
+    },
+    {
+     "id": "shihunding",
+     "qty": 2
+    }
+   ],
+   "karma_debt": 0,
+   "skill_bonus": {
+    "melee": 1,
+    "investigate": 3
+   }
+  },
+  "derived": {
+   "hp_max": 50,
+   "mp_max": 20,
+   "san_max": 60,
+   "jianyi_max": 11,
+   "shaqi_max": 9,
+   "mp_source": "体",
+   "agility": 10,
+   "initiative": 20,
+   "rank_index": 0,
+   "can_summon": false,
+   "summon_bonus": 0,
+   "merit": 90,
+   "karma_penalty": 0,
+   "karma_debt": 0,
+   "draw_pool": 34,
+   "summon_discount": 0,
+   "skills": {
+    "arcana": 85,
+    "spell": 55,
+    "melee": 51,
+    "blade": 55,
+    "hidden": 45,
+    "athletics": 55,
+    "investigate": 68,
+    "wuxing": 50,
+    "resist": 55,
+    "persuade": 55
+   }
+  },
+  "skills": {
+   "arcana": 85,
+   "spell": 55,
+   "melee": 51,
+   "blade": 55,
+   "hidden": 45,
+   "athletics": 55,
+   "investigate": 68,
+   "wuxing": 50,
+   "resist": 55,
+   "persuade": 55
+  },
+  "display_attrs": [
+   {
+    "key": "str",
+    "label": "力",
+    "value": 7,
+    "pct": 39,
+    "tier": "low"
+   },
+   {
+    "key": "agi",
+    "label": "敏",
+    "value": 9,
+    "pct": 50,
+    "tier": "low"
+   },
+   {
+    "key": "con",
+    "label": "体",
+    "value": 10,
+    "pct": 56,
+    "tier": "mid"
+   },
+   {
+    "key": "int",
+    "label": "智",
+    "value": 17,
+    "pct": 94,
+    "tier": "high"
+   },
+   {
+    "key": "wil",
+    "label": "意",
+    "value": 11,
+    "pct": 61,
+    "tier": "mid"
+   },
+   {
+    "key": "per",
+    "label": "感",
+    "value": 10,
+    "pct": 56,
+    "tier": "mid"
+   }
+  ],
+  "trait_sum": {
+   "hp": 0,
+   "mp": 0,
+   "san": 0,
+   "agility": 1,
+   "summon": 0,
+   "merit": 0
+  }
+ },
+ {
+  "card": {
+   "school": "guti",
+   "element": "金",
+   "rank": "盟威",
+   "merit": 100,
+   "attrs": {
+    "str": 10,
+    "agi": 14,
+    "con": 17,
+    "int": 9,
+    "wil": 15,
+    "per": 13
+   },
+   "traits": [
+    {
+     "name": "急智",
+     "tier": 3
+    },
+    {
+     "name": "夜眼",
+     "tier": 3
+    },
+    {
+     "name": "跑得快",
+     "tier": 3
+    }
+   ],
+   "items": [
+    {
+     "id": "shihunding",
+     "qty": 1
+    },
+    {
+     "id": "huangfu",
+     "qty": 2
+    }
+   ],
+   "karma_debt": 1,
+   "skill_bonus": {
+    "melee": 2,
+    "investigate": 4
+   }
+  },
+  "derived": {
+   "hp_max": 85,
+   "mp_max": 34,
+   "san_max": 75,
+   "jianyi_max": 15,
+   "shaqi_max": 14,
+   "mp_source": "体",
+   "agility": 15,
+   "initiative": 30,
+   "rank_index": 1,
+   "can_summon": true,
+   "summon_bonus": 0,
+   "merit": 100,
+   "karma_penalty": 10,
+   "karma_debt": 1,
+   "draw_pool": 26,
+   "summon_discount": 0,
+   "skills": {
+    "arcana": 35,
+    "spell": 65,
+    "melee": 57,
+    "blade": 65,
+    "hidden": 60,
+    "athletics": 80,
+    "investigate": 64,
+    "wuxing": 55,
+    "resist": 65,
+    "persuade": 65
+   }
+  },
+  "skills": {
+   "arcana": 35,
+   "spell": 65,
+   "melee": 57,
+   "blade": 65,
+   "hidden": 60,
+   "athletics": 80,
+   "investigate": 64,
+   "wuxing": 55,
+   "resist": 65,
+   "persuade": 65
+  },
+  "display_attrs": [
+   {
+    "key": "str",
+    "label": "力",
+    "value": 10,
+    "pct": 56,
+    "tier": "mid"
+   },
+   {
+    "key": "agi",
+    "label": "敏",
+    "value": 14,
+    "pct": 78,
+    "tier": "mid"
+   },
+   {
+    "key": "con",
+    "label": "体",
+    "value": 17,
+    "pct": 94,
+    "tier": "high"
+   },
+   {
+    "key": "int",
+    "label": "智",
+    "value": 9,
+    "pct": 50,
+    "tier": "low"
+   },
+   {
+    "key": "wil",
+    "label": "意",
+    "value": 15,
+    "pct": 83,
+    "tier": "high"
+   },
+   {
+    "key": "per",
+    "label": "感",
+    "value": 13,
+    "pct": 72,
+    "tier": "mid"
+   }
+  ],
+  "trait_sum": {
+   "hp": 0,
+   "mp": 0,
+   "san": 0,
+   "agility": 1,
+   "summon": 0,
+   "merit": 0
+  }
+ },
+ {
+  "card": {
+   "school": "guti",
+   "element": "木",
+   "rank": "五雷",
+   "merit": 110,
+   "attrs": {
+    "str": 13,
+    "agi": 8,
+    "con": 12,
+    "int": 11,
+    "wil": 8,
+    "per": 16
+   },
+   "traits": [
+    {
+     "name": "夜眼",
+     "tier": 3
+    },
+    {
+     "name": "跑得快",
+     "tier": 3
+    },
+    {
+     "name": "嘴皮子",
+     "tier": 3
+    }
+   ],
+   "items": [
+    {
+     "id": "huangfu",
+     "qty": 1
+    },
+    {
+     "id": "taomu",
+     "qty": 2
+    }
+   ],
+   "karma_debt": 2,
+   "skill_bonus": {
+    "melee": 3,
+    "investigate": 5
+   }
+  },
+  "derived": {
+   "hp_max": 60,
+   "mp_max": 24,
+   "san_max": 40,
+   "jianyi_max": 8,
+   "shaqi_max": 8,
+   "mp_source": "体",
+   "agility": 8,
+   "initiative": 16,
+   "rank_index": 2,
+   "can_summon": true,
+   "summon_bonus": 0,
+   "merit": 110,
+   "karma_penalty": 20,
+   "karma_debt": 2,
+   "draw_pool": 26,
+   "summon_discount": 0,
+   "skills": {
+    "arcana": 35,
+    "spell": 20,
+    "melee": 63,
+    "blade": 20,
+    "hidden": 20,
+    "athletics": 40,
+    "investigate": 70,
+    "wuxing": 60,
+    "resist": 20,
+    "persuade": 30
+   }
+  },
+  "skills": {
+   "arcana": 35,
+   "spell": 20,
+   "melee": 63,
+   "blade": 20,
+   "hidden": 20,
+   "athletics": 40,
+   "investigate": 70,
+   "wuxing": 60,
+   "resist": 20,
+   "persuade": 30
+  },
+  "display_attrs": [
+   {
+    "key": "str",
+    "label": "力",
+    "value": 13,
+    "pct": 72,
+    "tier": "mid"
+   },
+   {
+    "key": "agi",
+    "label": "敏",
+    "value": 8,
+    "pct": 44,
+    "tier": "low"
+   },
+   {
+    "key": "con",
+    "label": "体",
+    "value": 12,
+    "pct": 67,
+    "tier": "mid"
+   },
+   {
+    "key": "int",
+    "label": "智",
+    "value": 11,
+    "pct": 61,
+    "tier": "mid"
+   },
+   {
+    "key": "wil",
+    "label": "意",
+    "value": 8,
+    "pct": 44,
+    "tier": "low"
+   },
+   {
+    "key": "per",
+    "label": "感",
+    "value": 16,
+    "pct": 89,
+    "tier": "high"
+   }
+  ],
+  "trait_sum": {
+   "hp": 0,
+   "mp": 0,
+   "san": 0,
+   "agility": 0,
+   "summon": 0,
+   "merit": 0
+  }
+ },
+ {
+  "card": {
+   "school": "guti",
+   "element": "水",
+   "rank": "天师",
+   "merit": 120,
+   "attrs": {
+    "str": 16,
+    "agi": 13,
+    "con": 7,
+    "int": 13,
+    "wil": 12,
+    "per": 10
+   },
+   "traits": [
+    {
+     "name": "跑得快",
+     "tier": 3
+    },
+    {
+     "name": "嘴皮子",
+     "tier": 3
+    },
+    {
+     "name": "药理通",
+     "tier": 3
+    }
+   ],
+   "items": [
+    {
+     "id": "taomu",
+     "qty": 1
+    },
+    {
+     "id": "luban",
+     "qty": 2
+    }
+   ],
+   "karma_debt": 0,
+   "skill_bonus": {
+    "melee": 0,
+    "investigate": 0
+   }
+  },
+  "derived": {
+   "hp_max": 35,
+   "mp_max": 14,
+   "san_max": 60,
+   "jianyi_max": 12,
+   "shaqi_max": 13,
+   "mp_source": "体",
+   "agility": 13,
+   "initiative": 26,
+   "rank_index": 3,
+   "can_summon": true,
+   "summon_bonus": 0,
+   "merit": 120,
+   "karma_penalty": 0,
+   "karma_debt": 0,
+   "draw_pool": 26,
+   "summon_discount": 0,
+   "skills": {
+    "arcana": 85,
+    "spell": 65,
+    "melee": 95,
+    "blade": 60,
+    "hidden": 65,
+    "athletics": 85,
+    "investigate": 50,
+    "wuxing": 50,
+    "resist": 60,
+    "persuade": 70
+   }
+  },
+  "skills": {
+   "arcana": 85,
+   "spell": 65,
+   "melee": 95,
+   "blade": 60,
+   "hidden": 65,
+   "athletics": 85,
+   "investigate": 50,
+   "wuxing": 50,
+   "resist": 60,
+   "persuade": 70
+  },
+  "display_attrs": [
+   {
+    "key": "str",
+    "label": "力",
+    "value": 16,
+    "pct": 89,
+    "tier": "high"
+   },
+   {
+    "key": "agi",
+    "label": "敏",
+    "value": 13,
+    "pct": 72,
+    "tier": "mid"
+   },
+   {
+    "key": "con",
+    "label": "体",
+    "value": 7,
+    "pct": 39,
+    "tier": "low"
+   },
+   {
+    "key": "int",
+    "label": "智",
+    "value": 13,
+    "pct": 72,
+    "tier": "mid"
+   },
+   {
+    "key": "wil",
+    "label": "意",
+    "value": 12,
+    "pct": 67,
+    "tier": "mid"
+   },
+   {
+    "key": "per",
+    "label": "感",
+    "value": 10,
+    "pct": 56,
+    "tier": "mid"
+   }
+  ],
+  "trait_sum": {
+   "hp": 0,
+   "mp": 0,
+   "san": 0,
+   "agility": 0,
+   "summon": 0,
+   "merit": 0
+  }
+ },
+ {
+  "card": {
+   "school": "jianxiu",
+   "element": "火",
+   "rank": "初真",
+   "merit": 130,
+   "attrs": {
+    "str": 6,
+    "agi": 18,
+    "con": 14,
+    "int": 15,
+    "wil": 16,
+    "per": 13
+   },
+   "traits": [
+    {
+     "name": "嘴皮子",
+     "tier": 3
+    },
+    {
+     "name": "药理通",
+     "tier": 3
+    },
+    {
+     "name": "穷鬼",
+     "tier": 4
+    }
+   ],
+   "items": [
+    {
+     "id": "luban",
+     "qty": 1
+    },
+    {
+     "id": "qingshenfu",
+     "qty": 2
+    }
+   ],
+   "karma_debt": 1,
+   "skill_bonus": {
+    "melee": 1,
+    "investigate": 1
+   }
+  },
+  "derived": {
+   "hp_max": 68,
+   "mp_max": 34,
+   "san_max": 80,
+   "jianyi_max": 32,
+   "shaqi_max": 18,
+   "mp_source": "意",
+   "agility": 18,
+   "initiative": 36,
+   "rank_index": 0,
+   "can_summon": false,
+   "summon_bonus": 0,
+   "merit": 130,
+   "karma_penalty": 10,
+   "karma_debt": 1,
+   "draw_pool": 30,
+   "summon_discount": 6,
+   "skills": {
+    "arcana": 75,
+    "spell": 75,
+    "melee": 21,
+    "blade": 90,
+    "hidden": 80,
+    "athletics": 85,
+    "investigate": 56,
+    "wuxing": 55,
+    "resist": 70,
+    "persuade": 80
+   }
+  },
+  "skills": {
+   "arcana": 75,
+   "spell": 75,
+   "melee": 21,
+   "blade": 90,
+   "hidden": 80,
+   "athletics": 85,
+   "investigate": 56,
+   "wuxing": 55,
+   "resist": 70,
+   "persuade": 80
+  },
+  "display_attrs": [
+   {
+    "key": "str",
+    "label": "力",
+    "value": 6,
+    "pct": 33,
+    "tier": "low"
+   },
+   {
+    "key": "agi",
+    "label": "敏",
+    "value": 18,
+    "pct": 100,
+    "tier": "high"
+   },
+   {
+    "key": "con",
+    "label": "体",
+    "value": 14,
+    "pct": 78,
+    "tier": "mid"
+   },
+   {
+    "key": "int",
+    "label": "智",
+    "value": 15,
+    "pct": 83,
+    "tier": "high"
+   },
+   {
+    "key": "wil",
+    "label": "意",
+    "value": 16,
+    "pct": 89,
+    "tier": "high"
+   },
+   {
+    "key": "per",
+    "label": "感",
+    "value": 13,
+    "pct": 72,
+    "tier": "mid"
+   }
+  ],
+  "trait_sum": {
+   "hp": -2,
+   "mp": 2,
+   "san": 0,
+   "agility": 0,
+   "summon": 0,
+   "merit": 0
+  }
+ },
+ {
+  "card": {
+   "school": "jianxiu",
+   "element": "土",
+   "rank": "盟威",
+   "merit": 140,
+   "attrs": {
+    "str": 9,
+    "agi": 12,
+    "con": 9,
+    "int": 17,
+    "wil": 9,
+    "per": 16
+   },
+   "traits": [
+    {
+     "name": "药理通",
+     "tier": 3
+    },
+    {
+     "name": "穷鬼",
+     "tier": 4
+    },
+    {
+     "name": "业障缠身",
+     "tier": 4
+    }
+   ],
+   "items": [
+    {
+     "id": "qingshenfu",
+     "qty": 1
+    },
+    {
+     "id": "dingshen_dan",
+     "qty": 2
+    }
+   ],
+   "karma_debt": 2,
+   "skill_bonus": {
+    "melee": 2,
+    "investigate": 2
+   }
+  },
+  "derived": {
+   "hp_max": 43,
+   "mp_max": 20,
+   "san_max": 55,
+   "jianyi_max": 18,
+   "shaqi_max": 12,
+   "mp_source": "意",
+   "agility": 12,
+   "initiative": 24,
+   "rank_index": 1,
+   "can_summon": true,
+   "summon_bonus": 0,
+   "merit": 110,
+   "karma_penalty": 20,
+   "karma_debt": 2,
+   "draw_pool": 34,
+   "summon_discount": 3,
+   "skills": {
+    "arcana": 65,
+    "spell": 30,
+    "melee": 27,
+    "blade": 45,
+    "hidden": 40,
+    "athletics": 45,
+    "investigate": 62,
+    "wuxing": 60,
+    "resist": 25,
+    "persuade": 25
+   }
+  },
+  "skills": {
+   "arcana": 65,
+   "spell": 30,
+   "melee": 27,
+   "blade": 45,
+   "hidden": 40,
+   "athletics": 45,
+   "investigate": 62,
+   "wuxing": 60,
+   "resist": 25,
+   "persuade": 25
+  },
+  "display_attrs": [
+   {
+    "key": "str",
+    "label": "力",
+    "value": 9,
+    "pct": 50,
+    "tier": "low"
+   },
+   {
+    "key": "agi",
+    "label": "敏",
+    "value": 12,
+    "pct": 67,
+    "tier": "mid"
+   },
+   {
+    "key": "con",
+    "label": "体",
+    "value": 9,
+    "pct": 50,
+    "tier": "low"
+   },
+   {
+    "key": "int",
+    "label": "智",
+    "value": 17,
+    "pct": 94,
+    "tier": "high"
+   },
+   {
+    "key": "wil",
+    "label": "意",
+    "value": 9,
+    "pct": 50,
+    "tier": "low"
+   },
+   {
+    "key": "per",
+    "label": "感",
+    "value": 16,
+    "pct": 89,
+    "tier": "high"
+   }
+  ],
+  "trait_sum": {
+   "hp": -2,
+   "mp": 2,
+   "san": 0,
+   "agility": 0,
+   "summon": 0,
+   "merit": -30
+  }
+ },
+ {
+  "card": {
+   "school": "jianxiu",
+   "element": "金",
+   "rank": "五雷",
+   "merit": 150,
+   "attrs": {
+    "str": 12,
+    "agi": 17,
+    "con": 16,
+    "int": 9,
+    "wil": 13,
+    "per": 10
+   },
+   "traits": [
+    {
+     "name": "穷鬼",
+     "tier": 4
+    },
+    {
+     "name": "业障缠身",
+     "tier": 4
+    },
+    {
+     "name": "怕黑",
+     "tier": 4
+    }
+   ],
+   "items": [
+    {
+     "id": "dingshen_dan",
+     "qty": 1
+    },
+    {
+     "id": "shihunding",
+     "qty": 2
+    }
+   ],
+   "karma_debt": 0,
+   "skill_bonus": {
+    "melee": 3,
+    "investigate": 3
+   }
+  },
+  "derived": {
+   "hp_max": 78,
+   "mp_max": 28,
+   "san_max": 65,
+   "jianyi_max": 26,
+   "shaqi_max": 17,
+   "mp_source": "意",
+   "agility": 17,
+   "initiative": 34,
+   "rank_index": 2,
+   "can_summon": true,
+   "summon_bonus": 0,
+   "merit": 120,
+   "karma_penalty": 0,
+   "karma_debt": 0,
+   "draw_pool": 18,
+   "summon_discount": 0,
+   "skills": {
+    "arcana": 45,
+    "spell": 65,
+    "melee": 63,
+    "blade": 85,
+    "hidden": 85,
+    "athletics": 90,
+    "investigate": 58,
+    "wuxing": 50,
+    "resist": 65,
+    "persuade": 65
+   }
+  },
+  "skills": {
+   "arcana": 45,
+   "spell": 65,
+   "melee": 63,
+   "blade": 85,
+   "hidden": 85,
+   "athletics": 90,
+   "investigate": 58,
+   "wuxing": 50,
+   "resist": 65,
+   "persuade": 65
+  },
+  "display_attrs": [
+   {
+    "key": "str",
+    "label": "力",
+    "value": 12,
+    "pct": 67,
+    "tier": "mid"
+   },
+   {
+    "key": "agi",
+    "label": "敏",
+    "value": 17,
+    "pct": 94,
+    "tier": "high"
+   },
+   {
+    "key": "con",
+    "label": "体",
+    "value": 16,
+    "pct": 89,
+    "tier": "high"
+   },
+   {
+    "key": "int",
+    "label": "智",
+    "value": 9,
+    "pct": 50,
+    "tier": "low"
+   },
+   {
+    "key": "wil",
+    "label": "意",
+    "value": 13,
+    "pct": 72,
+    "tier": "mid"
+   },
+   {
+    "key": "per",
+    "label": "感",
+    "value": 10,
+    "pct": 56,
+    "tier": "mid"
+   }
+  ],
+  "trait_sum": {
+   "hp": -2,
+   "mp": 2,
+   "san": -5,
+   "agility": 0,
+   "summon": 0,
+   "merit": -30
+  }
+ },
+ {
+  "card": {
+   "school": "jianxiu",
+   "element": "木",
+   "rank": "天师",
+   "merit": 160,
+   "attrs": {
+    "str": 15,
+    "agi": 11,
+    "con": 11,
+    "int": 11,
+    "wil": 17,
+    "per": 13
+   },
+   "traits": [
+    {
+     "name": "业障缠身",
+     "tier": 4
+    },
+    {
+     "name": "怕黑",
+     "tier": 4
+    },
+    {
+     "name": "夜猫子",
+     "tier": 4
+    }
+   ],
+   "items": [
+    {
+     "id": "shihunding",
+     "qty": 1
+    },
+    {
+     "id": "huangfu",
+     "qty": 2
+    }
+   ],
+   "karma_debt": 1,
+   "skill_bonus": {
+    "melee": 0,
+    "investigate": 4
+   }
+  },
+  "derived": {
+   "hp_max": 55,
+   "mp_max": 34,
+   "san_max": 77,
+   "jianyi_max": 34,
+   "shaqi_max": 11,
+   "mp_source": "意",
+   "agility": 12,
+   "initiative": 24,
+   "rank_index": 3,
+   "can_summon": true,
+   "summon_bonus": 0,
+   "merit": 130,
+   "karma_penalty": 10,
+   "karma_debt": 1,
+   "draw_pool": 30,
+   "summon_discount": 0,
+   "skills": {
+    "arcana": 45,
+    "spell": 75,
+    "melee": 65,
+    "blade": 95,
+    "hidden": 45,
+    "athletics": 50,
+    "investigate": 64,
+    "wuxing": 55,
+    "resist": 75,
+    "persuade": 75
+   }
+  },
+  "skills": {
+   "arcana": 45,
+   "spell": 75,
+   "melee": 65,
+   "blade": 95,
+   "hidden": 45,
+   "athletics": 50,
+   "investigate": 64,
+   "wuxing": 55,
+   "resist": 75,
+   "persuade": 75
+  },
+  "display_attrs": [
+   {
+    "key": "str",
+    "label": "力",
+    "value": 15,
+    "pct": 83,
+    "tier": "high"
+   },
+   {
+    "key": "agi",
+    "label": "敏",
+    "value": 11,
+    "pct": 61,
+    "tier": "mid"
+   },
+   {
+    "key": "con",
+    "label": "体",
+    "value": 11,
+    "pct": 61,
+    "tier": "mid"
+   },
+   {
+    "key": "int",
+    "label": "智",
+    "value": 11,
+    "pct": 61,
+    "tier": "mid"
+   },
+   {
+    "key": "wil",
+    "label": "意",
+    "value": 17,
+    "pct": 94,
+    "tier": "high"
+   },
+   {
+    "key": "per",
+    "label": "感",
+    "value": 13,
+    "pct": 72,
+    "tier": "mid"
+   }
+  ],
+  "trait_sum": {
+   "hp": 0,
+   "mp": 0,
+   "san": -8,
+   "agility": 1,
+   "summon": 0,
+   "merit": -30
+  }
+ },
+ {
+  "card": {
+   "school": "anqi",
+   "element": "水",
+   "rank": "初真",
+   "merit": 170,
+   "attrs": {
+    "str": 18,
+    "agi": 16,
+    "con": 18,
+    "int": 13,
+    "wil": 10,
+    "per": 16
+   },
+   "traits": [
+    {
+     "name": "怕黑",
+     "tier": 4
+    },
+    {
+     "name": "夜猫子",
+     "tier": 4
+    },
+    {
+     "name": "洁癖",
+     "tier": 4
+    }
+   ],
+   "items": [
+    {
+     "id": "huangfu",
+     "qty": 1
+    },
+    {
+     "id": "taomu",
+     "qty": 2
+    }
+   ],
+   "karma_debt": 2,
+   "skill_bonus": {
+    "melee": 1,
+    "investigate": 5
+   }
+  },
+  "derived": {
+   "hp_max": 88,
+   "mp_max": 32,
+   "san_max": 42,
+   "jianyi_max": 10,
+   "shaqi_max": 32,
+   "mp_source": "敏",
+   "agility": 17,
+   "initiative": 34,
+   "rank_index": 0,
+   "can_summon": false,
+   "summon_bonus": 0,
+   "merit": 170,
+   "karma_penalty": 20,
+   "karma_debt": 2,
+   "draw_pool": 30,
+   "summon_discount": 0,
+   "skills": {
+    "arcana": 45,
+    "spell": 30,
+    "melee": 71,
+    "blade": 30,
+    "hidden": 80,
+    "athletics": 60,
+    "investigate": 75,
+    "wuxing": 65,
+    "resist": 30,
+    "persuade": 30
+   }
+  },
+  "skills": {
+   "arcana": 45,
+   "spell": 30,
+   "melee": 71,
+   "blade": 30,
+   "hidden": 80,
+   "athletics": 60,
+   "investigate": 75,
+   "wuxing": 65,
+   "resist": 30,
+   "persuade": 30
+  },
+  "display_attrs": [
+   {
+    "key": "str",
+    "label": "力",
+    "value": 18,
+    "pct": 100,
+    "tier": "high"
+   },
+   {
+    "key": "agi",
+    "label": "敏",
+    "value": 16,
+    "pct": 89,
+    "tier": "high"
+   },
+   {
+    "key": "con",
+    "label": "体",
+    "value": 18,
+    "pct": 100,
+    "tier": "high"
+   },
+   {
+    "key": "int",
+    "label": "智",
+    "value": 13,
+    "pct": 72,
+    "tier": "mid"
+   },
+   {
+    "key": "wil",
+    "label": "意",
+    "value": 10,
+    "pct": 56,
+    "tier": "mid"
+   },
+   {
+    "key": "per",
+    "label": "感",
+    "value": 16,
+    "pct": 89,
+    "tier": "high"
+   }
+  ],
+  "trait_sum": {
+   "hp": -2,
+   "mp": 0,
+   "san": -8,
+   "agility": 1,
+   "summon": 0,
+   "merit": 0
+  }
+ },
+ {
+  "card": {
+   "school": "anqi",
+   "element": "火",
+   "rank": "盟威",
+   "merit": 180,
+   "attrs": {
+    "str": 8,
+    "agi": 10,
+    "con": 13,
+    "int": 15,
+    "wil": 14,
+    "per": 10
+   },
+   "traits": [
+    {
+     "name": "夜猫子",
+     "tier": 4
+    },
+    {
+     "name": "洁癖",
+     "tier": 4
+    },
+    {
+     "name": "天眼",
+     "tier": 1
+    }
+   ],
+   "items": [
+    {
+     "id": "taomu",
+     "qty": 1
+    },
+    {
+     "id": "luban",
+     "qty": 2
+    }
+   ],
+   "karma_debt": 0,
+   "skill_bonus": {
+    "melee": 2,
+    "investigate": 0
+   }
+  },
+  "derived": {
+   "hp_max": 63,
+   "mp_max": 20,
+   "san_max": 62,
+   "jianyi_max": 14,
+   "shaqi_max": 20,
+   "mp_source": "敏",
+   "agility": 11,
+   "initiative": 22,
+   "rank_index": 1,
+   "can_summon": true,
+   "summon_bonus": 0,
+   "merit": 180,
+   "karma_penalty": 0,
+   "karma_debt": 0,
+   "draw_pool": 30,
+   "summon_discount": 0,
+   "skills": {
+    "arcana": 95,
+    "spell": 70,
+    "melee": 42,
+    "blade": 70,
+    "hidden": 70,
+    "athletics": 50,
+    "investigate": 55,
+    "wuxing": 65,
+    "resist": 70,
+    "persuade": 70
+   }
+  },
+  "skills": {
+   "arcana": 95,
+   "spell": 70,
+   "melee": 42,
+   "blade": 70,
+   "hidden": 70,
+   "athletics": 50,
+   "investigate": 55,
+   "wuxing": 65,
+   "resist": 70,
+   "persuade": 70
+  },
+  "display_attrs": [
+   {
+    "key": "str",
+    "label": "力",
+    "value": 8,
+    "pct": 44,
+    "tier": "low"
+   },
+   {
+    "key": "agi",
+    "label": "敏",
+    "value": 10,
+    "pct": 56,
+    "tier": "mid"
+   },
+   {
+    "key": "con",
+    "label": "体",
+    "value": 13,
+    "pct": 72,
+    "tier": "mid"
+   },
+   {
+    "key": "int",
+    "label": "智",
+    "value": 15,
+    "pct": 83,
+    "tier": "high"
+   },
+   {
+    "key": "wil",
+    "label": "意",
+    "value": 14,
+    "pct": 78,
+    "tier": "mid"
+   },
+   {
+    "key": "per",
+    "label": "感",
+    "value": 10,
+    "pct": 56,
+    "tier": "mid"
+   }
+  ],
+  "trait_sum": {
+   "hp": -2,
+   "mp": 0,
+   "san": -8,
+   "agility": 1,
+   "summon": 0,
+   "merit": 0
+  }
+ },
+ {
+  "card": {
+   "school": "anqi",
+   "element": "土",
+   "rank": "五雷",
+   "merit": 190,
+   "attrs": {
+    "str": 11,
+    "agi": 15,
+    "con": 8,
+    "int": 17,
+    "wil": 18,
+    "per": 13
+   },
+   "traits": [
+    {
+     "name": "洁癖",
+     "tier": 4
+    },
+    {
+     "name": "天眼",
+     "tier": 1
+    },
+    {
+     "name": "阴年阴月",
+     "tier": 1
+    }
+   ],
+   "items": [
+    {
+     "id": "luban",
+     "qty": 1
+    },
+    {
+     "id": "qingshenfu",
+     "qty": 2
+    }
+   ],
+   "karma_debt": 1,
+   "skill_bonus": {
+    "melee": 3,
+    "investigate": 1
+   }
+  },
+  "derived": {
+   "hp_max": 38,
+   "mp_max": 30,
+   "san_max": 75,
+   "jianyi_max": 18,
+   "shaqi_max": 30,
+   "mp_source": "敏",
+   "agility": 15,
+   "initiative": 30,
+   "rank_index": 2,
+   "can_summon": true,
+   "summon_bonus": 0,
+   "merit": 190,
+   "karma_penalty": 10,
+   "karma_debt": 1,
+   "draw_pool": 34,
+   "summon_discount": 6,
+   "skills": {
+    "arcana": 85,
+    "spell": 80,
+    "melee": 48,
+    "blade": 80,
+    "hidden": 85,
+    "athletics": 65,
+    "investigate": 61,
+    "wuxing": 80,
+    "resist": 80,
+    "persuade": 80
+   }
+  },
+  "skills": {
+   "arcana": 85,
+   "spell": 80,
+   "melee": 48,
+   "blade": 80,
+   "hidden": 85,
+   "athletics": 65,
+   "investigate": 61,
+   "wuxing": 80,
+   "resist": 80,
+   "persuade": 80
+  },
+  "display_attrs": [
+   {
+    "key": "str",
+    "label": "力",
+    "value": 11,
+    "pct": 61,
+    "tier": "mid"
+   },
+   {
+    "key": "agi",
+    "label": "敏",
+    "value": 15,
+    "pct": 83,
+    "tier": "high"
+   },
+   {
+    "key": "con",
+    "label": "体",
+    "value": 8,
+    "pct": 44,
+    "tier": "low"
+   },
+   {
+    "key": "int",
+    "label": "智",
+    "value": 17,
+    "pct": 94,
+    "tier": "high"
+   },
+   {
+    "key": "wil",
+    "label": "意",
+    "value": 18,
+    "pct": 100,
+    "tier": "high"
+   },
+   {
+    "key": "per",
+    "label": "感",
+    "value": 13,
+    "pct": 72,
+    "tier": "mid"
+   }
+  ],
+  "trait_sum": {
+   "hp": -2,
+   "mp": 0,
+   "san": -15,
+   "agility": 0,
+   "summon": 0,
+   "merit": 0
+  }
+ },
+ {
+  "card": {
+   "school": "anqi",
+   "element": "金",
+   "rank": "天师",
+   "merit": 200,
+   "attrs": {
+    "str": 14,
+    "agi": 9,
+    "con": 15,
+    "int": 9,
+    "wil": 11,
+    "per": 16
+   },
+   "traits": [
+    {
+     "name": "天眼",
+     "tier": 1
+    },
+    {
+     "name": "阴年阴月",
+     "tier": 1
+    },
+    {
+     "name": "不死债",
+     "tier": 1
+    }
+   ],
+   "items": [
+    {
+     "id": "qingshenfu",
+     "qty": 1
+    },
+    {
+     "id": "dingshen_dan",
+     "qty": 2
+    }
+   ],
+   "karma_debt": 2,
+   "skill_bonus": {
+    "melee": 0,
+    "investigate": 2
+   }
+  },
+  "derived": {
+   "hp_max": 83,
+   "mp_max": 18,
+   "san_max": 42,
+   "jianyi_max": 11,
+   "shaqi_max": 18,
+   "mp_source": "敏",
+   "agility": 9,
+   "initiative": 18,
+   "rank_index": 3,
+   "can_summon": true,
+   "summon_bonus": 0,
+   "merit": 200,
+   "karma_penalty": 20,
+   "karma_debt": 2,
+   "draw_pool": 18,
+   "summon_discount": 3,
+   "skills": {
+    "arcana": 25,
+    "spell": 35,
+    "melee": 50,
+    "blade": 35,
+    "hidden": 45,
+    "athletics": 25,
+    "investigate": 67,
+    "wuxing": 80,
+    "resist": 35,
+    "persuade": 35
+   }
+  },
+  "skills": {
+   "arcana": 25,
+   "spell": 35,
+   "melee": 50,
+   "blade": 35,
+   "hidden": 45,
+   "athletics": 25,
+   "investigate": 67,
+   "wuxing": 80,
+   "resist": 35,
+   "persuade": 35
+  },
+  "display_attrs": [
+   {
+    "key": "str",
+    "label": "力",
+    "value": 14,
+    "pct": 78,
+    "tier": "mid"
+   },
+   {
+    "key": "agi",
+    "label": "敏",
+    "value": 9,
+    "pct": 50,
+    "tier": "low"
+   },
+   {
+    "key": "con",
+    "label": "体",
+    "value": 15,
+    "pct": 83,
+    "tier": "high"
+   },
+   {
+    "key": "int",
+    "label": "智",
+    "value": 9,
+    "pct": 50,
+    "tier": "low"
+   },
+   {
+    "key": "wil",
+    "label": "意",
+    "value": 11,
+    "pct": 61,
+    "tier": "mid"
+   },
+   {
+    "key": "per",
+    "label": "感",
+    "value": 16,
+    "pct": 89,
+    "tier": "high"
+   }
+  ],
+  "trait_sum": {
+   "hp": 8,
+   "mp": 0,
+   "san": -23,
+   "agility": 0,
+   "summon": 0,
+   "merit": 0
+  }
+ }
+]

@@ -81,6 +81,11 @@
       "settings": "三套主题、四档字号、动效开关、遮掩设置",
       "archive": "11 个档案：城市/人物/机构/教派/行业/国家/世界背景/事件/任务/装备/特性，每类都能在页面上增删改",
       "game": "三栏 5:4:1：中国地图 / 展示面板 / 菜单（人物·任务·参与·城市）"
+    },
+    "migration": {
+      "cordis": "P0–P2 完成：server/ 有 cordis 骨架 + dice/checks/wuxing/sheet 的 TS 移植，134 个 vitest 全绿；启动脚本仍起 Python",
+      "doc": "docs/cordis迁移.md",
+      "next": "P3 内容层与编辑校验；P5 用 server/test/fixtures/sessions.json 逐 action 重放"
     }
   },
 
@@ -97,7 +102,8 @@
     { "phase": "API 拆板块", "summary": "app/api/ 按资源分 router，main.py 只做装配", "outcome": "main.py 762 → 45 行" },
     { "phase": "数据板块归拢", "summary": "内容与迁移挪进 backend/data/，持久层收进 app/models/", "outcome": "代码与数据边界清晰" },
     { "phase": "档案编辑", "summary": "11 类档案在页面上增删改，校验后原子写回 content JSON 并自动重载", "outcome": "改设定不用开编辑器，git diff 只显示改动的行" },
-    { "phase": "前端 TS 化 + 目录按区域", "summary": "src 换成 TypeScript（接口类型集中在 shared/types.ts），目录按 app/areas/shared 组织，档案详情按 11 类拆成 details/*", "outcome": "类型错误在 vue-tsc 阶段暴露；加类别只动 details" }
+    { "phase": "前端 TS 化 + 目录按区域", "summary": "src 换成 TypeScript（接口类型集中在 shared/types.ts），目录按 app/areas/shared 组织，档案详情按 11 类拆成 details/*", "outcome": "类型错误在 vue-tsc 阶段暴露；加类别只动 details" },
+    { "phase": "cordis 迁移 P0–P2", "summary": "冻结 Python golden 契约；搭 cordis 骨架（自研 HTTP + node:sqlite）；移植 dice/checks/wuxing/sheet", "outcome": "134 个 vitest 全绿，规则与 Python 逐字段一致；Python 后端仍是默认入口" }
   ],
 
   "decisions": [

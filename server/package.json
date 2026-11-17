@@ -1,0 +1,27 @@
+{
+  "name": "moyu-server",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "玄门诡事录 · Node/TS 后端（cordis 插件内核）",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "start": "node src/index.ts",
+    "dev": "node --watch src/index.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "golden": "cd ../backend && uv run python ../server/scripts/export_golden.py"
+  },
+  "dependencies": {
+    "cordis": "4.0.0-rc.13",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "typescript": "~5.9.3",
+    "vitest": "^5.1.0"
+  }
+}

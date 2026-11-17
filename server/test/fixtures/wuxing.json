@@ -1,0 +1,394 @@
+[
+ {
+  "attacker": "金",
+  "defender": "金",
+  "relation": "同源",
+  "multiplier": 1.0,
+  "check_modifier": 5,
+  "describe": "金同源，抵抗更强，检定仅 +5"
+ },
+ {
+  "attacker": "金",
+  "defender": "木",
+  "relation": "克",
+  "multiplier": 1.5,
+  "check_modifier": 20,
+  "describe": "金克木，伤害 ×1.5，检定 +20"
+ },
+ {
+  "attacker": "金",
+  "defender": "水",
+  "relation": "无涉",
+  "multiplier": 1.0,
+  "check_modifier": 0,
+  "describe": "金与水无涉，一切照常"
+ },
+ {
+  "attacker": "金",
+  "defender": "火",
+  "relation": "被克",
+  "multiplier": 0.5,
+  "check_modifier": -20,
+  "describe": "金受火所制，伤害 ×0.5，检定 −20"
+ },
+ {
+  "attacker": "金",
+  "defender": "土",
+  "relation": "无涉",
+  "multiplier": 1.0,
+  "check_modifier": 0,
+  "describe": "金与土无涉，一切照常"
+ },
+ {
+  "attacker": "金",
+  "defender": "煞",
+  "relation": "无涉",
+  "multiplier": 1.0,
+  "check_modifier": 0,
+  "describe": "金与煞无涉，一切照常"
+ },
+ {
+  "attacker": "金",
+  "defender": null,
+  "relation": "无涉",
+  "multiplier": 1.0,
+  "check_modifier": 0,
+  "describe": "金与None无涉，一切照常"
+ },
+ {
+  "attacker": "木",
+  "defender": "金",
+  "relation": "被克",
+  "multiplier": 0.5,
+  "check_modifier": -20,
+  "describe": "木受金所制，伤害 ×0.5，检定 −20"
+ },
+ {
+  "attacker": "木",
+  "defender": "木",
+  "relation": "同源",
+  "multiplier": 1.0,
+  "check_modifier": 5,
+  "describe": "木同源，抵抗更强，检定仅 +5"
+ },
+ {
+  "attacker": "木",
+  "defender": "水",
+  "relation": "无涉",
+  "multiplier": 1.0,
+  "check_modifier": 0,
+  "describe": "木与水无涉，一切照常"
+ },
+ {
+  "attacker": "木",
+  "defender": "火",
+  "relation": "无涉",
+  "multiplier": 1.0,
+  "check_modifier": 0,
+  "describe": "木与火无涉，一切照常"
+ },
+ {
+  "attacker": "木",
+  "defender": "土",
+  "relation": "克",
+  "multiplier": 1.5,
+  "check_modifier": 20,
+  "describe": "木克土，伤害 ×1.5，检定 +20"
+ },
+ {
+  "attacker": "木",
+  "defender": "煞",
+  "relation": "无涉",
+  "multiplier": 1.0,
+  "check_modifier": 0,
+  "describe": "木与煞无涉，一切照常"
+ },
+ {
+  "attacker": "木",
+  "defender": null,
+  "relation": "无涉",
+  "multiplier": 1.0,
+  "check_modifier": 0,
+  "describe": "木与None无涉，一切照常"
+ },
+ {
+  "attacker": "水",
+  "defender": "金",
+  "relation": "无涉",
+  "multiplier": 1.0,
+  "check_modifier": 0,
+  "describe": "水与金无涉，一切照常"
+ },
+ {
+  "attacker": "水",
+  "defender": "木",
+  "relation": "无涉",
+  "multiplier": 1.0,
+  "check_modifier": 0,
+  "describe": "水与木无涉，一切照常"
+ },
+ {
+  "attacker": "水",
+  "defender": "水",
+  "relation": "同源",
+  "multiplier": 1.0,
+  "check_modifier": 5,
+  "describe": "水同源，抵抗更强，检定仅 +5"
+ },
+ {
+  "attacker": "水",
+  "defender": "火",
+  "relation": "克",
+  "multiplier": 1.5,
+  "check_modifier": 20,
+  "describe": "水克火，伤害 ×1.5，检定 +20"
+ },
+ {
+  "attacker": "水",
+  "defender": "土",
+  "relation": "被克",
+  "multiplier": 0.5,
+  "check_modifier": -20,
+  "describe": "水受土所制，伤害 ×0.5，检定 −20"
+ },
+ {
+  "attacker": "水",
+  "defender": "煞",
+  "relation": "无涉",
+  "multiplier": 1.0,
+  "check_modifier": 0,
+  "describe": "水与煞无涉，一切照常"
+ },
+ {
+  "attacker": "水",
+  "defender": null,
+  "relation": "无涉",
+  "multiplier": 1.0,
+  "check_modifier": 0,
+  "describe": "水与None无涉，一切照常"
+ },
+ {
+  "attacker": "火",
+  "defender": "金",
+  "relation": "克",
+  "multiplier": 1.5,
+  "check_modifier": 20,
+  "describe": "火克金，伤害 ×1.5，检定 +20"
+ },
+ {
+  "attacker": "火",
+  "defender": "木",
+  "relation": "无涉",
+  "multiplier": 1.0,
+  "check_modifier": 0,
+  "describe": "火与木无涉，一切照常"
+ },
+ {
+  "attacker": "火",
+  "defender": "水",
+  "relation": "被克",
+  "multiplier": 0.5,
+  "check_modifier": -20,
+  "describe": "火受水所制，伤害 ×0.5，检定 −20"
+ },
+ {
+  "attacker": "火",
+  "defender": "火",
+  "relation": "同源",
+  "multiplier": 1.0,
+  "check_modifier": 5,
+  "describe": "火同源，抵抗更强，检定仅 +5"
+ },
+ {
+  "attacker": "火",
+  "defender": "土",
+  "relation": "无涉",
+  "multiplier": 1.0,
+  "check_modifier": 0,
+  "describe": "火与土无涉，一切照常"
+ },
+ {
+  "attacker": "火",
+  "defender": "煞",
+  "relation": "无涉",
+  "multiplier": 1.0,
+  "check_modifier": 0,
+  "describe": "火与煞无涉，一切照常"
+ },
+ {
+  "attacker": "火",
+  "defender": null,
+  "relation": "无涉",
+  "multiplier": 1.0,
+  "check_modifier": 0,
+  "describe": "火与None无涉，一切照常"
+ },
+ {
+  "attacker": "土",
+  "defender": "金",
+  "relation": "无涉",
+  "multiplier": 1.0,
+  "check_modifier": 0,
+  "describe": "土与金无涉，一切照常"
+ },
+ {
+  "attacker": "土",
+  "defender": "木",
+  "relation": "被克",
+  "multiplier": 0.5,
+  "check_modifier": -20,
+  "describe": "土受木所制，伤害 ×0.5，检定 −20"
+ },
+ {
+  "attacker": "土",
+  "defender": "水",
+  "relation": "克",
+  "multiplier": 1.5,
+  "check_modifier": 20,
+  "describe": "土克水，伤害 ×1.5，检定 +20"
+ },
+ {
+  "attacker": "土",
+  "defender": "火",
+  "relation": "无涉",
+  "multiplier": 1.0,
+  "check_modifier": 0,
+  "describe": "土与火无涉，一切照常"
+ },
+ {
+  "attacker": "土",
+  "defender": "土",
+  "relation": "同源",
+  "multiplier": 1.0,
+  "check_modifier": 5,
+  "describe": "土同源，抵抗更强，检定仅 +5"
+ },
+ {
+  "attacker": "土",
+  "defender": "煞",
+  "relation": "无涉",
+  "multiplier": 1.0,
+  "check_modifier": 0,
+  "describe": "土与煞无涉，一切照常"
+ },
+ {
+  "attacker": "土",
+  "defender": null,
+  "relation": "无涉",
+  "multiplier": 1.0,
+  "check_modifier": 0,
+  "describe": "土与None无涉，一切照常"
+ },
+ {
+  "attacker": "煞",
+  "defender": "金",
+  "relation": "煞",
+  "multiplier": 1.25,
+  "check_modifier": 10,
+  "describe": "阴煞之力不循生克，伤害 ×1.25，检定 +10"
+ },
+ {
+  "attacker": "煞",
+  "defender": "木",
+  "relation": "煞",
+  "multiplier": 1.25,
+  "check_modifier": 10,
+  "describe": "阴煞之力不循生克，伤害 ×1.25，检定 +10"
+ },
+ {
+  "attacker": "煞",
+  "defender": "水",
+  "relation": "煞",
+  "multiplier": 1.25,
+  "check_modifier": 10,
+  "describe": "阴煞之力不循生克，伤害 ×1.25，检定 +10"
+ },
+ {
+  "attacker": "煞",
+  "defender": "火",
+  "relation": "煞",
+  "multiplier": 1.25,
+  "check_modifier": 10,
+  "describe": "阴煞之力不循生克，伤害 ×1.25，检定 +10"
+ },
+ {
+  "attacker": "煞",
+  "defender": "土",
+  "relation": "煞",
+  "multiplier": 1.25,
+  "check_modifier": 10,
+  "describe": "阴煞之力不循生克，伤害 ×1.25，检定 +10"
+ },
+ {
+  "attacker": "煞",
+  "defender": "煞",
+  "relation": "煞",
+  "multiplier": 1.25,
+  "check_modifier": 10,
+  "describe": "阴煞之力不循生克，伤害 ×1.25，检定 +10"
+ },
+ {
+  "attacker": "煞",
+  "defender": null,
+  "relation": "煞",
+  "multiplier": 1.25,
+  "check_modifier": 10,
+  "describe": "阴煞之力不循生克，伤害 ×1.25，检定 +10"
+ },
+ {
+  "attacker": null,
+  "defender": "金",
+  "relation": "无涉",
+  "multiplier": 1.0,
+  "check_modifier": 0,
+  "describe": "None与金无涉，一切照常"
+ },
+ {
+  "attacker": null,
+  "defender": "木",
+  "relation": "无涉",
+  "multiplier": 1.0,
+  "check_modifier": 0,
+  "describe": "None与木无涉，一切照常"
+ },
+ {
+  "attacker": null,
+  "defender": "水",
+  "relation": "无涉",
+  "multiplier": 1.0,
+  "check_modifier": 0,
+  "describe": "None与水无涉，一切照常"
+ },
+ {
+  "attacker": null,
+  "defender": "火",
+  "relation": "无涉",
+  "multiplier": 1.0,
+  "check_modifier": 0,
+  "describe": "None与火无涉，一切照常"
+ },
+ {
+  "attacker": null,
+  "defender": "土",
+  "relation": "无涉",
+  "multiplier": 1.0,
+  "check_modifier": 0,
+  "describe": "None与土无涉，一切照常"
+ },
+ {
+  "attacker": null,
+  "defender": "煞",
+  "relation": "无涉",
+  "multiplier": 1.0,
+  "check_modifier": 0,
+  "describe": "None与煞无涉，一切照常"
+ },
+ {
+  "attacker": null,
+  "defender": null,
+  "relation": "无涉",
+  "multiplier": 1.0,
+  "check_modifier": 0,
+  "describe": "None与None无涉，一切照常"
+ }
+]
