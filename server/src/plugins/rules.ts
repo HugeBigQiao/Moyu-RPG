@@ -13,7 +13,7 @@ import { Service, type Context } from 'cordis'
 import { asDict, describe, resolve, type CheckResult, type CheckResultDict } from '../core/checks.ts'
 import { Roller, type Roll } from '../core/dice.ts'
 import { checkModifier, multiplier, relation, type Element } from '../core/wuxing.ts'
-import { derived, displayAttrs, skillValue, type SheetDeps } from '../core/sheet.ts'
+import { derived, displayAttrs, skillValue, SCHOOLS, type SheetDeps } from '../core/sheet.ts'
 import type { CharacterLike, DerivedStats } from '../core/types.ts'
 import type { Content } from './content.ts'
 
@@ -81,5 +81,13 @@ export class Rules extends Service {
 
   displayAttrs(character: CharacterLike) {
     return displayAttrs(character)
+  }
+
+  schoolName(school: string): string {
+    return SCHOOLS[school]?.name ?? school
+  }
+
+  schoolTagline(school: string): string {
+    return SCHOOLS[school]?.tagline ?? ''
   }
 }

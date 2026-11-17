@@ -8,7 +8,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { Context } from 'cordis'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
-import { Db } from '../src/db/client.ts'
+import { Db, sqliteUrl } from '../src/db/client.ts'
 
 let ctx: Context
 let db: Db
@@ -19,8 +19,9 @@ beforeAll(async () => {
   tempDir = mkdtempSync(join(tmpdir(), 'moyu-db-'))
   file = join(tempDir, 'test.db')
   ctx = new Context()
-  await ctx.use(Db, { file })
+  await ctx.use(Db, { url: sqliteUrl(file) })
   db = ctx.get('db') as Db
+  await db.ready
 })
 
 afterAll(async () => {
@@ -29,56 +30,53 @@ afterAll(async () => {
 })
 
 describe('数据库骨架', () => {
-  it('建出三张表', () => {
-    const rows = db.db.prepare("SELECT name FROM sqlite_master WHERE type = 'table'").all() as Array<{ name: string }>
+  it('建出三张表', async () => {
+    const rows = await db.all<{ name: string }>("SELECT name FROM sqlite_master WHERE type = 'table'")
     const names = rows.map((row) => row.name)
     expect(names).toEqual(expect.arrayContaining(['characters', 'sessions', 'session_logs']))
   })
 
-  it('打开外键与 WAL', () => {
-    expect(db.db.prepare('PRAGMA foreign_keys').get()).toEqual({ foreign_keys: 1 })
-    expect(db.db.prepare('PRAGMA journal_mode').get()).toEqual({ journal_mode: 'wal' })
+  it('打开外键与 WAL', async () => {
+    expect(await db.get('PRAGMA foreign_keys')).toEqual({ foreign_keys: 1 })
+    expect(await db.get('PRAGMA journal_mode')).toEqual({ journal_mode: 'wal' })
   })
 
-  it('可以写入并读回一张角色卡', () => {
+  it('可以写入并读回一张角色卡', async () => {
     const now = '2026-11-17 00:00:00.000000'
-    db.db.prepare(`
-      INSERT INTO characters (
-        code, name, school, element, rarity, rank, merit, attrs, traits, approval,
-        notes, seed, kind, city, events, mission, difficulty, reward,
-        completed_sessions, karma_good, karma_debt, mind_trial_passed, trial_attempts,
-        items, ascensions, created_at
-      ) VALUES (
-        ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
-        ?, ?, ?, ?, ?, ?, ?, ?,
-        ?, ?, ?, ?, ?,
-        ?, ?, ?
-      )
-    `).run(
-      'test-001', '测试角色', 'fulu', '木', '凡', '初真', 20, '{}', '[]', '{}',
-      '', 'seed', 'npc', 'nanyu', '[]', null, 1, 5,
-      0, 0, 0, 0, 0,
-      '[]', '[]', now,
-    )
-    const row = db.db.prepare('SELECT code, name, attrs FROM characters').get() as {
-      code: string
-      name: string
-      attrs: string
-    }
+    const id = await db.insert('characters', {
+      code: 'test-001', name: '测试角色', school: 'fulu', element: '木',
+      rarity: '凡', rank: '初真', merit: 20, attrs: '{}', traits: '[]',
+      approval: '{}', notes: '', seed: 'seed', kind: 'npc', city: 'nanyu',
+      events: '[]', mission: null, difficulty: 1, reward: 5,
+      completed_sessions: 0, karma_good: 0, karma_debt: 0,
+      mind_trial_passed: 0, trial_attempts: 0, items: '[]', ascensions: '[]',
+      created_at: now,
+    })
+    expect(id).toBe(1)
+    const row = await db.get('SELECT code, name, attrs FROM characters')
     expect(row).toEqual({ code: 'test-001', name: '测试角色', attrs: '{}' })
   })
 
-  it('事务回滚', () => {
-    expect(() => db.transaction(() => {
-      db.db.prepare("INSERT INTO characters (code, name, school, element, rarity, rank, merit, attrs, traits, approval, notes, seed, kind, city, events, mission, difficulty, reward, completed_sessions, karma_good, karma_debt, mind_trial_passed, trial_attempts, items, ascensions, created_at) VALUES ('tx-1','回滚','fulu','木','凡','初真',1,'{}','[]','{}','','s','npc','nanyu','[]',null,1,1,0,0,0,0,0,'[]','[]','2026-11-17 00:00:00.000000')").run()
+  it('事务回滚', async () => {
+    await expect(db.transaction(async (tx) => {
+      await tx.insert('characters', {
+        code: 'tx-1', name: '回滚', school: 'fulu', element: '木',
+        rarity: '凡', rank: '初真', merit: 1, attrs: '{}', traits: '[]',
+        approval: '{}', notes: '', seed: 's', kind: 'npc', city: 'nanyu',
+        events: '[]', mission: null, difficulty: 1, reward: 1,
+        completed_sessions: 0, karma_good: 0, karma_debt: 0,
+        mind_trial_passed: 0, trial_attempts: 0, items: '[]', ascensions: '[]',
+        created_at: '2026-11-17 00:00:00.000000',
+      })
       throw new Error('rollback')
-    })).toThrow('rollback')
-    const count = db.db.prepare("SELECT COUNT(*) AS n FROM characters WHERE code = 'tx-1'").get() as { n: number }
-    expect(count.n).toBe(0)
+    })).rejects.toThrow('rollback')
+
+    const count = await db.get<{ n: number }>("SELECT COUNT(*) AS n FROM characters WHERE code = 'tx-1'")
+    expect(count?.n).toBe(0)
   })
 
-  it('重复迁移不报错', () => {
-    expect(() => db.migrate()).not.toThrow()
+  it('重复迁移不报错', async () => {
+    await expect(db.ready).resolves.toBeUndefined()
     expect(existsSync(file)).toBe(true)
   })
 })

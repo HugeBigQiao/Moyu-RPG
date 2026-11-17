@@ -19,7 +19,7 @@ export const Config = z.object({
   host: z.string().default('127.0.0.1'),
   port: z.number().int().min(0).max(65535).default(8888),
   contentDir: z.string().default(resolve(PROJECT_ROOT, 'backend/data/content')),
-  dbFile: z.string().default(resolve(PROJECT_ROOT, 'backend/data/moyu.db')),
+  databaseUrl: z.string().default('sqlite://' + resolve(PROJECT_ROOT, 'backend/data/moyu.db')),
   frontendDist: z.string().default(resolve(PROJECT_ROOT, 'frontend/dist')),
 })
 
@@ -30,7 +30,7 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): Config {
     host: env.MOYU_HOST,
     port: env.MOYU_PORT ? Number(env.MOYU_PORT) : undefined,
     contentDir: env.MOYU_CONTENT_DIR,
-    dbFile: env.MOYU_DB_FILE,
+    databaseUrl: env.MOYU_DATABASE_URL,
     frontendDist: env.MOYU_FRONTEND_DIST,
   })
 }

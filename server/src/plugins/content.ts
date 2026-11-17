@@ -13,6 +13,8 @@ import { watch, type FSWatcher } from 'node:fs'
 import { Service, type Context } from 'cordis'
 import { CONTENT_FILES, loadContent, type ContentData } from '../content/index.ts'
 import { ContentStore } from '../content/store.ts'
+import { ContentEditor } from '../content/edit.ts'
+import { saveContentFiles } from '../content/write.ts'
 
 declare module 'cordis' {
   interface Events {
@@ -59,8 +61,19 @@ export class Content extends Service {
     } catch {
       // 某个 JSON 坏了：保留上一份可用数据，错误已经写进 report / store.status()
     }
+    report['sheet.traits'] = this.store.status().errors['sheet.traits'] ? 'error' : 'ok'
     this.ctx.emit('content/reload')
     return report
+  }
+
+  /** 档案编辑写回：落盘后整体重载。 */
+  saveMany(documents: Record<string, any>): Record<string, string> {
+    saveContentFiles(this.store, documents)
+    return this.reload()
+  }
+
+  editor(): ContentEditor {
+    return new ContentEditor(this.store, (documents) => this.saveMany(documents))
   }
 
   status() {

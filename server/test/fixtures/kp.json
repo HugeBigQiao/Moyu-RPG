@@ -1,0 +1,292 @@
+{
+ "events": [
+  {
+   "corruption": 0,
+   "seed": "kp-a",
+   "events": [
+    {
+     "id": "cold",
+     "name": "环境异变",
+     "severity": "warn",
+     "text": "灯管开始频闪，一秒三次，和你的心跳同步。",
+     "effect": {
+      "corruption": 1
+     }
+    },
+    null,
+    null,
+    {
+     "id": "karma",
+     "name": "因果回响",
+     "severity": "info",
+     "text": "你想起上一个案子里那个没救下来的人。他当时也是这个表情。",
+     "effect": {
+      "san": "1d2"
+     }
+    },
+    null,
+    {
+     "id": "omen",
+     "name": "预兆",
+     "severity": "info",
+     "text": "你在余光里看见一个不该出现在这里的影子，转头时它已经顺着墙缝缩回去了。",
+     "effect": {
+      "clue": "有什么东西在数着时间"
+     }
+    }
+   ]
+  },
+  {
+   "corruption": 0,
+   "seed": "kp-b",
+   "events": [
+    null,
+    {
+     "id": "corrupt",
+     "name": "阴浊上涌",
+     "severity": "warn",
+     "text": "你感到一股凉意从脚踝爬上来，像有谁在你身后极慢地呼吸。",
+     "effect": {
+      "corruption": 3,
+      "san": "1d3"
+     }
+    },
+    null,
+    null,
+    null,
+    {
+     "id": "omen",
+     "name": "预兆",
+     "severity": "info",
+     "text": "有个声音在你耳边数数，数到十三就停了。",
+     "effect": {
+      "clue": "有什么东西在数着时间"
+     }
+    }
+   ]
+  },
+  {
+   "corruption": 25,
+   "seed": "kp-a",
+   "events": [
+    {
+     "id": "cold",
+     "name": "环境异变",
+     "severity": "warn",
+     "text": "灯管开始频闪，一秒三次，和你的心跳同步。",
+     "effect": {
+      "corruption": 1
+     }
+    },
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "corruption": 25,
+   "seed": "kp-b",
+   "events": [
+    null,
+    null,
+    null,
+    {
+     "id": "karma",
+     "name": "因果回响",
+     "severity": "info",
+     "text": "你想起上一个案子里那个没救下来的人。他当时也是这个表情。",
+     "effect": {
+      "san": "1d2"
+     }
+    },
+    null,
+    null
+   ]
+  },
+  {
+   "corruption": 45,
+   "seed": "kp-a",
+   "events": [
+    {
+     "id": "omen",
+     "name": "预兆",
+     "severity": "info",
+     "text": "你在余光里看见一个不该出现在这里的影子，转头时它已经顺着墙缝缩回去了。",
+     "effect": {
+      "clue": "有什么东西在数着时间"
+     }
+    },
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  {
+   "corruption": 45,
+   "seed": "kp-b",
+   "events": [
+    null,
+    null,
+    null,
+    {
+     "id": "karma",
+     "name": "因果回响",
+     "severity": "info",
+     "text": "你想起上一个案子里那个没救下来的人。他当时也是这个表情。",
+     "effect": {
+      "san": "1d2"
+     }
+    },
+    null,
+    null
+   ]
+  },
+  {
+   "corruption": 70,
+   "seed": "kp-a",
+   "events": [
+    {
+     "id": "clue",
+     "name": "旁证",
+     "severity": "info",
+     "text": "一个扫地的阿姨多看了你一眼，欲言又止。你追出去两步，她只留下一句：「这楼里，镜子别照。」",
+     "effect": {
+      "clue": "旁人也在躲一样东西"
+     }
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+     "id": "cold",
+     "name": "环境异变",
+     "severity": "warn",
+     "text": "灯管开始频闪，一秒三次，和你的心跳同步。",
+     "effect": {
+      "corruption": 1
+     }
+    }
+   ]
+  },
+  {
+   "corruption": 70,
+   "seed": "kp-b",
+   "events": [
+    null,
+    null,
+    null,
+    {
+     "id": "karma",
+     "name": "因果回响",
+     "severity": "info",
+     "text": "你想起上一个案子里那个没救下来的人。他当时也是这个表情。",
+     "effect": {
+      "san": "1d2"
+     }
+    },
+    {
+     "id": "corrupt",
+     "name": "阴浊上涌",
+     "severity": "warn",
+     "text": "你感到一股凉意从脚踝爬上来，像有谁在你身后极慢地呼吸。",
+     "effect": {
+      "corruption": 3,
+      "san": "1d3"
+     }
+    },
+    {
+     "id": "pressure",
+     "name": "祟物添力",
+     "severity": "error",
+     "text": "它不再躲了，开始主动往你这边挪。",
+     "effect": {
+      "enemy_boost": 1
+     }
+    }
+   ]
+  },
+  {
+   "corruption": 95,
+   "seed": "kp-a",
+   "events": [
+    {
+     "id": "clue",
+     "name": "旁证",
+     "severity": "info",
+     "text": "一个扫地的阿姨多看了你一眼，欲言又止。你追出去两步，她只留下一句：「这楼里，镜子别照。」",
+     "effect": {
+      "clue": "旁人也在躲一样东西"
+     }
+    },
+    null,
+    null,
+    null,
+    null,
+    {
+     "id": "cold",
+     "name": "环境异变",
+     "severity": "warn",
+     "text": "灯管开始频闪，一秒三次，和你的心跳同步。",
+     "effect": {
+      "corruption": 1
+     }
+    }
+   ]
+  },
+  {
+   "corruption": 95,
+   "seed": "kp-b",
+   "events": [
+    null,
+    null,
+    {
+     "id": "cold",
+     "name": "环境异变",
+     "severity": "warn",
+     "text": "所有能反光的东西同时暗了一下，包括你的指甲。",
+     "effect": {
+      "corruption": 1
+     }
+    },
+    {
+     "id": "corrupt",
+     "name": "阴浊上涌",
+     "severity": "warn",
+     "text": "视野边缘开始发黑，像老电影的胶片烧边。",
+     "effect": {
+      "corruption": 3,
+      "san": "1d3"
+     }
+    },
+    {
+     "id": "corrupt",
+     "name": "阴浊上涌",
+     "severity": "warn",
+     "text": "你感到一股凉意从脚踝爬上来，像有谁在你身后极慢地呼吸。",
+     "effect": {
+      "corruption": 3,
+      "san": "1d3"
+     }
+    },
+    null
+   ]
+  }
+ ],
+ "transitions": [
+  "走出这栋楼，外面的天已经黑了。你才发现自己在这里待了四个小时。",
+  "你退出来的时候，身后传来一声很轻的「咔」，像是有什么东西重新摆正了。",
+  "走出这栋楼，外面的天已经黑了。你才发现自己在这里待了四个小时。",
+  "你把手上的符灰搓掉，指尖还是凉的。"
+ ],
+ "hints": [
+  "你什么都没找到，但你知道，再待下去它会先找到你。",
+  "你重新看了一遍所有记录。有一个时间对不上——不是死亡时间，是报案时间。",
+  "你决定赌一把，把手按在镜面上。它温的，像一个人的皮肤。",
+  "你回到最初那间屋子。这次你注意到，地上有一道很浅的拖痕，通向窗边。"
+ ]
+}

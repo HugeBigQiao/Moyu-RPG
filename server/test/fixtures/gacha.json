@@ -1,0 +1,307 @@
+{
+ "cards": [
+  {
+   "code": "nd-9d8194",
+   "name": "凤清让",
+   "school": "neidan",
+   "element": "金",
+   "rarity": "玄",
+   "rank": "五雷",
+   "merit": 44,
+   "attrs": {
+    "str": 11,
+    "agi": 15,
+    "con": 10,
+    "int": 18,
+    "wil": 15,
+    "per": 13
+   },
+   "traits": [
+    {
+     "name": "童子功",
+     "desc": "自幼筑基，经脉通畅"
+    },
+    {
+     "name": "胆大",
+     "desc": "见怪不怪，心里那道坎早过了"
+    }
+   ],
+   "approval": {
+    "tudi": 9,
+    "chenghuang": 39,
+    "bianque": 39,
+    "guanyu": 13,
+    "yuefei": 30
+   },
+   "notes": "档案里只有一行：此人曾独自处理过一起三级阴浊事件，未上报。",
+   "seed": "e685967e6f79590e",
+   "title": "坐枯禅的"
+  },
+  {
+   "code": "nd-8e0d9e",
+   "name": "严砚",
+   "school": "neidan",
+   "element": "土",
+   "rarity": "凡",
+   "rank": "初真",
+   "merit": 9,
+   "attrs": {
+    "str": 10,
+    "agi": 6,
+    "con": 10,
+    "int": 10,
+    "wil": 13,
+    "per": 12
+   },
+   "traits": [
+    {
+     "name": "药理通",
+     "desc": "分得清药、毒和符灰"
+    }
+   ],
+   "approval": {},
+   "notes": "档案里只有一行：此人不肯说自己第一次见祟是哪年。",
+   "seed": "gacha-1",
+   "title": "炼丹的"
+  },
+  {
+   "code": "nd-e044ca",
+   "name": "潘望舒",
+   "school": "fulu",
+   "element": "木",
+   "rarity": "凡",
+   "rank": "初真",
+   "merit": 17,
+   "attrs": {
+    "str": 9,
+    "agi": 12,
+    "con": 10,
+    "int": 12,
+    "wil": 10,
+    "per": 11
+   },
+   "traits": [
+    {
+     "name": "不死债",
+     "desc": "死过一次又回来了，从此祟物认你作同类"
+    }
+   ],
+   "approval": {},
+   "notes": "档案里只有一行：此人来历不详，手续齐全。",
+   "seed": "gacha-2",
+   "title": "走符箓的"
+  },
+  {
+   "code": "nd-701fed",
+   "name": "马澈",
+   "school": "fulu",
+   "element": "木",
+   "rarity": "凡",
+   "rank": "初真",
+   "merit": 10,
+   "attrs": {
+    "str": 9,
+    "agi": 10,
+    "con": 10,
+    "int": 12,
+    "wil": 12,
+    "per": 4
+   },
+   "traits": [
+    {
+     "name": "胆大",
+     "desc": "见怪不怪，心里那道坎早过了"
+    }
+   ],
+   "approval": {},
+   "notes": "档案里只有一行：此人不肯说自己第一次见祟是哪年。",
+   "seed": "gacha-3",
+   "title": "拿笔的"
+  },
+  {
+   "code": "nd-1cdcdf",
+   "name": "谢准",
+   "school": "guti",
+   "element": "土",
+   "rarity": "凡",
+   "rank": "初真",
+   "merit": 4,
+   "attrs": {
+    "str": 12,
+    "agi": 9,
+    "con": 13,
+    "int": 10,
+    "wil": 9,
+    "per": 11
+   },
+   "traits": [
+    {
+     "name": "阴年阴月",
+     "desc": "八字纯阴，感应力极强，也极招祟"
+    }
+   ],
+   "approval": {},
+   "notes": "档案里只有一行：此人有师承，但师门名录对不上。",
+   "seed": "seed-abc",
+   "title": "练拳的"
+  },
+  {
+   "code": "nd-0fb078",
+   "name": "柏既明",
+   "school": "jianxiu",
+   "element": "金",
+   "rarity": "灵",
+   "rank": "盟威",
+   "merit": 4,
+   "attrs": {
+    "str": 7,
+    "agi": 13,
+    "con": 12,
+    "int": 17,
+    "wil": 13,
+    "per": 14
+   },
+   "traits": [
+    {
+     "name": "跑得快",
+     "desc": "打不过的时候，这一点很值钱"
+    },
+    {
+     "name": "怕黑",
+     "desc": "关灯那一下，他总要愣半秒"
+    }
+   ],
+   "approval": {
+    "tudi": 9,
+    "chenghuang": 38,
+    "bianque": 25
+   },
+   "notes": "档案里只有一行：此人来历不详，手续齐全。",
+   "seed": "天品",
+   "title": "剑匣不离身的"
+  },
+  {
+   "code": "nd-dc8fe1",
+   "name": "袁无咎",
+   "school": "anqi",
+   "element": "水",
+   "rarity": "玄",
+   "rank": "五雷",
+   "merit": 42,
+   "attrs": {
+    "str": 19,
+    "agi": 17,
+    "con": 11,
+    "int": 14,
+    "wil": 15,
+    "per": 17
+   },
+   "traits": [
+    {
+     "name": "怕黑",
+     "desc": "关灯那一下，他总要愣半秒"
+    },
+    {
+     "name": "不死债",
+     "desc": "死过一次又回来了，从此祟物认你作同类"
+    }
+   ],
+   "approval": {
+    "tudi": 5,
+    "chenghuang": 39,
+    "bianque": 25,
+    "guanyu": 43,
+    "yuefei": 43
+   },
+   "notes": "档案里只有一行：此人有师承，但师门名录对不上。",
+   "seed": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+   "title": "袖里有东西的"
+  },
+  {
+   "code": "nd-a1d0c6",
+   "name": "赵长庚",
+   "school": "jianxiu",
+   "element": "金",
+   "rarity": "天",
+   "rank": "天师",
+   "merit": 37,
+   "attrs": {
+    "str": 14,
+    "agi": 19,
+    "con": 14,
+    "int": 16,
+    "wil": 18,
+    "per": 20
+   },
+   "traits": [
+    {
+     "name": "胆大",
+     "desc": "见怪不怪，心里那道坎早过了"
+    },
+    {
+     "name": "怕黑",
+     "desc": "关灯那一下，他总要愣半秒"
+    },
+    {
+     "name": "耳聪",
+     "desc": "听得见墙那边的东西在动"
+    }
+   ],
+   "approval": {
+    "tudi": 31,
+    "chenghuang": 13,
+    "bianque": 12,
+    "guanyu": 31,
+    "yuefei": 8,
+    "zhongkui": 5,
+    "xuannv": 6,
+    "zhenwu": 25
+   },
+   "notes": "档案里只有一行：此人来历不详，手续齐全。",
+   "seed": "42",
+   "title": "剑匣不离身的"
+  }
+ ],
+ "rates": [
+  {
+   "key": "凡",
+   "name": "凡品",
+   "weight": 50,
+   "bonus": 0,
+   "dice": "3d6",
+   "traits": 1,
+   "rank": "初真",
+   "pct": 50.0
+  },
+  {
+   "key": "灵",
+   "name": "灵品",
+   "weight": 28,
+   "bonus": 0,
+   "dice": "4d6",
+   "traits": 2,
+   "rank": "盟威",
+   "pct": 28.0
+  },
+  {
+   "key": "玄",
+   "name": "玄品",
+   "weight": 16,
+   "bonus": 2,
+   "dice": "4d6",
+   "traits": 2,
+   "rank": "五雷",
+   "pct": 16.0
+  },
+  {
+   "key": "天",
+   "name": "天品",
+   "weight": 6,
+   "bonus": 4,
+   "dice": "4d6",
+   "traits": 3,
+   "rank": "天师",
+   "pct": 6.0
+  }
+ ]
+}

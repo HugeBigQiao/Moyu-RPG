@@ -8,7 +8,7 @@
  * 上下游：
  *     上游：backend/data/content/*.json；下游：content/index.ts、plugins/content.ts。
  */
-import { readFileSync, statSync } from 'node:fs'
+import { readFileSync, readdirSync, statSync } from 'node:fs'
 import { join } from 'node:path'
 
 export class ContentError extends Error {}
@@ -68,8 +68,8 @@ export class ContentStore {
   status() {
     return {
       dir: this.dir,
+      files: readdirSync(this.dir).filter((name) => name.endsWith('.json')).sort(),
       errors: Object.fromEntries(this.errors),
-      cached: [...this.cache.keys()].sort(),
     }
   }
 }

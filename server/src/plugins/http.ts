@@ -35,6 +35,16 @@ export interface HttpRequest extends IncomingMessage {
 
 export type Handler = (req: HttpRequest, res: ServerResponse) => Promise<void> | void
 
+/** 业务错误：接口层抛它，HTTP 层直接回 {detail}。 */
+export class HttpError extends Error {
+  readonly status: number
+
+  constructor(status: number, message: string) {
+    super(message)
+    this.status = status
+  }
+}
+
 interface Route {
   method: string
   segments: string[]
@@ -180,8 +190,19 @@ export class HttpServer extends Service {
       try {
         await route.handler(req, res)
       } catch (error) {
+        if (res.headersSent) return
+        if (error instanceof HttpError) {
+          sendJson(res, error.status, { detail: error.message })
+          return
+        }
+        if ((error as any)?.issues) {
+          const issue = (error as any).issues[0]
+          const path = Array.isArray(issue?.path) ? issue.path.join('.') : ''
+          sendJson(res, 400, { detail: `${path ? path + '：' : ''}${issue?.message ?? '请求格式不对'}` })
+          return
+        }
         ctxError(this.ctx, error)
-        if (!res.headersSent) sendJson(res, 500, { detail: (error as Error).message })
+        sendJson(res, 500, { detail: (error as Error).message })
       }
       return
     }

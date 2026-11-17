@@ -13,51 +13,50 @@
 | 层 | 选型 |
 | --- | --- |
 | 前端 | Vue 3 + Vite + vue-router + TypeScript（vue-tsc 查类型；无 UI 框架，手写 CSS） |
-| 后端 | FastAPI + SQLAlchemy 2（异步）+ Alembic |
-| 数据库 | SQLite（默认，零部署）；兼容 PostgreSQL / MySQL |
+| 后端 | Node 24+ / TypeScript / [cordis](https://github.com/cordiverse/cordis) 插件内核（`server/`） |
+| 数据库 | SQLite 默认（Node 内置 `node:sqlite`，零部署）；`MOYU_DATABASE_URL` 可切 PostgreSQL / MySQL |
 | 内容 | `backend/data/content/*.json`，改 JSON 即改设定，支持热重载 |
-| 测试 | pytest（169）+ HTTP 冒烟（28）+ 无头 Edge UI 冒烟（52）+ vue-tsc 类型检查 |
+| 测试 | vitest（268）+ HTTP 冒烟（28）+ 无头 Edge UI 冒烟（52）+ vue-tsc 类型检查 |
 
-> `server/` 是 cordis 迁移的 Node/TS 后端，P0–P2（骨架 + 纯规则对拍）已完成，
-> 暂未接管启动；现有后端仍是 FastAPI。见 [docs/cordis迁移.md](docs/cordis迁移.md)。
+> Node 24+ 是硬要求：用到原生 TS 执行与 `node:sqlite`。
+> `backend/` 是旧 Python 实现，只保留作 golden fixtures 的生成器与对照，不再参与运行；
+> 迁移过程见 [docs/cordis迁移.md](docs/cordis迁移.md)。
 
 ---
 
 ## 快速开始
 
-**Windows 一键**：双击 `start.bat`。脚本会检查工具链、准备数据库、装依赖、跑迁移、
-按需构建前端、启动服务并打开浏览器。
+**Windows 一键**：双击 `start.bat`。脚本会检查 Node、装后端依赖、按需构建前端、
+启动服务并打开浏览器。
 
 **Linux / macOS 一键**：
 
 ```bash
 chmod +x start.sh     # 只需一次：在 Windows 上提交的文件没有可执行位
-./start.sh            # 或 bash start.sh；支持 --port 9000 / --no-open
+./start.sh            # 或 bash start.sh；支持 --port 9000 / --no-open / --rebuild
 ```
 
-脚本做的事和 Windows 版一致：检查 uv/node → `uv sync` → 迁移 → 按需构建前端 → 起服务。
-没用过 `chmod` 也没关系，`bash start.sh` 同样能跑。
-
-**手动**（两个平台命令相同）：
+**手动**：
 
 ```bash
-cd backend
-uv sync
-uv run alembic upgrade head
-
-cd ../frontend
+cd server
 npm install
-npm run build
-
-cd ../backend
-uv run python run.py          # http://127.0.0.1:8888
+npm start             # http://127.0.0.1:8888
 ```
 
-- 不需要自己装 Python：`requires-python >= 3.14`，首次 `uv sync` 会由 uv 准备解释器。
-- 类型检查：`cd frontend && npm run typecheck`。
-- Linux 上跑 UI 冒烟要先有浏览器：`PLAYWRIGHT_CHANNEL=chrome` 或
-  `PLAYWRIGHT_EXECUTABLE=/usr/bin/chromium`（默认是 Windows 自带的 Edge）。
-- 前端开发模式：后端 `uv run python run.py`，另开终端 `cd frontend && npm run dev`（5173，自动代理 `/api`）。
+前端产物没有提交，首次运行会由一键脚本构建；手动构建：
+
+```bash
+cd frontend
+npm install
+npm run build
+```
+
+- 类型检查：`cd frontend && npm run typecheck`；后端：`cd server && npm run typecheck`。
+- 前端开发模式：后端 `cd server && npm run dev`，另开终端 `cd frontend && npm run dev`
+  （5173，自动代理 `/api` 到 8888）。
+- 换数据库：`MOYU_DATABASE_URL=postgresql://user:pass@host:5432/moyu`（MySQL 同理），
+  表结构会在首次启动时自动建好。SQLite 是默认，也是唯一在 CI 里跑过的路径。
 
 ---
 
@@ -65,8 +64,8 @@ uv run python run.py          # http://127.0.0.1:8888
 
 ```
 frontend/   Vue 3 前端
-backend/    FastAPI 后端（app/api 接口、app/engine 规则、app/models 持久层、data/ 数据板块）
-server/     Node/TS 后端（cordis 迁移，P0–P2 已完成，暂未接管启动）
+server/     Node/TS 后端（cordis 服务：content / db / rules / http / api）
+backend/    旧 Python 实现（仅用于重新生成 golden fixtures 与对照，不参与运行）
 docs/       文档
 start.bat   一键启动
 ```
@@ -78,10 +77,10 @@ start.bat   一键启动
 | 文档 | 内容 |
 | --- | --- |
 | [docs/世界观.md](docs/世界观.md) | 背景设定：国家、教派、机构、人物、城市、事件、任务、数值 |
-| [docs/架构.md](docs/架构.md) | 分层、内容加载、数据库、接口板块、技术选型评估 |
+| [docs/架构.md](docs/架构.md) | 分层、cordis 服务、内容加载、数据库、接口板块、静态缓存 |
 | [docs/开发指南.md](docs/开发指南.md) | 怎么跑、怎么改内容、怎么加接口、怎么写测试 |
 | [docs/接口.md](docs/接口.md) | API 一览 |
-| [docs/cordis迁移.md](docs/cordis迁移.md) | 迁到 cordis 的评估：目标架构、移植映射、分阶段计划、风险与止损点 |
+| [docs/cordis迁移.md](docs/cordis迁移.md) | 从 FastAPI 迁到 cordis 的评估、目标架构、分阶段记录与风险 |
 | [HANDOFF.json](HANDOFF.json) | 交接档（JSON）：项目历程、关键决策、踩坑、已知问题、下一步 |
 
 ---

@@ -1,0 +1,761 @@
+{
+ "npcs": [
+  {
+   "kind": "npc",
+   "code": "nd-c65545",
+   "name": "秦疏影",
+   "school": "neidan",
+   "element": "土",
+   "rarity": "凡",
+   "rank": "初真",
+   "merit": 25,
+   "attrs": {
+    "str": 14,
+    "agi": 11,
+    "con": 15,
+    "int": 12,
+    "wil": 15,
+    "per": 15
+   },
+   "traits": [
+    {
+     "name": "洁癖",
+     "desc": "受不了一点脏，包括看不见的脏",
+     "tier": 4
+    },
+    {
+     "name": "怕黑",
+     "desc": "关灯那一下，他总要愣半秒",
+     "tier": 4
+    }
+   ],
+   "approval": {},
+   "notes": "搬走那天他开了，里面只有一把椅子，正对着门。",
+   "seed": "npc-nanyu",
+   "city": "nanyu",
+   "events": [
+    "ev_old_house"
+   ],
+   "mission": null,
+   "difficulty": 4,
+   "reward": 12
+  },
+  {
+   "kind": "npc",
+   "code": "nd-d16047",
+   "name": "喻照野",
+   "school": "fulu",
+   "element": "火",
+   "rarity": "灵",
+   "rank": "盟威",
+   "merit": 26,
+   "attrs": {
+    "str": 20,
+    "agi": 15,
+    "con": 9,
+    "int": 16,
+    "wil": 14,
+    "per": 14
+   },
+   "traits": [
+    {
+     "name": "夜眼",
+     "desc": "黑暗里看得比常人清楚",
+     "tier": 3
+    },
+    {
+     "name": "铁手",
+     "desc": "手上功夫比嘴上利索",
+     "tier": 2
+    },
+    {
+     "name": "嘴皮子",
+     "desc": "能把要动手的人说到不动手",
+     "tier": 3
+    },
+    {
+     "name": "香火缠身",
+     "desc": "身上有十几家庙的香火，请神代价低于常人",
+     "tier": 1
+    }
+   ],
+   "approval": {
+    "tudi": 37,
+    "chenghuang": 19,
+    "bianque": 15
+   },
+   "notes": "猫现在九岁了，还是只盯那个角。",
+   "seed": "npc-m-nanyu",
+   "city": "nanyu",
+   "events": [
+    "ev_cat",
+    "ev_debt_collector",
+    "ev_superstitious_mother"
+   ],
+   "mission": "mirror",
+   "difficulty": 10,
+   "reward": 30
+  },
+  {
+   "kind": "npc",
+   "code": "nd-8045f7",
+   "name": "秦见山",
+   "school": "guti",
+   "element": "木",
+   "rarity": "灵",
+   "rank": "盟威",
+   "merit": 16,
+   "attrs": {
+    "str": 15,
+    "agi": 18,
+    "con": 16,
+    "int": 7,
+    "wil": 16,
+    "per": 17
+   },
+   "traits": [
+    {
+     "name": "夜猫子",
+     "desc": "白天像死鱼，凌晨像换了个人",
+     "tier": 4
+    },
+    {
+     "name": "洁癖",
+     "desc": "受不了一点脏，包括看不见的脏",
+     "tier": 4
+    },
+    {
+     "name": "怕黑",
+     "desc": "关灯那一下，他总要愣半秒",
+     "tier": 4
+    },
+    {
+     "name": "夜眼",
+     "desc": "黑暗里看得比常人清楚",
+     "tier": 3
+    }
+   ],
+   "approval": {
+    "tudi": 39,
+    "chenghuang": 5,
+    "bianque": 20
+   },
+   "notes": "三点十七分是他的生日。",
+   "seed": "npc-linjing",
+   "city": "linjing",
+   "events": [
+    "ev_night_alarm",
+    "ev_old_house",
+    "ev_insomnia",
+    "ev_night_shift",
+    "ev_cat",
+    "ev_cheap_talisman",
+    "ev_call_center",
+    "ev_landlord"
+   ],
+   "mission": null,
+   "difficulty": 25,
+   "reward": 75
+  },
+  {
+   "kind": "npc",
+   "code": "nd-342ffc",
+   "name": "谢昭",
+   "school": "fulu",
+   "element": "土",
+   "rarity": "灵",
+   "rank": "盟威",
+   "merit": 1,
+   "attrs": {
+    "str": 16,
+    "agi": 18,
+    "con": 10,
+    "int": 17,
+    "wil": 19,
+    "per": 19
+   },
+   "traits": [
+    {
+     "name": "夜眼",
+     "desc": "黑暗里看得比常人清楚",
+     "tier": 3
+    },
+    {
+     "name": "夜猫子",
+     "desc": "白天像死鱼，凌晨像换了个人",
+     "tier": 4
+    },
+    {
+     "name": "怕黑",
+     "desc": "关灯那一下，他总要愣半秒",
+     "tier": 4
+    }
+   ],
+   "approval": {
+    "tudi": 40,
+    "chenghuang": 44,
+    "bianque": 12
+   },
+   "notes": "他现在宁可走路也不坐末班车。",
+   "seed": "npc-m-linjing",
+   "city": "linjing",
+   "events": [
+    "ev_last_bus",
+    "ev_night_shift",
+    "ev_repeat_dream",
+    "ev_insomnia"
+   ],
+   "mission": "mirror",
+   "difficulty": 15,
+   "reward": 45
+  },
+  {
+   "kind": "npc",
+   "code": "nd-4a02d2",
+   "name": "陈南枝",
+   "school": "fulu",
+   "element": "金",
+   "rarity": "灵",
+   "rank": "盟威",
+   "merit": 16,
+   "attrs": {
+    "str": 11,
+    "agi": 16,
+    "con": 17,
+    "int": 16,
+    "wil": 14,
+    "per": 13
+   },
+   "traits": [
+    {
+     "name": "夜眼",
+     "desc": "黑暗里看得比常人清楚",
+     "tier": 3
+    },
+    {
+     "name": "铜皮",
+     "desc": "皮肉如革，寻常兵刃难入",
+     "tier": 2
+    },
+    {
+     "name": "耳聪",
+     "desc": "听得见墙那边的东西在动",
+     "tier": 2
+    },
+    {
+     "name": "洁癖",
+     "desc": "受不了一点脏，包括看不见的脏",
+     "tier": 4
+    }
+   ],
+   "approval": {
+    "tudi": 37,
+    "chenghuang": 17,
+    "bianque": 7
+   },
+   "notes": "猫现在九岁了，还是只盯那个角。",
+   "seed": "npc-lijiang",
+   "city": "lijiang",
+   "events": [
+    "ev_cat",
+    "ev_mine_song",
+    "ev_pet_died"
+   ],
+   "mission": null,
+   "difficulty": 9,
+   "reward": 27
+  },
+  {
+   "kind": "npc",
+   "code": "nd-758647",
+   "name": "尤知微",
+   "school": "guti",
+   "element": "水",
+   "rarity": "凡",
+   "rank": "初真",
+   "merit": 7,
+   "attrs": {
+    "str": 19,
+    "agi": 16,
+    "con": 17,
+    "int": 15,
+    "wil": 17,
+    "per": 16
+   },
+   "traits": [
+    {
+     "name": "铁手",
+     "desc": "手上功夫比嘴上利索",
+     "tier": 2
+    }
+   ],
+   "approval": {},
+   "notes": "真出事的时候，他反而是最快动手的那个。",
+   "seed": "npc-m-lijiang",
+   "city": "lijiang",
+   "events": [
+    "ev_short_fuse"
+   ],
+   "mission": "mirror",
+   "difficulty": 3,
+   "reward": 9
+  },
+  {
+   "kind": "npc",
+   "code": "nd-bf97a5",
+   "name": "魏衍",
+   "school": "guti",
+   "element": "金",
+   "rarity": "凡",
+   "rank": "初真",
+   "merit": 24,
+   "attrs": {
+    "str": 14,
+    "agi": 15,
+    "con": 16,
+    "int": 13,
+    "wil": 15,
+    "per": 15
+   },
+   "traits": [
+    {
+     "name": "夜眼",
+     "desc": "黑暗里看得比常人清楚",
+     "tier": 3
+    },
+    {
+     "name": "香火缠身",
+     "desc": "身上有十几家庙的香火，请神代价低于常人",
+     "tier": 1
+    },
+    {
+     "name": "过目不忘",
+     "desc": "看过的符箓记得住笔锋",
+     "tier": 2
+    }
+   ],
+   "approval": {},
+   "notes": "猫现在九岁了，还是只盯那个角。",
+   "seed": "npc-yunjin",
+   "city": "yunjin",
+   "events": [
+    "ev_cat",
+    "ev_superstition",
+    "ev_old_photo"
+   ],
+   "mission": null,
+   "difficulty": 8,
+   "reward": 24
+  },
+  {
+   "kind": "npc",
+   "code": "nd-2ee1cb",
+   "name": "杨守拙",
+   "school": "fulu",
+   "element": "金",
+   "rarity": "灵",
+   "rank": "盟威",
+   "merit": 10,
+   "attrs": {
+    "str": 13,
+    "agi": 14,
+    "con": 10,
+    "int": 14,
+    "wil": 17,
+    "per": 12
+   },
+   "traits": [
+    {
+     "name": "急智",
+     "desc": "临场反应快，先手常在你",
+     "tier": 3
+    },
+    {
+     "name": "怕黑",
+     "desc": "关灯那一下，他总要愣半秒",
+     "tier": 4
+    },
+    {
+     "name": "夜猫子",
+     "desc": "白天像死鱼，凌晨像换了个人",
+     "tier": 4
+    },
+    {
+     "name": "跑得快",
+     "desc": "打不过的时候，这一点很值钱",
+     "tier": 3
+    }
+   ],
+   "approval": {
+    "tudi": 28,
+    "chenghuang": 45,
+    "bianque": 21
+   },
+   "notes": "从此他手腕上不戴表。",
+   "seed": "npc-m-yunjin",
+   "city": "yunjin",
+   "events": [
+    "ev_stranger_talk",
+    "ev_repeat_dream",
+    "ev_migrant",
+    "ev_cat",
+    "ev_amputated",
+    "ev_landlord"
+   ],
+   "mission": "mirror",
+   "difficulty": 20,
+   "reward": 60
+  },
+  {
+   "kind": "npc",
+   "code": "nd-173f7b",
+   "name": "马晏",
+   "school": "guti",
+   "element": "金",
+   "rarity": "凡",
+   "rank": "初真",
+   "merit": 26,
+   "attrs": {
+    "str": 15,
+    "agi": 12,
+    "con": 13,
+    "int": 18,
+    "wil": 13,
+    "per": 15
+   },
+   "traits": [
+    {
+     "name": "洁癖",
+     "desc": "受不了一点脏，包括看不见的脏",
+     "tier": 4
+    },
+    {
+     "name": "急智",
+     "desc": "临场反应快，先手常在你",
+     "tier": 3
+    },
+    {
+     "name": "怕黑",
+     "desc": "关灯那一下，他总要愣半秒",
+     "tier": 4
+    },
+    {
+     "name": "业障缠身",
+     "desc": "手上沾过不该沾的东西",
+     "tier": 4
+    }
+   ],
+   "approval": {},
+   "notes": "他再也没养过狗，但每天还会留一碗水。",
+   "seed": "npc-baishi",
+   "city": "baishi",
+   "events": [
+    "ev_pet_died",
+    "ev_stranger_talk",
+    "ev_old_house",
+    "ev_tattoo"
+   ],
+   "mission": null,
+   "difficulty": 8,
+   "reward": 24
+  },
+  {
+   "kind": "npc",
+   "code": "nd-2b7d2c",
+   "name": "李南枝",
+   "school": "anqi",
+   "element": "土",
+   "rarity": "灵",
+   "rank": "盟威",
+   "merit": 16,
+   "attrs": {
+    "str": 10,
+    "agi": 14,
+    "con": 9,
+    "int": 18,
+    "wil": 15,
+    "per": 13
+   },
+   "traits": [
+    {
+     "name": "嘴皮子",
+     "desc": "能把要动手的人说到不动手",
+     "tier": 3
+    },
+    {
+     "name": "夜猫子",
+     "desc": "白天像死鱼，凌晨像换了个人",
+     "tier": 4
+    },
+    {
+     "name": "铁手",
+     "desc": "手上功夫比嘴上利索",
+     "tier": 2
+    },
+    {
+     "name": "香火缠身",
+     "desc": "身上有十几家庙的香火，请神代价低于常人",
+     "tier": 1
+    }
+   ],
+   "approval": {
+    "tudi": 28,
+    "chenghuang": 19,
+    "bianque": 38
+   },
+   "notes": "那人后来在新闻里出现过，是失踪人口。",
+   "seed": "npc-m-baishi",
+   "city": "baishi",
+   "events": [
+    "ev_street_stall",
+    "ev_short_fuse",
+    "ev_superstitious_mother"
+   ],
+   "mission": "mirror",
+   "difficulty": 8,
+   "reward": 24
+  },
+  {
+   "kind": "npc",
+   "code": "nd-6b9c4f",
+   "name": "张长庚",
+   "school": "fulu",
+   "element": "木",
+   "rarity": "灵",
+   "rank": "盟威",
+   "merit": 17,
+   "attrs": {
+    "str": 13,
+    "agi": 15,
+    "con": 14,
+    "int": 14,
+    "wil": 12,
+    "per": 17
+   },
+   "traits": [
+    {
+     "name": "急智",
+     "desc": "临场反应快，先手常在你",
+     "tier": 3
+    },
+    {
+     "name": "夜猫子",
+     "desc": "白天像死鱼，凌晨像换了个人",
+     "tier": 4
+    },
+    {
+     "name": "怕黑",
+     "desc": "关灯那一下，他总要愣半秒",
+     "tier": 4
+    },
+    {
+     "name": "香火缠身",
+     "desc": "身上有十几家庙的香火，请神代价低于常人",
+     "tier": 1
+    }
+   ],
+   "approval": {
+    "tudi": 5,
+    "chenghuang": 21,
+    "bianque": 22
+   },
+   "notes": "从此他手腕上不戴表。",
+   "seed": "npc-any",
+   "city": "tiedu",
+   "events": [
+    "ev_stranger_talk",
+    "ev_insomnia",
+    "ev_superstitious_mother",
+    "ev_mine_song",
+    "ev_short_fuse",
+    "ev_tattoo",
+    "ev_repeat_dream",
+    "ev_old_house"
+   ],
+   "mission": null,
+   "difficulty": 20,
+   "reward": 60
+  }
+ ],
+ "attrs": [
+  {
+   "attrs": {
+    "str": 10,
+    "agi": 9,
+    "con": 16,
+    "int": 13,
+    "wil": 7,
+    "per": 17
+   },
+   "total": 72,
+   "seed": "attrs-0"
+  },
+  {
+   "attrs": {
+    "str": 17,
+    "agi": 13,
+    "con": 14,
+    "int": 12,
+    "wil": 10,
+    "per": 6
+   },
+   "total": 72,
+   "seed": "attrs-1"
+  },
+  {
+   "attrs": {
+    "str": 15,
+    "agi": 12,
+    "con": 14,
+    "int": 11,
+    "wil": 6,
+    "per": 14
+   },
+   "total": 72,
+   "seed": "attrs-2"
+  },
+  {
+   "attrs": {
+    "str": 15,
+    "agi": 11,
+    "con": 12,
+    "int": 12,
+    "wil": 9,
+    "per": 13
+   },
+   "total": 72,
+   "seed": "attrs-3"
+  },
+  {
+   "attrs": {
+    "str": 6,
+    "agi": 14,
+    "con": 14,
+    "int": 11,
+    "wil": 13,
+    "per": 14
+   },
+   "total": 72,
+   "seed": "attrs-4"
+  },
+  {
+   "attrs": {
+    "str": 11,
+    "agi": 10,
+    "con": 14,
+    "int": 8,
+    "wil": 16,
+    "per": 13
+   },
+   "total": 72,
+   "seed": "attrs-5"
+  },
+  {
+   "attrs": {
+    "str": 10,
+    "agi": 13,
+    "con": 11,
+    "int": 11,
+    "wil": 13,
+    "per": 14
+   },
+   "total": 72,
+   "seed": "attrs-6"
+  },
+  {
+   "attrs": {
+    "str": 11,
+    "agi": 7,
+    "con": 15,
+    "int": 13,
+    "wil": 14,
+    "per": 12
+   },
+   "total": 72,
+   "seed": "attrs-7"
+  }
+ ],
+ "players": [
+  {
+   "kind": "player",
+   "code": "nd-ee0dce",
+   "name": "测试甲",
+   "school": "fulu",
+   "element": "金",
+   "rarity": "凡",
+   "rank": "初真",
+   "merit": 20,
+   "attrs": {
+    "str": 13,
+    "agi": 13,
+    "con": 6,
+    "int": 12,
+    "wil": 13,
+    "per": 15
+   },
+   "traits": [],
+   "approval": {},
+   "notes": "玩家自建档案。",
+   "seed": "player-0",
+   "city": "nanyu",
+   "events": [],
+   "mission": null,
+   "difficulty": 2,
+   "reward": 6
+  },
+  {
+   "kind": "player",
+   "code": "nd-76c9ed",
+   "name": "测试乙",
+   "school": "neidan",
+   "element": "水",
+   "rarity": "凡",
+   "rank": "初真",
+   "merit": 20,
+   "attrs": {
+    "str": 6,
+    "agi": 10,
+    "con": 12,
+    "int": 16,
+    "wil": 12,
+    "per": 16
+   },
+   "traits": [],
+   "approval": {},
+   "notes": "自建",
+   "seed": "player-1",
+   "city": "linjing",
+   "events": [],
+   "mission": null,
+   "difficulty": 3,
+   "reward": 9
+  },
+  {
+   "kind": "player",
+   "code": "nd-64b5b4",
+   "name": "测试丙",
+   "school": "guti",
+   "element": "土",
+   "rarity": "凡",
+   "rank": "初真",
+   "merit": 20,
+   "attrs": {
+    "str": 14,
+    "agi": 10,
+    "con": 15,
+    "int": 9,
+    "wil": 11,
+    "per": 13
+   },
+   "traits": [],
+   "approval": {},
+   "notes": "玩家自建档案。",
+   "seed": "player-2",
+   "city": "lijiang",
+   "events": [],
+   "mission": null,
+   "difficulty": 1,
+   "reward": 5
+  }
+ ]
+}

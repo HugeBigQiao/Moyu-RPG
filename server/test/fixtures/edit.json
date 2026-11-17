@@ -1,0 +1,437 @@
+{
+ "ops": [
+  {
+   "kind": "nations",
+   "created": {
+    "id": "xia_x",
+    "name": "夏",
+    "era": "当代",
+    "gov": "中央集权的现代国家，地方道门与官府共治",
+    "blurb": "玄门不为国教，但国事必问玄门。夏的制度是「外儒内道」：明面上是部委、法院、公安，暗线是授箓、备案、评级。修行者在法律上是公民，在册籍上是资源。",
+    "stance": "克制而务实：祟物要处置，但不能惊动民生。"
+   },
+   "updated": {
+    "id": "xia_x",
+    "name": "夏改",
+    "era": "当代",
+    "gov": "中央集权的现代国家，地方道门与官府共治",
+    "blurb": "玄门不为国教，但国事必问玄门。夏的制度是「外儒内道」：明面上是部委、法院、公安，暗线是授箓、备案、评级。修行者在法律上是公民，在册籍上是资源。",
+    "stance": "克制而务实：祟物要处置，但不能惊动民生。"
+   },
+   "removed": {
+    "id": "xia_x",
+    "name": "夏改",
+    "era": "当代",
+    "gov": "中央集权的现代国家，地方道门与官府共治",
+    "blurb": "玄门不为国教，但国事必问玄门。夏的制度是「外儒内道」：明面上是部委、法院、公安，暗线是授箓、备案、评级。修行者在法律上是公民，在册籍上是资源。",
+    "stance": "克制而务实：祟物要处置，但不能惊动民生。"
+   },
+   "count": 3,
+   "invalid": "id 只能用小写字母、数字、下划线，字母开头，2–32 位"
+  },
+  {
+   "kind": "sects",
+   "created": {
+    "id": "zhengyi_x",
+    "name": "正一",
+    "tradition": "符箓授箓",
+    "doctrine": "箓职即权柄。符不是画出来的，是「授」下来的。",
+    "resource": "符力",
+    "blurb": "与朝廷合作最久的一派，玄真司半数以上的持令人出自正一。他们最讲规矩，也最擅长用规矩办事。",
+    "relations": {
+     "quanzhen": "看不起",
+     "maoshan": "客气",
+     "lvshan": "嫌弃",
+     "baiyun": "敌对"
+    }
+   },
+   "updated": {
+    "id": "zhengyi_x",
+    "name": "正一改",
+    "tradition": "符箓授箓",
+    "doctrine": "箓职即权柄。符不是画出来的，是「授」下来的。",
+    "resource": "符力",
+    "blurb": "与朝廷合作最久的一派，玄真司半数以上的持令人出自正一。他们最讲规矩，也最擅长用规矩办事。",
+    "relations": {
+     "quanzhen": "看不起",
+     "maoshan": "客气",
+     "lvshan": "嫌弃",
+     "baiyun": "敌对"
+    }
+   },
+   "removed": {
+    "id": "zhengyi_x",
+    "name": "正一改",
+    "tradition": "符箓授箓",
+    "doctrine": "箓职即权柄。符不是画出来的，是「授」下来的。",
+    "resource": "符力",
+    "blurb": "与朝廷合作最久的一派，玄真司半数以上的持令人出自正一。他们最讲规矩，也最擅长用规矩办事。",
+    "relations": {
+     "quanzhen": "看不起",
+     "maoshan": "客气",
+     "lvshan": "嫌弃",
+     "baiyun": "敌对"
+    }
+   },
+   "count": 6,
+   "invalid": "id 只能用小写字母、数字、下划线，字母开头，2–32 位"
+  },
+  {
+   "kind": "agencies",
+   "created": {
+    "id": "xuanzhen_x",
+    "name": "玄真司",
+    "mandate": "祟物处置",
+    "authority": "接案、评估、处置、归档",
+    "blurb": "玩家的单位。有编制、有考核、有绩效。它的立场不是正义，是「了结」——把一桩因果处理干净，比把一只祟物打死更重要。",
+    "relation": "与天监司互相看不顺眼，与靖安司是长期搭子。"
+   },
+   "updated": {
+    "id": "xuanzhen_x",
+    "name": "玄真司改",
+    "mandate": "祟物处置",
+    "authority": "接案、评估、处置、归档",
+    "blurb": "玩家的单位。有编制、有考核、有绩效。它的立场不是正义，是「了结」——把一桩因果处理干净，比把一只祟物打死更重要。",
+    "relation": "与天监司互相看不顺眼，与靖安司是长期搭子。"
+   },
+   "removed": {
+    "id": "xuanzhen_x",
+    "name": "玄真司改",
+    "mandate": "祟物处置",
+    "authority": "接案、评估、处置、归档",
+    "blurb": "玩家的单位。有编制、有考核、有绩效。它的立场不是正义，是「了结」——把一桩因果处理干净，比把一只祟物打死更重要。",
+    "relation": "与天监司互相看不顺眼，与靖安司是长期搭子。"
+   },
+   "count": 4,
+   "invalid": "id 只能用小写字母、数字、下划线，字母开头，2–32 位"
+  },
+  {
+   "kind": "figures",
+   "created": {
+    "id": "shen_bai_x",
+    "name": "沈白",
+    "title": "玄真司司主",
+    "org": "玄真司",
+    "element": "金",
+    "blurb": "六十七岁，一手把玄真司从「道门联络处」做成实权部门。他办案从不带法器，只带一本册子，记着每个案子里死掉的人名。",
+    "hook": "他不问你打死了什么，只问你「了结了吗」。"
+   },
+   "updated": {
+    "id": "shen_bai_x",
+    "name": "沈白改",
+    "title": "玄真司司主",
+    "org": "玄真司",
+    "element": "金",
+    "blurb": "六十七岁，一手把玄真司从「道门联络处」做成实权部门。他办案从不带法器，只带一本册子，记着每个案子里死掉的人名。",
+    "hook": "他不问你打死了什么，只问你「了结了吗」。"
+   },
+   "removed": {
+    "id": "shen_bai_x",
+    "name": "沈白改",
+    "title": "玄真司司主",
+    "org": "玄真司",
+    "element": "金",
+    "blurb": "六十七岁，一手把玄真司从「道门联络处」做成实权部门。他办案从不带法器，只带一本册子，记着每个案子里死掉的人名。",
+    "hook": "他不问你打死了什么，只问你「了结了吗」。"
+   },
+   "count": 8,
+   "invalid": "id 只能用小写字母、数字、下划线，字母开头，2–32 位"
+  },
+  {
+   "kind": "industries",
+   "created": {
+    "id": "realestate_x",
+    "name": "地产开发",
+    "scale": 5,
+    "risk": 5,
+    "blurb": "迁村、拆迁、填河、改庙。规模最大，所以看起来最多，其实只是坑多。"
+   },
+   "updated": {
+    "id": "realestate_x",
+    "name": "地产开发改",
+    "scale": 5,
+    "risk": 5,
+    "blurb": "迁村、拆迁、填河、改庙。规模最大，所以看起来最多，其实只是坑多。"
+   },
+   "removed": {
+    "id": "realestate_x",
+    "name": "地产开发改",
+    "scale": 5,
+    "risk": 5,
+    "blurb": "迁村、拆迁、填河、改庙。规模最大，所以看起来最多，其实只是坑多。"
+   },
+   "count": 16,
+   "invalid": "id 只能用小写字母、数字、下划线，字母开头，2–32 位"
+  },
+  {
+   "kind": "cities",
+   "created": {
+    "id": "linjing_x",
+    "name": "临京",
+    "tier": "t0",
+    "nation": "xia",
+    "pop": 2400,
+    "industries": [
+     "government",
+     "finance",
+     "media",
+     "research",
+     "medical"
+    ],
+    "landmarks": [
+     "天监司总部",
+     "礼制院",
+     "旧城墙遗址",
+     "西站"
+    ],
+    "blurb": "夏的首都。所有规矩都从这里发出去，所有例外也都在这里被默许。在临京，一只祟物能不能被立案，取决于它死在哪一环上。",
+    "missions": []
+   },
+   "updated": {
+    "id": "linjing_x",
+    "name": "临京改",
+    "tier": "t0",
+    "nation": "xia",
+    "pop": 2400,
+    "industries": [
+     "government",
+     "finance",
+     "media",
+     "research",
+     "medical"
+    ],
+    "landmarks": [
+     "天监司总部",
+     "礼制院",
+     "旧城墙遗址",
+     "西站"
+    ],
+    "blurb": "夏的首都。所有规矩都从这里发出去，所有例外也都在这里被默许。在临京，一只祟物能不能被立案，取决于它死在哪一环上。",
+    "missions": []
+   },
+   "removed": {
+    "id": "linjing_x",
+    "name": "临京改",
+    "tier": "t0",
+    "nation": "xia",
+    "pop": 2400,
+    "industries": [
+     "government",
+     "finance",
+     "media",
+     "research",
+     "medical"
+    ],
+    "landmarks": [
+     "天监司总部",
+     "礼制院",
+     "旧城墙遗址",
+     "西站"
+    ],
+    "blurb": "夏的首都。所有规矩都从这里发出去，所有例外也都在这里被默许。在临京，一只祟物能不能被立案，取决于它死在哪一环上。",
+    "missions": []
+   },
+   "count": 10,
+   "invalid": "id 只能用小写字母、数字、下划线，字母开头，2–32 位"
+  },
+  {
+   "kind": "lore",
+   "created": {
+    "id": "era_x",
+    "title": "时代",
+    "body": "当代。有手机、监控、网约车、短视频，也有箓职、香火、阴兵。祟物不上新闻，只上档案——这是玄真司与媒体之间多年磨合出的默契。"
+   },
+   "updated": {
+    "id": "era_x",
+    "title": "时代改",
+    "body": "当代。有手机、监控、网约车、短视频，也有箓职、香火、阴兵。祟物不上新闻，只上档案——这是玄真司与媒体之间多年磨合出的默契。"
+   },
+   "removed": {
+    "id": "era_x",
+    "title": "时代改",
+    "body": "当代。有手机、监控、网约车、短视频，也有箓职、香火、阴兵。祟物不上新闻，只上档案——这是玄真司与媒体之间多年磨合出的默契。"
+   },
+   "count": 6,
+   "invalid": "id 只能用小写字母、数字、下划线，字母开头，2–32 位"
+  },
+  {
+   "kind": "events",
+   "created": {
+    "id": "ev_mirror_death_x",
+    "name": "镜前自尽",
+    "grade": 1,
+    "scope": "mission",
+    "missions": [
+     "mirror"
+    ],
+    "industries": [
+     "education",
+     "medical"
+    ],
+    "text": "十三岁那年，家里那面老镜子里的自己开始比她先动。后来她没死，镜子里那个死了。",
+    "hook": "她从此不敢照镜子，也不敢不照。",
+    "traits": [
+     "天眼",
+     "阴年阴月"
+    ],
+    "weight": 6
+   },
+   "updated": {
+    "id": "ev_mirror_death_x",
+    "name": "镜前自尽改",
+    "grade": 1,
+    "scope": "mission",
+    "missions": [
+     "mirror"
+    ],
+    "industries": [
+     "education",
+     "medical"
+    ],
+    "text": "十三岁那年，家里那面老镜子里的自己开始比她先动。后来她没死，镜子里那个死了。",
+    "hook": "她从此不敢照镜子，也不敢不照。",
+    "traits": [
+     "天眼",
+     "阴年阴月"
+    ],
+    "weight": 6
+   },
+   "removed": {
+    "id": "ev_mirror_death_x",
+    "name": "镜前自尽改",
+    "grade": 1,
+    "scope": "mission",
+    "missions": [
+     "mirror"
+    ],
+    "industries": [
+     "education",
+     "medical"
+    ],
+    "text": "十三岁那年，家里那面老镜子里的自己开始比她先动。后来她没死，镜子里那个死了。",
+    "hook": "她从此不敢照镜子，也不敢不照。",
+    "traits": [
+     "天眼",
+     "阴年阴月"
+    ],
+    "weight": 6
+   },
+   "count": 50,
+   "invalid": "id 只能用小写字母、数字、下划线，字母开头，2–32 位"
+  },
+  {
+   "kind": "missions",
+   "created": {
+    "id": "mirror_x",
+    "name": "镜中鬼",
+    "tier": 2,
+    "kind": "fixed",
+    "cities": [
+     "nanyu"
+    ],
+    "scenario_id": "mirror",
+    "blurb": "新城国际中学连续自残，监控拍到学生凌晨对镜梳头。"
+   },
+   "updated": {
+    "id": "mirror_x",
+    "name": "镜中鬼改",
+    "tier": 2,
+    "kind": "fixed",
+    "cities": [
+     "nanyu"
+    ],
+    "scenario_id": "mirror",
+    "blurb": "新城国际中学连续自残，监控拍到学生凌晨对镜梳头。"
+   },
+   "removed": {
+    "id": "mirror_x",
+    "name": "镜中鬼改",
+    "tier": 2,
+    "kind": "fixed",
+    "cities": [
+     "nanyu"
+    ],
+    "scenario_id": "mirror",
+    "blurb": "新城国际中学连续自残，监控拍到学生凌晨对镜梳头。"
+   },
+   "count": 5,
+   "invalid": "id 只能用小写字母、数字、下划线，字母开头，2–32 位"
+  },
+  {
+   "kind": "equipment",
+   "created": {
+    "id": "taomu_sword_x",
+    "name": "百年桃木剑",
+    "kind": "法器",
+    "grade": 2,
+    "price": 100,
+    "effect": "对木属祟物 +2 伤害",
+    "desc": "雷击过的老桃木削的剑坯，剑身有七道天然纹路。用得久了会认主。"
+   },
+   "updated": {
+    "id": "taomu_sword_x",
+    "name": "百年桃木剑改",
+    "kind": "法器",
+    "grade": 2,
+    "price": 100,
+    "effect": "对木属祟物 +2 伤害",
+    "desc": "雷击过的老桃木削的剑坯，剑身有七道天然纹路。用得久了会认主。"
+   },
+   "removed": {
+    "id": "taomu_sword_x",
+    "name": "百年桃木剑改",
+    "kind": "法器",
+    "grade": 2,
+    "price": 100,
+    "effect": "对木属祟物 +2 伤害",
+    "desc": "雷击过的老桃木削的剑坯，剑身有七道天然纹路。用得久了会认主。"
+   },
+   "count": 16,
+   "invalid": "id 只能用小写字母、数字、下划线，字母开头，2–32 位"
+  },
+  {
+   "kind": "traits",
+   "created": {
+    "name": "天眼甲",
+    "tier": 1,
+    "desc": "生来能见祟物真身，阴神自成",
+    "effect": {
+     "wuxing": 10,
+     "san": -5
+    }
+   },
+   "updated": {
+    "name": "天眼甲",
+    "tier": 1,
+    "desc": "生来能见祟物真身，阴神自成改",
+    "effect": {
+     "wuxing": 10,
+     "san": -5
+    }
+   },
+   "removed": {
+    "name": "天眼甲",
+    "tier": 1,
+    "desc": "生来能见祟物真身，阴神自成改",
+    "effect": {
+     "wuxing": 10,
+     "san": -5
+    }
+   },
+   "count": 20,
+   "invalid": "「特性名」要填文本"
+  }
+ ],
+ "refusals": [
+  {
+   "kind": "cities",
+   "id": "nanyu",
+   "error": "不能删「南屿」：5 个任务把它列为发案城市：镜中鬼、写字楼血案、送纸"
+  },
+  {
+   "kind": "nations",
+   "id": "zhonghua",
+   "error": "没有这条内容：zhonghua"
+  }
+ ]
+}

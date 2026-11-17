@@ -20,6 +20,8 @@ from __future__ import annotations
 
 import copy
 import hashlib
+import shutil
+import tempfile
 import json
 import random
 import sys
@@ -30,8 +32,8 @@ BACKEND = ROOT / "backend"
 OUT = ROOT / "server" / "test" / "fixtures"
 sys.path.insert(0, str(BACKEND))
 
-from app.content import scenario, shop, spirits, traits  # noqa: E402
-from app.engine import checks, kp, mission as mission_engine, npc, sheet, wuxing  # noqa: E402
+from app.content import _store, edit, missions as missions_content, scenario, shop, spirits, traits  # noqa: E402
+from app.engine import checks, gacha, kp, mission as mission_engine, npc, progress, sheet, wuxing  # noqa: E402
 from app.engine import session as engine  # noqa: E402
 from app.engine.dice import Roller  # noqa: E402
 
@@ -293,6 +295,185 @@ def export_sessions() -> list[dict]:
     return cases
 
 
+def _base_card(**overrides) -> dict:
+    card = {
+        "school": "fulu",
+        "element": "木",
+        "rank": "初真",
+        "merit": 20,
+        "attrs": {"str": 10, "agi": 12, "con": 11, "int": 15, "wil": 13, "per": 14},
+        "traits": [{"name": "胆大", "tier": 3}, {"name": "耳聪", "tier": 4}],
+        "items": [],
+        "karma_debt": 0,
+        "skill_bonus": {},
+    }
+    card.update(overrides)
+    return card
+
+
+def export_gacha() -> dict:
+    seeds = ["", "gacha-1", "gacha-2", "gacha-3", "seed-abc", "天品", "x" * 32, "42"]
+    return {
+        "cards": [gacha.roll(seed=seed) for seed in seeds],
+        "rates": gacha.rate_table(),
+    }
+
+
+def export_npc() -> dict:
+    cities = ["nanyu", "linjing", "lijiang", "yunjin", "baishi"]
+    mission_id = missions_content.MISSIONS[0]["id"]
+    npcs = []
+    for index, city in enumerate(cities):
+        npcs.append(npc.roll_npc(city_id=city, seed="npc-%s" % city))
+        npcs.append(npc.roll_npc(city_id=city, mission_id=mission_id, seed="npc-m-%s" % city))
+    npcs.append(npc.roll_npc(seed="npc-any"))
+
+    attrs = [npc.roll_player_attrs(seed="attrs-%d" % i) for i in range(8)]
+    players = []
+    payloads = [
+        {"name": "测试甲", "school": "fulu", "element": "金", "city": "nanyu"},
+        {"name": "测试乙", "school": "neidan", "element": "水", "city": "linjing", "notes": "自建"},
+        {"name": "测试丙", "school": "guti", "element": "土", "city": "lijiang",
+         "attrs": {"str": 14, "agi": 10, "con": 15, "int": 9, "wil": 11, "per": 13}},
+    ]
+    for index, payload in enumerate(payloads):
+        players.append(npc.build_player(payload, seed="player-%d" % index))
+
+    return {"npcs": npcs, "attrs": attrs, "players": players}
+
+
+def export_missions() -> dict:
+    cities = ["nanyu", "linjing", "lijiang", "yunjin", "baishi"]
+    out = []
+    for city in cities:
+        out.append(mission_engine.generate(city, "golden-" + city))
+        out.append(mission_engine.generate(city, "abc"))
+    return out
+
+
+def _progress_card(**overrides) -> dict:
+    card = _base_card()
+    card.update(overrides)
+    return card
+
+
+def export_progress() -> dict:
+    cards = [
+        _progress_card(rank="初真", completed_sessions=3),
+        _progress_card(rank="盟威", merit=60, mind_trial_passed=True),
+        _progress_card(rank="五雷", merit=85, karma_good=3, completed_sessions=8),
+        _progress_card(rank="天师", merit=100),
+    ]
+    reqs = []
+    for card in cards:
+        reqs.append({
+            "card": card,
+            "requirements": progress.requirements(card),
+            "promotable": progress.promotable(card),
+        })
+
+    promotions = []
+    for card in cards:
+        copy = json.loads(json.dumps(card))
+        try:
+            result = progress.promote(copy)
+            promotions.append({"result": result, "card": copy})
+        except ValueError as exc:
+            promotions.append({"error": str(exc)})
+
+    trials = [progress.trial(_base_card(), seed="trial-%d" % i) for i in range(6)]
+
+    buys = []
+    buy_card = _base_card(rank="天师", merit=500)
+    for item_id in ["taomu", "taomu", "qingshenfu", "huangfu", "nope"]:
+        copy = json.loads(json.dumps(buy_card))
+        try:
+            result = progress.buy(copy, item_id)
+            buys.append({"item_id": item_id, "result": result, "card": copy})
+            buy_card = copy
+        except ValueError as exc:
+            buys.append({"item_id": item_id, "error": str(exc)})
+
+    return {"requirements": reqs, "promotions": promotions, "trials": trials, "buys": buys}
+
+
+def export_kp() -> dict:
+    out = []
+    for corruption in (0, 25, 45, 70, 95):
+        for seed in ("kp-a", "kp-b"):
+            roller = Roller(seed=seed)
+            events = [kp.event(roller, corruption, in_combat=bool(i % 2)) for i in range(6)]
+            out.append({"corruption": corruption, "seed": seed, "events": events})
+
+    transitions = []
+    for i in range(4):
+        transitions.append(kp.transition(Roller(seed="trans-%d" % i)))
+    hints = [kp.stuck_hint(Roller(seed="hint-%d" % i), ["a"] * i) for i in range(4)]
+    return {"events": out, "transitions": transitions, "hints": hints}
+
+
+def export_edit() -> dict:
+    """在临时目录里跑一遍 11 类档案的增删改，记录返回值与报错文本。"""
+    tmp = Path(tempfile.mkdtemp(prefix="moyu-edit-"))
+    try:
+        shutil.copytree(_store.CONTENT_DIR, tmp, dirs_exist_ok=True)
+        _store.CONTENT_DIR = tmp
+        _store.reload_all()
+
+        ops = []
+        for kind in edit.KINDS:
+            items = edit.items(kind)
+            if not items:
+                continue
+            first = copy.deepcopy(items[0])
+            payload = dict(first)
+            if kind == "traits":
+                payload["name"] = payload["name"] + "甲"
+            else:
+                payload["id"] = payload["id"] + "_x"
+
+            created = edit.create(kind, payload)
+            updated_payload = dict(created)
+            if kind == "traits":
+                updated_payload["name"] = created["name"]
+                updated_payload["desc"] = (created.get("desc") or "") + "改"
+            elif "name" in created:
+                updated_payload["name"] = created["name"] + "改"
+            elif "title" in created:
+                updated_payload["title"] = created["title"] + "改"
+            updated = edit.update(kind, edit._id_of(kind, created), updated_payload)
+            removed = edit.remove(kind, edit._id_of(kind, created))
+            try:
+                edit.create(kind, {})
+                invalid = None
+            except edit.EditError as exc:
+                invalid = str(exc)
+
+            ops.append({
+                "kind": kind,
+                "created": created,
+                "updated": updated,
+                "removed": removed,
+                "count": edit.count(kind),
+                "invalid": invalid,
+            })
+
+        # 删除被引用的条目：应该给出人类可读的拒绝理由
+        refusals = []
+        for kind, item_id in (("cities", "nanyu"), ("nations", "zhonghua")):
+            try:
+                edit.remove(kind, item_id)
+                refusals.append({"kind": kind, "id": item_id, "error": None})
+            except edit.EditError as exc:
+                refusals.append({"kind": kind, "id": item_id, "error": str(exc)})
+
+        return {"ops": ops, "refusals": refusals}
+    finally:
+        _store.CONTENT_DIR = ROOT / "backend" / "data" / "content"
+        _store.reload_all()
+        shutil.rmtree(tmp, ignore_errors=True)
+
+
 def main() -> None:
     print("python", sys.version.split()[0])
     dump("prng.json", export_prng())
@@ -300,6 +481,12 @@ def main() -> None:
     dump("wuxing.json", export_wuxing())
     dump("sheet.json", export_sheet())
     sessions = export_sessions()
+    dump("gacha.json", export_gacha())
+    dump("npc.json", export_npc())
+    dump("missions.json", export_missions())
+    dump("progress.json", export_progress())
+    dump("kp.json", export_kp())
+    dump("edit.json", export_edit())
     dump("sessions.json", sessions)
     print("sessions:", len(sessions), "steps:",
           sum(len(case["steps"]) for case in sessions))

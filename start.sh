@@ -1,39 +1,36 @@
 #!/usr/bin/env bash
-# 玄门诡事录 · Linux / macOS 启动器
+# 玄门诡事录 · Linux / macOS 启动器（Node/TS + cordis）
 #
 # 用法：
 #   ./start.sh              启动（默认 8888，尝试打开浏览器）
 #   ./start.sh --port 9000  换端口
 #   ./start.sh --no-open    不开浏览器
+#   ./start.sh --rebuild    强制重建前端
 #
-# 和 Windows 的 start.ps1 做同样的事，只是省掉了 PostgreSQL 服务的检查：
-# 默认 SQLite 不需要外部服务；换 PG 时请自己保证它在跑。
+# 运行要求：Node >= 24（原生 TS 与 node:sqlite）。数据库默认 SQLite，
+# 需要 PostgreSQL / MySQL 时改 MOYU_DATABASE_URL 即可，代码不用动。
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)"
-BACKEND="$ROOT/backend"
+SERVER="$ROOT/server"
 FRONTEND="$ROOT/frontend"
 
-# 端口优先级：命令行 > 环境变量 MOYU_PORT > backend/.env > 8888
-PORT="${MOYU_PORT:-}"
-if [ -z "$PORT" ] && [ -f "$BACKEND/.env" ]; then
-  PORT="$(sed -n 's/^MOYU_PORT=//p' "$BACKEND/.env" | tail -n 1 | tr -d '\r')"
-fi
-PORT="${PORT:-8888}"
+PORT="${MOYU_PORT:-8888}"
 OPEN_BROWSER=1
+REBUILD=0
 
 while [ $# -gt 0 ]; do
   case "$1" in
     --port) PORT="${2:?--port 需要一个端口号}"; shift 2 ;;
     --no-open) OPEN_BROWSER=0; shift ;;
-    -h|--help) sed -n '2,9p' "$0"; exit 0 ;;
+    --rebuild) REBUILD=1; shift ;;
+    -h|--help) sed -n '2,13p' "$0"; exit 0 ;;
     *) echo "未知参数：$1" >&2; exit 2 ;;
   esac
 done
 
 BASE_URL="http://127.0.0.1:$PORT"
 
-# ---------------------------------------------------------------- 输出
 step() { printf '\n\033[36m  [%s] %s\033[0m\n' "$1" "$2"; }
 ok()   { printf '        \033[32m✓\033[0m %s\n' "$1"; }
 warn() { printf '        \033[33m!\033[0m %s\n' "$1"; }
@@ -52,54 +49,43 @@ echo
 echo "  玄门诡事录 · 本地跑团服务"
 echo "  XUANWU OPS · $ROOT"
 
-[ -d "$BACKEND" ] || fail "找不到 backend 目录（请在项目根目录运行）"
+[ -d "$SERVER" ] || fail "找不到 server 目录（请在项目根目录运行）"
 
-# ---------------------------------------------------------------- 0. 已在运行？
-if command -v curl >/dev/null 2>&1 && curl -fsS --max-time 2 "$BASE_URL/api/dashboard" >/dev/null 2>&1; then
+if command -v curl >/dev/null 2>&1 && curl -fsS --max-time 2 "$BASE_URL/api/health" >/dev/null 2>&1; then
   ok "服务已经在 $BASE_URL 上跑着，直接打开。"
   open_url
   exit 0
 fi
 
-# ---------------------------------------------------------------- 1. 工具链
-step 1/4 "检查工具链"
-command -v uv >/dev/null 2>&1 || fail "没找到 uv（安装：curl -LsSf https://astral.sh/uv/install.sh | sh）"
-ok "uv $(uv --version)"
-if command -v node >/dev/null 2>&1; then
-  ok "node $(node --version)"
+step 1/3 "检查工具链"
+command -v node >/dev/null 2>&1 || fail "没找到 node（要求 Node >= 24：https://nodejs.org/）"
+NODE_MAJOR="$(node -p 'process.versions.node.split(".")[0]')"
+[ "$NODE_MAJOR" -ge 24 ] || fail "Node 版本太低（当前 $(node -v)，要求 >= 24）"
+command -v npm >/dev/null 2>&1 || fail "没找到 npm（随 Node 一起安装）"
+ok "node $(node -v)"
+ok "npm  $(npm -v)"
+
+step 2/3 "准备后端依赖"
+if [ ! -d "$SERVER/node_modules" ]; then
+  ( cd "$SERVER" && npm install --no-fund --no-audit ) || fail "npm install 失败（检查网络）"
+  ok "后端依赖已安装"
 else
-  warn "没找到 node —— 前端只能复用已有 dist"
+  ok "后端依赖已存在（重装：rm -rf server/node_modules 后重跑）"
 fi
 
-# ---------------------------------------------------------------- 2. 后端依赖
-step 2/4 "同步后端依赖"
-( cd "$BACKEND" && uv sync --quiet ) || fail "uv sync 失败（检查网络，或看 pyproject 里的镜像源）"
-ok "依赖就绪"
-
-# ---------------------------------------------------------------- 3. 数据库迁移
-step 3/4 "应用数据库迁移"
-( cd "$BACKEND" && uv run alembic upgrade head >/dev/null ) \
-  || fail "迁移失败（手动排查：cd backend && uv run alembic upgrade head）"
-ok "结构已是最新"
-
-# ---------------------------------------------------------------- 4. 前端产物
-step 4/4 "检查前端构建"
-if [ ! -f "$FRONTEND/dist/index.html" ]; then
-  command -v npm >/dev/null 2>&1 || fail "需要构建前端，但没找到 npm"
+step 3/3 "检查前端产物"
+if [ "$REBUILD" -eq 1 ] || [ ! -f "$FRONTEND/dist/index.html" ]; then
   ( cd "$FRONTEND" && { [ -d node_modules ] || npm install --no-fund --no-audit; } && npm run build ) \
     || fail "前端构建失败（手动：cd frontend && npm run build）"
-  ok "构建完成"
+  ok "前端构建完成"
 else
-  ok "已有 dist（强制重建：rm -rf frontend/dist 后再跑）"
+  ok "已有 dist（强制重建：./start.sh --rebuild）"
 fi
 
-# ---------------------------------------------------------------- 启动
 printf '\n  服务地址  %s\n' "$BASE_URL"
-printf '  接口文档  %s/api/docs\n' "$BASE_URL"
 printf '  停止服务  Ctrl+C\n\n'
-
-# 后台等两秒再开浏览器，避免打开时服务还没监听
 ( sleep 2; open_url ) &
 
-cd "$BACKEND"
-exec uv run uvicorn app.main:app --host 127.0.0.1 --port "$PORT" --log-level info
+cd "$SERVER"
+export MOYU_PORT="$PORT"
+exec node src/index.ts

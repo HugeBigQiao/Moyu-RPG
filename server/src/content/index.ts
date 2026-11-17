@@ -2,17 +2,24 @@
  * 内容装配。
  *
  * 职责：
- *     一次加载 10 个 JSON，并把需要索引的文件（traits/shop）转成查表结构。
+ *     一次加载 10 个 JSON，并把每个文件转成「数组 + id 索引 + 纯函数」。
  * 为什么需要：
- *     插件启动时只做一次；reload 时再整体替换，避免每个模块各自读文件。
+ *     插件启动时只做一次；reload 时整体替换，避免各模块各自读文件、各自缓存。
  * 上下游：
- *     上游：ContentStore；下游：plugins/content、core/sheet、core/session。
+ *     上游：ContentStore；下游：plugins/content、core/*、api/*。
  */
 import { ContentStore } from './store.ts'
+import { indexBestiary, type BestiaryDoc, type BestiaryIndex } from './bestiary.ts'
+import { indexEquipment, type EquipmentDoc, type EquipmentIndex } from './equipment.ts'
+import { indexEvents, type EventsDoc, type EventsIndex } from './events.ts'
+import { indexMissions, type MissionsDoc, type MissionsIndex } from './missions.ts'
+import { indexScenarios, type Scenario, type ScenariosDoc, type ScenariosIndex } from './scenarios.ts'
 import { indexShop, type ShopDoc, type ShopIndex } from './shop.ts'
+import { indexSpirits, type SpiritsDoc, type SpiritsIndex } from './spirits.ts'
+import { indexTalismans, type TalismansDoc, type TalismansIndex } from './talismans.ts'
 import { indexTraits, type TraitsDoc, type TraitsIndex } from './traits.ts'
+import { indexWorld, type WorldDoc, type WorldIndex } from './world.ts'
 
-/** 尚未建模的内容文档：P3 会换成 zod 模型的输出。 */
 export type Doc = Record<string, any>
 
 export const CONTENT_FILES = [
@@ -28,30 +35,34 @@ export const CONTENT_FILES = [
   'scenarios',
 ] as const
 
-export interface ContentData {
-  world: Doc
-  events: Doc
-  missions: Doc
-  bestiary: Doc
-  equipment: Doc
+export interface GameContent {
+  world: WorldIndex
+  events: EventsIndex
+  missions: MissionsIndex
+  bestiary: BestiaryIndex
+  equipment: EquipmentIndex
   traits: TraitsIndex
-  talismans: Doc
-  spirits: Doc
+  talismans: TalismansIndex
+  spirits: SpiritsIndex
   shop: ShopIndex
-  scenarios: Doc
+  scenarios: ScenariosIndex
 }
+
+export type ContentData = GameContent
 
 export function loadContent(store: ContentStore): ContentData {
   return {
-    world: store.load<Doc>('world'),
-    events: store.load<Doc>('events'),
-    missions: store.load<Doc>('missions'),
-    bestiary: store.load<Doc>('bestiary'),
-    equipment: store.load<Doc>('equipment'),
+    world: indexWorld(store.load<WorldDoc>('world')),
+    events: indexEvents(store.load<EventsDoc>('events')),
+    missions: indexMissions(store.load<MissionsDoc>('missions')),
+    bestiary: indexBestiary(store.load<BestiaryDoc>('bestiary')),
+    equipment: indexEquipment(store.load<EquipmentDoc>('equipment')),
     traits: indexTraits(store.load<TraitsDoc>('traits')),
-    talismans: store.load<Doc>('talismans'),
-    spirits: store.load<Doc>('spirits'),
+    talismans: indexTalismans(store.load<TalismansDoc>('talismans')),
+    spirits: indexSpirits(store.load<SpiritsDoc>('spirits')),
     shop: indexShop(store.load<ShopDoc>('shop')),
-    scenarios: store.load<Doc>('scenarios'),
+    scenarios: indexScenarios(store.load<ScenariosDoc>('scenarios')),
   }
 }
+
+export type { Scenario }

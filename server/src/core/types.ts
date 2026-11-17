@@ -51,6 +51,8 @@ export interface ShopEffect {
   san_max?: number
   draw_pool?: number
   summon_discount?: number
+  karma_debt?: number
+  [key: string]: any
 }
 
 export interface ShopItem {

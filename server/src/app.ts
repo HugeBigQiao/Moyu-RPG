@@ -15,6 +15,7 @@ import { Db } from './db/client.ts'
 import { Content } from './plugins/content.ts'
 import { HttpServer, sendJson } from './plugins/http.ts'
 import { Rules } from './plugins/rules.ts'
+import { Api } from './plugins/api.ts'
 
 export interface AppHandle {
   app: Context
@@ -26,7 +27,8 @@ export async function createApp(config: Config): Promise<AppHandle> {
   const fibers: Fiber[] = []
 
   fibers.push(await app.use(Content, { dir: config.contentDir }))
-  fibers.push(await app.use(Db, { file: config.dbFile }))
+  fibers.push(await app.use(Db, { url: config.databaseUrl }))
+  await (app.get('db') as Db).ready
   fibers.push(await app.use(Rules))
   const httpFiber = await app.use(HttpServer, {
     host: config.host,
@@ -34,6 +36,7 @@ export async function createApp(config: Config): Promise<AppHandle> {
     dist: config.frontendDist,
   })
   fibers.push(httpFiber)
+  fibers.push(await app.use(Api))
 
   const content = app.get('content') as Content
   const server = app.get('server') as HttpServer
@@ -50,14 +53,6 @@ export async function createApp(config: Config): Promise<AppHandle> {
       },
       content: content.status(),
     })
-  })
-
-  server.get('/api/content/status', (_req, res) => {
-    sendJson(res, 200, content.status())
-  })
-
-  server.post('/api/admin/reload', (_req, res) => {
-    sendJson(res, 200, { reloaded: content.reload() })
   })
 
   return {

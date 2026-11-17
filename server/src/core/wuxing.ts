@@ -10,7 +10,7 @@
  */
 
 export const ELEMENTS = ['金', '木', '水', '火', '土'] as const
-export type Element = (typeof ELEMENTS)[number] | '煞' | null | undefined
+export type Element = string | null | undefined
 
 export const KE: Record<string, string> = { 金: '木', 木: '土', 土: '水', 水: '火', 火: '金' }
 export const SHENG: Record<string, string> = { 金: '水', 水: '木', 木: '火', 火: '土', 土: '金' }

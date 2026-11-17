@@ -4,6 +4,8 @@
 > 已经用 PoC 验证过；但这是一次后端重写，不是换个框架的周末项目。**
 > 本文给出目标架构、移植映射、分阶段计划、验收标准与止损点，供决定「做 / 不做 / 做多少」。
 
+> 2026-11-17 更新：P0–P7 已全部完成，Node/TS 后端已接管启动；下文保留评估与实施记录。
+
 ---
 
 ## 0. 结论
@@ -376,19 +378,28 @@ PoC 结论：**不要用 `@cordisjs/plugin-server@1.7.0`。**
 
 ## 8. 进度（2026-11-17）
 
-P0–P2 已落地，代码在 `server/`，与 Python 后端并存（启动脚本未改）：
+P0–P7 已落地，Node/TS 后端接管启动；旧 Python 实现退居 golden 生成与对照：
 
 | 阶段 | 产物 | 验收 |
 | --- | --- | --- |
 | P0 | `server/scripts/export_golden.py` + `server/test/fixtures/*.json` | 35 局 / 481 步整局回放、311 组舍入、40 组检定、49 组五行、20 张角色卡 |
-| P1 | `server/src/`（cordis 服务 + node:http + node:sqlite） | `/api/health`、静态缓存头、404、内容重载；5 个 HTTP 测试 |
-| P2 | `core/{python,dice,checks,wuxing,sheet}.ts` | 134 个 vitest 全绿，与 Python 逐字段一致 |
+| P1 | `server/src/`（cordis 服务 + node:http + node:sqlite） | `/api/health`、静态缓存头、404、内容重载 |
+| P2 | `core/{python,dice,checks,wuxing,sheet}.ts` | 与 Python 逐字段一致 |
+| P3 | `content/*` + `content/edit.ts` + `content/write.ts` | 11 类档案增删改、引用拦截、原子写回对拍 |
+| P4 | `core/{gacha,npc,kp,mission,progress}.ts` | 抽卡/NPC/随机任务/成长线/KP 全量对拍 |
+| P5 | `core/session.ts` | 35 局 481 步状态与事件流逐字段一致 |
+| P6 | `api/*` + `db/*` + 三方言 schema | 30 个接口；28 项旧 API 冒烟在新后端全绿 |
+| P7 | `start.sh` / `start.ps1` / `start.bat` | 一键启动 Node；旧 Python 后端不再默认启动 |
 
-其中 `pyRound` 已改成「拆 IEEE754 → BigInt 精确十进制 → round-half-even」，
-不是简单乘 10 再取整；2.675 / 1.005 这类边界与 Python 一致。
+测试：`cd server && npm test` → **268 passed**；`npm run typecheck` 通过；
+旧 `backend/` 的 169 个 pytest 仍保留，作为参考实现。
 
-下一步是 P3（内容层与编辑校验）。P5 的验收基线已经冻在 `sessions.json`，
-到时候逐 action 重放即可。
+未完成/未验证：
+
+- PostgreSQL / MySQL 适配层与 schema 已写，但本地没有实例，只有 SQLite 实测；
+- UI 冒烟（52 项）需要浏览器，本机下载 Chromium 未完成；前端 `npm run build` 与
+  `vue-tsc` 通过，28 项 HTTP 冒烟覆盖了主要接口；
+- 规则热更只记录 `rules_version`，多版本规则并存尚未做。
 
 ## 附录 A：PoC 结果
 

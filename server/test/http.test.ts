@@ -10,6 +10,7 @@ import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 import type { AppHandle } from '../src/app.ts'
 import { createApp } from '../src/app.ts'
 import { CONTENT_DIR } from './helpers.ts'
+import { sqliteUrl } from '../src/db/client.ts'
 import type { HttpServer } from '../src/plugins/http.ts'
 
 let handle: AppHandle
@@ -27,7 +28,7 @@ beforeAll(async () => {
     host: '127.0.0.1',
     port: 0,
     contentDir: CONTENT_DIR,
-    dbFile: join(tempDir, 'test.db'),
+    databaseUrl: sqliteUrl(join(tempDir, 'test.db')),
     frontendDist: join(tempDir, 'dist'),
   })
   server = handle.app.get('server') as HttpServer
@@ -78,7 +79,7 @@ describe('HTTP 骨架', () => {
     const response = await fetch(`${baseUrl}/api/admin/reload`, { method: 'POST' })
     expect(response.status).toBe(200)
     const data = await response.json() as any
-    expect(data.reloaded.world).toBe('ok')
-    expect(data.reloaded.shop).toBe('ok')
+    expect(data.report.world).toBe('ok')
+    expect(data.report.shop).toBe('ok')
   })
 })

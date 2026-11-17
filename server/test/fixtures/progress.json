@@ -1,0 +1,584 @@
+{
+ "requirements": [
+  {
+   "card": {
+    "school": "fulu",
+    "element": "木",
+    "rank": "初真",
+    "merit": 20,
+    "attrs": {
+     "str": 10,
+     "agi": 12,
+     "con": 11,
+     "int": 15,
+     "wil": 13,
+     "per": 14
+    },
+    "traits": [
+     {
+      "name": "胆大",
+      "tier": 3
+     },
+     {
+      "name": "耳聪",
+      "tier": 4
+     }
+    ],
+    "items": [],
+    "karma_debt": 0,
+    "skill_bonus": {},
+    "completed_sessions": 3
+   },
+   "requirements": [
+    {
+     "key": "sessions",
+     "label": "完成驱祟任务",
+     "have": 3,
+     "need": 3,
+     "unit": "次",
+     "ok": true,
+     "pct": 100
+    }
+   ],
+   "promotable": true
+  },
+  {
+   "card": {
+    "school": "fulu",
+    "element": "木",
+    "rank": "盟威",
+    "merit": 60,
+    "attrs": {
+     "str": 10,
+     "agi": 12,
+     "con": 11,
+     "int": 15,
+     "wil": 13,
+     "per": 14
+    },
+    "traits": [
+     {
+      "name": "胆大",
+      "tier": 3
+     },
+     {
+      "name": "耳聪",
+      "tier": 4
+     }
+    ],
+    "items": [],
+    "karma_debt": 0,
+    "skill_bonus": {},
+    "mind_trial_passed": true
+   },
+   "requirements": [
+    {
+     "key": "merit",
+     "label": "功德",
+     "have": 60,
+     "need": 50,
+     "unit": "",
+     "ok": true,
+     "pct": 100
+    },
+    {
+     "key": "trial",
+     "label": "心魔试炼",
+     "have": 1,
+     "need": 1,
+     "unit": "",
+     "ok": true,
+     "pct": 100
+    }
+   ],
+   "promotable": true
+  },
+  {
+   "card": {
+    "school": "fulu",
+    "element": "木",
+    "rank": "五雷",
+    "merit": 85,
+    "attrs": {
+     "str": 10,
+     "agi": 12,
+     "con": 11,
+     "int": 15,
+     "wil": 13,
+     "per": 14
+    },
+    "traits": [
+     {
+      "name": "胆大",
+      "tier": 3
+     },
+     {
+      "name": "耳聪",
+      "tier": 4
+     }
+    ],
+    "items": [],
+    "karma_debt": 0,
+    "skill_bonus": {},
+    "karma_good": 3,
+    "completed_sessions": 8
+   },
+   "requirements": [
+    {
+     "key": "merit",
+     "label": "功德",
+     "have": 85,
+     "need": 80,
+     "unit": "",
+     "ok": true,
+     "pct": 100
+    },
+    {
+     "key": "karma",
+     "label": "善果",
+     "have": 3,
+     "need": 3,
+     "unit": "件",
+     "ok": true,
+     "pct": 100
+    },
+    {
+     "key": "sessions",
+     "label": "完成驱祟任务",
+     "have": 8,
+     "need": 8,
+     "unit": "次",
+     "ok": true,
+     "pct": 100
+    }
+   ],
+   "promotable": true
+  },
+  {
+   "card": {
+    "school": "fulu",
+    "element": "木",
+    "rank": "天师",
+    "merit": 100,
+    "attrs": {
+     "str": 10,
+     "agi": 12,
+     "con": 11,
+     "int": 15,
+     "wil": 13,
+     "per": 14
+    },
+    "traits": [
+     {
+      "name": "胆大",
+      "tier": 3
+     },
+     {
+      "name": "耳聪",
+      "tier": 4
+     }
+    ],
+    "items": [],
+    "karma_debt": 0,
+    "skill_bonus": {}
+   },
+   "requirements": [],
+   "promotable": false
+  }
+ ],
+ "promotions": [
+  {
+   "result": {
+    "from": "初真",
+    "to": "盟威",
+    "opened": [
+     "土地公",
+     "城隍",
+     "扁鹊"
+    ]
+   },
+   "card": {
+    "school": "fulu",
+    "element": "木",
+    "rank": "盟威",
+    "merit": 20,
+    "attrs": {
+     "str": 10,
+     "agi": 12,
+     "con": 11,
+     "int": 15,
+     "wil": 13,
+     "per": 14
+    },
+    "traits": [
+     {
+      "name": "胆大",
+      "tier": 3
+     },
+     {
+      "name": "耳聪",
+      "tier": 4
+     }
+    ],
+    "items": [],
+    "karma_debt": 0,
+    "skill_bonus": {},
+    "completed_sessions": 3,
+    "approval": {
+     "tudi": 10,
+     "chenghuang": 10,
+     "bianque": 10
+    }
+   }
+  },
+  {
+   "result": {
+    "from": "盟威",
+    "to": "五雷",
+    "opened": [
+     "关圣帝君",
+     "岳武穆"
+    ]
+   },
+   "card": {
+    "school": "fulu",
+    "element": "木",
+    "rank": "五雷",
+    "merit": 60,
+    "attrs": {
+     "str": 10,
+     "agi": 12,
+     "con": 11,
+     "int": 15,
+     "wil": 13,
+     "per": 14
+    },
+    "traits": [
+     {
+      "name": "胆大",
+      "tier": 3
+     },
+     {
+      "name": "耳聪",
+      "tier": 4
+     }
+    ],
+    "items": [],
+    "karma_debt": 0,
+    "skill_bonus": {},
+    "mind_trial_passed": true,
+    "approval": {
+     "guanyu": 10,
+     "yuefei": 10
+    }
+   }
+  },
+  {
+   "result": {
+    "from": "五雷",
+    "to": "天师",
+    "opened": [
+     "钟馗",
+     "九天玄女",
+     "真武大帝"
+    ]
+   },
+   "card": {
+    "school": "fulu",
+    "element": "木",
+    "rank": "天师",
+    "merit": 85,
+    "attrs": {
+     "str": 10,
+     "agi": 12,
+     "con": 11,
+     "int": 15,
+     "wil": 13,
+     "per": 14
+    },
+    "traits": [
+     {
+      "name": "胆大",
+      "tier": 3
+     },
+     {
+      "name": "耳聪",
+      "tier": 4
+     }
+    ],
+    "items": [],
+    "karma_debt": 0,
+    "skill_bonus": {},
+    "karma_good": 3,
+    "completed_sessions": 8,
+    "approval": {
+     "zhongkui": 10,
+     "xuannv": 10,
+     "zhenwu": 10
+    }
+   }
+  },
+  {
+   "error": "条件不够，晋不了。"
+  }
+ ],
+ "trials": [
+  {
+   "passed": true,
+   "passes": 3,
+   "need": 2,
+   "rolls": [
+    {
+     "roll": 41,
+     "target": 65,
+     "level": "困难成功",
+     "success": true
+    },
+    {
+     "roll": 15,
+     "target": 65,
+     "level": "极难成功",
+     "success": true
+    },
+    {
+     "roll": 31,
+     "target": 65,
+     "level": "极难成功",
+     "success": true
+    }
+   ],
+   "text": "三问两渡。你听见有人在很远的地方叫你的名字，你没回头。"
+  },
+  {
+   "passed": true,
+   "passes": 2,
+   "need": 2,
+   "rolls": [
+    {
+     "roll": 12,
+     "target": 65,
+     "level": "大成功",
+     "success": true
+    },
+    {
+     "roll": 69,
+     "target": 65,
+     "level": "失败",
+     "success": false
+    },
+    {
+     "roll": 46,
+     "target": 65,
+     "level": "困难成功",
+     "success": true
+    }
+   ],
+   "text": "三问两渡。你听见有人在很远的地方叫你的名字，你没回头。"
+  },
+  {
+   "passed": false,
+   "passes": 1,
+   "need": 2,
+   "rolls": [
+    {
+     "roll": 97,
+     "target": 65,
+     "level": "失败",
+     "success": false
+    },
+    {
+     "roll": 56,
+     "target": 65,
+     "level": "困难成功",
+     "success": true
+    },
+    {
+     "roll": 86,
+     "target": 65,
+     "level": "失败",
+     "success": false
+    }
+   ],
+   "text": "你在第二问上停住了。镜子里那个「你」比你更早抬起了头。"
+  },
+  {
+   "passed": true,
+   "passes": 3,
+   "need": 2,
+   "rolls": [
+    {
+     "roll": 4,
+     "target": 65,
+     "level": "大成功",
+     "success": true
+    },
+    {
+     "roll": 55,
+     "target": 65,
+     "level": "困难成功",
+     "success": true
+    },
+    {
+     "roll": 20,
+     "target": 65,
+     "level": "极难成功",
+     "success": true
+    }
+   ],
+   "text": "三问两渡。你听见有人在很远的地方叫你的名字，你没回头。"
+  },
+  {
+   "passed": true,
+   "passes": 3,
+   "need": 2,
+   "rolls": [
+    {
+     "roll": 21,
+     "target": 65,
+     "level": "极难成功",
+     "success": true
+    },
+    {
+     "roll": 5,
+     "target": 65,
+     "level": "大成功",
+     "success": true
+    },
+    {
+     "roll": 16,
+     "target": 65,
+     "level": "极难成功",
+     "success": true
+    }
+   ],
+   "text": "三问两渡。你听见有人在很远的地方叫你的名字，你没回头。"
+  },
+  {
+   "passed": true,
+   "passes": 3,
+   "need": 2,
+   "rolls": [
+    {
+     "roll": 62,
+     "target": 65,
+     "level": "困难成功",
+     "success": true
+    },
+    {
+     "roll": 61,
+     "target": 65,
+     "level": "困难成功",
+     "success": true
+    },
+    {
+     "roll": 50,
+     "target": 65,
+     "level": "困难成功",
+     "success": true
+    }
+   ],
+   "text": "三问两渡。你听见有人在很远的地方叫你的名字，你没回头。"
+  }
+ ],
+ "buys": [
+  {
+   "item_id": "taomu",
+   "result": {
+    "item": "百年桃木剑",
+    "spent": 100,
+    "left": 400
+   },
+   "card": {
+    "school": "fulu",
+    "element": "木",
+    "rank": "天师",
+    "merit": 400,
+    "attrs": {
+     "str": 10,
+     "agi": 12,
+     "con": 11,
+     "int": 15,
+     "wil": 13,
+     "per": 14
+    },
+    "traits": [
+     {
+      "name": "胆大",
+      "tier": 3
+     },
+     {
+      "name": "耳聪",
+      "tier": 4
+     }
+    ],
+    "items": [
+     {
+      "id": "taomu",
+      "name": "百年桃木剑",
+      "qty": 1
+     }
+    ],
+    "karma_debt": 0,
+    "skill_bonus": {}
+   }
+  },
+  {
+   "item_id": "taomu",
+   "error": "这件你已经有了。"
+  },
+  {
+   "item_id": "qingshenfu",
+   "error": "功德不够（差 100）。"
+  },
+  {
+   "item_id": "huangfu",
+   "result": {
+    "item": "黄符纸（一叠）",
+    "spent": 30,
+    "left": 370
+   },
+   "card": {
+    "school": "fulu",
+    "element": "木",
+    "rank": "天师",
+    "merit": 370,
+    "attrs": {
+     "str": 10,
+     "agi": 12,
+     "con": 11,
+     "int": 15,
+     "wil": 13,
+     "per": 14
+    },
+    "traits": [
+     {
+      "name": "胆大",
+      "tier": 3
+     },
+     {
+      "name": "耳聪",
+      "tier": 4
+     }
+    ],
+    "items": [
+     {
+      "id": "taomu",
+      "name": "百年桃木剑",
+      "qty": 1
+     },
+     {
+      "id": "huangfu",
+      "name": "黄符纸（一叠）",
+      "qty": 1
+     }
+    ],
+    "karma_debt": 0,
+    "skill_bonus": {}
+   }
+  },
+  {
+   "item_id": "nope",
+   "error": "货架上没有这件。"
+  }
+ ]
+}

@@ -47,6 +47,7 @@ CREATE TABLE IF NOT EXISTS sessions (
   status VARCHAR(12) NOT NULL,
   state TEXT NOT NULL,
   seed VARCHAR(32) NOT NULL,
+  rules_version INTEGER NOT NULL DEFAULT 1,
   created_at TEXT NOT NULL,
   updated_at TEXT NOT NULL,
   CONSTRAINT fk_sessions_character FOREIGN KEY (character_id)

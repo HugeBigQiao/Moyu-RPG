@@ -9,6 +9,7 @@
  *     上游：data/content/shop.json；下游：core/sheet、core/progress、plugins/content。
  */
 import type { CharacterLike, ShopEffect, ShopItem } from '../core/types.ts'
+import { RANKS } from './spirits.ts'
 
 export interface ShopDoc {
   items: ShopItem[]
@@ -65,4 +66,14 @@ export function effectsOf(character: CharacterLike, index: ShopIndex): ShopEffec
     out.summon_discount += Math.trunc(Number(effect.summon_discount ?? 0)) * qty
   }
   return out
+}
+
+/** 按箓职筛选货架；requires_rank 高于当前箓职的不可见。 */
+export function visible(index: ShopIndex, rank: string): ShopItem[] {
+  const clean = (RANKS as readonly string[]).includes(rank) ? rank : '初真'
+  const limit = RANKS.indexOf(clean as (typeof RANKS)[number])
+  return index.items.filter((item) => {
+    const need = item.requires_rank as string | undefined
+    return !need || RANKS.indexOf(need as (typeof RANKS)[number]) <= limit
+  })
 }

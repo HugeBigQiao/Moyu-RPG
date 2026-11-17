@@ -1,17 +1,21 @@
-# server/ · Node/TS 后端（cordis 迁移中）
+# server/ · Node/TS 后端（cordis）
 
-这是 `docs/cordis迁移.md` 里 P0–P2 的产物：cordis 骨架 + 纯规则引擎。
-**它还没有接管启动**——`start.sh` / `start.bat` 仍然起 Python 后端；两者可以并存，
-方便对拍与回滚。
+这是 `docs/cordis迁移.md` 里 P0–P7 的产物：cordis 骨架 + 纯规则引擎 + 30 个接口。
+**它已经接管启动**：`start.sh` / `start.bat` 现在起的是 Node 后端；
+`backend/` 的 Python 实现只保留作 golden fixtures 的生成器与对照。
 
 ## 当前进度
 
 | 阶段 | 内容 | 状态 |
 | --- | --- | --- |
 | P0 | 冻结 golden 契约（PRNG / 检定 / 五行 / 角色卡 / 35 局回放） | 完成 |
-| P1 | cordis 骨架：Content / Db / Rules / Http 服务，健康检查与静态产物 | 完成 |
-| P2 | 移植 dice / python / checks / wuxing / sheet，全部对拍通过 | 完成 |
-| P3–P7 | 内容编辑、生成器、会话状态机、30 个接口、切换启动 | 未开始 |
+| P1 | cordis 骨架：Content / Db / Rules / Http 服务 | 完成 |
+| P2 | dice / python / checks / wuxing / sheet，全部对拍 | 完成 |
+| P3 | 内容层、11 类档案编辑、原子写回 | 完成 |
+| P4 | gacha / npc / kp / mission / progress，全部对拍 | 完成 |
+| P5 | session 状态机，35 局 481 步回放逐字段一致 | 完成 |
+| P6 | 30 个接口、SQLite/PG/MySQL 适配、静态产物 | 完成 |
+| P7 | 启动脚本切到 Node | 完成 |
 
 ## 跑起来
 
@@ -21,7 +25,7 @@
 cd server
 npm install
 npm start                 # 默认 http://127.0.0.1:8888
-npm test                  # 134 个测试
+npm test                  # 268 个测试
 npm run typecheck         # tsc --noEmit
 ```
 
@@ -32,14 +36,11 @@ npm run typecheck         # tsc --noEmit
 | `MOYU_HOST` | `127.0.0.1` | 监听地址 |
 | `MOYU_PORT` | `8888` | 端口 |
 | `MOYU_CONTENT_DIR` | `backend/data/content` | 内容 JSON |
-| `MOYU_DB_FILE` | `backend/data/moyu.db` | SQLite 文件（不存在会建） |
+| `MOYU_DATABASE_URL` | `sqlite://<repo>/backend/data/moyu.db` | `sqlite://` / `postgresql://` / `mysql://`（不存在会建表） |
 | `MOYU_FRONTEND_DIST` | `frontend/dist` | 前端产物；没有就只提供 `/api` |
 
-已实现的接口（临时的，P6 会被完整的 30 个替换）：
-
-- `GET /api/health` — 服务状态
-- `GET /api/content/status` — 内容加载状态
-- `POST /api/admin/reload` — 强制重读内容 JSON
+接口与旧 FastAPI 一一对应（30 个），另加一个 `GET /api/health` 供启动脚本探活。
+完整清单见 `docs/接口.md`。
 
 ## 对拍怎么跑
 
@@ -52,7 +53,8 @@ npm run golden            # 内部：cd ../backend && uv run python ../server/sc
 
 `test/parity/` 下的测试逐字段比对；任何一处与 Python 不一致都会失败。
 `test/fixtures/sessions.json` 是 P5 的验收基线：35 局、481 步，覆盖勘查、战斗、
-画符、用符、结界、请神、抉择与结算。
+画符、用符、结界、请神、抉择与结算。`test/fixtures/{gacha,npc,migrations,progress,kp,edit}.json`
+覆盖生成器、成长线与档案编辑。
 
 ## 目录
 
@@ -89,7 +91,7 @@ scripts/
 
 ## 已知限制
 
-- 只支持 SQLite；Python 版的 PostgreSQL / MySQL 兼容没有带过来。
-- `Db` 只做了基线建表与 `user_version`，增量迁移在 P6。
-- 请求体校验还没有 zod 化；P6 会按 30 个接口补。
-- 启动脚本、`backend/` 的删除都留到 P7，避免现在就要二选一。
+- PostgreSQL / MySQL 的适配层与 schema 已写，但本地没有实例，只有 SQLite 实测。
+- UI 冒烟（52 项）需要浏览器；本机没有浏览器，未跑；前端 build 与 vue-tsc 通过。
+- 规则热更只记 `rules_version`，多版本规则并存尚未做。
+- `backend/` 仍保留，只用于 `npm run golden` 重新生成 fixtures。
