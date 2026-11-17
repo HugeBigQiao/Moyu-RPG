@@ -1,10 +1,12 @@
 {
   "meta": {
     "generated_at": "2026-11-09",
+    "reviewed_at": "2026-11-17",
     "purpose": "会话交接档：项目现状、关键决策、踩过的坑、下一步。供新会话在五分钟内恢复上下文。",
-    "workspace": "D:\\moyu",
+    "workspace": "D:\\AI日常处理\\moyu",
     "language": "中文",
     "note": "只记录结论与判断，不记录过程对话。设定细节在 docs/世界观.md，实现细节在 docs/架构.md。",
+    "review_note": "2026-11-17 按实测校准：测试数、事件数、装备现状与路径；代码未改。",
     "reading_order": ["README.md", "HANDOFF.json", "docs/架构.md", "docs/开发指南.md"]
   },
 
@@ -13,14 +15,14 @@
     "one_liner": "本地单人跑团系统：现代中国玄门背景，玩家是玄真司来「了结因果」的人。",
     "core_idea": "祟物由人心淤积而生；结局不是赢/输，而是善了 / 了结 / 未了。",
     "stack": {
-      "frontend": "Vue 3 + Vite + vue-router，无 UI 框架，手写 CSS",
+      "frontend": "Vue 3 + Vite + vue-router + TypeScript（vue-tsc 查类型），无 UI 框架，手写 CSS",
       "backend": "FastAPI + SQLAlchemy 2（异步）+ Alembic",
       "database": "SQLite 默认（backend/data/moyu.db）；兼容 PostgreSQL / MySQL",
       "content": "backend/data/content/*.json，改文件即改设定，支持热重载",
       "package": "后端 uv；前端 npm"
     },
     "structure": {
-      "frontend/": "src/views（首页/档案/游戏/角色/建卡/处置台）、src/components、src/assets/china.js（地图轮廓，脚本生成）",
+      "frontend/": "src/app（壳：App/router/TopBar/SettingsPanel/StealthOverlay）、src/areas（HomeView + archive/play，按功能分区；archive/details 按类别拆 11 个详情）、src/shared（api/types/settings/stealth/flash）、src/assets/china.ts（地图轮廓，脚本生成）",
       "backend/app/api/": "接口板块：archive / game / characters / sessions + schemas + common",
       "backend/app/engine/": "纯函数规则：dice / wuxing / checks / sheet / gacha / npc / kp / progress / mission / session",
       "backend/app/content/": "内容加载器：按 mtime 读 JSON、建索引、热重载",
@@ -29,6 +31,11 @@
       "backend/data/migrations/": "Alembic 迁移",
       "docs/": "世界观、架构、开发指南、接口"
     },
+    "platforms": {
+      "windows": "start.bat / start.ps1（PowerShell 5.1 兼容）",
+      "linux": "start.sh（POSIX；首次 chmod +x；未在真实 Linux 上验证过，逻辑与 ps1 对齐）",
+      "macos": "同 start.sh（用 open 代替 xdg-open）"
+    },
     "run": {
       "one_click": "start.bat（检查工具链 → 数据库 → uv sync → 迁移 → 前端构建 → 启动 + 开浏览器）",
       "manual_backend": "cd backend && uv run python run.py",
@@ -36,10 +43,11 @@
       "url": "http://127.0.0.1:8888"
     },
     "test": {
-      "unit": "cd backend && uv run pytest -q（101）",
-      "api": "cd backend && uv run python scripts/api_smoke.py（24，需先起服务）",
-      "ui": "cd frontend && node scripts/ui_smoke.mjs（23，无头 Edge）",
-      "engine_only": "cd backend && uv run python scripts/smoke.py mirror（不开服务跑一局）"
+      "unit": "cd backend && uv run pytest -q（169）",
+      "api": "cd backend && uv run python scripts/api_smoke.py（28，需先起服务）",
+      "ui": "cd frontend && node scripts/ui_smoke.mjs（52，无头 Edge）",
+      "engine_only": "cd backend && uv run python scripts/smoke.py mirror（不开服务跑一局）",
+      "typecheck": "cd frontend && npm run typecheck（vue-tsc --noEmit）"
     }
   },
 
@@ -71,7 +79,7 @@
     "ui": {
       "home": "顶栏 + 两张大卡（开始游戏 / 背景档案）",
       "settings": "三套主题、四档字号、动效开关、遮掩设置",
-      "archive": "11 个档案：城市/人物/机构/教派/行业/国家/世界背景/事件/任务/装备/特性",
+      "archive": "11 个档案：城市/人物/机构/教派/行业/国家/世界背景/事件/任务/装备/特性，每类都能在页面上增删改",
       "game": "三栏 5:4:1：中国地图 / 展示面板 / 菜单（人物·任务·参与·城市）"
     }
   },
@@ -87,7 +95,9 @@
     { "phase": "内容数据化", "summary": "设定从 Python 常量搬进 JSON，模块退化为加载器", "outcome": "改设定不用改代码，支持热重载" },
     { "phase": "界面重构", "summary": "首页双卡、设置面板、11 个档案页、游戏三栏 + 中国地图", "outcome": "从「运维台」转向「档案 + 地图」" },
     { "phase": "API 拆板块", "summary": "app/api/ 按资源分 router，main.py 只做装配", "outcome": "main.py 762 → 45 行" },
-    { "phase": "数据板块归拢", "summary": "内容与迁移挪进 backend/data/，持久层收进 app/models/", "outcome": "代码与数据边界清晰" }
+    { "phase": "数据板块归拢", "summary": "内容与迁移挪进 backend/data/，持久层收进 app/models/", "outcome": "代码与数据边界清晰" },
+    { "phase": "档案编辑", "summary": "11 类档案在页面上增删改，校验后原子写回 content JSON 并自动重载", "outcome": "改设定不用开编辑器，git diff 只显示改动的行" },
+    { "phase": "前端 TS 化 + 目录按区域", "summary": "src 换成 TypeScript（接口类型集中在 shared/types.ts），目录按 app/areas/shared 组织，档案详情按 11 类拆成 details/*", "outcome": "类型错误在 vue-tsc 阶段暴露；加类别只动 details" }
   ],
 
   "decisions": [
@@ -138,7 +148,9 @@
     "comment_style": "每个模块首段写「职责 / 为什么需要 / 上下游」；函数 docstring 写参数是什么、为什么需要、输入输出；块级注释写这段在处理什么。",
     "naming": "接口按资源分模块；引擎按职责分模块；内容 JSON 一个主题一个文件。",
     "commit": "「动词: 说明」；一次提交只做一类改动。",
-    "data_boundary": "app/ 是代码，data/ 是数据；代码里不写死设定，数据里不写逻辑。"
+    "data_boundary": "app/ 是代码，data/ 是数据；代码里不写死设定，数据里不写逻辑。",
+    "frontend_layout": "前端按功能分区：app/（壳）、areas/（HomeView · archive · play）、shared/（跨区域）。一个功能的东西放同一目录；被第二个区域用到才提到 shared。档案的类别详情放 areas/archive/details/ 并在 index.ts 注册。",
+    "theme": "组件里不写死颜色：新色先加语义变量（--surface-* / --heading / --text-*），再给 :root 与两套主题各赋一次；否则浅色主题会冒出深色块。"
   },
 
   "gotchas": [
@@ -178,23 +190,48 @@
       "symptom": "重新构建后浏览器仍是旧界面",
       "cause": "index.html 没有 Cache-Control，被浏览器启发式缓存，继续引用旧 hash 的 JS",
       "fix": "index.html 发 no-store，/assets/* 发 immutable；构建时间戳显示在设置里"
+    },
+    {
+      "title": "项目目录写入被拒（Windows 权限）",
+      "symptom": "工作区根目录能写，但 moyu 及其子目录新建/修改文件一律拒绝，pytest 也写不了 .pytest_cache",
+      "cause": "目录权限项缺失，属本机环境，与代码无关",
+      "fix": "按 ACL 诊断脚本只给当前用户补完全控制项（不动内容与所有者）；备份、回滚脚本与报告在 D:\\AI日常处理\\_dsh-acl-recovery\\"
+    },
+    {
+      "title": "冒烟脚本在 GBK 控制台崩",
+      "symptom": "输出被重定向时 UnicodeEncodeError: 'gbk' codec can't encode character '▶'",
+      "cause": "scripts/smoke.py 直接 print 了 '▶'，Python 在非控制台输出时用 locale 编码（中文 Windows 是 GBK）",
+      "fix": "运行前设 $env:PYTHONIOENCODING='utf-8'；根治办法是脚本开头 sys.stdout.reconfigure(encoding='utf-8', errors='replace')"
+    },
+    {
+      "title": "npm install 会删掉没声明的测试依赖",
+      "symptom": "ui_smoke 报 Cannot find package 'playwright-core'",
+      "cause": "playwright-core 之前是手工装的，没写进 package.json；npm install 会把 extraneous 包剪掉",
+      "fix": "把它加进 devDependencies（已加）；以后脚本用的包都要声明"
+    },
+    {
+      "title": "会话单据号不能用 COUNT + 1",
+      "symptom": "开团直接 500：IntegrityError: UNIQUE constraint failed: sessions.code",
+      "cause": "删过一局之后 COUNT 会回退，编号撞上历史单据；手工清过 sessions 表更容易触发",
+      "fix": "先插入拿自增 id，再用 id 拼单据号（app/api/sessions.py 的 _start_row）"
     }
   ],
 
   "known_issues": [
-    { "title": "装备未接进战斗", "detail": "装备库有数据、商店能买，但只有商店那几件效果进了计算", "next": "把 equipment.json 的 effect 接到 session 的伤害与防御" },
+    { "title": "装备未接进战斗", "detail": "equipment.json 的 effect 是中文描述（如「对木属祟物 +2 伤害」），不是可结算字段；角色只存商店买过的 items，没有装备槽；装备 id 与 shop id 也不对应（taomu_sword vs taomu）", "next": "先给 16 件装备定 effect schema 并转换数据，再加装备槽，最后接 _strike / sheet" },
     { "title": "地图是静态落点", "detail": "没有省界、路线、势力着色", "next": "加省界与势力范围" },
     { "title": "认可度不会自然增长", "detail": "只有晋升时给初始值", "next": "按行为给英灵契合度" },
     { "title": "随机任务骨架单一", "detail": "勘查×2~3 → 遭遇 → 抉择", "next": "增加更多场景类型与分支" },
-    { "title": "内容缺 schema 校验", "detail": "JSON 结构错了要到加载时才报", "next": "给 content 写 Pydantic 模型" },
+    { "title": "规则不能中途热更", "detail": "内容是热重载的，但规则代码（engine/*.py）改完要重启；而且一局状态是按开局时的规则算的，直接换会破坏一致性", "next": "要热更就先给规则打版本、sessions 记录 rules_version；cordis 插件多实例可承载多版本" },
+    { "title": "内容缺 schema 校验", "detail": "编辑入口（/api/archive/*）已逐字段校验；但直接改 JSON 或启动加载时仍只校验 JSON 语法，scenarios/bestiary 等也没进编辑校验", "next": "给 content 写 Pydantic 模型，加载时也校验" },
     { "title": "没有多人", "detail": "WebSocket 房间、权限、并发状态都没做", "next": "局域网房间 + 广播状态" }
   ],
 
   "next_steps": [
-    { "priority": 1, "item": "装备接进战斗", "why": "数据已经齐了，只差结算", "where": "app/engine/session.py + content/equipment.json" },
-    { "priority": 2, "item": "内容 schema 校验", "why": "让改 JSON 的人直接看到哪个字段错了", "where": "app/content/_store.py" },
+    { "priority": 1, "item": "装备接进战斗", "why": "只齐了一半：16 件装备有文案没字段，得先把 effect 结构化", "where": "content/equipment.json → app/engine/{sheet,session}.py" },
+    { "priority": 2, "item": "内容 schema 校验", "why": "编辑入口已校验，但加载时与直接改 JSON 还不会指出具体字段", "where": "app/content/_store.py + content/*.py" },
     { "priority": 3, "item": "任务链", "why": "固定剧本之间目前互不相干", "where": "content/missions.json + engine/mission.py" },
-    { "priority": 4, "item": "地图增强", "why": "现在是纯落点，缺乏势力感", "where": "frontend/src/components/ChinaMap.vue" }
+    { "priority": 4, "item": "地图增强", "why": "现在是纯落点，缺乏势力感", "where": "frontend/src/areas/play/ChinaMap.vue" }
   ],
 
   "dependencies": {

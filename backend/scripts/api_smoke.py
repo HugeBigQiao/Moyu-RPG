@@ -111,6 +111,18 @@ def main() -> int:
     check("晋升接口有明确回应",
           c.post("/api/characters/%d/promote" % cid).status_code in (200, 400))
 
+    print("8) 档案编辑")
+    kinds = c.get("/api/archive/kinds").json()["kinds"]
+    check("11 类档案都能编辑", len(kinds) == 11)
+    bad_id = c.post("/api/archive/lore", json={"item": {"id": "Bad ID", "title": "x"}})
+    check("坏 id 要被拒", bad_id.status_code == 400, bad_id.text[:80])
+    used_city = c.delete("/api/archive/cities/nanyu")
+    check("被引用的城市删不掉", used_city.status_code == 400 and "任务" in used_city.text,
+          used_city.text[:120])
+    used_trait = c.delete("/api/archive/traits/天眼")
+    check("被引用的特性删不掉", used_trait.status_code == 400 and "事件" in used_trait.text,
+          used_trait.text[:120])
+
     print("\n结果：%d 通过 / %d 失败" % (PASS, FAIL))
     return 0 if FAIL == 0 else 1
 

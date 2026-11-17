@@ -16,7 +16,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-DEFAULT_OUT = ROOT.parent / "frontend" / "src" / "assets" / "china.js"
+DEFAULT_OUT = ROOT.parent / "frontend" / "src" / "assets" / "china.ts"
 
 WIDTH = 1000
 LAT0 = 35.0          # 标准纬线，减少东西向拉伸
@@ -133,7 +133,7 @@ def main() -> int:
         "const K = %.10f" % k,
         "const SCALE = %.10f" % scale,
         "",
-        "export function project(lon, lat) {",
+        "export function project(lon: number, lat: number): [number, number] {",
         "  return [(lon - CHINA_BOUNDS.minLon) * K * SCALE, (CHINA_BOUNDS.maxLat - lat) * SCALE]",
         "}",
         "",

@@ -13,10 +13,11 @@ from __future__ import annotations
 
 from fastapi import APIRouter
 
-from . import archive, characters, game, sessions
+from . import archive, archive_edit, characters, game, sessions
 
 api_router = APIRouter()
 api_router.include_router(archive.router)
+api_router.include_router(archive_edit.router)
 api_router.include_router(game.router)
 api_router.include_router(characters.router)
 api_router.include_router(sessions.router)

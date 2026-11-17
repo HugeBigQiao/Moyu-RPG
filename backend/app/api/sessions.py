@@ -11,6 +11,8 @@
 
 from __future__ import annotations
 
+import uuid
+
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -27,9 +29,18 @@ from .schemas import ActIn, RandomSessionIn, SessionIn
 router = APIRouter(prefix="/api/sessions", tags=["sessions"])
 
 
-async def _next_seq(db: AsyncSession) -> int:
-    total = (await db.execute(select(func.count(PlaySession.id)))).scalar_one()
-    return total + 1
+async def _start_row(db: AsyncSession, prefix: str, **fields) -> PlaySession:
+    """先插入拿自增 id，再用 id 拼单据号。
+
+    为什么不用「COUNT + 1」：删过一局之后计数会回退，编号就会撞上历史单据，
+    直接触发 sessions.code 的唯一约束（踩过）。用 id 拼则永不重复。
+    """
+    ses = PlaySession(code="pending-" + uuid.uuid4().hex[:8], **fields)
+    db.add(ses)
+    await db.flush()
+    ses.code = "%s-%03d" % (prefix, ses.id)
+    await db.flush()
+    return ses
 
 
 async def _create_fixed(db: AsyncSession, character_id: int, scenario_id: str) -> PlaySession:
@@ -41,16 +52,15 @@ async def _create_fixed(db: AsyncSession, character_id: int, scenario_id: str) -
         raise HTTPException(404, "没有这个作业手册")
 
     state = engine.new_state(card(ch), scenario)
-    ses = PlaySession(
-        code="%s-%03d" % (scenario["code"], await _next_seq(db)),
+    ses = await _start_row(
+        db,
+        scenario["code"],
         character_id=ch.id,
         scenario_id=scenario_id,
         status="active",
         state=state,
         seed=state["seed"],
     )
-    db.add(ses)
-    await db.flush()
 
     opening = scenario["scenes"][0]
     db.add(LogEntry(
@@ -88,16 +98,15 @@ async def api_start_random(body: RandomSessionIn, db: AsyncSession = Depends(get
     state["mission"] = {k: mission[k] for k in
                         ("id", "name", "difficulty", "reward", "grade", "city_name")}
 
-    ses = PlaySession(
-        code="%s-%03d" % (mission["code"], await _next_seq(db)),
+    ses = await _start_row(
+        db,
+        mission["code"],
         character_id=ch.id,
         scenario_id=mission["id"],
         status="active",
         state=state,
         seed=mission["seed"],
     )
-    db.add(ses)
-    await db.flush()
     db.add(LogEntry(
         session_id=ses.id, seq=1, kind="scene", severity="info",
         text="接入随机任务：%s｜难度 %d（%s）｜报酬 %d" % (

@@ -3,7 +3,8 @@
 一个**本地单人跑团系统**。现代中国玄门背景，你扮演玄真司的人处理祟物——
 不是来打赢的，是来收尾的。
 
-界面分两块：**背景档案**（查设定）与**开始游戏**（中国地图上选城、生人、开团）。
+界面分两块：**背景档案**（查设定；11 类设定都能在页面上直接增删改，写回 JSON）与
+**开始游戏**（中国地图上选城、生人、开团）。
 
 ---
 
@@ -11,11 +12,11 @@
 
 | 层 | 选型 |
 | --- | --- |
-| 前端 | Vue 3 + Vite + vue-router（无 UI 框架，手写 CSS） |
+| 前端 | Vue 3 + Vite + vue-router + TypeScript（vue-tsc 查类型；无 UI 框架，手写 CSS） |
 | 后端 | FastAPI + SQLAlchemy 2（异步）+ Alembic |
 | 数据库 | SQLite（默认，零部署）；兼容 PostgreSQL / MySQL |
 | 内容 | `backend/data/content/*.json`，改 JSON 即改设定，支持热重载 |
-| 测试 | pytest（101）+ HTTP 冒烟（24）+ 无头 Edge UI 冒烟（23） |
+| 测试 | pytest（169）+ HTTP 冒烟（28）+ 无头 Edge UI 冒烟（52）+ vue-tsc 类型检查 |
 
 ---
 
@@ -24,9 +25,19 @@
 **Windows 一键**：双击 `start.bat`。脚本会检查工具链、准备数据库、装依赖、跑迁移、
 按需构建前端、启动服务并打开浏览器。
 
-**手动**：
+**Linux / macOS 一键**：
 
-```powershell
+```bash
+chmod +x start.sh     # 只需一次：在 Windows 上提交的文件没有可执行位
+./start.sh            # 或 bash start.sh；支持 --port 9000 / --no-open
+```
+
+脚本做的事和 Windows 版一致：检查 uv/node → `uv sync` → 迁移 → 按需构建前端 → 起服务。
+没用过 `chmod` 也没关系，`bash start.sh` 同样能跑。
+
+**手动**（两个平台命令相同）：
+
+```bash
 cd backend
 uv sync
 uv run alembic upgrade head
@@ -39,7 +50,11 @@ cd ../backend
 uv run python run.py          # http://127.0.0.1:8888
 ```
 
-前端开发模式：后端 `uv run python run.py`，另开终端 `cd frontend && npm run dev`（5173，自动代理 `/api`）。
+- 不需要自己装 Python：`requires-python >= 3.14`，首次 `uv sync` 会由 uv 准备解释器。
+- 类型检查：`cd frontend && npm run typecheck`。
+- Linux 上跑 UI 冒烟要先有浏览器：`PLAYWRIGHT_CHANNEL=chrome` 或
+  `PLAYWRIGHT_EXECUTABLE=/usr/bin/chromium`（默认是 Windows 自带的 Edge）。
+- 前端开发模式：后端 `uv run python run.py`，另开终端 `cd frontend && npm run dev`（5173，自动代理 `/api`）。
 
 ---
 

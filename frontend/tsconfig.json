@@ -1,0 +1,28 @@
+/**
+ * TypeScript 项目配置。
+ *
+ * 职责：
+ *     约束 src 下 .ts / .vue 的类型检查范围与严格程度；vue-tsc --noEmit 用它。
+ * 为什么需要：
+ *     构建用 esbuild 只剥类型不做检查，类型错误要靠 vue-tsc 才暴露。
+ * 上下游：
+ *     上游：package.json 的 typecheck 脚本；下游：src/** 与 vite.config.ts。
+ */
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "strict": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "jsx": "preserve",
+    "noEmit": true,
+    "types": ["vite/client"],
+    "useDefineForClassFields": true
+  },
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.vue", "vite.config.ts"]
+}
