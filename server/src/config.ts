@@ -18,8 +18,8 @@ export const PROJECT_ROOT = resolve(SERVER_ROOT, '..')
 export const Config = z.object({
   host: z.string().default('127.0.0.1'),
   port: z.number().int().min(0).max(65535).default(8888),
-  contentDir: z.string().default(resolve(PROJECT_ROOT, 'backend/data/content')),
-  databaseUrl: z.string().default('sqlite://' + resolve(PROJECT_ROOT, 'backend/data/moyu.db')),
+  contentDir: z.string().default(resolve(SERVER_ROOT, 'data/content')),
+  databaseUrl: z.string().default('sqlite://' + resolve(SERVER_ROOT, 'data/moyu.db')),
   frontendDist: z.string().default(resolve(PROJECT_ROOT, 'frontend/dist')),
 })
 

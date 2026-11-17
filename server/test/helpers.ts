@@ -9,7 +9,7 @@ import { resolve } from 'node:path'
 
 export const SERVER_ROOT = resolve(import.meta.dirname, '..')
 export const PROJECT_ROOT = resolve(SERVER_ROOT, '..')
-export const CONTENT_DIR = resolve(PROJECT_ROOT, 'backend/data/content')
+export const CONTENT_DIR = resolve(SERVER_ROOT, 'data/content')
 
 export function fixture<T = unknown>(name: string): T {
   const path = resolve(SERVER_ROOT, 'test/fixtures', name)

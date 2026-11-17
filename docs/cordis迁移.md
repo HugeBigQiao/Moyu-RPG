@@ -4,7 +4,7 @@
 > 已经用 PoC 验证过；但这是一次后端重写，不是换个框架的周末项目。**
 > 本文给出目标架构、移植映射、分阶段计划、验收标准与止损点，供决定「做 / 不做 / 做多少」。
 
-> 2026-11-17 更新：P0–P7 已全部完成，Node/TS 后端已接管启动；下文保留评估与实施记录。
+> 2026-11-17 更新：P0–P7 已全部完成，Node/TS 后端已接管启动，旧 Python 实现已删除；下文保留评估与实施记录。
 
 ---
 
@@ -82,8 +82,8 @@ server/                      ← 新增，Node/TS 后端
     api/                     接口契约测试
 ```
 
-前端、`backend/data/content/*.json`、SQLite 文件都不动。`backend/` 在切换完成前保留，
-作为对照实现与回滚路径。
+前端不动；内容 JSON 从 `backend/data/content/` 迁到 `server/data/content/`。
+迁移期间 `backend/` 作为对照实现保留，P7 全绿后已删除。
 
 ### 2.2 服务与依赖
 
@@ -309,7 +309,7 @@ PoC 结论：**不要用 `@cordisjs/plugin-server@1.7.0`。**
 ### P7 切换与收尾（0.5–1 人日）
 
 - `start.sh` / `start.ps1` / `start.bat` 改为 Node 启动；
-- `backend/` 移入 `legacy/`（或保留一个 tag），确认无回滚需求后再删；
+- 删除 `backend/`，只保留 git 历史与 tag（`pre-cordis` / `cordis-v1`）；
 - 更新 `README` / `docs/架构.md` / `HANDOFF.json`；
 - 打 tag：`pre-cordis`、`cordis-v1`。
 
@@ -326,7 +326,7 @@ PoC 结论：**不要用 `@cordisjs/plugin-server@1.7.0`。**
 | 单测 | Python 169 个用例全部有 TS 对应，且通过 |
 | UI | 52 项 UI 冒烟全绿 |
 | 旧库 | 现有 `moyu.db` 直接可读，不要求迁移脚本 |
-| 回滚 | `backend/` 仍在，`git checkout pre-cordis` 可跑 |
+| 回滚 | `git checkout pre-cordis` 可跑旧 Python 版；当前是 `cordis-v1` |
 
 ---
 
@@ -372,7 +372,7 @@ PoC 结论：**不要用 `@cordisjs/plugin-server@1.7.0`。**
 
 - 不要为了 cordis 把内容 JSON 改成插件配置——数据归数据，代码归代码；
 - 不要把 Vue 前端塞进 cordis——cordis 是 Node 端内核，前端不需要它；
-- 不要一次性删 `backend/`——先把 Node 跑到全绿，再删。
+- 不要一次性删 `backend/`——先把 Node 跑到全绿，再删（本次已按 P0–P7 分阶段验证后删除）。
 
 ---
 
@@ -389,10 +389,10 @@ P0–P7 已落地，Node/TS 后端接管启动；旧 Python 实现退居 golden 
 | P4 | `core/{gacha,npc,kp,mission,progress}.ts` | 抽卡/NPC/随机任务/成长线/KP 全量对拍 |
 | P5 | `core/session.ts` | 35 局 481 步状态与事件流逐字段一致 |
 | P6 | `api/*` + `db/*` + 三方言 schema | 30 个接口；28 项旧 API 冒烟在新后端全绿 |
-| P7 | `start.sh` / `start.ps1` / `start.bat` | 一键启动 Node；旧 Python 后端不再默认启动 |
+| P7 | `start.sh` / `start.ps1` / `start.bat` | 一键启动 Node；旧 Python 后端与 `backend/` 已删除 |
 
 测试：`cd server && npm test` → **268 passed**；`npm run typecheck` 通过；
-旧 `backend/` 的 169 个 pytest 仍保留，作为参考实现。
+旧 Python 实现已删除，无法再跑它的 169 个 pytest；行为基线固化在 `server/test/fixtures/` 与 268 个 vitest 里。
 
 未完成/未验证：
 
@@ -435,4 +435,4 @@ cordis 版本实测：
 1. **数据库**：是否接受 SQLite only？还是要保留 PG/MySQL（需额外驱动与方言层）。
 2. **规则热更**：是否需要「一局进行中换规则」？若只是新局生效，加 `rules_version` 即可。
 3. **旧局兼容**：是否要求旧会话在新后端里能继续玩？这决定 P5 的对拍强度。
-4. **Python 去留**：切换后是否保留 `backend/` 作为「参考实现」，还是彻底删除。
+4. **Python 去留**：已删除；需要旧实现时从 `pre-cordis` tag 取回。

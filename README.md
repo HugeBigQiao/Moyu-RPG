@@ -15,12 +15,11 @@
 | 前端 | Vue 3 + Vite + vue-router + TypeScript（vue-tsc 查类型；无 UI 框架，手写 CSS） |
 | 后端 | Node 24+ / TypeScript / [cordis](https://github.com/cordiverse/cordis) 插件内核（`server/`） |
 | 数据库 | SQLite 默认（Node 内置 `node:sqlite`，零部署）；`MOYU_DATABASE_URL` 可切 PostgreSQL / MySQL |
-| 内容 | `backend/data/content/*.json`，改 JSON 即改设定，支持热重载 |
+| 内容 | `server/data/content/*.json`，改 JSON 即改设定，支持热重载 |
 | 测试 | vitest（268）+ HTTP 冒烟（28）+ 无头 Edge UI 冒烟（52）+ vue-tsc 类型检查 |
 
 > Node 24+ 是硬要求：用到原生 TS 执行与 `node:sqlite`。
-> `backend/` 是旧 Python 实现，只保留作 golden fixtures 的生成器与对照，不再参与运行；
-> 迁移过程见 [docs/cordis迁移.md](docs/cordis迁移.md)。
+> 旧 Python 实现已删除；迁移过程与取舍见 [docs/cordis迁移.md](docs/cordis迁移.md)。
 
 ---
 
@@ -64,8 +63,7 @@ npm run build
 
 ```
 frontend/   Vue 3 前端
-server/     Node/TS 后端（cordis 服务：content / db / rules / http / api）
-backend/    旧 Python 实现（仅用于重新生成 golden fixtures 与对照，不参与运行）
+server/     Node/TS 后端（cordis 服务 + 全部内容数据）
 docs/       文档
 start.bat   一键启动
 ```

@@ -2,7 +2,7 @@
 
 这是 `docs/cordis迁移.md` 里 P0–P7 的产物：cordis 骨架 + 纯规则引擎 + 30 个接口。
 **它已经接管启动**：`start.sh` / `start.bat` 现在起的是 Node 后端；
-`backend/` 的 Python 实现只保留作 golden fixtures 的生成器与对照。
+旧 Python 实现已删除；现在只有这一套运行时。
 
 ## 当前进度
 
@@ -29,14 +29,14 @@ npm test                  # 268 个测试
 npm run typecheck         # tsc --noEmit
 ```
 
-环境变量（都有默认值，默认指向仓库里的 `backend/data/` 与 `frontend/dist/`）：
+环境变量（都有默认值，默认指向 `server/data/` 与 `frontend/dist/`）：
 
 | 变量 | 默认 | 说明 |
 | --- | --- | --- |
 | `MOYU_HOST` | `127.0.0.1` | 监听地址 |
 | `MOYU_PORT` | `8888` | 端口 |
-| `MOYU_CONTENT_DIR` | `backend/data/content` | 内容 JSON |
-| `MOYU_DATABASE_URL` | `sqlite://<repo>/backend/data/moyu.db` | `sqlite://` / `postgresql://` / `mysql://`（不存在会建表） |
+| `MOYU_CONTENT_DIR` | `server/data/content` | 内容 JSON |
+| `MOYU_DATABASE_URL` | `sqlite://<repo>/server/data/moyu.db` | `sqlite://` / `postgresql://` / `mysql://`（不存在会建表） |
 | `MOYU_FRONTEND_DIST` | `frontend/dist` | 前端产物；没有就只提供 `/api` |
 
 接口与旧 FastAPI 一一对应（30 个），另加一个 `GET /api/health` 供启动脚本探活。
@@ -44,14 +44,11 @@ npm run typecheck         # tsc --noEmit
 
 ## 对拍怎么跑
 
-`test/fixtures/*.json` 是 Python 侧生成的「标准答案」。重生成：
+`test/fixtures/*.json` 是迁移前从 Python 引擎导出的「标准答案」，已冻结在仓库里。
+需要重生成时，可以从 git 历史里取回迁移前的 Python 实现（tag `pre-cordis`）再跑它；
+日常开发不需要 Python。
 
-```bash
-cd server
-npm run golden            # 内部：cd ../backend && uv run python ../server/scripts/export_golden.py
-```
-
-`test/parity/` 下的测试逐字段比对；任何一处与 Python 不一致都会失败。
+`test/parity/` 下的测试逐字段比对；任何一处漂移都会失败。
 `test/fixtures/sessions.json` 是 P5 的验收基线：35 局、481 步，覆盖勘查、战斗、
 画符、用符、结界、请神、抉择与结算。`test/fixtures/{gacha,npc,migrations,progress,kp,edit}.json`
 覆盖生成器、成长线与档案编辑。
@@ -73,12 +70,13 @@ src/
   app.ts         装配（可被测试复用）
   index.ts       进程入口
 test/
-  parity/        与 Python 的 golden 对拍
-  fixtures/      Python 生成的标准答案
-  http.test.ts   起真实 HTTP 服务测缓存头/404/重载
+  parity/        与冻结 golden 的对拍
+  fixtures/      迁移前导出的标准答案
+  api.test.ts    起真实 HTTP 服务走一遍接口
+  http.test.ts   缓存头/404/重载
   db.test.ts     建表/PRAGMA/事务/关闭
 scripts/
-  export_golden.py   从 Python 引擎导出 fixtures
+  api-smoke.ts       对已启动的服务打 28 项冒烟
 ```
 
 ## 两个刻意的决定
@@ -94,4 +92,4 @@ scripts/
 - PostgreSQL / MySQL 的适配层与 schema 已写，但本地没有实例，只有 SQLite 实测。
 - UI 冒烟（52 项）需要浏览器；本机没有浏览器，未跑；前端 build 与 vue-tsc 通过。
 - 规则热更只记 `rules_version`，多版本规则并存尚未做。
-- `backend/` 仍保留，只用于 `npm run golden` 重新生成 fixtures。
+- 内容数据现在在 `server/data/content/`；`backend/` 已删除。

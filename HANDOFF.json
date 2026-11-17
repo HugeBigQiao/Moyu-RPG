@@ -6,7 +6,7 @@
     "workspace": "/var/mnt/data/Moyu-RPG",
     "language": "中文",
     "note": "只记录结论与判断，不记录过程对话。设定细节在 docs/世界观.md，实现细节在 docs/架构.md。",
-    "review_note": "2026-11-17 完成 cordis 迁移（Node/TS），测试与接口冒烟已迁到新后端；backend/ 仅保留作 golden 生成与对照。",
+    "review_note": "2026-11-17 完成 cordis 迁移（Node/TS），旧 Python 实现已删除；全部代码、内容与测试都在 server/。",
     "reading_order": [
       "README.md",
       "HANDOFF.json",
@@ -20,9 +20,9 @@
     "core_idea": "祟物由人心淤积而生；结局不是赢/输，而是善了 / 了结 / 未了。",
     "stack": {
       "frontend": "Vue 3 + Vite + vue-router + TypeScript（vue-tsc 查类型），无 UI 框架，手写 CSS",
-      "backend": "Node 24+ / TypeScript + cordis 插件内核（server/）；旧 FastAPI 在 backend/，仅作 golden 生成与对照",
+      "backend": "Node 24+ / TypeScript + cordis 插件内核（server/）",
       "database": "SQLite 默认（node:sqlite，零原生依赖）；MOYU_DATABASE_URL 可切 PostgreSQL / MySQL",
-      "content": "backend/data/content/*.json，改文件即改设定，支持热重载",
+      "content": "server/data/content/*.json，改文件即改设定，支持热重载",
       "package": "后端 npm（Node 24+）；前端 npm"
     },
     "structure": {
@@ -32,10 +32,9 @@
       "server/src/core/": "纯函数规则：python / dice / checks / wuxing / sheet / gacha / npc / kp / mission / progress / session",
       "server/src/content/": "内容加载、索引、热重载、编辑校验、原子写回",
       "server/src/db/": "SQLite / PostgreSQL / MySQL 适配，三张表与行映射",
-      "server/test/fixtures/": "旧 Python 引擎导出的 golden 标准答案（PRNG、检定、五行、角色卡、35 局回放、生成器、编辑）",
-      "backend/": "旧 Python 实现（仅 golden 生成与对照，不再启动）",
-      "backend/data/content/": "★ 全部设定数据（10 个 JSON）",
-      "docs/": "世界观、架构、开发指南、接口、cordis 迁移"
+      "server/test/fixtures/": "从迁移前的 Python 引擎导出的 golden 标准答案（PRNG、检定、五行、角色卡、35 局回放、生成器、编辑）",
+      "docs/": "世界观、架构、开发指南、接口、cordis 迁移",
+      "server/data/content/": "★ 全部设定数据（10 个 JSON）"
     },
     "platforms": {
       "windows": "start.bat / start.ps1（PowerShell 5.1 兼容；Node 24+）",
@@ -50,7 +49,7 @@
     },
     "test": {
       "unit": "cd server && npm test（268）",
-      "api": "cd backend && uv run python scripts/api_smoke.py http://127.0.0.1:8888（28，需先起服务）",
+      "api": "cd server && npm run smoke -- http://127.0.0.1:8888（28，需先起服务）",
       "ui": "cd frontend && node scripts/ui_smoke.mjs（52，无头浏览器）",
       "parity": "cd server && npx vitest run test/parity",
       "typecheck": "cd frontend && npm run typecheck；cd server && npm run typecheck"
@@ -77,7 +76,7 @@
     },
     "db": {
       "dialect": "sqlite",
-      "file": "backend/data/moyu.db",
+      "file": "server/data/moyu.db",
       "tables": [
         "characters",
         "sessions",
@@ -92,7 +91,7 @@
       "game": "三栏 5:4:1：中国地图 / 展示面板 / 菜单（人物·任务·参与·城市）"
     },
     "migration": {
-      "cordis": "P0–P7 完成：Node/TS 后端接管启动；268 个 vitest、28 项接口冒烟通过；旧 Python 退居 golden 生成",
+      "cordis": "P0–P7 完成：Node/TS 后端接管启动；268 个 vitest、28 项接口冒烟通过；Python 实现已删除",
       "doc": "docs/cordis迁移.md",
       "rules_version": "sessions.rules_version 记录开局规则版本；按决定，规则热更只影响新局"
     }
@@ -171,7 +170,7 @@
     {
       "phase": "cordis 迁移 P3–P7",
       "summary": "内容层与编辑校验、生成器、会话状态机、30 个接口、启动脚本全部迁到 Node/TS + cordis",
-      "outcome": "268 个 vitest 全绿；28 项接口冒烟在新后端通过；Python 只保留作 golden 生成"
+      "outcome": "268 个 vitest 全绿；28 项接口冒烟在新后端通过；Python 代码、迁移与旧依赖已全部删除"
     }
   ],
   "decisions": [
@@ -232,7 +231,7 @@
     "comment_style": "每个模块首段写「职责 / 为什么需要 / 上下游」；函数 docstring 写参数、动机、输出；块级注释只写这段在处理什么。",
     "naming": "接口按资源分模块；core 按职责分模块；内容 JSON 一个主题一个文件。",
     "commit": "「动词: 说明」；一次提交只做一类改动。",
-    "data_boundary": "server/src 是代码，backend/data 是数据；代码里不写死设定，数据里不写逻辑。",
+    "data_boundary": "server/src 是代码，server/data 是数据；代码里不写死设定，数据里不写逻辑。",
     "frontend_layout": "按功能分区：app/（壳）、areas/（HomeView · archive · play）、shared/（跨区域）。",
     "theme": "组件里不写死颜色：新色先加语义变量，再给 :root 与两套主题各赋一次。"
   },
@@ -256,7 +255,7 @@
     {
       "title": "Alembic 老坑已成历史",
       "symptom": "旧 Python 版给已有表加非空列会 NotNullViolation",
-      "fix": "Node 版用 schema 的 DEFAULT + ensure 列；旧实现保留在 backend/"
+      "fix": "Node 版用 schema 的 DEFAULT + ensure 列；旧实现已删除"
     },
     {
       "title": "中文 Windows 控制台是 GBK",
@@ -272,7 +271,7 @@
     {
       "title": "SQLite 相对路径会随 CWD 漂移",
       "symptom": "从不同目录启动连到不同的库",
-      "fix": "config.ts 把默认路径钉到仓库的 backend/data/；start 脚本在 server/ 下启动"
+      "fix": "config.ts 把默认路径钉到 server/data/；start 脚本在 server/ 下启动"
     },
     {
       "title": "npm 的 omit=dev",
@@ -363,16 +362,6 @@
       "vite",
       "@vitejs/plugin-vue",
       "playwright-core（仅测试）"
-    ],
-    "legacy_backend": [
-      "fastapi",
-      "uvicorn",
-      "sqlalchemy[asyncio]",
-      "alembic",
-      "aiosqlite",
-      "asyncpg",
-      "pydantic",
-      "pydantic-settings"
     ],
     "assets": "world-atlas 1:110m TopoJSON（Natural Earth 衍生），经 scripts/build_china_map.py 简化"
   },
