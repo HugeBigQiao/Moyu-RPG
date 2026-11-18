@@ -19,7 +19,7 @@
 
 ## 跑起来
 
-要求 **Node >= 24**（用到原生 TS 执行与 `node:sqlite`；本机 26.8.1 验证）。
+要求 **Node >= 24**（用到原生 TS 执行与 `node:sqlite`；已在 Node 24.13（Windows）与 26.8.1 验证）。
 
 ```bash
 cd server
@@ -42,6 +42,20 @@ npm run typecheck         # tsc --noEmit
 接口与旧 FastAPI 一一对应（30 个），另加一个 `GET /api/health` 供启动脚本探活。
 完整清单见 `docs/接口.md`。
 
+## 装配：cordis.yml（L1）
+
+生产入口 `src/index.ts` 用 `@cordisjs/loader` 读 `server/cordis.yml`：
+
+- 每个条目是一个插件，`name` 相对 `server/` 解析，配置写在 `config` 下；
+- 启动顺序由插件里的 `static inject` 推导，不依赖条目书写顺序；
+- 每个插件可以导出 `Config`（schemastery），loader 启动时校验并填默认值；
+- 配置值支持 `!!js` 表达式，所以 `MOYU_PORT` / `MOYU_HOST` / `MOYU_DATABASE_URL`
+  能覆盖 YAML 里的默认值；
+- 插件模块必须**默认导出**组件（`export default Content` 之类），否则 loader 拿不到。
+
+`src/app.ts` 的 `createApp()` 仍保留给测试：随机端口、临时内容目录、临时数据库。
+代价是插件清单有两处（`cordis.yml` 与 `createApp`），改插件时要一起看。
+
 ## 对拍怎么跑
 
 `test/fixtures/*.json` 是迁移前从 Python 引擎导出的「标准答案」，已冻结在仓库里。
@@ -50,8 +64,7 @@ npm run typecheck         # tsc --noEmit
 
 `test/parity/` 下的测试逐字段比对；任何一处漂移都会失败。
 `test/fixtures/sessions.json` 是 P5 的验收基线：35 局、481 步，覆盖勘查、战斗、
-画符、用符、结界、请神、抉择与结算。`test/fixtures/{gacha,npc,migrations,progress,kp,edit}.json`
-覆盖生成器、成长线与档案编辑。
+画符、用符、结界、请神、抉择与结算。`test/fixtures/{gacha,npc,progress,kp,edit}.json` 覆盖生成器、成长线与档案编辑。
 
 ## 目录
 
@@ -66,9 +79,10 @@ src/
     types.ts     共用类型
   content/       内容加载与索引（store / traits / shop）
   db/            node:sqlite：连接、基线 schema、事务
-  plugins/       cordis 服务：content / db / rules / http
-  app.ts         装配（可被测试复用）
-  index.ts       进程入口
+  plugins/       cordis 服务：content / db / rules / http / api / health
+  app.ts         程序化装配（仅测试用）
+  index.ts       进程入口（loader + cordis.yml）
+cordis.yml       loader 的插件清单与配置
 test/
   parity/        与冻结 golden 的对拍
   fixtures/      迁移前导出的标准答案
@@ -90,6 +104,19 @@ scripts/
 ## 已知限制
 
 - PostgreSQL / MySQL 的适配层与 schema 已写，但本地没有实例，只有 SQLite 实测。
-- UI 冒烟（52 项）需要浏览器；本机没有浏览器，未跑；前端 build 与 vue-tsc 通过。
 - 规则热更只记 `rules_version`，多版本规则并存尚未做。
-- 内容数据现在在 `server/data/content/`；`backend/` 已删除。
+- 同一会话并发 `act` 仍是读-改-写：SQLite 事务已串行，但没有版本号，
+  两个并发请求会按同一份旧状态各结算一次；单机单用户可接受。
+- 内容自动重载已生效（改 `data/content/*.json` 后约 200ms 重读）；
+  跨多个文件的写回不是原子的，中途失败会留下部分新文件。
+- `server/.env` **不会**自动加载：环境变量请直接 `export MOYU_*`（或用 shell 前缀）。
+  旧 `backend/.env` 里的 `sqlite+aiosqlite://…` 不再适用，PG/MySQL 用 `postgresql://` / `mysql://` 前缀。
+- 双装配路径：`cordis.yml` 与 `createApp()` 各有一份插件清单，新增插件要两处都改；
+  想收敛成一份，让测试也走 loader（`@cordisjs/include` 支持 `initial` 配置）。
+- 旧库迁移：把旧 `backend/data/moyu.db` 复制成 `server/data/moyu.db` 即可；
+  启动时自动补 `sessions.rules_version` 列，老数据不用改。
+
+## 测试环境的坑（Windows）
+
+Node 24.13 在 Windows 上对**非 ASCII 路径**做 `fs.cpSync` 递归拷贝会直接崩（0xC0000409）。
+测试里的目录拷贝已改用异步 `fs.promises.cp`；以后新增测试也别用 `cpSync` 拷目录。

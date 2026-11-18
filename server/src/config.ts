@@ -1,36 +1,23 @@
 /**
- * 运行时配置。
+ * 运行时路径与应用配置类型。
  *
  * 职责：
- *     从环境变量读监听地址、内容目录、数据库文件与前端产物目录，并给默认值。
+ *     给出 server/ 与仓库根的绝对路径；定义 createApp 用的配置结构。
  * 为什么需要：
- *     Python 版靠 pydantic-settings；Node 版用 zod 把「环境变量 → 类型」收敛到一处，
- *     启动时就失败，而不是运行到一半才发现路径不对。
+ *     生产配置已由 cordis.yml + loader 注入（含 schemastery 校验），
+ *     这里不再重复一套环境变量解析；测试直接构造 AppConfig 即可。
  * 上下游：
- *     上游：process.env / server/.env（暂不自动加载）；下游：index.ts、各插件。
+ *     上游：无（纯路径常量）；下游：src/index.ts、src/app.ts、各插件。
  */
 import { resolve } from 'node:path'
-import { z } from 'zod'
 
-const SERVER_ROOT = resolve(import.meta.dirname, '..')
-export const PROJECT_ROOT = resolve(SERVER_ROOT, '..')
+export const SERVER_ROOT = resolve(import.meta.dirname, '..')
 
-export const Config = z.object({
-  host: z.string().default('127.0.0.1'),
-  port: z.number().int().min(0).max(65535).default(8888),
-  contentDir: z.string().default(resolve(SERVER_ROOT, 'data/content')),
-  databaseUrl: z.string().default('sqlite://' + resolve(SERVER_ROOT, 'data/moyu.db')),
-  frontendDist: z.string().default(resolve(PROJECT_ROOT, 'frontend/dist')),
-})
-
-export type Config = z.infer<typeof Config>
-
-export function loadConfig(env: NodeJS.ProcessEnv = process.env): Config {
-  return Config.parse({
-    host: env.MOYU_HOST,
-    port: env.MOYU_PORT ? Number(env.MOYU_PORT) : undefined,
-    contentDir: env.MOYU_CONTENT_DIR,
-    databaseUrl: env.MOYU_DATABASE_URL,
-    frontendDist: env.MOYU_FRONTEND_DIST,
-  })
+/** 一条装配路径的配置：生产由 loader 注入，测试手工构造。 */
+export interface AppConfig {
+  host: string
+  port: number
+  contentDir: string
+  databaseUrl: string
+  frontendDist: string
 }

@@ -11,7 +11,7 @@
 import type { Roller } from './dice.ts'
 import { signed } from './python.ts'
 
-export const LEVELS = ['大成功', '极难成功', '困难成功', '成功', '失败', '大失败'] as const
+const LEVELS = ['大成功', '极难成功', '困难成功', '成功', '失败', '大失败'] as const
 export type Level = (typeof LEVELS)[number]
 
 export interface CheckResult {
@@ -84,17 +84,4 @@ export function describe(result: CheckResult): string {
   let head = `【${result.skill}】${result.roll} / 目标 ${result.target}（${signed(result.modifier)}）→ ${result.level}`
   if (result.note) head += '｜' + result.note
   return head
-}
-
-export function skillColor(level: string): string {
-  return (
-    {
-      大成功: 'crit',
-      极难成功: 'great',
-      困难成功: 'good',
-      成功: 'ok',
-      失败: 'miss',
-      大失败: 'fumble',
-    }[level] ?? 'ok'
-  )
 }

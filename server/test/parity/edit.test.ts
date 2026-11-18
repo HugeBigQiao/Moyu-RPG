@@ -3,7 +3,8 @@
  *
  * 在临时目录里跑，不碰仓库里的 content；save 回调负责原子写回与清缓存。
  */
-import { cpSync, mkdtempSync, rmSync } from 'node:fs'
+import { mkdtempSync, rmSync } from 'node:fs'
+import { cp } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
@@ -28,9 +29,10 @@ const plain = (value: unknown) => JSON.parse(JSON.stringify(value))
 let tempDir: string
 let editor: ContentEditor
 
-beforeAll(() => {
+beforeAll(async () => {
   tempDir = mkdtempSync(join(tmpdir(), 'moyu-edit-test-'))
-  cpSync(CONTENT_DIR, tempDir, { recursive: true })
+  // 用异步 cp：Node 24.13 在非 ASCII 路径下 cpSync 目录会 0xC0000409（见 HANDOFF 踩坑）
+  await cp(CONTENT_DIR, tempDir, { recursive: true })
   const store = new ContentStore(tempDir)
   editor = new ContentEditor(store, (documents) => {
     saveContentFiles(store, documents)

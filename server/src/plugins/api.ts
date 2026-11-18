@@ -26,3 +26,5 @@ export class Api extends Service {
     registerAll(ctx)
   }
 }
+
+export default Api

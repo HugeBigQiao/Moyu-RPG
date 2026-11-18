@@ -13,7 +13,7 @@ import type { Doc } from './index.ts'
 import type { ContentStore } from './store.ts'
 import { saveContentFiles } from './write.ts'
 
-export const KINDS: Record<string, { file: string; key: string; label: string }> = {
+const KINDS: Record<string, { file: string; key: string; label: string }> = {
   nations: { file: 'world', key: 'nations', label: '国家' },
   sects: { file: 'world', key: 'sects', label: '教派' },
   agencies: { file: 'world', key: 'agencies', label: '国家机构' },
@@ -29,7 +29,7 @@ export const KINDS: Record<string, { file: string; key: string; label: string }>
 
 const ID_RE = /^[a-z][a-z0-9_]{1,31}$/
 const SCOPES = ['general', 'mission']
-export const ELEMENTS = ['金', '木', '水', '火', '土']
+const ELEMENTS = ['金', '木', '水', '火', '土']
 const MISSION_KINDS = ['fixed', 'random']
 
 export class EditError extends Error {}

@@ -13,6 +13,8 @@ import { createReadStream, existsSync, statSync } from 'node:fs'
 import { createServer, type IncomingMessage, type Server, type ServerResponse } from 'node:http'
 import { extname, resolve, sep } from 'node:path'
 import { Service, type Context } from 'cordis'
+import Schema from 'schemastery'
+import { SERVER_ROOT } from '../config.ts'
 
 declare module 'cordis' {
   interface Context {
@@ -26,6 +28,14 @@ export interface HttpConfig {
   dist: string
   maxBody?: number
 }
+
+/** loader 用的插件配置。 */
+export const Config = Schema.object({
+  host: Schema.string().default('127.0.0.1').description('监听地址'),
+  port: Schema.number().min(0).max(65535).default(8888).description('监听端口'),
+  dist: Schema.string().default('../frontend/dist').description('前端产物目录（相对 server/）'),
+  maxBody: Schema.number().default(1024 * 1024).description('请求体上限（字节）'),
+})
 
 export interface HttpRequest extends IncomingMessage {
   params: Record<string, string>
@@ -103,6 +113,7 @@ export function sendJson(res: ServerResponse, status: number, data: unknown): vo
 }
 
 export class HttpServer extends Service {
+  static Config = Config
   readonly config: HttpConfig
   private routes: Route[] = []
   private server: Server
@@ -110,8 +121,14 @@ export class HttpServer extends Service {
   private resolveReady!: () => void
 
   constructor(ctx: Context, config: HttpConfig) {
+    // 先校验再 super：否则服务已按 'server' 注册但没初始化，后面 ctx.get('server') 会拿到半成品
+    // （schemastery 的 number 允许 NaN，typeof NaN === 'number'，这里补一道整数校验）
+    if (!Number.isInteger(config.port) || config.port < 0 || config.port > 65535) {
+      throw new Error(`端口不合法：${config.port}（要求 0–65535 的整数）`)
+    }
     super(ctx, 'server')
-    this.config = config
+    // 相对路径按 server/ 解析，避免「从哪个目录启动」影响产物位置
+    this.config = { ...config, dist: resolve(SERVER_ROOT, config.dist) }
     this.server = createServer((req, res) => void this.dispatch(req, res))
     this.ready = new Promise<void>((resolveReady) => { this.resolveReady = resolveReady })
 
@@ -162,8 +179,16 @@ export class HttpServer extends Service {
   }
 
   private async dispatch(raw: IncomingMessage, res: ServerResponse): Promise<void> {
-    const url = new URL(raw.url ?? '/', 'http://127.0.0.1')
-    const pathname = decodeURIComponent(url.pathname)
+    // 畸形 URL（如 /%zz）会让 decodeURIComponent 抛异常；放在 try 外会变成未处理拒绝，直接打死进程
+    let url: URL
+    let pathname: string
+    try {
+      url = new URL(raw.url ?? '/', 'http://127.0.0.1')
+      pathname = decodeURIComponent(url.pathname)
+    } catch {
+      sendJson(res, 400, { detail: '请求路径不合法' })
+      return
+    }
     const isApi = pathname === '/api' || pathname.startsWith('/api/')
 
     for (const route of this.routes) {
@@ -180,11 +205,16 @@ export class HttpServer extends Service {
         const limit = this.config.maxBody ?? 1024 * 1024
         for await (const chunk of raw) {
           size += (chunk as Buffer).length
-          if (size > limit) throw new Error('请求体太大')
+          if (size > limit) throw new HttpError(413, '请求体太大')
           chunks.push(chunk as Buffer)
         }
         const text = Buffer.concat(chunks).toString('utf8')
-        return (text ? JSON.parse(text) : {}) as T
+        if (!text) return {} as T
+        try {
+          return JSON.parse(text) as T
+        } catch {
+          throw new HttpError(400, '请求体不是合法 JSON')
+        }
       }) as HttpRequest['json']
 
       try {
@@ -239,7 +269,13 @@ export class HttpServer extends Service {
       'Content-Length': stat.size,
       'Cache-Control': cache,
     })
-    createReadStream(file).pipe(res)
+    const stream = createReadStream(file)
+    // 文件在 stat 之后被删/权限变化时，流会发 error；不接住会变成未处理异常
+    stream.on('error', () => {
+      if (res.headersSent) res.destroy()
+      else sendJson(res, 500, { detail: '读取文件失败' })
+    })
+    stream.pipe(res)
   }
 }
 
@@ -248,3 +284,5 @@ function ctxError(ctx: Context, error: unknown): void {
   console.error('[http]', error)
   ctx.logger('http').warn('%s', (error as Error)?.stack ?? String(error))
 }
+
+export default HttpServer

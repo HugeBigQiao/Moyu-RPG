@@ -19,7 +19,7 @@ export interface KpEvent {
   effect: Record<string, any>
 }
 
-export const EVENTS: KpEvent[] = [
+const EVENTS: KpEvent[] = [
   {
     id: 'quiet', name: '无异常', severity: 'info',
     weights: { low: 46, mid: 34, high: 22 },
@@ -102,23 +102,21 @@ export const EVENTS: KpEvent[] = [
   },
 ]
 
-export const EVENT_BY_ID = new Map(EVENTS.map((item) => [item.id, item]))
-
-export const TRANSITIONS = [
+const TRANSITIONS = [
   '你退出来的时候，身后传来一声很轻的「咔」，像是有什么东西重新摆正了。',
   '走出这栋楼，外面的天已经黑了。你才发现自己在这里待了四个小时。',
   '手机上有三个未接来电，都是所里打的。你暂时不想回。',
   '你把手上的符灰搓掉，指尖还是凉的。',
 ]
 
-export function tier(corruption: number): string {
+function tier(corruption: number): string {
   if (corruption >= 60) return 'high'
   if (corruption >= 30) return 'mid'
   return 'low'
 }
 
 /** 要不要掷事件。阴浊越高越容易来事。 */
-export function triggerChance(corruption: number): number {
+function triggerChance(corruption: number): number {
   return Math.min(0.85, 0.35 + corruption / 160.0)
 }
 
@@ -154,7 +152,7 @@ export function transition(roller: Roller): string {
 }
 
 /** 卡住时给一句钩子。 */
-export function stuckHint(roller: Roller, clues: string[]): string {
+export function stuckHint(_roller: Roller, clues: string[]): string {
   const base = [
     '你回到最初那间屋子。这次你注意到，地上有一道很浅的拖痕，通向窗边。',
     '你重新看了一遍所有记录。有一个时间对不上——不是死亡时间，是报案时间。',

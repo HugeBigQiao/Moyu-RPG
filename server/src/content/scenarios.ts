@@ -67,11 +67,3 @@ export function indexScenarios(doc: ScenariosDoc): ScenariosIndex {
   const scenarios = doc.scenarios ?? []
   return { scenarios, byId: new Map(scenarios.map((item) => [item.id, item])) }
 }
-
-export function getScenario(index: ScenariosIndex, scenarioId: string): Scenario | undefined {
-  return index.byId.get(scenarioId)
-}
-
-export function firstOfKind(scenario: Scenario, kind: string): Scene | undefined {
-  return scenario.scenes.find((scene) => scene.kind === kind)
-}

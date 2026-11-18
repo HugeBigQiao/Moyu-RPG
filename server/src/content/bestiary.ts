@@ -49,10 +49,6 @@ export function indexBestiary(doc: BestiaryDoc): BestiaryIndex {
   return { bestiary, byId: new Map(bestiary.map((item) => [item.id, item])) }
 }
 
-export function getMonster(index: BestiaryIndex, monsterId: string): Monster | undefined {
-  return index.byId.get(monsterId)
-}
-
 /** 当前是第几形态（0 起）。 */
 export function phaseIndex(monster: Monster, hp: number): number {
   const phases = monster.phases

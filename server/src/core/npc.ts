@@ -17,14 +17,13 @@ import { Roller, newSeed, roll4d6DropLowest } from './dice.ts'
 import { RANKS, SCHOOLS } from './sheet.ts'
 import { SCHOOL_FLOOR, SCHOOL_WEIGHTS, SURNAMES, GIVEN } from './gacha.ts'
 
-export const ATTR_KEYS = ['str', 'agi', 'con', 'int', 'wil', 'per'] as const
-export const ATTR_MIN = 6
-export const ATTR_MAX = 18
-export const PLAYER_POINTS = 72
+const ATTR_KEYS = ['str', 'agi', 'con', 'int', 'wil', 'per'] as const
+const ATTR_MIN = 6
+const ATTR_MAX = 18
+const PLAYER_POINTS = 72
 
-export const TIER_ATTR_BONUS: Record<string, number> = { t0: 3, t1: 2, t2: 1, t3: 0, t4: -1 }
-export const RANK_BY_RARITY: Record<string, string> = { 凡: '初真', 灵: '盟威', 玄: '五雷', 天: '天师' }
-export const RARITY_BY_GRADE: Record<number, string> = { 1: '天', 2: '玄', 3: '灵', 4: '凡' }
+const TIER_ATTR_BONUS: Record<string, number> = { t0: 3, t1: 2, t2: 1, t3: 0, t4: -1 }
+const RANK_BY_RARITY: Record<string, string> = { 凡: '初真', 灵: '盟威', 玄: '五雷', 天: '天师' }
 
 function code(seed: string): string {
   return 'nd-' + createHash('md5').update(seed, 'utf8').digest('hex').slice(0, 6)
@@ -62,7 +61,7 @@ export function pickCity(roller: Roller, content: GameContent, allowed?: string[
 }
 
 /** 从可用事件池里不重复地抽 want 条。 */
-export function pickEvents(
+function pickEvents(
   roller: Roller,
   content: GameContent,
   city: City,
@@ -84,7 +83,7 @@ export function pickEvents(
 }
 
 /** 稀有度只看事件，但门槛收紧过。 */
-export function rarityOf(chosen: Array<{ grade: number }>): string {
+function rarityOf(chosen: Array<{ grade: number }>): string {
   const grades = chosen.map((event) => Number(event.grade))
   const top = grades.filter((grade) => grade === 1).length
   const second = grades.filter((grade) => grade === 2).length
@@ -121,7 +120,7 @@ export function rollPlayerAttrs(seed?: string): { attrs: Record<string, number>;
   return { attrs, total: Object.values(attrs).reduce((a, b) => a + b, 0), seed }
 }
 
-export function traitsOf(content: GameContent, events: Array<{ traits?: string[] }>, cap = 4) {
+function traitsOf(content: GameContent, events: Array<{ traits?: string[] }>, cap = 4) {
   const names: string[] = []
   for (const event of events) {
     for (const name of event.traits ?? []) {
@@ -135,7 +134,7 @@ export function traitsOf(content: GameContent, events: Array<{ traits?: string[]
   }))
 }
 
-export function evaluate(content: GameContent, city: City, chosen: Array<{ grade: number }>, monsterHp = 0) {
+function evaluate(content: GameContent, city: City, chosen: Array<{ grade: number }>, monsterHp = 0) {
   const difficulty = difficultyOf(chosen, monsterHp, city.tier)
   return {
     difficulty,
@@ -215,7 +214,7 @@ export function rollNpc(
   }
 }
 
-export function validateAttrs(attrs: Record<string, number>): string[] {
+function validateAttrs(attrs: Record<string, number>): string[] {
   const problems: string[] = []
   for (const key of ATTR_KEYS) {
     const value = Number(attrs[key] ?? 0)

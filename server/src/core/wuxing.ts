@@ -1,24 +1,12 @@
-/**
- * 五行生克。
- *
- * 职责：
- *     属性关系、伤害倍率、检定修正的纯函数。
- * 为什么需要：
- *     克制关系只有一份定义，否则伤害与检定会各算各的。
- * 上下游：
- *     上游：无；下游：checks、session、npc。
- */
 
-export const ELEMENTS = ['金', '木', '水', '火', '土'] as const
 export type Element = string | null | undefined
 
-export const KE: Record<string, string> = { 金: '木', 木: '土', 土: '水', 水: '火', 火: '金' }
-export const SHENG: Record<string, string> = { 金: '水', 水: '木', 木: '火', 火: '土', 土: '金' }
-export const SHA = '煞'
+const KE: Record<string, string> = { 金: '木', 木: '土', 土: '水', 水: '火', 火: '金' }
+const SHA = '煞'
 
 export type Relation = '克' | '被克' | '同源' | '无涉' | '煞'
 
-export function isSha(element: Element): boolean {
+function isSha(element: Element): boolean {
   return element === SHA
 }
 
@@ -37,11 +25,6 @@ export function multiplier(attacker: Element, defender: Element): number {
   if (rel === '被克') return 0.5
   if (rel === '煞') return 1.25
   return 1.0
-}
-
-export function produces(attacker: Element, defender: Element): boolean {
-  if (!attacker || !defender || isSha(attacker) || isSha(defender)) return false
-  return SHENG[attacker] === defender
 }
 
 export function checkModifier(attacker: Element, defender: Element): number {

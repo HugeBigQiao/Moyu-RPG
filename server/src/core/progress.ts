@@ -16,8 +16,8 @@ import { pyRound } from './python.ts'
 import { skillValue } from './sheet.ts'
 import type { CharacterLike } from './types.ts'
 
-export const TRIAL_ROLLS = 3
-export const TRIAL_NEEDED = 2
+const TRIAL_ROLLS = 3
+const TRIAL_NEEDED = 2
 
 function deps(content: GameContent) {
   return { traits: content.traits.traits, shop: content.shop }

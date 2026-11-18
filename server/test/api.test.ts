@@ -4,7 +4,8 @@
  *
  * 为什么不用 mock：路由/鉴权/JSON/数据库/内容写回是一条链，mock 掉任何一段都测不出问题。
  */
-import { cpSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs'
+import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs'
+import { cp } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
@@ -19,7 +20,8 @@ let tempDir: string
 
 beforeAll(async () => {
   tempDir = mkdtempSync(join(tmpdir(), 'moyu-api-'))
-  cpSync(CONTENT_DIR, join(tempDir, 'content'), { recursive: true })
+  // 用异步 cp：Node 24.13 在非 ASCII 路径下 cpSync 目录会 0xC0000409（见 HANDOFF 踩坑）
+  await cp(CONTENT_DIR, join(tempDir, 'content'), { recursive: true })
   mkdirSync(join(tempDir, 'dist'), { recursive: true })
   writeFileSync(join(tempDir, 'dist/index.html'), '<html>ok</html>')
   handle = await createApp({

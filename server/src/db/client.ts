@@ -13,6 +13,8 @@ import { mkdirSync, readFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { DatabaseSync } from 'node:sqlite'
 import { Service, type Context } from 'cordis'
+import Schema from 'schemastery'
+import { SERVER_ROOT } from '../config.ts'
 
 declare module 'cordis' {
   interface Context {
@@ -25,6 +27,11 @@ export type Dialect = 'sqlite' | 'postgresql' | 'mysql'
 export interface DbConfig {
   url: string
 }
+
+/** loader 用的插件配置：数据库地址；默认落在 server/data/moyu.db。 */
+export const Config = Schema.object({
+  url: Schema.string().default('sqlite://./data/moyu.db').description('数据库地址（sqlite:// / postgresql:// / mysql://）'),
+})
 
 export interface RunResult {
   rows: any[]
@@ -102,12 +109,15 @@ function toPgSql(sql: string): string {
 }
 
 export class Db extends Service implements SqlExecutor {
+  static Config = Config
   readonly url: string
   readonly dialect: Dialect
   readonly ready: Promise<void>
   private sqlite?: DatabaseSync
   private pgPool?: any
   private mysqlPool?: any
+  /** SQLite 是单连接：事务必须排队，否则并发请求会撞 "cannot start a transaction within a transaction" */
+  private txLock: Promise<unknown> = Promise.resolve()
 
   constructor(ctx: Context, config: DbConfig) {
     super(ctx, 'db')
@@ -115,12 +125,14 @@ export class Db extends Service implements SqlExecutor {
     const parsed = parseDatabaseUrl(config.url)
     this.dialect = parsed.dialect
     this.ready = this.init(parsed)
+    // 启动期没有请求会 await ready；不接住的话初始化失败会变成未处理拒绝直接杀进程
+    void this.ready.catch(() => {})
     ctx.effect(() => () => this.close(), 'db.close')
   }
 
   private async init(parsed: ParsedUrl): Promise<void> {
     if (parsed.dialect === 'sqlite') {
-      const file = resolve(parsed.file!)
+      const file = resolve(SERVER_ROOT, parsed.file!)
       mkdirSync(dirname(file), { recursive: true })
       this.sqlite = new DatabaseSync(file)
       this.sqlite.exec('PRAGMA foreign_keys = ON')
@@ -244,15 +256,20 @@ export class Db extends Service implements SqlExecutor {
   async transaction<T>(callback: (tx: SqlExecutor) => Promise<T>): Promise<T> {
     await this.ready
     if (this.sqlite) {
-      this.sqlite.exec('BEGIN')
-      try {
-        const result = await callback(this)
-        this.sqlite.exec('COMMIT')
-        return result
-      } catch (error) {
-        this.sqlite.exec('ROLLBACK')
-        throw error
-      }
+      const run = this.txLock.then(async () => {
+        this.sqlite!.exec('BEGIN')
+        try {
+          const result = await callback(this)
+          this.sqlite!.exec('COMMIT')
+          return result
+        } catch (error) {
+          try { this.sqlite!.exec('ROLLBACK') } catch { /* 已回滚 */ }
+          throw error
+        }
+      })
+      // 事务失败不能把后续事务一起带崩
+      this.txLock = run.then(() => undefined, () => undefined)
+      return run
     }
     if (this.pgPool) {
       const client = await this.pgPool.connect()
@@ -346,3 +363,5 @@ function makeMysqlExecutor(connection: any): SqlExecutor {
     },
   }
 }
+
+export default Db

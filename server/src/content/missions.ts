@@ -9,8 +9,6 @@
  *     上游：missions.json、scenarios、world；下游：mission、api/game。
  */
 import { pyRound } from '../core/python.ts'
-import type { ScenariosIndex } from './scenarios.ts'
-import type { WorldIndex } from './world.ts'
 
 export interface MissionItem {
   id: string
@@ -37,18 +35,6 @@ export function indexMissions(doc: MissionsDoc): MissionsIndex {
   return { missions, byId: new Map(missions.map((item) => [item.id, item])) }
 }
 
-export function getMission(missions: MissionsIndex, missionId: string): MissionItem | undefined {
-  return missions.byId.get(missionId)
-}
-
-export function scenarioOf(mission: MissionItem, scenarios: ScenariosIndex) {
-  return mission.scenario_id ? scenarios.byId.get(mission.scenario_id) : undefined
-}
-
-export function forCity(missions: MissionsIndex, cityId: string): MissionItem[] {
-  return missions.missions.filter((mission) => (mission.cities ?? []).includes(cityId))
-}
-
 export function difficultyOf(events: Array<{ grade: number }>, monsterHp = 0, cityTier = 't2'): number {
   const base = events.reduce((sum, event) => sum + (5 - Number(event.grade)), 0)
   const weight = pyRound(monsterHp / 10)
@@ -65,13 +51,4 @@ export function gradeLabel(difficulty: number): string {
   if (difficulty >= 16) return '乙'
   if (difficulty >= 9) return '丙'
   return '丁'
-}
-
-/** 这个城市能接到的案子类型（用行业来命名任务帽）。 */
-export function randomSeedPool(world: WorldIndex, cityId: string) {
-  const city = world.cityById.get(cityId)
-  if (!city) return []
-  return (city.industries ?? [])
-    .map((id) => world.industryById.get(id))
-    .filter((item): item is NonNullable<typeof item> => !!item)
 }

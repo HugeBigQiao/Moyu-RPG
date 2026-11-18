@@ -18,7 +18,7 @@ import type { Scenario } from '../content/scenarios.ts'
 import { HttpError, sendJson } from '../plugins/http.ts'
 import {
   cardOf, getCharacter, getSession, insertLog, insertSession, nextLogSeq,
-  rowToSession, updateCharacter, updateSession,
+  updateCharacter, updateSession,
 } from '../db/repo.ts'
 import { parseBody } from './common.ts'
 import { ActIn, RandomSessionIn, SessionIn } from './schemas.ts'
@@ -36,19 +36,23 @@ export function registerSessions(ctx: Context): void {
     if (!scenario) throw new HttpError(404, '没有这个作业手册')
 
     const state = newState(content.data, cardOf(ch), scenario)
-    const session = await startRow(db, scenario.code, {
-      character_id: ch.id,
-      scenario_id: body.scenario_id,
-      status: 'active',
-      state,
-      seed: state.seed,
-    })
     const opening = scenario.scenes[0]
-    await insertLog(db, session.id, 1, {
-      kind: 'scene',
-      severity: 'info',
-      text: `接入：${opening.place ?? ''}｜${opening.name}`,
-      payload: {},
+    // 会话行与开场日志必须一起成功，否则会留下没有日志的空会话
+    const session = await db.transaction(async (tx) => {
+      const row = await startRow(tx, scenario.code, {
+        character_id: ch.id,
+        scenario_id: body.scenario_id,
+        status: 'active',
+        state,
+        seed: state.seed,
+      })
+      await insertLog(tx, row.id, 1, {
+        kind: 'scene',
+        severity: 'info',
+        text: `接入：${opening.place ?? ''}｜${opening.name}`,
+        payload: {},
+      })
+      return row
     })
     sendJson(res, 200, { id: session.id, code: session.code })
   })
@@ -74,18 +78,21 @@ export function registerSessions(ctx: Context): void {
       city_name: mission.city_name,
     }
 
-    const session = await startRow(db, mission.code, {
-      character_id: ch.id,
-      scenario_id: mission.id,
-      status: 'active',
-      state,
-      seed: mission.seed,
-    })
-    await insertLog(db, session.id, 1, {
-      kind: 'scene',
-      severity: 'info',
-      text: `接入随机任务：${mission.name}｜难度 ${mission.difficulty}（${mission.grade}）｜报酬 ${mission.reward}`,
-      payload: {},
+    const session = await db.transaction(async (tx) => {
+      const row = await startRow(tx, mission.code, {
+        character_id: ch.id,
+        scenario_id: mission.id,
+        status: 'active',
+        state,
+        seed: mission.seed,
+      })
+      await insertLog(tx, row.id, 1, {
+        kind: 'scene',
+        severity: 'info',
+        text: `接入随机任务：${mission.name}｜难度 ${mission.difficulty}（${mission.grade}）｜报酬 ${mission.reward}`,
+        payload: {},
+      })
+      return row
     })
     sendJson(res, 200, {
       id: session.id,
@@ -125,27 +132,28 @@ export function registerSessions(ctx: Context): void {
     const payload = cardOf(ch)
     const wasDone = session.status === 'done'
 
-    let state: typeof session.state
-    let events
-    ;[state, events] = act(content.data, payload, scenario, { ...session.state }, body.action)
+    const [state, events] = act(content.data, payload, scenario, { ...session.state }, body.action)
     const status = state.status === 'done' ? 'done' : 'active'
 
-    let seq = await nextLogSeq(db, session.id)
-    for (const item of events) {
-      await insertLog(db, session.id, seq++, item)
-    }
-
     const ending = state.ending
-    if (ending && !wasDone) {
-      await updateCharacter(db, ch.id, {
-        merit: Number(ch.merit ?? 0) + Math.trunc(Number(ending.merit_award ?? 0)),
-        completed_sessions: Number(ch.completed_sessions ?? 0) + 1,
-        karma_good: Number(ch.karma_good ?? 0) + (ending.karma as string[]).filter((item) => item === '善').length,
-        karma_debt: Number(ch.karma_debt ?? 0) + (ending.karma as string[]).filter((item) => item === '阴债').length,
-      })
-    }
+    // 日志、角色结算、会话状态必须同一个事务：中途失败不能只记一半
+    await db.transaction(async (tx) => {
+      let seq = await nextLogSeq(tx, session.id)
+      for (const item of events) {
+        await insertLog(tx, session.id, seq++, item)
+      }
 
-    await updateSession(db, session.id, { state, status })
+      if (ending && !wasDone) {
+        await updateCharacter(tx, ch.id, {
+          merit: Number(ch.merit ?? 0) + Math.trunc(Number(ending.merit_award ?? 0)),
+          completed_sessions: Number(ch.completed_sessions ?? 0) + 1,
+          karma_good: Number(ch.karma_good ?? 0) + ending.karma.filter((item: string) => item === '善').length,
+          karma_debt: Number(ch.karma_debt ?? 0) + ending.karma.filter((item: string) => item === '阴债').length,
+        })
+      }
+
+      await updateSession(tx, session.id, { state, status })
+    })
     sendJson(res, 200, {
       events,
       status,

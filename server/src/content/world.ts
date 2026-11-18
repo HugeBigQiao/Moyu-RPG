@@ -152,10 +152,6 @@ export function tierRank(world: WorldIndex, key: string): number {
   return index < 0 ? world.tiers.length - 1 : index
 }
 
-export function citiesByTier(world: WorldIndex, tier: string): City[] {
-  return world.cities.filter((city) => city.tier === tier)
-}
-
 export function maxEvents(world: WorldIndex, cityId: string): number {
   const city = world.cityById.get(cityId)
   if (!city) return 2

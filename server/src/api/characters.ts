@@ -71,26 +71,29 @@ export function registerCharacters(ctx: Context): void {
   server.post('/api/gacha', async (req, res) => {
     const body = await parseBody(req, GachaIn)
     const count = Math.max(1, Math.min(10, body.count))
-    const cards = []
-    for (const built of rollMany(content.data, count)) {
-      await insertCharacter(db, {
-        ...built,
-        kind: 'npc',
-        city: 'nanyu',
-        events: [],
-        mission: null,
-        difficulty: 1,
-        reward: 5,
-      })
-      cards.push({
-        code: built.code,
-        name: built.name,
-        school: built.school,
-        element: built.element,
-        rarity: built.rarity,
-        rank: built.rank,
-      })
-    }
+    const cards: Array<{ code: string; name: string; school: string; element: string; rarity: string; rank: string }> = []
+    // 批量抽卡要么全进库、要么全不进，避免中途失败留下一半
+    await db.transaction(async (tx) => {
+      for (const built of rollMany(content.data, count)) {
+        await insertCharacter(tx, {
+          ...built,
+          kind: 'npc',
+          city: 'nanyu',
+          events: [],
+          mission: null,
+          difficulty: 1,
+          reward: 5,
+        })
+        cards.push({
+          code: built.code,
+          name: built.name,
+          school: built.school,
+          element: built.element,
+          rarity: built.rarity,
+          rank: built.rank,
+        })
+      }
+    })
     sendJson(res, 200, { created: cards.length, cards })
   })
 

@@ -75,7 +75,7 @@ server/                      ← 新增，Node/TS 后端
       http.ts                自研 HTTP 服务（路由/JSON/静态/错误）
       static.ts              前端产物与缓存头
     config.ts                zod 配置模型
-    index.ts                 程序化装配（二期可换 @cordisjs/loader + YAML）
+    index.ts                 loader 装配（2026-11-18 已换；app.ts 留给测试）
   test/
     parity/                  与 Python 的 golden 对拍
     unit/                    移植后的单测
@@ -436,3 +436,39 @@ cordis 版本实测：
 2. **规则热更**：是否需要「一局进行中换规则」？若只是新局生效，加 `rules_version` 即可。
 3. **旧局兼容**：是否要求旧会话在新后端里能继续玩？这决定 P5 的对拍强度。
 4. **Python 去留**：已删除；需要旧实现时从 `pre-cordis` tag 取回。
+
+## 9. 迁移后复核（2026-11-18，Windows / Node 24.13）
+
+在 `D:\AI日常处理\moyu`（含中文的路径）上按同一套命令复核：
+
+| 项 | 结果 |
+| --- | --- |
+| `cd server && npm test` | 268 passed（首次 250 passed + 2 个 worker 崩溃，见下） |
+| `npm run typecheck`（server） | 通过 |
+| `npm run typecheck && npm run build`（frontend） | 通过 |
+| `npm run smoke`（server，服务已起） | 28 / 28 |
+| `node scripts/ui_smoke.mjs`（frontend，无头 Edge） | 52 / 52，console 0 error |
+| 旧库 | 复制 `backend/data/moyu.db` → `server/data/moyu.db` 后，87 人 / 12 局 / 952 日志可读，旧活跃会话可直接打开 |
+
+复核中修了一处 **Windows 专属问题**：Node 24.13 对非 ASCII 路径做 `fs.cpSync` 递归拷贝会原生崩溃
+（`0xC0000409`），表现为 vitest worker 意外退出。`test/api.test.ts` 与 `test/parity/edit.test.ts`
+已改用 `fs.promises.cp`；迁移是在 Linux 上验证的，所以没暴露。
+
+另外补齐了迁移时漏掉的两件事：
+
+- 旧库没有自动复制到新路径（新后端默认 `server/data/moyu.db`，缺失时会建空库）；
+- 计划里的 `pre-cordis` / `cordis-v1` 两个 tag 没打，已补（分别指向 `eab3cff` 与 `518df67`）。
+
+## 10. L1 试点：装配交给 loader（2026-11-18）
+
+在 P0–P7 之上补的最后一块：把「有哪些插件、各配什么」从 `app.ts` 的手写 `use` 顺序
+搬进 `server/cordis.yml`，生产入口改走 `@cordisjs/loader` + `@cordisjs/include`。
+
+- 每个插件补了 `export default`（loader 只认默认导出）与 `Config`（schemastery）——
+  content / db / http 三个带配置的插件在启动时校验并填默认值；
+- `cordis.yml` 里的 `!!js` 表达式读环境变量，`MOYU_PORT=8899` 实测生效；
+- 新增 `plugins/health.ts`，让 `/api/health` 也走插件，两条装配路径共用；
+- `createApp()` 保留给测试（随机端口/临时目录），代价是插件清单两处同步。
+
+验证：`npm test` 268、`npm run smoke` 28、`GET /api/health` 正常、`vue-tsc` 无关（前端未动）。
+下一步若要「完全 cordis」，把测试也切到 loader 的 `initial` 配置，删掉 `app.ts` 的手写装配。

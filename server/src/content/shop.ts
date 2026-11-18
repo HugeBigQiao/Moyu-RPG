@@ -34,10 +34,6 @@ export function indexShop(doc: ShopDoc): ShopIndex {
   return { items, byId: new Map(items.map((item) => [item.id, item])) }
 }
 
-export function getItem(index: ShopIndex, itemId: string): ShopItem | undefined {
-  return index.byId.get(itemId)
-}
-
 /** 把角色身上所有东西的加成合成一份。纯函数，不依赖引擎。 */
 export function effectsOf(character: CharacterLike, index: ShopIndex): ShopEffects {
   const out: ShopEffects = {

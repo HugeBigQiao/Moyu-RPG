@@ -20,8 +20,6 @@ export interface Equipment {
   [key: string]: any
 }
 
-export const GRADE_INFO: Record<number, string> = { 1: '甲', 2: '乙', 3: '丙', 4: '丁' }
-
 export interface EquipmentDoc {
   equipment: Equipment[]
 }
@@ -34,12 +32,4 @@ export interface EquipmentIndex {
 export function indexEquipment(doc: EquipmentDoc): EquipmentIndex {
   const equipment = doc.equipment ?? []
   return { equipment, byId: new Map(equipment.map((item) => [item.id, item])) }
-}
-
-export function getEquipment(index: EquipmentIndex, itemId: string): Equipment | undefined {
-  return index.byId.get(itemId)
-}
-
-export function byKind(index: EquipmentIndex, kind: string): Equipment[] {
-  return index.equipment.filter((item) => item.kind === kind)
 }

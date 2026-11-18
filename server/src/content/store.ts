@@ -11,7 +11,7 @@
 import { readFileSync, readdirSync, statSync } from 'node:fs'
 import { join } from 'node:path'
 
-export class ContentError extends Error {}
+class ContentError extends Error {}
 
 export class ContentStore {
   readonly dir: string

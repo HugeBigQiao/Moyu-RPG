@@ -14,14 +14,14 @@ import { Roller, newSeed, roll4d6DropLowest } from './dice.ts'
 import type { GameContent } from '../content/index.ts'
 import { pyRound } from './python.ts'
 
-export const RARITIES = [
+const RARITIES = [
   { key: '凡', name: '凡品', weight: 50, bonus: 0, dice: '3d6', traits: 1, rank: '初真' },
   { key: '灵', name: '灵品', weight: 28, bonus: 0, dice: '4d6', traits: 2, rank: '盟威' },
   { key: '玄', name: '玄品', weight: 16, bonus: 2, dice: '4d6', traits: 2, rank: '五雷' },
   { key: '天', name: '天品', weight: 6, bonus: 4, dice: '4d6', traits: 3, rank: '天师' },
 ]
 
-export const RARITY_BY_KEY = Object.fromEntries(RARITIES.map((item) => [item.key, item]))
+const RARITY_BY_KEY = Object.fromEntries(RARITIES.map((item) => [item.key, item]))
 
 export const SCHOOL_FLOOR: Record<string, Record<string, number>> = {
   fulu: { int: 12, wil: 10 },
@@ -45,9 +45,8 @@ export const GIVEN = [
   '知微', '听雪', '望舒', '临川', '见山', '云归', '扶摇', '疏影',
   '既明', '长庚', '南枝', '清让', '无咎', '守拙', '怀瑾', '照野',
 ]
-export const POSTFIX = ['子', '生', '之', '言', '白', '一二']
 
-export const SCHOOL_TITLES: Record<string, string[]> = {
+const SCHOOL_TITLES: Record<string, string[]> = {
   fulu: ['画符的', '走符箓的', '拿笔的'],
   neidan: ['炼丹的', '坐枯禅的', '修内景的'],
   guti: ['练拳的', '站桩的', '皮糙肉厚的'],
@@ -55,7 +54,7 @@ export const SCHOOL_TITLES: Record<string, string[]> = {
   anqi: ['玩暗器的', '袖里有东西的', '拈针的'],
 }
 
-export const FLAVOR = [
+const FLAVOR = [
   '档案里只有一行：此人来历不详，手续齐全。',
   '档案里只有一行：此人有师承，但师门名录对不上。',
   '档案里只有一行：此人曾独自处理过一起三级阴浊事件，未上报。',

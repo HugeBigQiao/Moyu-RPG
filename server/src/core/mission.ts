@@ -15,24 +15,14 @@ import { difficultyOf, gradeLabel, rewardOf } from '../content/missions.ts'
 import { tierRank, type City } from '../content/world.ts'
 import { Roller, newSeed } from './dice.ts'
 
-export const PREFIX = 'gen'
+const PREFIX = 'gen'
 
 function hash(seed: string): string {
   return createHash('md5').update(seed, 'utf8').digest('hex').slice(0, 8)
 }
 
-export function missionId(cityId: string, key: string): string {
+function missionId(cityId: string, key: string): string {
   return `${PREFIX}-${cityId}-${key}`
-}
-
-/** gen-<city>-<key> -> (city_id, key)。key 就是随机种子本身。 */
-export function parseId(value: string, content: GameContent): [string, string] | null {
-  if (!value || !value.startsWith(PREFIX + '-')) return null
-  const parts = value.split('-')
-  if (parts.length < 3) return null
-  const cityId = parts[1]
-  if (!content.world.cityById.has(cityId)) return null
-  return [cityId, parts[2]]
 }
 
 /** 按难度挑一只体量合适的祟物。 */

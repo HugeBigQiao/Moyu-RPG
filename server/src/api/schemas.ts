@@ -41,5 +41,3 @@ export const RandomSessionIn = z.object({
   character_id: z.number().int(),
   city: z.string().nullable().optional(),
 })
-
-export type PlayerBody = z.infer<typeof PlayerIn>

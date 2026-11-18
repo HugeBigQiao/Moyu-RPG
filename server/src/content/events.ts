@@ -49,16 +49,8 @@ export function indexEvents(doc: EventsDoc): EventsIndex {
   return { events, byId: new Map(events.map((item) => [item.id, item])), grades }
 }
 
-export function getEvent(events: EventsIndex, eventId: string): EventItem | undefined {
-  return events.byId.get(eventId)
-}
-
-export function gradeName(events: EventsIndex, grade: number): string {
-  return events.grades[grade]?.name ?? '?'
-}
-
 /** 这条事件能不能落在「这个城市 + 这个任务」上。 */
-export function compatible(event: EventItem, city: City, missionId?: string | null): boolean {
+function compatible(event: EventItem, city: City, missionId?: string | null): boolean {
   const scope = event.scope ?? 'general'
   if (scope === 'mission') {
     if (!missionId || !(event.missions ?? []).includes(missionId)) return false

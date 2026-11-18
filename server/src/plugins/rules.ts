@@ -91,3 +91,5 @@ export class Rules extends Service {
     return SCHOOLS[school]?.tagline ?? ''
   }
 }
+
+export default Rules

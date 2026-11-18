@@ -3,10 +3,10 @@
     "generated_at": "2026-11-09",
     "reviewed_at": "2026-11-17",
     "purpose": "会话交接档：项目现状、关键决策、踩过的坑、下一步。供新会话在五分钟内恢复上下文。",
-    "workspace": "/var/mnt/data/Moyu-RPG",
+    "workspace": "D:\\AI日常处理\\moyu",
     "language": "中文",
     "note": "只记录结论与判断，不记录过程对话。设定细节在 docs/世界观.md，实现细节在 docs/架构.md。",
-    "review_note": "2026-11-17 完成 cordis 迁移（Node/TS），旧 Python 实现已删除；全部代码、内容与测试都在 server/。",
+    "review_note": "2026-11-17 完成 cordis 迁移（Node/TS），旧 Python 实现已删除；全部代码、内容与测试都在 server/。2026-11-18 在 Windows/Node 24.13 复核：268 vitest、28 接口冒烟、52 UI 冒烟全绿；旧库已复制到 server/data/moyu.db。 2026-11-18 代码审查：清掉约 250 行死代码（未使用的 content getter、core 常量、config 的 zod 解析等），修了 HTTP 畸形 URL 崩溃、请求体错误码、内容 watcher 空转、会话/抽卡事务、SQLite 事务并发、端口 NaN 校验等 10 处问题；268 单测 + 28 接口 + 52 UI 全绿。",
     "reading_order": [
       "README.md",
       "HANDOFF.json",
@@ -27,14 +27,15 @@
     },
     "structure": {
       "frontend/": "src/app（壳：App/router/TopBar/SettingsPanel/StealthOverlay）、src/areas（HomeView + archive/play，按功能分区；archive/details 按类别拆 11 个详情）、src/shared（api/types/settings/stealth/flash）、src/assets/china.ts",
-      "server/src/plugins/": "cordis 服务：content / db / rules / http / api",
+      "server/src/plugins/": "cordis 服务：content / db / rules / http / api / health；每个插件可导出 Config（schemastery）与默认导出",
       "server/src/api/": "接口板块：archive / characters / game / sessions + schemas + common",
       "server/src/core/": "纯函数规则：python / dice / checks / wuxing / sheet / gacha / npc / kp / mission / progress / session",
       "server/src/content/": "内容加载、索引、热重载、编辑校验、原子写回",
       "server/src/db/": "SQLite / PostgreSQL / MySQL 适配，三张表与行映射",
       "server/test/fixtures/": "从迁移前的 Python 引擎导出的 golden 标准答案（PRNG、检定、五行、角色卡、35 局回放、生成器、编辑）",
       "docs/": "世界观、架构、开发指南、接口、cordis 迁移",
-      "server/data/content/": "★ 全部设定数据（10 个 JSON）"
+      "server/data/content/": "★ 全部设定数据（10 个 JSON）",
+      "server/cordis.yml": "loader 的插件清单与配置；生产入口 src/index.ts 读它装配"
     },
     "platforms": {
       "windows": "start.bat / start.ps1（PowerShell 5.1 兼容；Node 24+）",
@@ -93,7 +94,9 @@
     "migration": {
       "cordis": "P0–P7 完成：Node/TS 后端接管启动；268 个 vitest、28 项接口冒烟通过；Python 实现已删除",
       "doc": "docs/cordis迁移.md",
-      "rules_version": "sessions.rules_version 记录开局规则版本；按决定，规则热更只影响新局"
+      "rules_version": "sessions.rules_version 记录开局规则版本；按决定，规则热更只影响新局",
+      "assembly": "生产入口走 cordis.yml + @cordisjs/loader（L1 试点）；createApp 仍手工装配给测试用，插件清单两处同步",
+      "legacy_db": "迁移账号里的旧库已复制到 server/data/moyu.db（87 人 / 12 局 / 952 条日志）；backend/ 本地残留已清理，代码在 pre-cordis tag"
     }
   },
   "milestones": [
@@ -221,6 +224,12 @@
       "consequence": "core/dice.ts 自带 MT19937 + CPython 方法语义，311 组舍入对拍"
     },
     {
+      "id": "D10",
+      "decision": "生产装配交给 @cordisjs/loader + cordis.yml（L1 试点）",
+      "why": "把「有哪些插件、各配什么」从代码搬到配置，加载顺序由 inject 图推导",
+      "consequence": "插件需默认导出 + schemastery Config；配置值支持 !!js，环境变量可覆盖端口/库；createApp 留给测试，两处清单要同步"
+    },
+    {
       "id": "D9",
       "decision": "规则热更只影响新局",
       "why": "一局状态按开局规则算出，中途换规则会破坏一致性",
@@ -274,6 +283,18 @@
       "fix": "config.ts 把默认路径钉到 server/data/；start 脚本在 server/ 下启动"
     },
     {
+      "title": "cordis loader 的三个硬要求",
+      "symptom": "cordis.yml 里配了插件却不启动，或配置校验不生效",
+      "cause": "loader 只认模块默认导出；Config 必须是 Standard Schema（schemastery 或 zod 4）；配置文件顶层必须是数组",
+      "fix": "每个插件加 export default；带配置的插件导出 const Config = Schema.object(...)；输入用 !!js 表达式（如 Number(process.env.MOYU_PORT ?? 8888)）"
+    },
+    {
+      "title": "Windows 非 ASCII 路径下 fs.cpSync 会崩",
+      "symptom": "测试 worker 意外退出，exit code 3221226505（0xC0000409）；单文件拷贝正常，目录递归拷贝必崩",
+      "cause": "Node 24.13.0 在 Windows 上对非 ASCII 路径做同步递归拷贝时的原生崩溃",
+      "fix": "目录拷贝改用 fs.promises.cp（异步版正常）；已用于 test/api.test.ts 与 test/parity/edit.test.ts"
+    },
+    {
       "title": "npm 的 omit=dev",
       "symptom": "npm install 只装了 dependencies，vitest/tsc 不在",
       "cause": "本机 npm 配置 omit=dev",
@@ -284,6 +305,18 @@
       "symptom": "createApp 返回后立刻 fetch 报 ECONNREFUSED",
       "cause": "cordis 的 async effect 不阻塞 use()",
       "fix": "HttpServer 暴露 ready Promise，createApp 里 await server.ready"
+    },
+    {
+      "title": "cordis 插件配置要挂在类上",
+      "symptom": "cordis.yml 里写了 config，但类型/范围校验没生效，NaN 也能一路走到监听",
+      "cause": "cordis 读的是 component.Config（类静态属性），模块里 export const Config 不会自动挂上去",
+      "fix": "Service 子类里加 static Config = Config；HttpServer 的端口校验要放在 super() 之前，否则服务已注册成半成品"
+    },
+    {
+      "title": "内容目录 watcher 不能用 emit 代替 reload",
+      "symptom": "改 JSON 后接口没变化，content/reload 事件也没人监听",
+      "cause": "fs.watch 回调只 emit 了事件，而事件没有订阅者",
+      "fix": "回调里 debounce 后直接 this.reload()；自身写盘用 writing 标志避免重复重载"
     }
   ],
   "known_issues": [
@@ -291,11 +324,6 @@
       "title": "PG/MySQL 未实测",
       "detail": "适配层与两套 schema 已写，但本地没有 PG/MySQL 实例；SQLite 是唯一跑过的路径",
       "next": "用 docker 起 PG/MySQL 各跑一遍 api_smoke"
-    },
-    {
-      "title": "UI 冒烟未在本机跑",
-      "detail": "本机没有 Edge/Chromium，Playwright 浏览器下载未完成；前端 build 与 vue-tsc 通过，28 项 HTTP 冒烟通过",
-      "next": "在 Windows 上跑 node scripts/ui_smoke.mjs，或装 chromium 后跑"
     },
     {
       "title": "装备未接进战斗",
@@ -321,6 +349,11 @@
       "title": "内容缺加载期 schema 校验",
       "detail": "编辑入口逐字段校验；直接改 JSON 仍只校验语法",
       "next": "把 content/schema 的 zod 模型接到加载期"
+    },
+    {
+      "title": "同一会话并发 act 仍是读-改-写",
+      "detail": "SQLite 事务已串行，但两个并发请求会各自按旧状态结算，后提交者覆盖前者的 state，可能重复加功德。前端按钮有 loading，单机单用户基本碰不到",
+      "next": "要彻底解决需加 sessions.version 乐观锁，或按会话串行化 act"
     }
   ],
   "next_steps": [

@@ -171,8 +171,14 @@ async function characterRefs(db: any, kind: string, itemId: string): Promise<str
     const rows = await db.all('SELECT name, traits FROM characters')
     const hits: string[] = []
     for (const row of rows) {
-      const traits = typeof row.traits === 'string' ? JSON.parse(row.traits) : row.traits
-      if ((traits ?? []).some((trait: any) => traitName(trait) === itemId)) hits.push(row.name)
+      let traits: any[]
+      try {
+        traits = typeof row.traits === 'string' ? JSON.parse(row.traits) : (row.traits ?? [])
+      } catch {
+        // 历史坏数据不值得让整个删除请求 500；跳过这一行
+        continue
+      }
+      if (traits.some((trait: any) => traitName(trait) === itemId)) hits.push(row.name)
     }
     return hits.length ? [`还有 ${hits.length} 个人物带着这个特性（${hits.slice(0, 3).join('、')}）`] : []
   }

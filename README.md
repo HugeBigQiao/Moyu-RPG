@@ -16,7 +16,7 @@
 | 后端 | Node 24+ / TypeScript / [cordis](https://github.com/cordiverse/cordis) 插件内核（`server/`） |
 | 数据库 | SQLite 默认（Node 内置 `node:sqlite`，零部署）；`MOYU_DATABASE_URL` 可切 PostgreSQL / MySQL |
 | 内容 | `server/data/content/*.json`，改 JSON 即改设定，支持热重载 |
-| 测试 | vitest（268）+ HTTP 冒烟（28）+ 无头 Edge UI 冒烟（52）+ vue-tsc 类型检查 |
+| 测试 | vitest（268）+ HTTP 冒烟（28）+ 无头 Edge UI 冒烟（52）+ server tsc / frontend vue-tsc |
 
 > Node 24+ 是硬要求：用到原生 TS 执行与 `node:sqlite`。
 > 旧 Python 实现已删除；迁移过程与取舍见 [docs/cordis迁移.md](docs/cordis迁移.md)。

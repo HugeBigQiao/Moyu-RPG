@@ -2,7 +2,7 @@
  * 接口层公用工具。
  *
  * 职责：
- *     人物摘要、城市视图、请求体解析与 404 快捷方式。
+ *     人物摘要、城市视图与请求体解析。
  * 为什么需要：
  *     这些转换被多个 router 复用，放一处避免口径不一致。
  * 上下游：
@@ -14,7 +14,7 @@ import type { CharacterRow } from '../db/repo.ts'
 import { cardOf } from '../db/repo.ts'
 import { SCHOOLS } from '../core/sheet.ts'
 import type { Rules } from '../plugins/rules.ts'
-import { HttpError, type HttpRequest } from '../plugins/http.ts'
+import type { HttpRequest } from '../plugins/http.ts'
 import type { z } from 'zod'
 
 export function brief(content: ContentData, rules: Rules, ch: CharacterRow) {
@@ -67,12 +67,4 @@ export async function parseBody<T extends z.ZodTypeAny>(
 ): Promise<z.infer<T>> {
   const body = await req.json()
   return schema.parse(body)
-}
-
-export function notFound(message: string): never {
-  throw new HttpError(404, message)
-}
-
-export function badRequest(message: string): never {
-  throw new HttpError(400, message)
 }

@@ -14,7 +14,7 @@ import { effectsOf } from '../content/shop.ts'
 import { approvalCost, RANKS } from '../content/spirits.ts'
 import type { Scene, Scenario } from '../content/scenarios.ts'
 import type { Talisman } from '../content/talismans.ts'
-import { asDict, describe, resolve, type CheckResult } from './checks.ts'
+import { asDict, describe, resolve } from './checks.ts'
 import { Roller, newSeed } from './dice.ts'
 import * as kp from './kp.ts'
 import { pyRound } from './python.ts'
@@ -22,8 +22,8 @@ import { derived, SKILLS, skillValue } from './sheet.ts'
 import type { CharacterLike } from './types.ts'
 import { checkModifier, describe as describeWuxing, multiplier } from './wuxing.ts'
 
-export const ACTIVE = 'active'
-export const DONE = 'done'
+const ACTIVE = 'active'
+const DONE = 'done'
 
 export interface GameEvent {
   kind: string
@@ -71,7 +71,7 @@ export interface SessionState {
   [key: string]: any
 }
 
-export function event(kind: string, text: string, severity = 'info', payload: Record<string, any> = {}): GameEvent {
+function event(kind: string, text: string, severity = 'info', payload: Record<string, any> = {}): GameEvent {
   return { kind, text, severity, payload }
 }
 
@@ -182,7 +182,7 @@ function enemyView(content: GameContent, state: SessionState) {
 
 // ---------------------------------------------------------------- 可选项
 
-export function actions(content: GameContent, card: CharacterLike, scenario: Scenario, state: SessionState) {
+function actions(content: GameContent, card: CharacterLike, scenario: Scenario, state: SessionState) {
   if (state.status !== ACTIVE) return []
   const scene = sceneOf(scenario, state)
   if (scene.kind === 'investigate') return investigateActions(content, scene)
@@ -795,7 +795,7 @@ function signed(value: number): string {
   return value >= 0 ? `+${value}` : `${value}`
 }
 
-function finalize(content: GameContent, card: CharacterLike, scenario: Scenario, state: SessionState, _roller: Roller): GameEvent[] {
+function finalize(_content: GameContent, _card: CharacterLike, scenario: Scenario, state: SessionState, _roller: Roller): GameEvent[] {
   state.status = DONE
   state.enemy = null
 

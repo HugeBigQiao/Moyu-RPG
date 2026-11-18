@@ -16,9 +16,14 @@
     "smoke": "node scripts/api-smoke.ts"
   },
   "dependencies": {
+    "@cordisjs/fs": "^2.0.0-rc.0",
+    "@cordisjs/fs-node": "^0.1.0",
+    "@cordisjs/include": "^2.0.0-rc.0",
+    "@cordisjs/loader": "^1.0.0-rc.10",
     "cordis": "4.0.0-rc.13",
     "mysql2": "^3.24.6",
     "pg": "^8.23.1",
+    "schemastery": "^3.18.0",
     "zod": "^4.6.7"
   },
   "devDependencies": {

@@ -54,22 +54,7 @@ export function pyRound(x: number, digits = 0): number {
   return result === 0 ? 0 : result
 }
 
-/** Python int()：向零截断。 */
-export function pyInt(value: number): number {
-  return Math.trunc(value)
-}
-
-/** Python //：向下取整（负数也向下）。 */
-export function pyFloorDiv(a: number, b: number): number {
-  return Math.floor(a / b)
-}
-
 /** Python "%+d"：正数带 +，负数自带 -。 */
 export function signed(value: number): string {
   return value >= 0 ? `+${value}` : `${value}`
-}
-
-/** Python "%.Nf"：定点小数。 */
-export function fixed(value: number, digits: number): string {
-  return value.toFixed(digits)
 }

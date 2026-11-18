@@ -101,11 +101,11 @@ export function traitSum(character: CharacterLike, key: string, traits: Record<s
   return total
 }
 
-export function schoolOf(character: CharacterLike): SchoolSpec {
+function schoolOf(character: CharacterLike): SchoolSpec {
   return SCHOOLS[character.school ?? 'fulu'] ?? SCHOOLS.fulu
 }
 
-export function karmaPenalty(character: CharacterLike): number {
+function karmaPenalty(character: CharacterLike): number {
   /** 业障：每层让所有检定 −10。 */
   return 10 * Math.trunc(Number(character.karma_debt ?? 0) || 0)
 }

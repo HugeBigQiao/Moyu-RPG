@@ -8,7 +8,7 @@ const data = fixture<any>('kp.json')
 const plain = (value: unknown) => JSON.parse(JSON.stringify(value))
 
 describe('KP 事件对拍', () => {
-  for (const [index, row] of data.events.entries()) {
+  for (const row of data.events) {
     it(`阴浊 ${row.corruption} / ${row.seed}`, () => {
       const roller = new Roller(row.seed)
       const events = Array.from({ length: 6 }, (_, i) => event(roller, row.corruption, i % 2 === 1))

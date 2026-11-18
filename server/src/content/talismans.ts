@@ -34,7 +34,3 @@ export function indexTalismans(doc: TalismansDoc): TalismansIndex {
   const talismans = doc.talismans ?? []
   return { talismans, byId: new Map(talismans.map((item) => [item.id, item])) }
 }
-
-export function getTalisman(index: TalismansIndex, talismanId: string): Talisman | undefined {
-  return index.byId.get(talismanId)
-}

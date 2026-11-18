@@ -7,8 +7,7 @@
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 
-export const SERVER_ROOT = resolve(import.meta.dirname, '..')
-export const PROJECT_ROOT = resolve(SERVER_ROOT, '..')
+const SERVER_ROOT = resolve(import.meta.dirname, '..')
 export const CONTENT_DIR = resolve(SERVER_ROOT, 'data/content')
 
 export function fixture<T = unknown>(name: string): T {
